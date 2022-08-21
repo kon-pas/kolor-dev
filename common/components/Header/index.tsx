@@ -5,8 +5,10 @@ export default function Header() {
   return (
     <header className={styles['header']}>
       <h1>Kolor</h1>
-      <div className={styles['header__burger-container']}>
-        <MenuIcon />
+      <div className={styles['header__burger-wrapper']}>
+        <MenuIcon
+          className={styles['header__burger-wrapper__icon']}
+        />
       </div>
     </header>
   )

@@ -1,5 +1,16 @@
 @import '@/styles';
 
 header.header {
-  background-color: $black;
+  background-color: $white;
+
+  &__burger-wrapper {
+
+    display: inline;
+    float: right;
+    
+    // &__icon {
+      
+      
+    // }
+  }
 }
