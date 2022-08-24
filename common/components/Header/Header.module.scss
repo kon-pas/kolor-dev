@@ -1,16 +1,9 @@
 @import '@/styles';
 
-header.header {
-  background-color: $white;
+.header {
+  @apply bg-white h-20;
 
   &__burger-wrapper {
-
-    display: inline;
-    float: right;
-    
-    // &__icon {
-      
-      
-    // }
+    @apply w-10;
   }
 }
