@@ -3,7 +3,7 @@
 .header {
   $self: &;
 
-  @apply bg-white w-full h-14 shadow-md;
+  @apply bg-white w-full h-14 shadow-sm;
 
   &__nav {
     @apply flex flex-wrap items-center justify-between h-full;
@@ -25,7 +25,7 @@
     }
     
     #{ $self }__menu {
-      @apply w-full bg-white shadow-md pr-8 pb-3;
+      @apply w-full bg-white pr-8 pb-3 shadow-sm;
 
       &--desktop {
         @apply m-0;
