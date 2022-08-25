@@ -11,9 +11,9 @@ export default function Header() {
           <h1 className={styles['header__heading']}>Kolor</h1>
         </a>
 
-        <button className={clsx(styles['header__menu'], styles['burger'])}>
+        <button className={clsx(styles['header__burger'], styles['icon'])}>
           <svg
-            className={styles['burger__svg']}
+            className={styles['icon__svg']}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -27,7 +27,7 @@ export default function Header() {
             />
           </svg>
 
-          <span className={styles['burger__label']}>Open menu</span>
+          <span className={styles['icon__label']}>Open menu</span>
         </button>
 
         <ul className={clsx(styles['header__menu'], styles['header__menu--desktop'])}>

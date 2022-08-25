@@ -11,7 +11,7 @@
   &__nav {
     @apply
       container
-      flex items-center
+      flex items-center flex-wrap
       mx-auto
     ;
 
@@ -25,7 +25,16 @@
       }
     }
 
+    #{ $self }__burger {
+      @apply m-0;
+    }
+
     #{ $self }__menu {
+      @apply
+        w-full
+        hidden
+      ;
+
       &--desktop {
         @apply m-0;
       }
@@ -35,8 +44,10 @@
       }
     }
 
-    burger {
+    .icon {
       $self: &;
+
+      @apply w-12 h-12;
 
       #{ $self }__svg {
         @apply m-0;
