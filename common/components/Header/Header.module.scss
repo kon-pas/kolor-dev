@@ -3,51 +3,44 @@
 .header {
   $self: &;
 
-  @apply
-    bg-white
-    container mx-auto
-    h-14
-  ;
+  @apply bg-white container mx-auto px-4 h-14;
 
   &__nav {
-    @apply
-      flex flex-wrap
-      items-center justify-between
-    ;
+    @apply flex flex-wrap items-center justify-between h-full;
 
     #{ $self }__title {
+      @apply flex items-center h-8;
+
       #{ $self }__logo {
-        @apply m-0;
+        @apply w-8 h-8 -scale-x-100;
       }
 
       #{ $self }__heading {
-        @apply m-0;
+        @apply font-mono text-2xl ml-1;
       }
     }
 
     #{ $self }__burger {
-      @apply m-0;
+      @apply h-full;
     }
     
     #{ $self }__menu {
-      @apply
-        w-full
-      ;
+      @apply w-full bg-white;
 
       &--desktop {
         @apply m-0;
       }
 
       #{ $self }__item {
-        @apply m-0;
+        @apply text-right h-10 grid items-center;
       }
     }
 
     .icon {
-      @apply w-12 h-12;
+      @apply m-0;
 
       &__svg {
-        @apply m-0;
+        @apply w-8 h-8;
       }
 
       &__label {
