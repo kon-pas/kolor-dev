@@ -5,14 +5,14 @@
 
   @apply
     bg-white
+    container mx-auto
     h-14
   ;
 
   &__nav {
     @apply
-      container
-      flex items-center flex-wrap
-      mx-auto
+      flex flex-wrap
+      items-center justify-between
     ;
 
     #{ $self }__title {
@@ -28,11 +28,10 @@
     #{ $self }__burger {
       @apply m-0;
     }
-
+    
     #{ $self }__menu {
       @apply
         w-full
-        hidden
       ;
 
       &--desktop {
@@ -45,17 +44,16 @@
     }
 
     .icon {
-      $self: &;
-
       @apply w-12 h-12;
 
-      #{ $self }__svg {
+      &__svg {
         @apply m-0;
       }
 
-      #{ $self }__label {
-        @apply m-0;
+      &__label {
+        @apply sr-only;
       }
     }
+
   }
 }
