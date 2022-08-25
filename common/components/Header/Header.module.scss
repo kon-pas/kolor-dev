@@ -1,9 +1,15 @@
 @import '@/styles';
 
-// .header {
-//   @apply bg-white h-20;
+.header {
+  @apply
+    bg-black
+    h-14
+  ;
 
-//   &__burger-wrapper {
-//     @apply w-10;
-//   }
-// }
+  &__nav {
+    @apply
+      container
+      
+    ; 
+  }
+}

@@ -1,16 +1,17 @@
 import styles from './Header.module.scss';
+import clsx from 'clsx';
 
 export default function Header() {
   return (
     <header className={styles['header']}>
       <nav className={styles['header__nav']}>
-        <h1 className={[styles['header__title'], styles['title']].join(' ')}>
+        <h1 className={clsx(styles['header__title'], styles['title'])}>
           {/* <img className={styles['title__image']}/> */}
 
           <span className={styles['title__label']}>Kolor</span>
         </h1>
 
-        <button className={[styles['header__menu'], styles['burger']].join(' ')}>
+        <button className={clsx(styles['header__menu'], styles['burger'])}>
           <svg
             className={styles['burger__svg']}
             xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +30,7 @@ export default function Header() {
           <span className={styles['burger__label']}>Open menu</span>
         </button>
 
-        <ul className={[styles['header__menu'], styles['header__menu--desktop'], styles['menu']].join(' ')}>
+        <ul className={clsx(styles['header__menu'], styles['header__menu--desktop'], styles['menu'])}>
           <li className={styles['menu__item']}>
             <a>Item 1</a>
           </li>
