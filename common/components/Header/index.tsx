@@ -5,11 +5,11 @@ export default function Header() {
   return (
     <header className={styles['header']}>
       <nav className={styles['header__nav']}>
-        <h1 className={clsx(styles['header__title'], styles['title'])}>
-          {/* <img className={styles['title__image']}/> */}
+        <a className={styles['header__title']}>
+          {/* <img className={styles['header__logo']}/> */}
 
-          <span className={styles['title__label']}>Kolor</span>
-        </h1>
+          <h1 className={styles['header__heading']}>Kolor</h1>
+        </a>
 
         <button className={clsx(styles['header__menu'], styles['burger'])}>
           <svg
@@ -30,16 +30,16 @@ export default function Header() {
           <span className={styles['burger__label']}>Open menu</span>
         </button>
 
-        <ul className={clsx(styles['header__menu'], styles['header__menu--desktop'], styles['menu'])}>
-          <li className={styles['menu__item']}>
+        <ul className={clsx(styles['header__menu'], styles['header__menu--desktop'])}>
+          <li className={styles['header__item']}>
             <a>Item 1</a>
           </li>
 
-          <li className={styles['menu__item']}>
+          <li className={styles['header__item']}>
             <a>Item 2</a>
           </li>
 
-          <li className={styles['menu__item']}>
+          <li className={styles['header__item']}>
             <a>Item 3</a>
           </li>
         </ul>
