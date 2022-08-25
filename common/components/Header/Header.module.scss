@@ -3,13 +3,13 @@
 .header {
   $self: &;
 
-  @apply bg-white container mx-auto px-4 h-14;
+  @apply bg-white w-full h-14 shadow-md;
 
   &__nav {
     @apply flex flex-wrap items-center justify-between h-full;
 
     #{ $self }__title {
-      @apply flex items-center h-8;
+      @apply flex items-center h-8 pl-8;
 
       #{ $self }__logo {
         @apply w-8 h-8 -scale-x-100;
@@ -21,18 +21,18 @@
     }
 
     #{ $self }__burger {
-      @apply h-full;
+      @apply h-full pr-8;
     }
     
     #{ $self }__menu {
-      @apply w-full bg-white;
+      @apply w-full bg-white shadow-md pr-8 pb-3;
 
       &--desktop {
         @apply m-0;
       }
 
       #{ $self }__item {
-        @apply text-right h-10 grid items-center;
+        @apply text-right h-12 grid items-center;
       }
     }
 

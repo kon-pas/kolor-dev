@@ -1,7 +1,7 @@
 import styles from './Header.module.scss';
 import clsx from 'clsx';
 
-export default function Header() {
+const Header = () => {
   return (
     <header className={styles['header']}>
       <nav className={styles['header__nav']}>
@@ -30,7 +30,7 @@ export default function Header() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={1.5}
+            strokeWidth={1.75}
             stroke="currentColor"
           >
             <path
@@ -61,3 +61,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header;
