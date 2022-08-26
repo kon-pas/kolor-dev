@@ -5,38 +5,41 @@
 
   @apply bg-white w-full h-14 shadow-sm;
 
-  #{ $self }__title {
-    @apply flex items-center h-8 pl-8;
+  &__top {
+    @apply flex justify-between;
 
-    #{ $self }__logo {
-      @apply w-8 h-8 -scale-x-100;
+    #{ $self }__title {
+      @apply flex items-center h-8 pl-8;
+  
+      #{ $self }__logo {
+        @apply w-8 h-8 -scale-x-100;
+      }
+  
+      #{ $self }__heading {
+        @apply font-mono text-2xl ml-1;
+      }
     }
-
-    #{ $self }__heading {
-      @apply font-mono text-2xl ml-1;
+  
+    #{ $self }__burger {
+      @apply h-full pr-8;
     }
-  }
-
-  #{ $self }__burger {
-    @apply h-full pr-8;
   }
 
   &__nav {
-    @apply flex flex-wrap items-center justify-between h-full max-w-[$content-width] mx-auto;
+    @apply items-center justify-between h-full max-w-[$content-width] mx-auto;
     
-    
-    #{ $self }__menu {
-      @apply w-full bg-white pr-8 pb-3 shadow-sm;
-      break-after: always;
+    // #{ $self }__menu {
+    //   @apply w-full bg-white pr-8 pb-3 shadow-sm;
+    //   break-after: always;
 
-      &--desktop {
-        @apply m-0;
-      }
+    //   &--desktop {
+    //     @apply hidden;
+    //   }
 
-      #{ $self }__item {
-        @apply text-right h-12 grid items-center;
-      }
-    }
+    //   #{ $self }__item {
+    //     @apply text-right h-12 grid items-center;
+    //   }
+    // }
 
     .icon {
       @apply m-0;

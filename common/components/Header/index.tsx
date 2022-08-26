@@ -4,7 +4,7 @@ import clsx from 'clsx';
 const Header = () => {
   return (
     <header className={styles['header']}>
-      <div className={styles['content-container']}>
+      <div className={clsx(styles['content-container'], styles['header__top'])}>
         <a className={styles['header__title']}>
           <svg
             className={styles['header__logo']}
@@ -42,8 +42,8 @@ const Header = () => {
           <span className={styles['icon__label']}>Open menu</span>
         </button>
         
-        <nav className={styles['header__nav']}>
-          <ul className={styles['header__menu']}>
+        <nav className={clsx(styles['header__nav'], styles['header__nav--desktop'])}>
+          <ul>
             <li className={styles['header__item']}>
               <a>Item 1</a>
             </li>
@@ -61,7 +61,7 @@ const Header = () => {
 
       <div className={styles['content-container']}>
         <nav className={styles['header__nav']}>
-          <ul className={clsx(styles['header__menu'], styles['header__menu--desktop'])}>
+          <ul>
             <li className={styles['header__item']}>
               <a>Item 1</a>
             </li>
