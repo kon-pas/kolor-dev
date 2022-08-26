@@ -37,13 +37,12 @@ const Header = () => {
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
-        
+
         <span className={styles['icon__label']}>Open menu</span>
       </button>
-
+      
       <nav className={styles['header__nav']}>
-
-        <ul className={clsx(styles['header__menu'], styles['header__menu--desktop'])}>
+        <ul className={styles['header__menu']}>
           <li className={styles['header__item']}>
             <a>Item 1</a>
           </li>
@@ -58,6 +57,21 @@ const Header = () => {
         </ul>
       </nav>
 
+      <nav className={styles['header__nav']}>
+        <ul className={clsx(styles['header__menu'], styles['header__menu--desktop'])}>
+          <li className={styles['header__item']}>
+            <a>Item 1</a>
+          </li>
+
+          <li className={styles['header__item']}>
+            <a>Item 2</a>
+          </li>
+
+          <li className={styles['header__item']}>
+            <a>Item 3</a>
+          </li>
+        </ul>
+      </nav>
     </header>
   )
 }
