@@ -5,20 +5,21 @@
 
   @apply bg-white w-full h-14 shadow-sm;
 
+  &__title {
+    @apply flex items-center h-8 pl-8;
+
+    #{ $self }__logo {
+      @apply w-8 h-8 -scale-x-100;
+    }
+
+    #{ $self }__heading {
+      @apply font-mono text-2xl ml-1;
+    }
+  }
+
   &__nav {
     @apply flex flex-wrap items-center justify-between h-full;
 
-    #{ $self }__title {
-      @apply flex items-center h-8 pl-8;
-
-      #{ $self }__logo {
-        @apply w-8 h-8 -scale-x-100;
-      }
-
-      #{ $self }__heading {
-        @apply font-mono text-2xl ml-1;
-      }
-    }
 
     #{ $self }__burger {
       @apply h-full pr-8;
