@@ -20,9 +20,9 @@
   #{ $self }__burger {
     @apply h-full pr-8;
   }
-  
+
   &__nav {
-    @apply flex flex-wrap items-center justify-between h-full max-w-7xl mx-auto;
+    @apply flex flex-wrap items-center justify-between h-full max-w-[$content-width] mx-auto;
     
     
     #{ $self }__menu {
