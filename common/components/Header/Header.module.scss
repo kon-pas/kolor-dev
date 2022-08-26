@@ -6,7 +6,7 @@
   @apply bg-white w-full h-14 shadow-sm;
 
   &__nav {
-    @apply flex flex-wrap items-center justify-between h-full max-w-7xl mx-auto;
+    @apply flex flex-wrap items-center h-full max-w-7xl mx-auto;
     
     #{ $self }__title {
       @apply flex items-center h-8 pl-8;
@@ -25,7 +25,7 @@
     }
     
     #{ $self }__menu {
-      @apply w-full bg-white pr-8 pb-3 shadow-sm;
+      @apply basis-full w-1/2 bg-white pr-8 pb-3 shadow-sm;
 
       &--desktop {
         @apply m-0;
