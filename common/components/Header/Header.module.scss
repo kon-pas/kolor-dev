@@ -21,29 +21,29 @@
     }
   
     #{ $self }__burger {
-      @apply h-full pr-8;
+      @apply h-8 w-8 pr-8;
     }
   }
 
   &__nav {
     @apply items-center justify-between h-full max-w-[$content-width] mx-auto;
     
-
     @apply w-full bg-white pr-8 pb-3 shadow-sm;
     break-after: always;
+
     &--desktop {
       @apply hidden;
     }
+
     #{ $self }__item {
       @apply text-right h-12 grid items-center;
     }
   }
-  
+
   .icon {
-    @apply m-0;
 
     &__svg {
-      @apply w-8 h-8;
+      @apply w-8;
     }
 
     &__label {
