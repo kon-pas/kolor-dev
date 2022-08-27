@@ -21,7 +21,7 @@
     }
   
     #{ $self }__burger {
-      @apply h-8 w-8 pr-8;
+      @apply w-8 mr-8;
     }
   }
 
@@ -42,9 +42,9 @@
 
   .icon {
 
-    &__svg {
-      @apply w-8;
-    }
+    // &__svg {
+    //   @apply w-8;
+    // }
 
     &__label {
       @apply sr-only;
