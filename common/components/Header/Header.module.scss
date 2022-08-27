@@ -26,10 +26,7 @@
   }
 
   &__nav {
-    @apply items-center justify-between h-full max-w-[$content-width] mx-auto;
-    
     @apply w-full bg-white pr-8 pb-3 shadow-sm;
-    break-after: always;
 
     &--desktop {
       @apply hidden;
