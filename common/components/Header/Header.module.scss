@@ -3,10 +3,10 @@
 .header {
   $self: &;
 
-  @apply bg-white w-full h-14 shadow-sm;
+  @apply bg-white w-full h-14 shadow-sm ;
 
   &__top {
-    @apply flex justify-between;
+    @apply flex justify-between items-center h-full;
 
     #{ $self }__title {
       @apply flex items-center h-8 pl-8;
