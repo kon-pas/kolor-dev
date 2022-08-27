@@ -37,19 +37,17 @@
     #{ $self }__item {
       @apply text-right h-12 grid items-center;
     }
-    
+  }
+  
+  .icon {
+    @apply m-0;
 
-    .icon {
-      @apply m-0;
-
-      &__svg {
-        @apply w-8 h-8;
-      }
-
-      &__label {
-        @apply sr-only;
-      }
+    &__svg {
+      @apply w-8 h-8;
     }
 
+    &__label {
+      @apply sr-only;
+    }
   }
 }
