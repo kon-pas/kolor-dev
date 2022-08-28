@@ -8,9 +8,11 @@ module.exports = {
     colors: {
       white: '#ffffff',
       gray: {
-        "bg-1": '#f9f9f9',
-        "bg-2": '#f7f7f7',
-        "bg-3": '#f5f5f5',
+        bg: {
+          "1": '#f9f9f9',
+          "2": '#f7f7f7',
+          "3": '#f5f5f5'
+        },
         'font': '#7b7b7b'
       },
       black: '#000000'
