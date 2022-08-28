@@ -21,19 +21,23 @@
     }
   
     #{ $self }__burger {
-      @apply w-8 mr-8;
+      @apply w-8 mr-8 md:hidden;
     }
   }
 
   &__nav {
-    @apply w-full bg-white pr-8 pb-3 shadow-sm;
+    @apply
+      w-full bg-white pb-3 shadow-sm
+      sm:p-0 sm:mr-8 sm:h-fit sm:flex sm:justify-end sm:w-fit;
 
     &--desktop {
-      @apply hidden;
+      @apply hidden md:block;
     }
 
     #{ $self }__item {
-      @apply text-right h-12 grid items-center;
+      @apply
+        h-12 mr-8 grid items-center text-right
+        sm:inline-block sm:m-0 sm:content-center sm:h-fit sm:my-auto sm:ml-12;
     }
   }
 

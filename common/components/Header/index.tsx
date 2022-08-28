@@ -59,7 +59,7 @@ const Header = () => {
         </nav>
       </div>
 
-        <nav className={styles['header__nav']}>
+        {/* <nav className={styles['header__nav']}>
           <div className={styles['content-container']}>
             <ul>
               <li className={styles['header__item']}>
@@ -75,7 +75,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
-        </nav>
+        </nav> */}
 
     </header>
   )
