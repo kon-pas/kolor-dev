@@ -12,10 +12,10 @@ module.exports = {
         '2': '#f7f7f7',
         '3': '#f5f5f5',
         '4': '#f3f3f3',
-        '5': '#cccccc',
+        '5': '#cccccc', 
         '6': '#7b7b7b'
       },
-      black: '#222222'
+      black: '#000000'
     },
     extend: {},
   },
