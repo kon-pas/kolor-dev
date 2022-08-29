@@ -1,18 +1,17 @@
 import styles from './Header.module.scss';
 import clsx from 'clsx';
-import ContentContainer from '@/components/ContentContainer';
 
 const Header = () => {
   return (
     <header className={styles['header']}>
-      <ContentContainer className={styles['header__title']}>
+      <div className={clsx(styles['content-container'], styles['header__top'])}>
         <a className={styles['header__title']}>
           <svg
             className={styles['header__logo']}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={1.5}
+            strokeWidth={1.75}
             stroke="currentColor"
           >
             <path
@@ -58,7 +57,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-      </ContentContainer>
+      </div>
 
         {/* <nav className={styles['header__nav']}>
           <div className={styles['content-container']}>

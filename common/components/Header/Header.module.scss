@@ -40,14 +40,4 @@
         sm:inline-block sm:m-0 sm:content-center sm:h-fit sm:my-auto sm:ml-12;
     }
   }
-
-  .icon {
-    &__svg {
-      @apply w-full h-full;
-    }
-
-    &__label {
-      @apply sr-only;
-    }
-  }
 }
