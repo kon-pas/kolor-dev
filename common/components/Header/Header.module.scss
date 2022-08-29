@@ -21,7 +21,9 @@
     }
   
     #{ $self }__burger {
-      @apply w-8 mr-8 sm:hidden;
+      @apply
+        w-8 mr-8
+        sm:hidden;
     }
   }
 
@@ -31,7 +33,9 @@
       sm:p-0 sm:mr-8 sm:h-fit sm:flex sm:justify-end sm:w-fit;
 
     &--desktop {
-      @apply hidden sm:block;
+      @apply
+        hidden
+        sm:block;
     }
 
     #{ $self }__item {
