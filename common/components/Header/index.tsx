@@ -5,7 +5,7 @@ import IconSVG from '../IconSVG';
 const Header = () => {
   return (
     <header className={styles['header']}>
-      <div className={clsx(styles['content-container'], styles['header__top'])}>
+      <div className={styles['header__top']}>
         <a className={styles['header__title']}>
           <div className={styles['header__logo']}>
             <IconSVG>
@@ -47,7 +47,7 @@ const Header = () => {
         </nav>
       </div>
 
-      <div className={clsx(styles['content-container'], styles['header__bottom'])}>
+      <div className={styles['header__bottom']}>
         <nav className={styles['header__nav']}>
             <ul>
               <li className={styles['header__item']}>

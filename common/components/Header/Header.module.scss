@@ -6,6 +6,8 @@
   @apply bg-white w-full shadow-sm;
 
   &__top {
+    @include content-container;
+
     @apply flex justify-between items-center h-14;
 
     #{ $self }__title {
@@ -28,6 +30,8 @@
   }
 
   &__bottom {
+    @include content-container;
+
     @apply
       bg-white w-full shadow-sm pb-3
       sm:hidden;
