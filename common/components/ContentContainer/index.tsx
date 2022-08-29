@@ -9,7 +9,7 @@ interface ContentContainerProps {
 const ContentContainer = ({ children, className='' }: ContentContainerProps) => {
   return (
     <div className={clsx(styles['content-container'], className)}>
-        {children}
+      {children}
     </div>
   )
 }
