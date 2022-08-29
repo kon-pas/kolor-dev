@@ -1,7 +1,11 @@
-export default function Footer() {
+import styles from './Footer.module.scss';
+
+const Footer = () => {
   return (
-    <>
-      Footer
-    </>
+    <footer className={styles['footer']}>
+      [placeholder]
+    </footer>
   );
 }
+
+export default Footer;
