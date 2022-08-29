@@ -3,10 +3,10 @@
 .header {
   $self: &;
 
-  @apply bg-white w-full h-14 shadow-sm;
+  @apply bg-white w-full shadow-sm;
 
   &__top {
-    @apply flex justify-between items-center h-full;
+    @apply flex justify-between items-center h-14;
 
     #{ $self }__title {
       @apply flex items-center h-8 ml-8;
@@ -27,15 +27,19 @@
     }
   }
 
-  &__nav {
+  &__bottom {
     @apply
-      w-full bg-white pb-3 shadow-sm
-      sm:p-0 sm:mr-8 sm:h-fit sm:flex sm:justify-end sm:w-fit;
+      bg-white w-full shadow-sm pb-3
+      sm:hidden;
+  }
+
+  &__nav {
+    @apply w-full;
 
     &--desktop {
       @apply
         hidden
-        sm:block;
+        sm:mr-8 sm:p-0 sm:h-fit sm:flex sm:justify-end sm:w-fit;
     }
 
     #{ $self }__item {
@@ -44,8 +48,4 @@
         sm:inline-block sm:m-0 sm:content-center sm:h-fit sm:my-auto sm:ml-12;
     }
   }
-}
-
-.test {
-  @apply bg-black;
 }

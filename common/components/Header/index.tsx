@@ -20,7 +20,7 @@ const Header = () => {
           <h1 className={styles['header__heading']}>Kolor</h1>
         </a>
 
-        <button className={clsx(styles['header__burger'], styles['icon'])}>
+        <button className={styles['header__burger']}>
           <IconSVG title="Open menu">
             <path
               strokeLinecap="round"
@@ -44,6 +44,24 @@ const Header = () => {
               <a>Item 3</a>
             </li>
           </ul>
+        </nav>
+      </div>
+
+      <div className={clsx(styles['content-container'], styles['header__bottom'])}>
+        <nav className={styles['header__nav']}>
+            <ul>
+              <li className={styles['header__item']}>
+                <a>Item 1</a>
+              </li>
+
+              <li className={styles['header__item']}>
+                <a>Item 2</a>
+              </li>
+
+              <li className={styles['header__item']}>
+                <a>Item 3</a>
+              </li>
+            </ul>
         </nav>
       </div>
 
