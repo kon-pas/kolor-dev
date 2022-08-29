@@ -8,7 +8,7 @@ const Header = () => {
       <div className={clsx(styles['content-container'], styles['header__top'])}>
         <a className={styles['header__title']}>
           <div className={styles['header__logo']}>
-            <IconSVG>
+            <IconSVG title="Kolor logo">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -21,7 +21,7 @@ const Header = () => {
         </a>
 
         <button className={clsx(styles['header__burger'], styles['icon'])}>
-          <IconSVG>
+          <IconSVG title="Open menu">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
