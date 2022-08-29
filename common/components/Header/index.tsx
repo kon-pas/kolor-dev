@@ -1,10 +1,11 @@
 import styles from './Header.module.scss';
 import clsx from 'clsx';
+import ContentContainer from '@/components/ContentContainer';
 
 const Header = () => {
   return (
     <header className={styles['header']}>
-      <div className={clsx(styles['content-container'], styles['header__top'])}>
+      <ContentContainer className={styles['header__title']}>
         <a className={styles['header__title']}>
           <svg
             className={styles['header__logo']}
@@ -57,7 +58,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-      </div>
+      </ContentContainer>
 
         {/* <nav className={styles['header__nav']}>
           <div className={styles['content-container']}>
