@@ -17,7 +17,10 @@ module.exports = {
       },
       black: '#000000'
     },
-    extend: {},
-  },
-  plugins: [],
+    extend: {
+      screens: {
+        'sm': '500px'
+      }
+    }
+  }
 }
