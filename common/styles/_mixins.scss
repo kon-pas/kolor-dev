@@ -1,4 +1,5 @@
 @mixin content-container {
   @apply
-    max-w-6xl px-2 mx-auto;
+    max-w-6xl px-2 mx-auto
+    md:px-4;
 }
