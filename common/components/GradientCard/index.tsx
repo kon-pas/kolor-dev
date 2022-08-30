@@ -13,8 +13,6 @@ const GradientCard = () => {
         <div className={styles['card__title']}></div>
 
         <div className={styles['card__like-button']}>
-          
-
         </div>
       </div>
     </div>
