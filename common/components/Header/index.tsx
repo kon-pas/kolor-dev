@@ -47,7 +47,7 @@ const Header = () => {
         </nav>
       </div>
 
-      <div className={styles['header__bottom']}>
+      {/* <div className={styles['header__bottom']}>
         <nav className={styles['header__nav']}>
             <ul>
               <li className={styles['header__item']}>
@@ -63,25 +63,7 @@ const Header = () => {
               </li>
             </ul>
         </nav>
-      </div>
-
-        {/* <nav className={styles['header__nav']}>
-          <div className={styles['content-container']}>
-            <ul>
-              <li className={styles['header__item']}>
-                <a>Item 1</a>
-              </li>
-
-              <li className={styles['header__item']}>
-                <a>Item 2</a>
-              </li>
-
-              <li className={styles['header__item']}>
-                <a>Item 3</a>
-              </li>
-            </ul>
-          </div>
-        </nav> */}
+      </div> */}
 
     </header>
   )
