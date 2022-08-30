@@ -8,6 +8,25 @@
     md:h-48;
 
   &__gradient {
-    @apply w-full border rounded-xl h-3/4;
+    @apply w-full border rounded-lg h-[75%];
+  }
+
+  &__desc {
+    @apply flex justify-between items-end h-[25%];
+
+    #{ $self }__like-button {
+      @apply
+        w-14 px-2 py-1 box-content
+        flex items-center gap-1
+        border border-gray-bg-3 rounded-lg
+        hover:bg-gray-bg-1 cursor-pointer;
+    }
+
+    #{ $self }__title {
+      @apply
+      px-2 py-1 box-content
+      border border-gray-bg-3 rounded-lg
+      hover:bg-gray-bg-1 cursor-pointer;
+    }
   }
 }
