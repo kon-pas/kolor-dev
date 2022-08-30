@@ -1,5 +1,7 @@
 @import '@/styles';
 
 .card {
-  @apply m-0;
+  @apply
+    bg-black h-32
+    sm:basis-[49%];
 }

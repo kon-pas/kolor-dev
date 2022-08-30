@@ -4,6 +4,8 @@
   @include content-container;
 
   .gradients-list {
-    @apply m-0;
+    @apply
+      flex flex-col gap-2 flex-wrap justify-between
+      sm:flex-row;
   }
 }

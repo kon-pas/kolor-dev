@@ -5,9 +5,16 @@ import GradientCard from '@/components/GradientCard'
 const Gradients: NextPage = () => {
   return (
     <div className={styles['gradients-page']}>
-      <GradientCard />
-      <GradientCard />
-      <GradientCard />
+      <div className={styles['gradients-list']}>
+        <GradientCard />
+        <GradientCard />
+        <GradientCard />
+        <GradientCard />
+        <GradientCard />
+        <GradientCard />
+        <GradientCard />
+        <GradientCard />
+      </div>
     </div>
   )
 }
