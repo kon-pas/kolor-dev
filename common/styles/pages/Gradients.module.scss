@@ -5,7 +5,7 @@
 
   .gradients-list {
     @apply
-      flex flex-col gap-2
+      flex flex-col gap-3
       sm:grid sm:grid-cols-2
       md:grid-cols-3 md:gap-4;
   }
