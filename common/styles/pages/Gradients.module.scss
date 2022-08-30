@@ -1,0 +1,9 @@
+@import '@/styles';
+
+.gradients-page {
+  @include content-container;
+
+  .gradients-list {
+    @apply m-0;
+  }
+}

@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 import clsx from 'clsx';
-import IconSVG from '../IconSVG';
+import IconSVG from '@/components/IconSVG';
 
 const Header = () => {
   return (
