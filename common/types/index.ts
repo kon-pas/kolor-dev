@@ -1,1 +1,1 @@
-export type { default as Gradient } from './Gradient';
+export type { default as Gradient } from './Gradient.types';

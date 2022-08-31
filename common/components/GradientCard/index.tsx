@@ -2,14 +2,11 @@ import styles from './GradientCard.module.scss';
 import IconSVG from '@/components/IconSVG';
 import Gradient from '@/components/Gradient';
 
-const color_1: string = '#EC7272';
-const color_2: string = '#C3FF99';
-
 const GradientCard = () => {
   return (
     <div className={styles['card']}>
       <div className={styles['card__gradient']}>
-        <Gradient colors={[color_1, color_2]} />
+        <Gradient colors={['#EC7272', '#C3FF99']} />
       </div>
 
       <div className={styles['card__desc']}>
