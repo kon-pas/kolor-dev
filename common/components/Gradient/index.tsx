@@ -8,7 +8,7 @@ const Gradient = ({colors}: GradientProps) => {
   return (
     <div
       className={styles.gradient}
-      style={{ backgroundImage: `linear-gradient(to right, ${colors[0]}, ${colors[1]})` }}
+      style={{ backgroundImage: `linear-gradient(to right, ${colors.join(' ')})` }}
     >
     </div>
   )
