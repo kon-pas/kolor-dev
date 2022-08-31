@@ -1,7 +1,8 @@
 import styles from "./Gradient.module.scss";
+import type { Gradient as GradientColors} from "@types";
 
 interface GradientProps {
-  colors: [string, string] | [string, string, string]
+  colors: GradientColors
 }
 
 const Gradient = ({colors}: GradientProps) => {
