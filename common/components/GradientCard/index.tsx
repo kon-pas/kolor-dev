@@ -1,6 +1,6 @@
 import styles from './GradientCard.module.scss';
-import IconSVG from '@/components/IconSVG';
-import Gradient from '@/components/Gradient';
+import IconSVG from '@components/IconSVG';
+import Gradient from '@components/Gradient';
 
 const GradientCard = () => {
   return (

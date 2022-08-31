@@ -16,7 +16,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["common/*"],
+      // "@/*": ["common/*"],
       "@types": ["common/ts/index.types.ts"],
       "@interfaces": ["common/ts/index.interfaces.ts"],
       "@enums": ["common/ts/index.enums.ts"],
