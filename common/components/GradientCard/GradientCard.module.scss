@@ -3,9 +3,6 @@
 .card {
   $self: &;
 
-  // @apply
-  //   md:h-48;
-
   &__gradient {
     @apply
       w-full h-32 border border-gray-bg-3 rounded-lg
