@@ -8,7 +8,7 @@
 
   &__gradient {
     @apply
-      w-full h-32
+      w-full h-32 border border-gray-bg-3 rounded-lg
       md:h-36;
   }
 
