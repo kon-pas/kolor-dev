@@ -1,5 +1,8 @@
 @import '@/styles';
 
 .footer {
-  @apply bg-black h-32 w-full text-white flex justify-center items-center absolute bottom-0;
+  @apply
+    h-32 w-full mt-auto
+    text-white bg-black
+    flex justify-center items-center;
 }
