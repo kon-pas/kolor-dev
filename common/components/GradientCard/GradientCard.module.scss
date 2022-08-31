@@ -3,20 +3,21 @@
 .card {
   $self: &;
 
-  @apply
-    h-40
-    md:h-48;
+  // @apply
+  //   md:h-48;
 
   &__gradient {
-    @apply w-full border rounded-lg h-[78%];
+    @apply
+      w-full border rounded-lg h-32
+      md:h-36;
   }
 
   &__desc {
-    @apply flex justify-between items-end h-[22%];
+    @apply flex justify-between items-center text-sm h-10;
 
     #{ $self }__like-button {
       @apply
-        w-14 px-2 py-1 box-content
+        w-12 px-2 py-1 box-content
         flex items-center gap-1
         border border-gray-bg-3 rounded-lg
         hover:bg-gray-bg-1 cursor-pointer;
