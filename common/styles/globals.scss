@@ -43,11 +43,3 @@
       md:px-4;
   }
 }
-
-@layer {
-  .content {
-    @apply
-      max-w-6xl px-2 mx-auto
-      md:px-4;
-  }
-}
