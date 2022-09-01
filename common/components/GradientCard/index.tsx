@@ -3,7 +3,7 @@ import IconSVG from '@components/IconSVG';
 import Gradient from '@components/Gradient';
 import { GradientScheme } from '@interfaces';
 
-const GradientCard = (gradient: GradientScheme) => {
+const GradientCard = ({gradient, key}: {gradient: GradientScheme, key: number}) => {
   return (
     <div className={styles['card']}>
       <div className={styles['card__gradient']}>

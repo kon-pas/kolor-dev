@@ -1,4 +1,4 @@
-import { GRADIENTS } from '@jsons/gradients';
+import { gradients } from '@jsons/gradients';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { GradientsJSON } from '@interfaces';
 
@@ -6,7 +6,7 @@ export default function handler(
   _: NextApiRequest,
   res: NextApiResponse<GradientsJSON>
 ) {
-  res.status(200).json(GRADIENTS
+  res.status(200).json(gradients
     .map(gradient => ({
       [gradient.id]: {
         colors: gradient.colors,

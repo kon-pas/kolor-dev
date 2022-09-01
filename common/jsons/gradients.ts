@@ -3,7 +3,7 @@ import { fromString as idFromString } from 'uuidv4';
 
 declare function fromString(string: string): string;
 
-export const GRADIENTS: GradientScheme[] = [
+export const gradients: GradientScheme[] = [
   {
     colors: ["#C3FF99", "#EC7272"],
     title: "Memories of Spring",

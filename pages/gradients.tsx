@@ -3,25 +3,38 @@ import styles from '@styles/pages/Gradients.module.scss'
 import GradientCard from '@components/GradientCard'
 import { GradientScheme } from '@interfaces';
 
-const Gradients: NextPage<GradientScheme[]> = ({gradients}) => {
+interface GradientsProps {
+  gradients: GradientScheme[]
+}
+
+const Gradients: NextPage<GradientsProps> = ({gradients}) => {
   return (
     <div className={styles['gradients-page']}>
       <div className={styles['gradients-list']}>
-        gradients.map((gradient, index) => {
-          <GradientCard gradient={gradient}/>
-        })
+        {console.log(gradients)}
+        {/* {Object.entries(gradients).map((gradient, index) => 
+          <GradientCard
+            key={index}
+            gradient={gradient}
+          />
+        )} */}
       </div>
     </div>
   )
 }
 
 export async function getStaticProps() {
-  let GRADIENTS = await fetch('/api/gradients');
-  GRADIENTS = await GRADIENTS.json()
+  let gradients = await fetch('http://localhost:3000/api/gradients', {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+  gradients = await gradients.json()
 
   return {
     props: {
-      GRADIENTS
+      gradients
     }
   }
 }
