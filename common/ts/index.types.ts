@@ -1,3 +1,3 @@
-export type GradientHue = string[];
+export type GradientHue = readonly string[];
 
 export type Id = string;
