@@ -28,7 +28,9 @@ const GradientCard = ({gradient}: GradientCardProps) => {
             />
           </IconSVG>
 
-          <span>Like</span>
+          <span>
+            Save
+          </span>
         </div>
 
         <div className={styles['card__title']}>
