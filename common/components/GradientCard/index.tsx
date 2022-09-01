@@ -28,7 +28,7 @@ const GradientCard = ({gradient}: GradientCardProps) => {
         </div>
 
         <div className={styles['card__title']}>
-          Title
+          {gradient.title}
         </div>
       </div>
     </div>
