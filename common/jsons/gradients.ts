@@ -1,5 +1,5 @@
 import { GradientScheme } from '@interfaces';
-import { fromString as idFromString } from 'uuidv4';
+import { v5 as idFromString } from 'uuid';
 
 export const gradients: GradientScheme[] = [
   {
@@ -34,4 +34,4 @@ export const gradients: GradientScheme[] = [
     colors: ["#EAE509", "#7DCE13"],
     title: "Ripe Lime"
   },
-].map(gradient => ({ ...gradient, id: idFromString(gradient.title) }));
+].map(gradient => ({ ...gradient, id: idFromString(gradient.title, "6c87beeb-3545-4d7b-b7e1-610c25720c7d") }));
