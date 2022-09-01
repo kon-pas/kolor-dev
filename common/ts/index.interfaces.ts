@@ -7,7 +7,7 @@ export interface Tags {
   misc?: [ENUMS.MiscTags]
 }
 
-export interface Gradient {
+export interface GradientScheme {
   colors: TYPES.GradientHue,
   title: string,
   tags?: Tags,
