@@ -10,6 +10,10 @@ interface GradientCardProps {
 const GradientCard = ({gradient}: GradientCardProps) => {
   return (
     <div className={styles['card']}>
+      <div className={styles['card__colors']}>
+        
+      </div>
+
       <div className={styles['card__gradient']}>
         <Gradient colors={gradient.colors} />
       </div>
