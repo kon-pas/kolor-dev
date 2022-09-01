@@ -1,3 +1,3 @@
-export type GradientHue =
-  | [string, string]
-  | [string, string, string];
+export type GradientHue = string[];
+
+export type Id = string;

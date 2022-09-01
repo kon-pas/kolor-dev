@@ -1,14 +1,19 @@
 import { GRADIENTS } from '@jsons/gradients';
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GradientScheme } from '@interfaces';
-
-type ResponseData = {
-  message: string
-}
+import { GradientsJSON } from '@interfaces';
 
 export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  _: NextApiRequest,
+  res: NextApiResponse<GradientsJSON>
 ) {
-  res.status(200).json({GRADIENTS});
+  res.status(200).json(GRADIENTS
+    .map(gradient => ({
+      [gradient.id]: {
+        colors: gradient.colors,
+        title: gradient.title
+      }}))
+    .reduce((firstGradient, secondGradient) => ({
+      ...firstGradient, ...secondGradient
+    }))
+  );
 }

@@ -1,9 +1,12 @@
-import { Gradient } from '@interfaces';
+import { GradientScheme } from '@interfaces';
+import { fromString as idFromString } from 'uuidv4';
 
-export const GRADIENTS: Gradient[] = [
+declare function fromString(string: string): string;
+
+export const GRADIENTS: GradientScheme[] = [
   {
     colors: ["#C3FF99", "#EC7272"],
-    title: "Memories of Spring"
+    title: "Memories of Spring",
   },
   {
     colors: ["#FFF5E4", "#EE6983"],
@@ -33,5 +36,4 @@ export const GRADIENTS: Gradient[] = [
     colors: ["#EAE509", "#7DCE13"],
     title: "Ripe Lime"
   },
-  
-];
+].map(gradient => ({ ...gradient, id: idFromString(gradient.title) }));

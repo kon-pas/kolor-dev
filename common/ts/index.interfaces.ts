@@ -10,6 +10,11 @@ export interface Tags {
 export interface GradientScheme {
   colors: TYPES.GradientHue,
   title: string,
+  id: TYPES.Id,
   tags?: Tags,
   desc?: string
+}
+
+export interface GradientsJSON {
+  [key: TYPES.Id]: Omit<GradientScheme, TYPES.Id>
 }
