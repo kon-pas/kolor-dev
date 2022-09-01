@@ -23,13 +23,13 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
 }
 
 export async function getStaticProps() {
-  let gradients = await fetch('http://localhost:3000/api/gradients', {
+  const res = await fetch('http://localhost:3000/api/gradients', {
     method: 'GET',
     headers: {
       "Content-Type": "application/json"
     }
   });
-  gradients = await gradients.json()
+  const gradients = await res.json()
 
   return {
     props: {

@@ -1,8 +1,6 @@
 import { GradientScheme } from '@interfaces';
 import { fromString as idFromString } from 'uuidv4';
 
-declare function fromString(string: string): string;
-
 export const gradients: GradientScheme[] = [
   {
     colors: ["#C3FF99", "#EC7272"],
@@ -25,7 +23,7 @@ export const gradients: GradientScheme[] = [
     title: "Citrus Sorbet"
   },
   {
-    colors: ["#1C0A00", "#603601", "#CC9544"],
+    colors: ["#CC9544", "#603601", "#1C0A00"],
     title: "Dark Chocolate"
   },
   {
