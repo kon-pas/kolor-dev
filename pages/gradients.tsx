@@ -11,13 +11,12 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
   return (
     <div className={styles['gradients-page']}>
       <div className={styles['gradients-list']}>
-        {console.log(gradients)}
-        {/* {Object.entries(gradients).map((gradient, index) => 
+        {Object.values(gradients).map((gradient, index) => 
           <GradientCard
             key={index}
             gradient={gradient}
           />
-        )} */}
+        )}
       </div>
     </div>
   )
