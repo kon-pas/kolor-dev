@@ -1,7 +1,5 @@
-@import '@/styles';
-
 .gradients-page {
-  @include content-container;
+  @apply content;
 
   .gradients-list {
     @apply

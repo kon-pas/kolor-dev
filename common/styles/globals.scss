@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+@layer base {
   html,
   body {
     @apply p-0 m-0;
@@ -14,10 +14,6 @@
     //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
-  #__next {
-    @apply flex flex-col min-h-[100vh];
-  }
-  
   a {
     @apply no-underline;
   }
@@ -28,5 +24,30 @@
   
   * {
     @apply box-border;
+  }
+
+  #__next {
+    @apply flex flex-col min-h-[100vh];
+  }
+  .content {
+    @apply
+      max-w-6xl px-2 mx-auto
+      md:px-4;
+  }
+}
+
+@layer components {
+  .content {
+    @apply
+      max-w-6xl px-2 mx-auto
+      md:px-4;
+  }
+}
+
+@layer {
+  .content {
+    @apply
+      max-w-6xl px-2 mx-auto
+      md:px-4;
   }
 }

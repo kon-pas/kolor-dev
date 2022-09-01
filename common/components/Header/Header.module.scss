@@ -1,14 +1,10 @@
-@import '@/styles';
-
 .header {
   $self: &;
 
   @apply bg-white w-full shadow-sm;
 
   &__top {
-    @include content-container;
-
-    @apply flex justify-between items-center h-14;
+    @apply content flex justify-between items-center h-14;
 
     #{ $self }__title {
       @apply flex items-center h-8 ml-4;
@@ -30,10 +26,8 @@
   }
 
   &__bottom {
-    @include content-container;
-
     @apply
-      bg-white w-full shadow-sm pb-3
+      bg-white w-full shadow-sm pb-3 content
       sm:hidden;
   }
 
