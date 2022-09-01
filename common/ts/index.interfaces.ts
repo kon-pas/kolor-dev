@@ -10,6 +10,6 @@ export interface Tags {
 export interface Gradient {
   colors: TYPES.GradientHue,
   title: string,
-  tags: Tags,
+  tags?: Tags,
   desc?: string
 }
