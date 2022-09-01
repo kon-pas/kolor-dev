@@ -31,10 +31,12 @@
   }
 }
 
-@layer components {
-  .content {
-    @apply
-      max-w-6xl px-4 mx-auto
-      md:px-8;
-  }
-}
+// This worked but for unknown to me reason stopped. I may have messed up tailwind config.
+// For now, moving this funtionality to sass mixins, see: @styles/_mixins.scss
+// @layer components {
+//   .content {
+//     @apply
+//       max-w-7xl px-4 mx-auto
+//       md:px-8;
+//   }
+// }

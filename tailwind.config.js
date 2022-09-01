@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // content: [
-  //   "./pages/**/*.tsx",
-  //   "./components/**/*.tsx",
-  // ],
+  content: [
+    "./pages/**/*.tsx",
+    "./common/components/**/*.tsx"
+  ],
   theme: {
     colors: {
       white: '#ffffff',
@@ -19,7 +19,8 @@ module.exports = {
     },
     extend: {
       screens: {
-        'sm': '500px'
+        'sm': '600px',
+        'md': '1000px'
       }
     }
   }
