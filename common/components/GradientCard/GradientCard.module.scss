@@ -15,7 +15,7 @@
     @apply
       text-sm h-10
       flex justify-between items-center
-      opacity-0 transition-opacity duration-200;
+      opacity-0 transition-opacity duration-100;
 
     #{ $self }__like-button {
       @apply
