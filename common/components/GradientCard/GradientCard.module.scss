@@ -1,6 +1,10 @@
 .card {
   $self: &;
 
+  &:hover &__desc {
+    @apply opacity-100;
+  }
+
   &__gradient {
     @apply
       w-full h-32 border border-gray-bg-3 rounded-lg
@@ -8,7 +12,10 @@
   }
 
   &__desc {
-    @apply flex justify-between items-center text-sm h-10;
+    @apply
+      text-sm h-10
+      flex justify-between items-center
+      opacity-0 transition-opacity duration-200;
 
     #{ $self }__like-button {
       @apply
