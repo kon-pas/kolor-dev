@@ -11,7 +11,13 @@ const GradientCard = ({gradient}: GradientCardProps) => {
   return (
     <div className={styles['card']}>
       <div className={styles['card__colors']}>
-        
+        {gradient.colors.map((color, idx) => 
+          <div
+            className={styles['card__color']}
+            key={idx}
+          >
+          </div>
+        )}
       </div>
 
       <div className={styles['card__gradient']}>
