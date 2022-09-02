@@ -1034,19 +1034,6 @@
   dependencies:
     "function-bind" "^1.1.1"
 
-"hex-to-hsl@^1.0.2":
-  "integrity" "sha512-7E2WDAXDNb51Ezc+/MyXOt/NbKgk4LPtEHpUBU0McJVF1seFxUhiOQyf9Sv/5NwTQntsEqzevCsv/Y6chOFLvg=="
-  "resolved" "https://registry.npmjs.org/hex-to-hsl/-/hex-to-hsl-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "hex-to-rgb" "^1.0.1"
-    "rgb-to-hsl" "0.0.2"
-
-"hex-to-rgb@^1.0.1":
-  "integrity" "sha512-2GsESdjpJIrRL8I7iPOp0r0wczJBk++Q/zFrviNaTRPWMIgk5bPqDmKPUvRHN0SZrYT9N1e+xZU1niYJ6QxzMg=="
-  "resolved" "https://registry.npmjs.org/hex-to-rgb/-/hex-to-rgb-1.0.1.tgz"
-  "version" "1.0.1"
-
 "ignore@^5.2.0":
   "integrity" "sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ=="
   "resolved" "https://registry.npmjs.org/ignore/-/ignore-5.2.0.tgz"
@@ -1698,11 +1685,6 @@
   "integrity" "sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw=="
   "resolved" "https://registry.npmjs.org/reusify/-/reusify-1.0.4.tgz"
   "version" "1.0.4"
-
-"rgb-to-hsl@0.0.2":
-  "integrity" "sha512-92EhT0XUmmC1APQj5NKl3LoNPtZsDBzivTjZAikFuADreIQgqLnJgnnP5gY/mf52UqglAwVDAD/0arY9N35KFg=="
-  "resolved" "https://registry.npmjs.org/rgb-to-hsl/-/rgb-to-hsl-0.0.2.tgz"
-  "version" "0.0.2"
 
 "run-parallel@^1.1.9":
   "integrity" "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA=="

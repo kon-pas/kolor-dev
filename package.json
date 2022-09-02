@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "hex-to-hsl": "^1.0.2",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
