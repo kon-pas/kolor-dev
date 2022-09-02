@@ -1,6 +1,7 @@
 import styles from './GradientCard.module.scss';
 import IconSVG from '@components/IconSVG';
 import Gradient from '@components/Gradient';
+import Color from '@components/Color';
 import { GradientScheme } from '@interfaces';
 
 interface GradientCardProps {
@@ -16,6 +17,9 @@ const GradientCard = ({gradient}: GradientCardProps) => {
             className={styles['card__color']}
             key={idx}
           >
+            <Color hex={color}>
+              {color}
+            </Color>
           </div>
         )}
       </div>

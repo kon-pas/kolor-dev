@@ -1,13 +1,24 @@
 .card {
   $self: &;
 
+  @apply relative;
+
   &:hover &__desc {
     @apply opacity-100;
   }
 
+  &__colors {
+    @apply absolute top-0 flex w-full;
+
+    #{ $self }__color {
+      @apply h-10 w-full;
+    }
+  }
+
   &__gradient {
     @apply
-      w-full h-32 border border-gray-bg-3 rounded-lg
+      w-full h-32
+      border border-gray-bg-3 rounded-lg
       md:h-36;
   }
 
