@@ -424,6 +424,11 @@
   "resolved" "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
   "version" "1.1.4"
 
+"colvertize@^0.1.0":
+  "integrity" "sha512-sAsU3ORm1mEUF1KECXCFXncHoDL+hbgvLiiIo5RiZsQJQG6CgMk/HKS05KqZ6G61qyEN7LVBkXhh4aAMO8FT3Q=="
+  "resolved" "https://registry.npmjs.org/colvertize/-/colvertize-0.1.0.tgz"
+  "version" "0.1.0"
+
 "concat-map@0.0.1":
   "integrity" "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
   "resolved" "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
