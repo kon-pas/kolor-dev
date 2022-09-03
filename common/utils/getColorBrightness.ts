@@ -1,7 +1,6 @@
 import { convert } from 'colvertize';
-
-function getColorBrightness (color: string): number {
-  return convert(color, 'hsl').l;
-}
+const getColorBrightness: {
+  (color: string): number
+} = color => convert(color, 'hsl').l;
 
 export default getColorBrightness;

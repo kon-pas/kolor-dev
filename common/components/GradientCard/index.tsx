@@ -21,7 +21,7 @@ const GradientCard = ({gradient}: GradientCardProps) => {
           >
             <Color hex={color}>
               {
-                getColorBrightness(color) > 0.2
+                getColorBrightness(color) > 0.4
                 ? <span>{color}</span>
                 : <span style={{ color: 'white' }}>{color}</span>
               }
