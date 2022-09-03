@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./pages/**/*.tsx",
@@ -19,6 +20,7 @@ module.exports = {
     },
     extend: {
       screens: {
+        'hoverable': { 'raw': '(hover: hover) and (pointer: fine)' },
         'sm': '600px',
         'md': '1000px'
       }

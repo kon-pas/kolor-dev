@@ -4,7 +4,7 @@
   @apply relative;
 
   &:hover &__desc {
-    @apply opacity-100;
+    @apply hoverable:opacity-100;
   }
 
   &__colors {
@@ -26,7 +26,8 @@
     @apply
       text-sm h-10
       flex justify-between items-center
-      opacity-0 transition-opacity duration-100;
+      hoverable:opacity-0 transition-opacity duration-100;
+    
 
     #{ $self }__like-button {
       @apply
