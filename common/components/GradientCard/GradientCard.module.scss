@@ -3,7 +3,6 @@
 
   @apply relative;
 
-  
   &__colors {
     @apply absolute top-0 flex w-full;
     
@@ -22,7 +21,7 @@
   &:hover &__desc {
     @apply hoverable:opacity-100;
   }
-  
+
   &__desc {
     @apply
       text-sm h-10
