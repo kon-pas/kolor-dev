@@ -3,30 +3,31 @@
 
   @apply relative;
 
-  &:hover &__desc {
-    @apply hoverable:opacity-100;
-  }
-
+  
   &__colors {
     @apply absolute top-0 flex w-full;
-
+    
     #{ $self }__color {
       @apply h-10 w-full;
     }
   }
-
+  
   &__gradient {
     @apply
-      w-full h-32
-      border border-gray-bg-3 rounded-lg
-      md:h-36;
+    w-full h-32
+    border border-gray-bg-3 rounded-lg
+    md:h-36;
   }
-
+  
+  &:hover &__desc {
+    @apply hoverable:opacity-100;
+  }
+  
   &__desc {
     @apply
       text-sm h-10
       flex justify-between items-center
-      hoverable:opacity-0 transition-opacity duration-100;
+      hoverable:opacity-0 hoverable:transition-opacity hoverable:duration-100;
     
 
     #{ $self }__like-button {
