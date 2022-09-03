@@ -4,7 +4,7 @@ import Gradient from '@components/Gradient';
 import Color from '@components/Color';
 import { GradientScheme } from '@interfaces';
 
-// import getColorBrightness from '@utils/getColorBrightness';
+import getColorBrightness from '@utils/getColorBrightness';
 
 interface GradientCardProps {
   gradient: GradientScheme
@@ -20,8 +20,11 @@ const GradientCard = ({gradient}: GradientCardProps) => {
             key={idx}
           >
             <Color hex={color}>
-              {color}
-              {/* {`${getColorBrightness(color)}`} */}
+              {
+                getColorBrightness(color) > 0.2
+                ? <span>{color}</span>
+                : <span style={{ color: 'white' }}>{color}</span>
+              }
             </Color>
           </div>
         )}
