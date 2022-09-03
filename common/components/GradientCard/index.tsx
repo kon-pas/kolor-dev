@@ -1,10 +1,11 @@
 import styles from './GradientCard.module.scss';
+
 import IconSVG from '@components/IconSVG';
 import Gradient from '@components/Gradient';
 import Color from '@components/Color';
-import { GradientScheme } from '@interfaces';
+import SpanMonochrome from '@components/SpanMonochrome';
 
-import getColorBrightness from '@utils/getColorBrightness';
+import { GradientScheme } from '@interfaces';
 
 interface GradientCardProps {
   gradient: GradientScheme
@@ -20,11 +21,9 @@ const GradientCard = ({gradient}: GradientCardProps) => {
             key={idx}
           >
             <Color hex={color}>
-              {
-                getColorBrightness(color) > 0.4
-                ? <span>{color}</span>
-                : <span style={{ color: 'white' }}>{color}</span>
-              }
+              <SpanMonochrome color={color}>
+                {color}
+              </SpanMonochrome>
             </Color>
           </div>
         )}
