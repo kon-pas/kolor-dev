@@ -14,26 +14,27 @@
       opacity-0 transition-opacity duration-100;
 
     #{ $self }__color {
-      @apply w-full h-1/3;
+      @apply
+        w-full h-1/2
+        transition-width duration-100;
 
       &:hover {
-        @apply w-[150%];
+        @apply w-[150%] transition-width duration-100;
       }
     }
-
   }
-  
+
   &:hover &__colors {
     @apply opacity-100;
   }
-  
+
   &__gradient {
     @apply
     w-full h-32
     border-2 border-black/5 rounded-lg
     md:h-36;
   }
-  
+
   &:hover &__desc {
     @apply opacity-100;
   }

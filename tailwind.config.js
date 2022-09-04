@@ -18,11 +18,14 @@ module.exports = {
       },
       black: '#000000'
     },
+    screens: {
+      'hoverable': { 'raw': '(hover: hover) and (pointer: fine)' },
+      'sm': '600px',
+      'md': '1000px'
+    },
     extend: {
-      screens: {
-        'hoverable': { 'raw': '(hover: hover) and (pointer: fine)' },
-        'sm': '600px',
-        'md': '1000px'
+      transitionProperty: {
+        'width': 'width'
       }
     }
   }
