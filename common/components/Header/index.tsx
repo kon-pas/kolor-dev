@@ -18,6 +18,7 @@ const Header = () => {
           </div>
 
           <h1 className={styles['header__heading']}>Kolor</h1>
+          {/* <span className={styles['header__subtitle']}>/gradients</span> */}
         </a>
 
         <button className={styles['header__burger']}>

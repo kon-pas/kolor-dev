@@ -29,12 +29,15 @@ const GradientCard = ({gradient}: GradientCardProps) => {
         )}
       </div>
 
-      <div className={styles['card__gradient']}>
-        <Gradient colors={gradient.colors} />
+      <div
+        className={styles['card__gradient']}
+        onClick={() => console.log("Pressed!")}
+      >
+        <Gradient colors={gradient.colors}/>
       </div>
 
       <div className={styles['card__desc']}>
-        <div className={styles['card__like-button']}>
+        <button className={styles['card__like-button']}>
           <IconSVG title="Like gradient" strokeWidth={1}>
             <path
               strokeLinecap="round"
@@ -46,9 +49,12 @@ const GradientCard = ({gradient}: GradientCardProps) => {
           <span>
             Save
           </span>
-        </div>
+        </button>
 
-        <div className={styles['card__title']}>
+        <div
+          className={styles['card__title']}
+          onClick={() => console.log("Pressed!")}
+        >
           {gradient.title}
         </div>
       </div>

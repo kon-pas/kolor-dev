@@ -1,7 +1,7 @@
 .card {
   $self: &;
 
-  @apply relative;
+  @apply relative cursor-pointer;
 
   &__colors {
     // `rounded-lg` => 0.5rem
@@ -9,13 +9,13 @@
     clip-path: inset(2px round 0.5rem 0);
 
     @apply
-      absolute top-0 flex w-full h-32
-      md:h-36
+      absolute top-0 flex w-full h-14
+      md:h-16
       opacity-0 transition-opacity duration-100;
 
     #{ $self }__color {
       @apply
-        w-full h-1/2
+        w-full h-full
         transition-width duration-100;
 
       &:hover {
@@ -51,14 +51,14 @@
         w-12 px-2 py-1 box-content
         flex items-center gap-1
         border border-gray-bg-3 rounded-lg
-        hover:bg-gray-bg-1 cursor-pointer;
+        hover:bg-gray-bg-1;
     }
 
     #{ $self }__title {
       @apply
       px-2 py-1 box-content
       border border-gray-bg-3 rounded-lg
-      hover:bg-gray-bg-1 cursor-pointer;
+      hover:bg-gray-bg-1;
     }
   }
 }
