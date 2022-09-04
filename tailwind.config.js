@@ -26,7 +26,9 @@ module.exports = {
     extend: {
       transitionProperty: {
         'width': 'width',
-        'height': 'height'
+        'height': 'height',
+        'width-opacity': 'width, opacity',
+        'height-opacity': 'height, opacity'
       }
     }
   }

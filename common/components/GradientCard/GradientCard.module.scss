@@ -4,13 +4,13 @@
   @apply relative cursor-pointer;
 
   &__colors {
-    // `rounded-lg` => 0.5rem
     // `border` => 1px
+    // `rounded-lg` => 0.5rem
     clip-path: inset(1px round 0.5rem 0);
 
     @apply
-      absolute top-0 flex w-full h-0
-      opacity-0 transition-height duration-100;
+      absolute top-0 flex w-full
+      transition-height-opacity duration-200 h-0 opacity-0;
 
     #{ $self }__color {
       @apply
@@ -18,7 +18,7 @@
         transition-width duration-100;
 
       &:hover {
-        @apply w-[150%] transition-width duration-100;
+        @apply w-[150%] transition-width duration-200;
       }
     }
   }
@@ -36,14 +36,14 @@
   }
 
   &:hover &__desc {
-    @apply opacity-100;
+    @apply opacity-100 transition-opacity duration-200;
   }
 
   &__desc {
     @apply
       text-sm h-10
       flex justify-between items-center
-      hoverable:opacity-0 hoverable:transition-opacity hoverable:duration-100;
+      hoverable:opacity-0 hoverable:transition-opacity hoverable:duration-200;
     
 
     #{ $self }__like-button {
