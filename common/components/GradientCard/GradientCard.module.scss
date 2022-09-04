@@ -6,7 +6,7 @@
   &__colors {
     // `rounded-lg` => 0.5rem
     // `border-2` => 2px
-    clip-path: inset(2px round 0.5rem 0.5rem 0 0);
+    clip-path: inset(2px round 0.5rem 0);
 
     @apply absolute top-0 flex w-full;
     
@@ -18,7 +18,7 @@
   &__gradient {
     @apply
     w-full h-32
-    border-2 border-black/10 rounded-lg
+    border-2 border-black/5 rounded-lg
     md:h-36;
   }
   
