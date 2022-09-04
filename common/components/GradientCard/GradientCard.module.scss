@@ -4,6 +4,8 @@
   @apply relative;
 
   &__colors {
+    clip-path: inset(1px round 0.5rem 0.5rem 0 0);
+
     @apply absolute top-0 flex w-full;
     
     #{ $self }__color {
@@ -14,7 +16,7 @@
   &__gradient {
     @apply
     w-full h-32
-    border border-gray-bg-3 rounded-lg
+    border-2 border-black/10 rounded-lg
     md:h-36;
   }
   
