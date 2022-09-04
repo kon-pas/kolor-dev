@@ -5,13 +5,12 @@
 
   &__colors {
     // `rounded-lg` => 0.5rem
-    // `border-2` => 2px
-    clip-path: inset(2px round 0.5rem 0);
+    // `border` => 1px
+    clip-path: inset(1px round 0.5rem 0);
 
     @apply
-      absolute top-0 flex w-full h-14
-      md:h-16
-      opacity-0 transition-opacity duration-100;
+      absolute top-0 flex w-full h-0
+      opacity-0 transition-height duration-100;
 
     #{ $self }__color {
       @apply
@@ -25,13 +24,14 @@
   }
 
   &:hover &__colors {
-    @apply opacity-100;
+    @apply opacity-100 h-14 md:h-16;
   }
 
   &__gradient {
     @apply
     w-full h-32
-    border-2 border-black/5 rounded-lg
+    border border-black/5 rounded-lg
+    shadow-inner
     md:h-36;
   }
 
