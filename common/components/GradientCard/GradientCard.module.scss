@@ -9,17 +9,22 @@
     clip-path: inset(2px round 0.5rem 0);
 
     @apply
-      absolute top-0 flex w-full
-      opacity-0 hoverable:transition-opacity hoverable:duration-100;
+      absolute top-0 flex w-full h-32
+      md:h-36
+      opacity-0 transition-opacity duration-100;
 
     #{ $self }__color {
-      @apply h-10 w-full;
+      @apply w-full h-1/3;
+
+      &:hover {
+        @apply w-[150%];
+      }
     }
 
   }
   
   &:hover &__colors {
-    @apply hoverable:opacity-100;
+    @apply opacity-100;
   }
   
   &__gradient {
@@ -30,7 +35,7 @@
   }
   
   &:hover &__desc {
-    @apply hoverable:opacity-100;
+    @apply opacity-100;
   }
 
   &__desc {
