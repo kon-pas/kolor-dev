@@ -4,7 +4,9 @@
   @apply relative;
 
   &__colors {
-    clip-path: inset(1px round 0.5rem 0.5rem 0 0);
+    // `rounded-lg` => 0.5rem
+    // `border-2` => 2px
+    clip-path: inset(2px round 0.5rem 0.5rem 0 0);
 
     @apply absolute top-0 flex w-full;
     

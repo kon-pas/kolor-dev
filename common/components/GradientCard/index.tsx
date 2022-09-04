@@ -30,7 +30,7 @@ const GradientCard = ({gradient}: GradientCardProps) => {
       </div>
 
       <div className={styles['card__gradient']}>
-        {/* <Gradient colors={gradient.colors} /> */}
+        <Gradient colors={gradient.colors} />
       </div>
 
       <div className={styles['card__desc']}>
