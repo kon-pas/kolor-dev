@@ -14,13 +14,13 @@
 		<g>
 			<g>
 				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="373.333" y1="104.5227" x2="373.333" y2="492.8108">
-					<stop  offset="0" style="stop-color:#2A9BC5"/>
-					<stop  offset="1" style="stop-color:#2C8EC0"/>
+					<stop  offset="0" style="stop-color:#F2C89A"/>
+					<stop  offset="1" style="stop-color:#F2B295"/>
 				</linearGradient>
 				<path class="st0" d="M256,193.9v298.9l220.6-80.2c8.4-3.1,14-11.1,14-20.1v-288L256,193.9z"/>
 				<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="204.3723" y1="4.8253" x2="318.8897" y2="203.1754">
-					<stop  offset="0" style="stop-color:#F2B295"/>
-					<stop  offset="1" style="stop-color:#F2C89A"/>
+					<stop  offset="0" style="stop-color:#F27DB5"/>
+					<stop  offset="1" style="stop-color:#F47EBD"/>
 				</linearGradient>
 				<path class="st1" d="M268.9,23.4c-4.7-1.7-9.9-1.7-14.6,0L32.6,104l229,87.3l229-87.3L268.9,23.4z"/>
 				<path class="st2" d="M0,405.3c0,9,5.6,17,14,20.1l220.6,80.2V206.7L0,117.3V405.3z"/>

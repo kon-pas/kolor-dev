@@ -14,7 +14,7 @@
       @apply flex items-center h-8 ml-4;
   
       #{ $self }__logo {
-        @apply w-8 h-8 -scale-x-100;
+        @apply w-8 h-8;
       }
   
       #{ $self }__heading {
