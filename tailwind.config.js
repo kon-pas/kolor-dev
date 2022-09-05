@@ -14,9 +14,12 @@ module.exports = {
           "2": '#f7f7f7',
           "3": '#f5f5f5'
         },
-        'font': '#7b7b7b'
+        font: '#7b7b7b'
       },
-      black: '#000000'
+      black: '#000000',
+    },
+    fontFamily: {
+      sans: 'Satoshi, sans-serif'
     },
     screens: {
       'hoverable': { 'raw': '(hover: hover) and (pointer: fine)' },
