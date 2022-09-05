@@ -8,6 +8,10 @@ export default function Document() {
           href="http://fonts.cdnfonts.com/css/satoshi"
           rel="stylesheet"
         />
+        <link
+          href="https://rsms.me/inter/inter.css"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

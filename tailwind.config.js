@@ -19,7 +19,8 @@ module.exports = {
       black: '#000000',
     },
     fontFamily: {
-      sans: 'Satoshi, sans-serif'
+      inter: 'Inter, sans-serif',
+      satoshi: 'Satoshi, sans-serif'
     },
     screens: {
       'hoverable': { 'raw': '(hover: hover) and (pointer: fine)' },
