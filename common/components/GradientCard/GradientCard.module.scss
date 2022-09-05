@@ -29,10 +29,10 @@
 
   &__gradient {
     @apply
-    w-full h-32
-    border border-black/5 rounded-lg
-    shadow-inner
-    md:h-36;
+      w-full h-32
+      border border-black/5 rounded-lg
+      shadow-inner
+      md:h-36;
   }
 
   &:hover &__desc {
@@ -41,14 +41,15 @@
 
   &__desc {
     @apply
-      text-sm h-10
+      h-10
+      text-xs
       flex justify-between items-center
-      hoverable:opacity-0 hoverable:transition-opacity hoverable:duration-200;
-    
+      hoverable:opacity-0 hoverable:transition-opacity hoverable:duration-200
+      xs:text-sm;
 
     #{ $self }__like-button {
       @apply
-        w-12 px-2 py-1 box-content
+        w-[3.25rem] px-2 py-1 box-content
         flex items-center gap-1
         border border-gray-draw-3 rounded-lg
         hover:bg-gray-draw-1;
@@ -56,9 +57,9 @@
 
     #{ $self }__title {
       @apply
-      px-2 py-1 box-content
-      border border-gray-draw-3 rounded-lg
-      hover:bg-gray-draw-1;
+        px-2 py-1 box-content
+        border border-gray-draw-3 rounded-lg
+        hover:bg-gray-draw-1;
     }
   }
 }
