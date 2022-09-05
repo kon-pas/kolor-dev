@@ -8,13 +8,18 @@
   &__top {
     @include content;
 
-    @apply flex justify-between items-center h-16;
+    @apply
+      flex justify-between items-center
+      h-14
+      sm:h-16;
 
     #{ $self }__title {
       @apply flex items-center h-8 ml-4;
   
       #{ $self }__logo {
-        @apply w-10 h-10;
+        @apply
+          w-8 h-8
+          sm:w-10 sm:h-10;
       }
   
       #{ $self }__heading {
