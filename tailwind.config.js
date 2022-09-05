@@ -24,14 +24,14 @@ module.exports = {
       roboto: '"Roboto Mono", monospace',
     },
     screens: {
-      'hoverable': { 'raw': '(hover: hover) and (pointer: fine)' },
-      'sm': '600px',
-      'md': '1000px'
+      hoverable: { 'raw': '(hover: hover) and (pointer: fine)' },
+      sm: '600px',
+      md: '1000px'
     },
     extend: {
       transitionProperty: {
-        'width': 'width',
-        'height': 'height',
+        width: 'width',
+        height: 'height',
         'width-opacity': 'width, opacity',
         'height-opacity': 'height, opacity'
       }
