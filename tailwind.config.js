@@ -20,7 +20,8 @@ module.exports = {
     },
     fontFamily: {
       inter: 'Inter, sans-serif',
-      satoshi: 'Satoshi, sans-serif'
+      satoshi: 'Satoshi, sans-serif',
+      roboto: '"Roboto Mono", monospace',
     },
     screens: {
       'hoverable': { 'raw': '(hover: hover) and (pointer: fine)' },
