@@ -9,7 +9,7 @@ module.exports = {
     colors: {
       white: '#ffffff',
       gray: {
-        bg: {
+        draw: {
           "1": '#f9f9f9',
           "2": '#f7f7f7',
           "3": '#f5f5f5'

@@ -50,15 +50,15 @@
       @apply
         w-12 px-2 py-1 box-content
         flex items-center gap-1
-        border border-gray-bg-3 rounded-lg
-        hover:bg-gray-bg-1;
+        border border-gray-draw-3 rounded-lg
+        hover:bg-gray-draw-1;
     }
 
     #{ $self }__title {
       @apply
       px-2 py-1 box-content
-      border border-gray-bg-3 rounded-lg
-      hover:bg-gray-bg-1;
+      border border-gray-draw-3 rounded-lg
+      hover:bg-gray-draw-1;
     }
   }
 }
