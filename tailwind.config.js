@@ -17,6 +17,9 @@ module.exports = {
         font: '#7b7b7b'
       },
       black: '#000000',
+      cyan: '#2A9BC5',
+      magenta: '#F47EBD',
+      yellow: '#F2C89A',
     },
     fontFamily: {
       inter: 'Inter, sans-serif',

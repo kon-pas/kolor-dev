@@ -3,6 +3,19 @@
 .gradients-page {
   @include content;
 
+  .header {
+    $self: &;
+
+    @apply
+      flex items-center flex-col
+      mb-20
+      ;
+
+    &__heading-1 {
+      @apply text-7xl ;
+    }
+  }
+
   .gradients-list {
     @apply
       flex flex-col gap-x-5 gap-y-2

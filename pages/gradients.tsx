@@ -18,7 +18,10 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
           Carefully selected gradients
         </h2>
         <p className={styles['header__paragraph']}>
-          For artists, designers & developers
+          for
+        </p>
+        <p className={styles['header__paragraph']}>
+          Artists, Designers & Developers
         </p>
       </header>
 
