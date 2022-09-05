@@ -9,7 +9,19 @@ interface GradientsProps {
 
 const Gradients: NextPage<GradientsProps> = ({gradients}) => {
   return (
-    <div className={styles['gradients-page']}>
+    <section className={styles['gradients-page']}>
+      <header className={styles['header']}>
+        <h1 className={styles['header__heading-1']}>
+          {Object.keys(gradients).length}
+        </h1>
+        <h2 className={styles['header__heading-2']}>
+          Carefully selected gradients
+        </h2>
+        <p className={styles['header__paragraph']}>
+          For artists, designers & developers
+        </p>
+      </header>
+
       <div className={styles['gradients-list']}>
         {Object.values(gradients).map((gradient, index) => 
           <GradientCard
@@ -18,7 +30,7 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
           />
         )}
       </div>
-    </div>
+    </section>
   )
 }
 
