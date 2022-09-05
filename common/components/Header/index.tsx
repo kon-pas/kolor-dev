@@ -1,5 +1,6 @@
 import styles from './Header.module.scss';
 import clsx from 'clsx';
+import Image from 'next/image';
 import IconSVG from '@components/IconSVG';
 
 const Header = () => {
