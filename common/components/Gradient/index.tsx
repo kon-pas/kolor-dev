@@ -5,7 +5,7 @@ interface GradientProps {
   colors: GradientHue
 }
 
-const Gradient = ({colors}: GradientProps) => {
+const Gradient: React.FC<GradientProps> = ({colors}) => {
   return (
     <div
       className={styles.gradient}

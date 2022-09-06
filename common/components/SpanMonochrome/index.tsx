@@ -5,7 +5,10 @@ interface SpanMonochromeProps {
   children: React.ReactNode
 }
 
-const SpanMonochrome = ({color, children}: SpanMonochromeProps) => {
+const SpanMonochrome: React.FC<SpanMonochromeProps> = ({
+  color,
+  children
+}) => {
   return getColorBrightness(color) > 0.4
     ? <span>{children}</span>
     : <span style={{ color: 'white' }}>{children}</span>

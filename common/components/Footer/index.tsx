@@ -1,7 +1,7 @@
 import styles from './Footer.module.scss';
 import IconSVG from '@components/IconSVG';
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <footer className={styles['footer']}>
       <a href="https://github.com/kon-pas" className={styles['footer__author']}>

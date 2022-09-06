@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import IconSVG from '@components/IconSVG';
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <header className={styles['header']}>
       <div className={styles['header__top']}>

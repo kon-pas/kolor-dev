@@ -11,7 +11,7 @@ interface GradientCardProps {
   gradient: GradientScheme
 }
 
-const GradientCard = ({gradient}: GradientCardProps) => {
+const GradientCard: React.FC<GradientCardProps> = ({gradient}) => {
   return (
     <div className={styles['card']}>
       <div className={styles['card__colors']}>

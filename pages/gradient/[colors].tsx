@@ -1,12 +1,9 @@
 import { useRouter } from 'next/router';
 import type { NextPage } from 'next';
 
-// import useRedirectionTo from '@hooks/useRedirectionTo';
 
 const Post: NextPage = () => {
   const router = useRouter()
-
-  // const redirect = useRedirectionTo('/gradients')
 
   const { colors, from, via, to } = router.query;
 
@@ -14,21 +11,21 @@ const Post: NextPage = () => {
 
   }
 
-  // if(from && via && to) {
+  if(from && via && to) {
 
-  // }
-  // else if(from && to){
+  }
+  else if(from && to){
 
-  // }
-  // else router.push('/gradients')
+  }
+  else router.push('/gradients')
 
   return <p>gradient</p>
 }
 
-// export async function getServerSideProps() {
-//   return {
-//     props: {}
-//   }
-// }
+export async function getServerSideProps() {
+  return {
+    props: {}
+  }
+}
 
 export default Post
