@@ -27,10 +27,6 @@ export const gradients: GradientScheme[] = [
     title: "Freshly Cut Grass"
   },
   {
-    colors: ["#c5f9d7", "#f7d486", "#f27a7d"],
-    title: "Ising Model"
-  },
-  {
     colors: ["#84ffc9", "#aab2ff", "#eca0ff"],
     title: "Faerie's Dream"
   },
@@ -65,6 +61,10 @@ export const gradients: GradientScheme[] = [
   {
     colors: ["#eef2f3", "#8399a2"],
     title: "Tabula Rasa"
+  },
+  {
+    colors: ["#c5f9d7", "#f7d486", "#f27a7d"],
+    title: "Ising Model"
   },
   {
     colors: ["#f8f9c7", "#f2c1ea", "#f67b6b"],
