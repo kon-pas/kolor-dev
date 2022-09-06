@@ -1,15 +1,25 @@
-import type { NextPage } from 'next'
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import type { NextPage } from 'next';
 
-const Gradient: NextPage = () => {
-  const router = useRouter();
+const Post: NextPage = () => {
+  const router = useRouter()
+  const { from, via, to } = router.query
 
-  useEffect(() => {
-    router.push('/gradients')
-  }, [router]);
-  
-  return <></>;
+  if(from && via && to) {
+
+  }
+  else if(from && to){
+
+  }
+  else router.push('/gradients')
+
+  return <p>Test</p>
 }
 
-export default Gradient
+export async function getServerSideProps() {
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
+
+export default Post
