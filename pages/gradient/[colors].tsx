@@ -1,14 +1,24 @@
 import type { NextPage, GetServerSideProps } from 'next';
 
 interface GradientColorsProps {
-  from: string
+  isColors: boolean,
+  colors: {
+    from: string,
+    via: string,
+    to: string
+  }
 }
 
 const GradientColors: NextPage<GradientColorsProps> = ({
-  from
+  isColors,
+  colors: {
+    from,
+    via,
+    to
+  }
 }) => {
-  console.log(from);
-  // const { colors, from, via, to }
+
+  if (!isColors) return <>Dupa</>
   // if(colors === 'colors') {
   // }
   // if(from && via && to) {
@@ -17,13 +27,20 @@ const GradientColors: NextPage<GradientColorsProps> = ({
   // }
   // else router.push('/gradients')
 
-  return <p>test</p>
+  return <p>{from} - {via} - {to}</p>
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  console.log(context.params)
+
   return {
     props: {
-      from: context.query
+      isColors: context.params?.colors === 'colors',
+      colors: {
+        from: context.query.from || null,
+        via: context.query.via || null,
+        to: context.query.to || null
+      }
     }
   }
 }
