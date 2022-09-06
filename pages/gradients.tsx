@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import styles from '@styles/pages/Gradients.module.scss'
 import GradientCard from '@components/GradientCard'
+import TextUnderline from '@components/TextUnderline';
 import { GradientScheme } from '@interfaces';
 
 interface GradientsProps {
@@ -17,7 +18,7 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
 
         <h2 className={styles['header__heading-2']}>
           Gradients
-          <div className={styles['uline']}></div>
+          <TextUnderline />
         </h2>
 
         <p className={styles['header__paragraph']}>

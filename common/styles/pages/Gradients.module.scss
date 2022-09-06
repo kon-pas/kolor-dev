@@ -50,10 +50,3 @@
       hoverable:md:gap-x-12;
   }
 }
-
-.uline {
-  @apply
-    w-full content-[''] absolute left-0
-    -bottom-[2px] h-[5px]
-    bg-gradient-to-r from-cyan via-magenta to-yellow;
-}
