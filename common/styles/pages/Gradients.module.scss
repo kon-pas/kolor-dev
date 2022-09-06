@@ -11,8 +11,36 @@
       mb-20
       ;
 
+    // text-transparent text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+
+    * {
+      @apply text-center;
+    }
+
     &__heading-1 {
-      @apply text-7xl ;
+      @apply
+        text-7xl font-bold font-satoshi;
+    }
+
+    &__heading-2 {
+      @apply
+        text-4xl font-bold font-satoshi mb-3;
+    }
+
+    &__paragraph {
+      @apply
+        text-xl text-gray-font;
+
+      // * {
+      //   @apply inline-block;
+      // }
+
+      #{ $self }__text-artists,
+      #{ $self }__text-designers,
+      #{ $self }__text-developers {
+        @apply text-xl text-cyan inline-block;
+      }
+
     }
   }
 

@@ -14,15 +14,26 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
         <h1 className={styles['header__heading-1']}>
           {Object.keys(gradients).length}
         </h1>
+
         <h2 className={styles['header__heading-2']}>
-          Carefully selected gradients
+          Gradients
         </h2>
-        <p className={styles['header__paragraph']}>
-          for
-        </p>
-        <p className={styles['header__paragraph']}>
-          Artists, Designers & Developers
-        </p>
+
+        <div className={styles['header__paragraph']}>
+          Carefully selected for&nbsp;
+          <span className={styles['header__text-artists']}>
+            Artists
+          </span>
+          ,&nbsp;
+          <span className={styles['header__text-designers']}>
+            Designes
+          </span>
+          &nbsp;&&nbsp;
+          <span className={styles['header__text-developers']}>
+            Developers
+          </span>
+          .
+        </div>
       </header>
 
       <div className={styles['gradients-list']}>
