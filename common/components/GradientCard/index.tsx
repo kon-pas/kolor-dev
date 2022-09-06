@@ -22,7 +22,7 @@ const GradientCard = ({gradient}: GradientCardProps) => {
           >
             <Color hex={color}>
               <SpanMonochrome color={color}>
-                {color}
+                {color.slice(1).toUpperCase()}
               </SpanMonochrome>
             </Color>
           </div>
