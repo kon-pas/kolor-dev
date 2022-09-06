@@ -15,18 +15,25 @@
 
     &__heading-1 {
       @apply
-        text-7xl font-bold font-satoshi;
+        text-7xl font-bold font-satoshi
+        xs:text-8xl
+        sm:text-9xl;
     }
 
     &__heading-2 {
       @apply
-        text-4xl font-bold font-satoshi
-        relative;
+        relative
+        font-bold font-satoshi
+        text-4xl
+        sm:text-5xl
+        md:text-6xl
+        ;
     }
 
     &__paragraph {
       @apply
-        text-xl text-gray-font my-12;
+        text-lg text-gray-font my-10
+        md:text-xl;
 
       > span {
         @apply inline-block;
