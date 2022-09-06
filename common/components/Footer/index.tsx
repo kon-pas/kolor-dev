@@ -4,7 +4,7 @@ import IconSVG from '@components/IconSVG';
 const Footer = () => {
   return (
     <footer className={styles['footer']}>
-      <button className={styles['footer__author']}>
+      <a href="https://github.com/kon-pas" className={styles['footer__author']}>
         <span>
           made with
         </span>
@@ -22,7 +22,7 @@ const Footer = () => {
         <span>
           by kon_pas
         </span>
-      </button>
+      </a>
     </footer>
   );
 }
