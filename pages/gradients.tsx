@@ -17,23 +17,32 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
 
         <h2 className={styles['header__heading-2']}>
           Gradients
+          <div className={styles['uline']}></div>
         </h2>
 
-        <div className={styles['header__paragraph']}>
-          Carefully selected for&nbsp;
+        <p className={styles['header__paragraph']}>
+          <span>
+            Carefully selected for&nbsp;
+          </span>
+
           <span className={styles['header__text-artists']}>
             Artists
           </span>
-          ,&nbsp;
+
+          <span>,&nbsp;</span>
+
           <span className={styles['header__text-designers']}>
             Designes
           </span>
-          &nbsp;&&nbsp;
+
+          <span>&nbsp;&&nbsp;</span>
+
           <span className={styles['header__text-developers']}>
             Developers
           </span>
-          .
-        </div>
+
+          <span>.</span>
+        </p>
       </header>
 
       <div className={styles['gradients-list']}>
