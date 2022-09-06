@@ -4,14 +4,22 @@
   @apply
     h-32 w-full mt-auto
     bg-gray-draw-3
-    flex justify-center items-center;
+    flex justify-center items-center
+    md:h-40;
 
   &__author {
     @apply
-      flex items-center justify-center p-6;
+      flex items-center justify-center p-6
+      text-sm
+      xs:text-base
+      ;
 
     #{ $self }__heart {
-      @apply mx-1 h-4;
+      @apply
+      h-3 mx-1
+      xs:h-4
+      sm:h-[1.15rem] sm:mx-2
+      ;
     }
   }
 }
