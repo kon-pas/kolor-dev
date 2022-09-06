@@ -14,7 +14,8 @@
       sm:h-16;
 
     #{ $self }__title {
-      @apply flex items-center h-8 ml-4;
+      @apply flex items-center h-8
+      xs:ml-4;
   
       #{ $self }__logo {
         @apply
@@ -32,7 +33,8 @@
   
     #{ $self }__burger {
       @apply
-        w-8 mr-4
+        w-8
+        xs:mr-4
         sm:hidden;
     }
   }
