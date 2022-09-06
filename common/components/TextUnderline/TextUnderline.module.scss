@@ -1,5 +1,5 @@
 .text-underline {
   @apply
-    w-full content-[''] absolute left-0
+    w-full content-[''] absolute left-0 -z-10 opacity-75
     bg-gradient-to-r from-cyan via-magenta to-yellow;
 }
