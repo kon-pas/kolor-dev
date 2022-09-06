@@ -1,11 +1,17 @@
 .footer {
+  $self: &;
+
   @apply
     h-32 w-full mt-auto
     bg-gray-draw-3
-    flex justify-center items-center
-    text-sm;
+    flex justify-center items-center;
 
-    &__heart {
-      @apply w-6;
+  &__author {
+    @apply
+      flex items-center justify-center p-6;
+
+    #{ $self }__heart {
+      @apply mx-1 h-4;
     }
+  }
 }

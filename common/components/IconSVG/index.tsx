@@ -5,14 +5,21 @@ interface IconSVGProps {
   strokeWidth?: number
   title?: string,
   desc?: string,
+  filled?: boolean
 }
 
-const IconSVG = ({children: path, strokeWidth, title, desc}: IconSVGProps) => {
+const IconSVG: React.FC<IconSVGProps> = ({
+  children: path,
+  strokeWidth,
+  title,
+  desc,
+  filled = false
+}) => {
   return (
     <svg
       className={styles['icon-svg']}
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
+      fill={filled ? "currentColor" : "none"}
       viewBox="0 0 24 24"
       strokeWidth={strokeWidth ?? 1.75}
       stroke="currentColor"
