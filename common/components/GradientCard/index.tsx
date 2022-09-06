@@ -8,17 +8,20 @@ import Color from '@components/Color';
 import SpanMonochrome from '@components/SpanMonochrome';
 
 import { GradientScheme } from '@interfaces';
+import type { GradientId } from '@types';
+
 
 interface GradientCardProps {
-  gradient: GradientScheme
+  gradient: GradientScheme,
+  gradientId: GradientId
 }
 
-const GradientCard: React.FC<GradientCardProps> = ({gradient}) => {
+const GradientCard: React.FC<GradientCardProps> = ({gradient, gradientId}) => {
   const router: NextRouter = useRouter();
 
   return (
     <div
-      onClick={() => console.log(gradient.id)}
+      onClick={() => router.push(`/gradient/${gradientId}`)}
       className={styles['card']}
     >
       <div className={styles['card__colors']}>

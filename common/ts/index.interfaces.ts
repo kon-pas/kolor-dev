@@ -15,5 +15,5 @@ export interface GradientScheme {
 }
 
 export interface GradientsJSON {
-  readonly [key: TYPES.Id]: GradientScheme
+  readonly [key: TYPES.GradientId]: GradientScheme
 }

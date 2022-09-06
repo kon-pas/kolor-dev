@@ -53,10 +53,11 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
       </header>
 
       <div className={styles['gradients-list']}>
-        {Object.values(gradients).map((gradient, index) => 
+        {Object.entries(gradients).map(([id, gradient], index) => 
           <GradientCard
             key={index}
             gradient={gradient}
+            gradientId={id}
           />
         )}
       </div>
