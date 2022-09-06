@@ -34,8 +34,7 @@
       border border-black/5 rounded-lg
       shadow-inner
       hoverable:h-full hoverable:transition-height hoverable:duration-150
-      hoverable:z-10
-      md:h-36;
+      hoverable:z-10;
   }
 
   &:hover &__gradient {
