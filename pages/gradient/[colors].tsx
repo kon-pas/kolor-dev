@@ -22,7 +22,8 @@ const Post: NextPage = () => {
   return <p>gradient</p>
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+
   return {
     props: {}
   }
