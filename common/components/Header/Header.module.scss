@@ -14,13 +14,14 @@
       sm:h-16;
 
     #{ $self }__title {
-      @apply flex items-center h-8
-      xs:ml-4;
+      @apply
+        flex items-center h-8
+        xs:ml-4;
   
       #{ $self }__logo {
         @apply
           w-8 h-8
-          sm:w-10 sm:h-10;
+          sm:w-9 sm:h-9;
       }
   
       #{ $self }__heading {
