@@ -1,25 +1,6 @@
-import { useRouter } from 'next/router';
 import type { NextPage } from 'next';
+import useRedirectionTo from '@hooks/useRedirectionTo';
 
-const Post: NextPage = () => {
-  const router = useRouter()
-  const { from, via, to } = router.query
+const Gradient: NextPage = () => useRedirectionTo('/gradients');
 
-  if(from && via && to) {
-
-  }
-  else if(from && to){
-
-  }
-  else router.push('/gradients')
-
-  return <p>Test</p>
-}
-
-export async function getServerSideProps() {
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
-
-export default Post
+export default Gradient;
