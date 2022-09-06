@@ -1,7 +1,7 @@
-import { GradientScheme } from '@interfaces';
+import { GradientsJSON } from '@interfaces';
 import { v5 as idFromString } from 'uuid';
 
-export const gradients: GradientScheme[] = [
+export const gradients: GradientsJSON = [
   {
     colors: ["#60efff", "#00ff87"],
     title: "Morning Breeze"
@@ -102,4 +102,12 @@ export const gradients: GradientScheme[] = [
     colors: ["#000000", "#ffffff"],
     title: "Black & White"
   }
-].map(gradient => ({ ...gradient, id: idFromString(gradient.title, "6c87beeb-3545-4d7b-b7e1-610c25720c7d") }));
+]
+.map(gradient => ({ 
+    [idFromString(gradient.title, "6c87beeb-3545-4d7b-b7e1-610c25720c7d")]: { ...gradient }
+}))
+.reduce((firstGradient, secondGradient) => ({
+  ...firstGradient, ...secondGradient
+}));
+
+export default gradients;

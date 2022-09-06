@@ -10,11 +10,10 @@ export interface Tags {
 export interface GradientScheme {
   readonly colors: TYPES.GradientHue,
   readonly title: string,
-  readonly id: TYPES.Id,
   readonly tags?: Tags,
   readonly desc?: string
 }
 
 export interface GradientsJSON {
-  readonly [key: TYPES.Id]: Omit<GradientScheme, TYPES.Id>
+  readonly [key: TYPES.Id]: GradientScheme
 }
