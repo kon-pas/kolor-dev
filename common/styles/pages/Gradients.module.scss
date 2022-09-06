@@ -26,13 +26,13 @@
         font-bold font-satoshi
         text-4xl
         sm:text-5xl
-        md:text-6xl
-        ;
+        md:text-6xl;
     }
 
     &__paragraph {
       @apply
-        text-lg text-gray-font my-10
+        text-gray-font my-10
+        text-lg
         md:text-xl;
 
       > span {
