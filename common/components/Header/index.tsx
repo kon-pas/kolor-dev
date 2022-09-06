@@ -10,7 +10,7 @@ const Header = () => {
         <a className={styles['header__title']}>
           <div className={styles['header__logo']}>
             <Image 
-              src="/assets/svgs/kolor_logo_cube.svg"
+              src="/assets/svgs/kolor_logo_cube_2_1.svg"
               alt="Kolor Cube"
               height={40}
               width={40}
