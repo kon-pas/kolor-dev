@@ -2,16 +2,7 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  async redirects() {
-    return [
-      {
-        source: '/gradient',
-        destination: '/gradients',
-        permanent: true,
-      },
-    ]
-  },
+  swcMinify: true
 }
 
 module.exports = nextConfig

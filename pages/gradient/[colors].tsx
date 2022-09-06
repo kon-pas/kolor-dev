@@ -1,32 +1,31 @@
-import { useRouter } from 'next/router';
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 
-
-const Post: NextPage = () => {
-  const router = useRouter()
-
-  const { colors, from, via, to } = router.query;
-
-  if(colors === 'colors') {
-
-  }
-
-  if(from && via && to) {
-
-  }
-  else if(from && to){
-
-  }
-  else router.push('/gradients')
-
-  return <p>gradient</p>
+interface GradientColorsProps {
+  from: string
 }
 
-export async function getServerSideProps(context) {
+const GradientColors: NextPage<GradientColorsProps> = ({
+  from
+}) => {
+  console.log(from);
+  // const { colors, from, via, to }
+  // if(colors === 'colors') {
+  // }
+  // if(from && via && to) {
+  // }
+  // else if(from && to){
+  // }
+  // else router.push('/gradients')
 
+  return <p>test</p>
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
-    props: {}
+    props: {
+      from: context.query
+    }
   }
 }
 
-export default Post
+export default GradientColors;
