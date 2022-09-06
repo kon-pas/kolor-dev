@@ -5,15 +5,19 @@ interface TextUnderlineProps {
   offset?: number;
 }
 
-const TextUnderline: FC<TextUnderlineProps> = (
+const TextUnderline: React.FC<TextUnderlineProps> = ({
   thickness = 3,
   offset = 0
-) => <div
-  className={styles['text-underline']}
-  style={{ 
-    height: `${thickness}px`,
-    bottom: `-${offset}px`
-   }}
-></div>
+}) => {
+  return (
+    <div
+      className={styles['text-underline']}
+      style={{ 
+        height: `${thickness}px`,
+        bottom: `-${offset}px`
+      }}
+    ></div>
+  )
+}
 
 export default TextUnderline;
