@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { gradients } from '@jsons/gradients';
+
+import getGradientById from '@utils/getGradientById';
+
 import { GradientScheme } from '@interfaces';
 
 // interface ResponseJSON {
@@ -10,6 +12,5 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log(gradients.filter(gradient => gradient.id === req.query.pid))
-  res.status(200).json({})
+  res.status(200).json(getGradientById(req.query.pid));
 }

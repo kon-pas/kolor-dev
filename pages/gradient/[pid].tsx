@@ -1,24 +1,15 @@
 import type { NextPage, GetServerSideProps } from 'next';
+import { GradientScheme } from '@interfaces';
 
 interface GradientColorsProps {
-  // isColors: boolean,
-  // colors: {
-  //   from: string,
-  //   via: string,
-  //   to: string
-  // }
+  gradient: GradientScheme
 }
 
 const GradientColors: NextPage<GradientColorsProps> = ({
-  // isColors,
-  // colors: {
-  //   from,
-  //   via,
-  //   to
-  // }
+  gradient
 }) => {
 
-  return <>Dupa</>
+  return <>{gradient.title}</>
   // if(colors === 'colors') {
   // }
   // if(from && via && to) {
@@ -38,18 +29,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   });
 
-  const colors = await res.json()
-
-  console.log(colors);
+  const gradient = await res.json()
 
   return {
     props: {
-      // isColors: context.params?.pid === 'colors',
-      // colors: {
-      //   from: context.query.from || null,
-      //   via: context.query.via || null,
-      //   to: context.query.to || null
-      // }
+      gradient
     }
   }
 }
