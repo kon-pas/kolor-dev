@@ -1,28 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { gradients } from '@jsons/gradients';
+import { GradientScheme } from '@interfaces';
 
-interface Colors {
-}
+// interface ResponseJSON {
+//   colors: GradientHue
+// }
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Colors>
+  res: NextApiResponse
 ) {
-  console.log(req.query);
-  switch(req.query.pid) {
-    case 'colors': {
-      const {from, via, to} = req.query;
-      if(from && to) {
-        if(via)
-          res.status(200).json({});
-        else
-          res.status(200).json({});
-      }
-      else
-        res.status(200);
-    }
-    case 'name':
-      res.status(200);
-    default:
-      res.status(200);
-  }
+  console.log(gradients.filter(gradient => gradient.id === req.query.pid))
+  res.status(200).json({})
 }

@@ -31,7 +31,7 @@ const GradientColors: NextPage<GradientColorsProps> = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`http://localhost:3000/api/gradient/${context.query.pid}`, {
+  const res = await fetch('http://localhost:3000/api/gradient/colors?from=red&to=blue', {
     method: 'GET',
     headers: {
       "Content-Type": "application/json"
