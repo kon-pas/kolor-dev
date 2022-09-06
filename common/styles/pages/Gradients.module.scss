@@ -43,9 +43,9 @@
 
   .gradients-list {
     @apply
-      flex flex-col gap-x-5 gap-y-2
-      sm:grid sm:grid-cols-2
+      flex flex-col gap-y-5
+      sm:grid sm:grid-cols-2 sm:gap-x-3
       md:grid-cols-3 md:gap-x-6
-      hoverable:md:gap-x-12;
+      hoverable:md:gap-x-8;
   }
 }

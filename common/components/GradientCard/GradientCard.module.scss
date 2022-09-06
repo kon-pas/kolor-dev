@@ -1,7 +1,7 @@
 .card {
   $self: &;
 
-  @apply relative cursor-pointer;
+  @apply relative cursor-pointer h-40;
 
   &__colors {
     // `border` => 1px
@@ -9,8 +9,8 @@
     clip-path: inset(1px round 0.5rem 0);
 
     @apply
-      absolute top-0 flex w-full
-      transition-height-opacity duration-200 h-0 opacity-0;
+      absolute top-0 flex w-full z-20
+      transition-height-opacity duration-200 h-1/3 opacity-0;
 
     #{ $self }__color {
       @apply
@@ -29,23 +29,31 @@
 
   &__gradient {
     @apply
-      w-full h-32
+      absolute top-0
+      w-full h-2/3
       border border-black/5 rounded-lg
       shadow-inner
+      hoverable:h-full transition-height duration-150
+      hoverable:z-10
       md:h-36;
   }
 
-  &:hover &__desc {
-    @apply opacity-100 transition-opacity duration-200;
+  &:hover &__gradient {
+    @apply h-2/3 transition-height duration-100;
   }
+
+  // &:hover &__desc {
+  //   @apply opacity-100 transition-opacity hoverable:delay-100;
+  // }
 
   &__desc {
     @apply
-      h-10
+      absolute bottom-0
+      w-full h-1/3
       text-xs
       flex justify-between items-center
-      hoverable:opacity-0 hoverable:transition-opacity hoverable:duration-200
       xs:text-sm;
+      // hoverable:opacity-0 hoverable:transition-opacity
 
     #{ $self }__like-button {
       @apply
