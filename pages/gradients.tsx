@@ -18,7 +18,7 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
 
         <h2 className={styles['header__heading-2']}>
           Gradients
-          <TextUnderline />
+          <TextUnderline thickness={5} offset={3}/>
         </h2>
 
         <p className={styles['header__paragraph']}>

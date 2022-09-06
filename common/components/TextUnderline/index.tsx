@@ -6,7 +6,7 @@ interface TextUnderlineProps {
 }
 
 const TextUnderline: React.FC<TextUnderlineProps> = ({
-  thickness = 3,
+  thickness = 2,
   offset = 0
 }) => {
   return (
