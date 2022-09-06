@@ -1,9 +1,18 @@
 import { useRouter } from 'next/router';
 import type { NextPage } from 'next';
 
+// import useRedirectionTo from '@hooks/useRedirectionTo';
+
 const Post: NextPage = () => {
   const router = useRouter()
-  const { from, via, to } = router.query
+
+  // const redirect = useRedirectionTo('/gradients')
+
+  const { colors, from, via, to } = router.query;
+
+  if(colors === 'colors') {
+
+  }
 
   // if(from && via && to) {
 
