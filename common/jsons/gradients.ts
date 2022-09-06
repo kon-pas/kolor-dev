@@ -19,6 +19,18 @@ export const gradients: GradientScheme[] = [
     title: "Navy Blue"
   },
   {
+    colors: ["#f8f9c7", "#f2c1ea", "#f67b6b"],
+    title: "Sweet Popsicle"
+  },
+  {
+    colors: ["#d3eef4", "#f1eec8", "#f3a46c"],
+    title: "Wet Sand"
+  },
+  {
+    colors: ["#FFFF8B", "#f19e18", "#e62314"],
+    title: "Red Fox's Tail"
+  },
+  {
     colors: ["#fff95b", "#ff930f"],
     title: "Amber Gold",
   },
@@ -67,14 +79,6 @@ export const gradients: GradientScheme[] = [
     title: "Ising Model"
   },
   {
-    colors: ["#f8f9c7", "#f2c1ea", "#f67b6b"],
-    title: "Sweet Popsicle"
-  },
-  {
-    colors: ["#d3eef4", "#f1eec8", "#f3a46c"],
-    title: "Wet Sand"
-  },
-  {
     colors: ["#f8dadc", "#b6edc8", "#eeacdc"],
     title: "First Days of Spring"
   },
@@ -89,10 +93,6 @@ export const gradients: GradientScheme[] = [
   {
     colors: ["#eeddf3", "#FDB5BE", "#6b8080"],
     title: "Warmth of Winter"
-  },
-  {
-    colors: ["#FFFF8B", "#f19e18", "#e62314"],
-    title: "Red Fox's Tail"
   },
   {
     colors: ["#c621e5", "#7d7cf9"],

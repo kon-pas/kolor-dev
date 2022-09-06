@@ -3,7 +3,12 @@
 .header {
   $self: &;
 
-  @apply bg-white w-full shadow-sm backdrop-blur-sm;
+  @apply
+    w-full
+    bg-gradient-to-b from-white/80 to-white/60
+    backdrop-blur-sm
+    shadow-sm
+    sticky top-0 z-50;
 
   &__top {
     @include content;
@@ -20,8 +25,7 @@
   
       #{ $self }__logo {
         @apply
-          w-8 h-8
-          sm:w-9 sm:h-9;
+          w-8 h-8;
       }
   
       #{ $self }__heading {
