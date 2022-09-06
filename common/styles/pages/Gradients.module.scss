@@ -23,15 +23,6 @@
     }
 
     &__heading-2 {
-      // content: "";
-      // position: absolute;
-      // bottom: 2px;
-      // left: 0;
-      // height: 1px;
-      // width: 100%;
-      // background: #444444;
-      // background: linear-gradient(left, transparent 0%,#444444 50%,transparent 100%);
-      
       @apply
         text-4xl font-bold font-satoshi mb-3
         relative;
@@ -60,4 +51,11 @@
       md:grid-cols-3 md:gap-x-6
       hoverable:md:gap-x-12;
   }
+}
+
+.uline {
+  @apply
+    w-full content-[''] absolute left-0
+    -bottom-[2px] h-[5px]
+    bg-gradient-to-r from-cyan via-magenta to-yellow;
 }
