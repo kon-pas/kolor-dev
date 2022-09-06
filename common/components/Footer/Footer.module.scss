@@ -1,6 +1,11 @@
 .footer {
   @apply
     h-32 w-full mt-auto
-    text-white bg-black
-    flex justify-center items-center;
+    bg-gray-draw-3
+    flex justify-center items-center
+    text-sm;
+
+    &__heart {
+      @apply w-6;
+    }
 }
