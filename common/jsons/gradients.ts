@@ -3,35 +3,103 @@ import { v5 as idFromString } from 'uuid';
 
 export const gradients: GradientScheme[] = [
   {
-    colors: ["#C3FF99", "#EC7272"],
-    title: "Memories of Spring",
+    colors: ["#60efff", "#00ff87"],
+    title: "Morning Breeze"
   },
   {
-    colors: ["#FFF5E4", "#EE6983"],
-    title: "Strawberry Ice Creams"
+    colors: ["#f89b29", "#ff0f7b"],
+    title: "Ripe Mirabelle"
   },
   {
-    colors: ["#6FEDD6", "#FF9551", "#FF4A4A"],
-    title: "Sweet Popsicle"
+    colors: ["#a9ff68", "#ff8989"],
+    title: "Fresh Apple"
   },
   {
-    colors: ["#FFF38C", "#C0B236"],
+    colors: ["#9bafd9", "#103783"],
+    title: "Navy Blue"
+  },
+  {
+    colors: ["#fff95b", "#ff930f"],
+    title: "Amber Gold",
+  },
+  {
+    colors: ["#f3f520", "#59d102"],
+    title: "Freshly Cut Grass"
+  },
+  {
+    colors: ["#c5f9d7", "#f7d486", "#f27a7d"],
+    title: "Ising Model"
+  },
+  {
+    colors: ["#84ffc9", "#aab2ff", "#eca0ff"],
+    title: "Faerie's Dream"
+  },
+  {
+    colors: ["#ebf4f5", "#b5c6e0"],
+    title: "Cold Paper"
+  },
+  {
+    colors: ["#fbe9d7", "#f6d5f7"],
+    title: "Warm Paper"
+  },
+  {
+    colors: ["#82f4b1", "#30c67c"],
+    title: "Faded Lime"
+  },
+  {
+    colors: ["#751006", "#1f0021"],
+    title: "Bloody Black"
+  },
+  {
+    colors: ["#00458e", "#000328"],
+    title: "Oceans' Depths"
+  },
+  {
+    colors: ["#e4e95d", "#e89d1f"],
     title: "Shades of Lemon"
   },
   {
-    colors: ["#F7F7F7", "#FFE61B", "#B5FE83"],
-    title: "Citrus Sorbet"
+    colors: ["#affcaf", "#12dff3"],
+    title: "Hawaiian Shallows"
   },
   {
-    colors: ["#CC9544", "#603601", "#1C0A00"],
-    title: "Dark Chocolate"
+    colors: ["#eef2f3", "#8399a2"],
+    title: "Tabula Rasa"
   },
   {
-    colors: ["#C1F4C5", "#FFBED8"],
-    title: "Rasberry"
+    colors: ["#f8f9c7", "#f2c1ea", "#f67b6b"],
+    title: "Sweet Popsicle"
   },
   {
-    colors: ["#EAE509", "#7DCE13"],
-    title: "Ripe Lime"
+    colors: ["#d3eef4", "#f1eec8", "#f3a46c"],
+    title: "Wet Sand"
   },
+  {
+    colors: ["#f8dadc", "#b6edc8", "#eeacdc"],
+    title: "First Days of Spring"
+  },
+  {
+    colors: ["#9AEEA2", "#f7f065", "#FD9891"],
+    title: "Middle of Summer"
+  },
+  {
+    colors: ["#e3e3e3", "#eb8a3d"],
+    title: "Autumn's Peace"
+  },
+  {
+    colors: ["#eeddf3", "#FDB5BE", "#6b8080"],
+    title: "Warmth of Winter"
+  },
+  {
+    colors: ["#FFFF8B", "#f19e18", "#e62314"],
+    title: "Red Fox's Tail"
+  },
+  {
+    colors: ["#c621e5", "#7d7cf9"],
+    title: "Scent of Lavender"
+  },
+  {
+    colors: ["#000000", "#ffffff"],
+    title: "Black & White"
+  }
 ].map(gradient => ({ ...gradient, id: idFromString(gradient.title, "6c87beeb-3545-4d7b-b7e1-610c25720c7d") }));
