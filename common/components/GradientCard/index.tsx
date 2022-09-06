@@ -1,5 +1,7 @@
 import styles from './GradientCard.module.scss';
 
+import { useRouter, NextRouter } from 'next/router';
+
 import IconSVG from '@components/IconSVG';
 import Gradient from '@components/Gradient';
 import Color from '@components/Color';
@@ -12,8 +14,13 @@ interface GradientCardProps {
 }
 
 const GradientCard: React.FC<GradientCardProps> = ({gradient}) => {
+  const router: NextRouter = useRouter();
+
   return (
-    <div className={styles['card']}>
+    <div
+      onClick={() => console.log(gradient.id)}
+      className={styles['card']}
+    >
       <div className={styles['card__colors']}>
         {gradient.colors.map((color, idx) => 
           <div
@@ -31,7 +38,6 @@ const GradientCard: React.FC<GradientCardProps> = ({gradient}) => {
 
       <div
         className={styles['card__gradient']}
-        onClick={() => console.log("Pressed!")}
       >
         <Gradient colors={gradient.colors}/>
       </div>
