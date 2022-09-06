@@ -8,7 +8,7 @@
 
     @apply
       flex items-center flex-col
-      mb-16;
+      mb-12;
 
     * {
       @apply text-center;
@@ -22,7 +22,7 @@
     &__heading-2 {
       @apply
         text-4xl font-bold font-satoshi
-        mb-8
+        mb-12
         relative;
     }
 
@@ -33,12 +33,6 @@
       > span {
         @apply inline-block;
       }
-
-      // #{ $self }__text-artists,
-      // #{ $self }__text-designers,
-      // #{ $self }__text-developers {
-      //   @apply text-xl text-cyan inline-block;
-      // }
     }
   }
 

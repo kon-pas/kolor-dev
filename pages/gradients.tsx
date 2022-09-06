@@ -26,19 +26,19 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
             Carefully selected for&nbsp;
           </span>
 
-          <span className={styles['header__text-artists']}>
+          <span>
             Artists
           </span>
 
           <span>,&nbsp;</span>
 
-          <span className={styles['header__text-designers']}>
+          <span>
             Designes
           </span>
 
           <span>&nbsp;&&nbsp;</span>
 
-          <span className={styles['header__text-developers']}>
+          <span>
             Developers
           </span>
 
