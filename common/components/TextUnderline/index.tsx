@@ -1,3 +1,5 @@
+// NOTE: Parent component has to be `display: relative`.
+
 import styles from './TextUnderline.module.scss';
 
 interface TextUnderlineProps {

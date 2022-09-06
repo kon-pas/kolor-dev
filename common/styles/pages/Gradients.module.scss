@@ -7,8 +7,7 @@
     $self: '.header';
 
     @apply
-      flex items-center flex-col
-      mb-12;
+      flex items-center flex-col;
 
     * {
       @apply text-center;
@@ -22,13 +21,12 @@
     &__heading-2 {
       @apply
         text-4xl font-bold font-satoshi
-        mb-12
         relative;
     }
 
     &__paragraph {
       @apply
-        text-xl text-gray-font;
+        text-xl text-gray-font my-12;
 
       > span {
         @apply inline-block;
