@@ -1,16 +1,18 @@
 import type { NextPage, GetServerSideProps } from 'next';
 import { GradientScheme } from '@interfaces';
 
-interface GradientColorsProps {
+interface GradientProps {
   gradient: GradientScheme
 }
 
-const GradientColors: NextPage<GradientColorsProps> = ({
+const Gradient: NextPage<GradientProps> = ({
   gradient
 }) => {
-
-  return <>{gradient.title}</>
-
+  return (
+    <>
+      {gradient.title}
+    </>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -30,4 +32,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default GradientColors;
+export default Gradient;
