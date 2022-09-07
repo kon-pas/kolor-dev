@@ -1,6 +1,6 @@
 import styles from './IconSVG.module.scss';
 
-interface IconSVGProps {
+export interface IconSVGProps {
   children: React.ReactNode;
   strokeWidth?: number;
   title?: string;
@@ -28,9 +28,9 @@ const IconSVG: React.FC<IconSVGProps> = ({
       aria-label={`${title ?? null} ${desc ?? null}`}
       aria-labelledby={`${title ? 'titleID' : null} ${desc ? 'descID' : null}`}
     >
-      {title && <title id="titleID">{title}</title>}
-      {desc && <desc id="descID">{desc}</desc>}
-      {path}
+      { title && <title id="titleID">{title}</title> }
+      { desc && <desc id="descID">{desc}</desc> }
+      { path}
     </svg>
   )
 }
