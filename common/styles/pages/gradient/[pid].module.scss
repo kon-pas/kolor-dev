@@ -15,12 +15,18 @@
     &__heading {
       @include heading-3;
 
-      @apply relative w-fit my-5;
+      @apply relative w-fit;
     }
   }
 
   .gradient {
-    @apply w-full aspect-square;
+    @apply
+      w-full aspect-square
+      mt-4 mb-2;
+  }
+
+  .buttons {
+    @apply flex justify-between;
   }
 
 

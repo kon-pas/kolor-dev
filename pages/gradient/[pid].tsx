@@ -2,6 +2,7 @@ import styles from '@styles/pages/gradient/[pid].module.scss';
 import type { NextPage, GetServerSideProps } from 'next';
 import TextUnderline from '@components/TextUnderline';
 import Gradient from '@components/Gradient';
+import Color from '@components/Color';
 import { GradientScheme } from '@interfaces';
 
 interface GradientPidProps {
@@ -37,13 +38,13 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </div>
       </div>
 
-      <div className={styles['gradient-id__colors-list']}>
+      <div className={styles['colors-list']}>
         {gradient.colors.map((color, idx) => 
           <div
-            className={styles['gradient-id__color']}
+            className={styles['colors-list__color']}
             key={idx}
           >
-            {color}
+            <Color hex={color} />
           </div>
         )}
       </div>
