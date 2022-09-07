@@ -1,3 +1,27 @@
-.gradient-id {
+@import '@styles';
 
+.gradient-id {
+  $self: &;
+  
+  @include content;
+
+  .header {
+    $self: '.header';
+
+    @apply
+      w-full
+      flex justify-center;
+
+    &__heading {
+      @include heading-3;
+
+      @apply relative w-fit;
+    }
+  }
+
+  &__gradient {
+    @apply
+      w-full aspect-square
+      my-5;
+  }
 }

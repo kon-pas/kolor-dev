@@ -14,20 +14,13 @@
     }
 
     &__heading-1 {
-      @apply
-        text-7xl font-bold font-satoshi
-        xs:text-8xl
-        sm:text-[7rem]
-        md:text-9xl;
+      @include heading-1;
     }
 
     &__heading-2 {
-      @apply
-        relative
-        font-bold font-satoshi
-        text-4xl
-        sm:text-5xl
-        md:text-6xl;
+      @include heading-2;
+
+      @apply relative;
     }
 
     &__paragraph {
