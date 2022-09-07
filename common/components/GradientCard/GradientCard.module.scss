@@ -45,8 +45,8 @@
     @apply
       absolute bottom-0
       w-full h-[25%]
-      text-xs
       flex justify-between items-center
+      text-xs
       xs:text-sm;
 
     #{ $self }__like-button {
