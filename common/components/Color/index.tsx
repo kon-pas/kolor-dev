@@ -6,7 +6,7 @@ interface ColorProps {
   children?: React.ReactNode;
 }
 
-const Color = ({ hex, children }: ColorProps) => {
+const Color: React.FC<ColorProps> = ({ hex, children }) => {
   return (
     <div
       className={styles.color}
