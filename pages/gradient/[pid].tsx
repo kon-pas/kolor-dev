@@ -23,16 +23,16 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </h1>
       </header>
 
-      <div className={styles['gradient-id__gradient']}>
+      <div className={styles['gradient']}>
         <Gradient colors={gradient.colors}/>
       </div>
 
-      <div className={styles['gradient-id__actions']}>
-        <div className={styles['gradient-id__buttons-left']}>
+      <div className={styles['buttons']}>
+        <div className={styles['buttons__left']}>
           Buttons
         </div>
 
-        <div className={styles['gradient-id__buttons-right']}>
+        <div className={styles['buttons__right']}>
           Buttons
         </div>
       </div>

@@ -19,9 +19,8 @@
     }
   }
 
-  &__gradient {
-    @apply
-      w-full aspect-square;
+  .gradient {
+    @apply w-full aspect-square;
   }
 
 
