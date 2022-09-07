@@ -27,6 +27,16 @@ const GradientPid: NextPage<GradientPidProps> = ({
         <Gradient colors={gradient.colors}/>
       </div>
 
+      <div className={styles['gradient-id__actions']}>
+        <div className={styles['gradient-id__buttons-left']}>
+          Buttons
+        </div>
+
+        <div className={styles['gradient-id__buttons-right']}>
+          Buttons
+        </div>
+      </div>
+
       <div className={styles['gradient-id__colors-list']}>
         {gradient.colors.map((color, idx) => 
           <div

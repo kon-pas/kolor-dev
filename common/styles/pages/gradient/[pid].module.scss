@@ -15,13 +15,14 @@
     &__heading {
       @include heading-3;
 
-      @apply relative w-fit;
+      @apply relative w-fit my-5;
     }
   }
 
   &__gradient {
     @apply
-      w-full aspect-square
-      my-5;
+      w-full aspect-square;
   }
+
+
 }
