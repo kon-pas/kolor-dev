@@ -1,11 +1,11 @@
 import styles from './IconSVG.module.scss';
 
 interface IconSVGProps {
-  children: React.ReactNode,
-  strokeWidth?: number
-  title?: string,
-  desc?: string,
-  filled?: boolean
+  children: React.ReactNode;
+  strokeWidth?: number;
+  title?: string;
+  desc?: string;
+  filled?: boolean;
 }
 
 const IconSVG: React.FC<IconSVGProps> = ({

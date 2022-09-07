@@ -1,8 +1,8 @@
 import getColorBrightness from '@utils/getColorBrightness';
 
 interface SpanMonochromeProps {
-  color: string,
-  children: React.ReactNode
+  color: string;
+  children: React.ReactNode;
 }
 
 const SpanMonochrome: React.FC<SpanMonochromeProps> = ({

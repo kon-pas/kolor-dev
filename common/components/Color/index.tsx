@@ -1,8 +1,8 @@
 import styles from './Color.module.scss'
 
 interface ColorProps {
-  hex: string,
-  children?: React.ReactNode
+  hex: string;
+  children?: React.ReactNode;
 }
 
 const Color = ({ hex, children }: ColorProps) => {

@@ -12,8 +12,8 @@ import type { GradientId } from '@types';
 
 
 interface GradientCardProps {
-  gradient: GradientScheme,
-  gradientId: GradientId
+  gradient: GradientScheme;
+  gradientId: GradientId;
 }
 
 const GradientCard: React.FC<GradientCardProps> = ({gradient, gradientId}) => {

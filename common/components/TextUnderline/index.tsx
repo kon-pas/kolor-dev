@@ -3,10 +3,10 @@
 import styles from './TextUnderline.module.scss';
 
 interface TextUnderlineProps {
-  children?: string
+  children?: string;
   thickness?: number;
   offset?: number;
-  opacity?: number
+  opacity?: number;
 }
 
 const TextUnderline: React.FC<TextUnderlineProps> = ({
