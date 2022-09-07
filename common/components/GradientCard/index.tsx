@@ -8,6 +8,8 @@ import Color from '@components/Color';
 import SpanMonochrome from '@components/SpanMonochrome';
 import Button from '@components/Button';
 
+import getCleanHex from '@utils/getCleanHex';
+
 import { GradientScheme } from '@interfaces';
 import type { GradientId } from '@types';
 
@@ -33,7 +35,7 @@ const GradientCard: React.FC<GradientCardProps> = ({gradient, gradientId}) => {
           >
             <Color hex={color}>
               <SpanMonochrome color={color}>
-                {color.slice(1).toUpperCase()}
+                {getCleanHex(color)}
               </SpanMonochrome>
             </Color>
           </div>

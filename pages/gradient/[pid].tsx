@@ -6,6 +6,7 @@ import Color from '@components/Color';
 import IconSVG from '@components/IconSVG';
 import Button from '@components/Button';
 import { GradientScheme } from '@interfaces';
+import getCleanHex from '@utils/getCleanHex';
 
 interface GradientPidProps {
   gradient: GradientScheme
@@ -56,7 +57,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
           >
             <div className={styles['colors-list__color']}>
               <Color hex={color}>
-                {color.slice(1)}
+                {getCleanHex(color)}
               </Color>
             </div>
 
