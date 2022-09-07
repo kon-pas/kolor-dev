@@ -56,19 +56,14 @@ const GradientCard: React.FC<GradientCardProps> = ({gradient, gradientId}) => {
             />
           </IconSVG>
         </Button>
+        
         {/* <button className={styles['card__like-button']}>
-
           <span>
             Save
           </span>
         </button> */}
 
-        <div
-          className={styles['card__title']}
-          onClick={() => console.log("Pressed!")}
-        >
-          {gradient.title}
-        </div>
+        <Button label={gradient.title} />
       </div>
     </div>
   );
