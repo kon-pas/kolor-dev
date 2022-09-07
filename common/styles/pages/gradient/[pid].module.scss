@@ -28,6 +28,14 @@
 
   .buttons {
     @apply flex justify-between;
+
+    &__left,
+    &__right {
+      @apply
+        flex
+        gap-1
+        sm:gap-2;
+    }
   }
 
   .colors-list {
