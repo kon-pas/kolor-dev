@@ -3,6 +3,7 @@ import type { NextPage, GetServerSideProps } from 'next';
 import TextUnderline from '@components/TextUnderline';
 import Gradient from '@components/Gradient';
 import Color from '@components/Color';
+import IconSVG from '@components/IconSVG';
 import { GradientScheme } from '@interfaces';
 
 interface GradientPidProps {
@@ -39,12 +40,26 @@ const GradientPid: NextPage<GradientPidProps> = ({
       </div>
 
       <div className={styles['colors-list']}>
-        {gradient.colors.map((color, idx) => 
+        {gradient.colors.map((color, idx, colors) => 
           <div
             className={styles['colors-list__color']}
             key={idx}
           >
-            <Color hex={color} />
+            <Color hex={color}>
+              {color}
+            </Color>
+            
+            { idx+1 !== colors.length &&
+              <div className={styles['colors-list__arrow']}>
+                <IconSVG>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+                  />
+                </IconSVG>
+              </div>
+            }
           </div>
         )}
       </div>

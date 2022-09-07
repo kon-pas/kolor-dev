@@ -29,5 +29,13 @@
     @apply flex justify-between;
   }
 
+  .colors-list {
+    @apply w-full bg-black;
+
+    &__color {
+      @apply h-10;
+    }
+  }
+
 
 }
