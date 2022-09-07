@@ -33,13 +33,13 @@ const GradientPid: NextPage<GradientPidProps> = ({
       <div className={styles['buttons']}>
         <div className={styles['buttons__left']}>
           <Button label='Like'>
-          <IconSVG>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
-                  />
-                </IconSVG>
+            <IconSVG>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+              />
+            </IconSVG>
           </Button>
         </div>
 
