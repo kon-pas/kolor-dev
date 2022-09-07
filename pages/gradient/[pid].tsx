@@ -1,17 +1,19 @@
+import styles from '@styles/pages/gradient/[pid].module.scss';
 import type { NextPage, GetServerSideProps } from 'next';
 import { GradientScheme } from '@interfaces';
 
-interface GradientProps {
+interface GradientPidProps {
   gradient: GradientScheme
 }
 
-const Gradient: NextPage<GradientProps> = ({
-  gradient
+const GradientPid: NextPage<GradientPidProps> = ({
+  gradient: {}
 }) => {
   return (
-    <>
-      {gradient.title}
-    </>
+    <div className={styles['gradient-id']}>
+      
+
+    </div>
   )
 }
 
@@ -32,4 +34,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default Gradient;
+export default GradientPid;
