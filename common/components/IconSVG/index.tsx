@@ -1,6 +1,6 @@
 import styles from './IconSVG.module.scss';
 
-export interface IconSVGProps {
+interface IconSVGProps {
   children: React.ReactNode;
   strokeWidth?: number;
   title?: string;

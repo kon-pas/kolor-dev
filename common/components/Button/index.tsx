@@ -12,17 +12,19 @@ const Button: React.FC<ButtonProps> = ({
   iconSide = 'left'
 }) => {
   return(
-    <button className={styles['button']}>
-      { iconSide === 'left' && children }
+    <div className={styles['button']}>
+      <div className={styles['button__content-container']}>
+        { iconSide === 'left' && children }
 
-      { label &&
-        <span className={styles['button__label']}>
+        { label &&
+          <span className={styles['button__label']}>
 
-        </span>
-      }
+          </span>
+        }
 
-      { iconSide === 'right' && children }
-    </button>
+        { iconSide === 'right' && children }
+      </div>
+    </div>
   )
 }
 
