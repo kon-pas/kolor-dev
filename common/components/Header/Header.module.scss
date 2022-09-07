@@ -52,7 +52,7 @@
       sm:hidden;
   }
 
-  &__nav {
+  .nav {
     @apply w-full;
 
     &--desktop {
@@ -61,7 +61,7 @@
         sm:mr-8 sm:p-0 sm:h-fit sm:flex sm:justify-end sm:w-fit;
     }
 
-    #{ $self }__item {
+    &__item {
       @apply
         h-12 mr-8 grid items-center text-right
         text-lg

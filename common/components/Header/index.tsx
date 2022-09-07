@@ -33,17 +33,17 @@ const Header = (): JSX.Element => {
           </IconSVG>
         </button>
         
-        <nav className={clsx(styles['header__nav'], styles['header__nav--desktop'])}>
+        <nav className={clsx(styles['nav'], styles['nav--desktop'])}>
           <ul>
-            <li className={styles['header__item']}>
+            <li className={styles['nav__item']}>
               <a>Item 1</a>
             </li>
 
-            <li className={styles['header__item']}>
+            <li className={styles['nav__item']}>
               <a>Item 2</a>
             </li>
 
-            <li className={styles['header__item']}>
+            <li className={styles['nav__item']}>
               <a>Item 3</a>
             </li>
           </ul>
