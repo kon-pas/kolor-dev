@@ -10,15 +10,7 @@ const GradientColors: NextPage<GradientColorsProps> = ({
 }) => {
 
   return <>{gradient.title}</>
-  // if(colors === 'colors') {
-  // }
-  // if(from && via && to) {
-  // }
-  // else if(from && to){
-  // }
-  // else router.push('/gradients')
 
-  // return <p>{from} - {via} - {to}</p>
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {

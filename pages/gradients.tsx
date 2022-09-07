@@ -72,9 +72,8 @@ export const getStaticProps: GetStaticProps = async () => {
       "Content-Type": "application/json"
     }
   });
+  
   const gradients = await res.json()
-
-  console.log(gradients)
 
   return {
     props: {
