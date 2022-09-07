@@ -17,7 +17,8 @@
       @apply
         text-7xl font-bold font-satoshi
         xs:text-8xl
-        sm:text-9xl;
+        sm:text-[7rem]
+        md:text-9xl;
     }
 
     &__heading-2 {
