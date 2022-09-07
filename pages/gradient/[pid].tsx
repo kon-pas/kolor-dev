@@ -40,15 +40,17 @@ const GradientPid: NextPage<GradientPidProps> = ({
       </div>
 
       <div className={styles['colors-list']}>
-        {gradient.colors.map((color, idx, colors) => 
+        { gradient.colors.map((color, idx, colors) =>
           <div
-            className={styles['colors-list__color']}
+            className={styles['colors-list__item']}
             key={idx}
           >
-            <Color hex={color}>
-              {color}
-            </Color>
-            
+            <div className={styles['colors-list__color']}>
+              <Color hex={color}>
+                {color}
+              </Color>
+            </div>
+
             { idx+1 !== colors.length &&
               <div className={styles['colors-list__arrow']}>
                 <IconSVG>
@@ -63,6 +65,22 @@ const GradientPid: NextPage<GradientPidProps> = ({
           </div>
         )}
       </div>
+
+      {/* <section className={styles['actions']}>
+        <header>
+          <h1>
+            Want to edit this gradient?
+          </h1>
+
+          <h1>
+            Or create a new one!
+          </h1>
+        </header>
+      </section> */}
+
+      {/* <div className={styles['tag-list']}>
+        Tag1 Tag2 Tag3
+      </div> */}
     </section>
   )
 }

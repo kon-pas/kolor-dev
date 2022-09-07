@@ -30,10 +30,23 @@
   }
 
   .colors-list {
-    @apply w-full bg-black;
+    $self: '.colors-list';
 
-    &__color {
-      @apply h-10;
+    @apply
+      w-full
+      grid justify-items-center
+      mt-10 mb-10;
+
+    &__item {
+      @apply w-full grid justify-items-center;
+
+      #{ $self }__color {
+        @apply w-full h-10;
+      }
+  
+      #{ $self }__arrow {
+        @apply w-5 h-8;
+      }
     }
   }
 
