@@ -1,0 +1,13 @@
+.button {
+  @apply
+    text-xs
+    xs:text-sm
+    w-fit h-5 px-2 py-1 box-content
+    flex items-center gap-1
+    border border-gray-draw-3 rounded-lg
+    hover:bg-gray-draw-1;
+
+  &__icon {
+    @apply h-4 xs:h-5;
+  }
+}
