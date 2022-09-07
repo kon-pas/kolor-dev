@@ -22,6 +22,7 @@
   .gradient {
     @apply
       w-full aspect-square
+      border border-black/5 rounded-lg
       mt-4 mb-2;
   }
 
@@ -41,7 +42,14 @@
       @apply w-full grid justify-items-center;
 
       #{ $self }__color {
-        @apply w-full h-10;
+        // `border` => 1px
+        // `rounded-lg` => 0.5rem
+        clip-path: inset(1px round 0.5rem 0.5rem 0.5rem 0.5rem);
+
+        @apply
+          w-full h-10
+          border border-black/5
+          shadow-inner;
       }
   
       #{ $self }__arrow {

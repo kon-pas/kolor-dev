@@ -6,7 +6,7 @@
   &__colors {
     // `border` => 1px
     // `rounded-lg` => 0.5rem
-    clip-path: inset(1px round 0.5rem 0);
+    clip-path: inset(1px round 0.5rem 0.5rem 0 0);
 
     @apply
       absolute top-0 flex w-full z-20

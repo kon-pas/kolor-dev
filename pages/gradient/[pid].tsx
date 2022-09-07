@@ -47,7 +47,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
           >
             <div className={styles['colors-list__color']}>
               <Color hex={color}>
-                {color}
+                {color.slice(1)}
               </Color>
             </div>
 
