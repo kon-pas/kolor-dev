@@ -8,6 +8,7 @@ import Button from '@components/Button';
 import { GradientScheme } from '@interfaces';
 import getCleanHex from '@utils/getCleanHex';
 import Tag from '@components/Tag';
+import { MiscTags } from '@enums';
 
 interface GradientPidProps {
   gradient: GradientScheme
@@ -135,7 +136,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
               type='hash'
               key={idx}
             >
-              {label}
+              {MiscTags[label]}
             </Tag>
           )}
         </div>
