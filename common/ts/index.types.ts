@@ -1,4 +1,4 @@
-export type HexColor = `#${string}`;
+export type HexColor = string;
 
 export type GradientHue = readonly HexColor[];
 
