@@ -7,6 +7,7 @@ import IconSVG from '@components/IconSVG';
 import Button from '@components/Button';
 import { GradientScheme } from '@interfaces';
 import getCleanHex from '@utils/getCleanHex';
+import Tag from '@components/Tag';
 
 interface GradientPidProps {
   gradient: GradientScheme
@@ -116,9 +117,29 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </header>
       </section> */}
 
-      {/* <div className={styles['tag-list']}>
-        Tag1 Tag2 Tag3
-      </div> */}
+      <div className={styles['tags']}>
+        <div className={styles['tags__color-tags']}>
+          { gradient.tags?.mainColors.map((color, idx) => 
+            <Tag
+              type='color'
+              key={idx}
+            >
+              {color}
+            </Tag>
+          )}
+        </div>
+
+        <div className={styles['tags__hash-tags']}>
+          { gradient.tags?.misc.map((label, idx) => 
+            <Tag
+              type='hash'
+              key={idx}
+            >
+              {label}
+            </Tag>
+          )}
+        </div>
+      </div>
     </section>
   )
 }

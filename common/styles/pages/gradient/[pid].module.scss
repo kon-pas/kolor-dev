@@ -66,5 +66,12 @@
     }
   }
 
+  .tags {
+    @apply w-full flex flex-wrap justify-center;
 
+    &__color-tags,
+    &__hash-tags  {
+      @apply w-full flex justify-center gap-2;
+    }
+  }
 }

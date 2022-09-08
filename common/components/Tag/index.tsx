@@ -1,11 +1,11 @@
-import styles from 'Tag.module.scss';
+import styles from './Tag.module.scss';
 
 import type { MainColors } from '@enums';
  
 interface TagProps {
   children?: React.ReactNode;
   type?: 'hash' | 'color';
-  color: MainColors;
+  color?: MainColors;
   onClick?: () => void;
 }
 

@@ -7,7 +7,7 @@ export const gradients: GradientsJSON = [
     colors: ["#84ffc9", "#aab2ff", "#eca0ff"],
     title: "Faerie's Dream",
     tags: {
-      mainColors: [MainColors.green, MainColors.blue, MainColors.purple],
+      mainColors: [MainColors.Green, MainColors.Blue, MainColors.Purple],
       misc: [MiscTags.Cold, MiscTags.Magic, MiscTags.Intense]
     }
   },
