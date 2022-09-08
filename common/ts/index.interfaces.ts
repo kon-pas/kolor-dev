@@ -2,9 +2,8 @@ import * as TYPES from '@types';
 import * as ENUMS from '@enums';
 
 export interface Tags {
-  readonly temperature: "warm" | "cold";
   readonly mainColors: ENUMS.MainColors[];
-  readonly misc?: ENUMS.MiscTags[];
+  readonly misc: ENUMS.MiscTags[];
 }
 
 export interface GradientScheme {

@@ -15,4 +15,7 @@ export enum MainColors {
 export enum MiscTags {
   Light,
   Dark,
+  Magic,
+  Cold,
+  Warm
 }
