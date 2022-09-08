@@ -1,7 +1,16 @@
 import { GradientsJSON } from '@interfaces';
 import { v5 as idFromString } from 'uuid';
+import { MainColors, MiscTags } from '@enums';
 
 export const gradients: GradientsJSON = [
+  {
+    colors: ["#84ffc9", "#aab2ff", "#eca0ff"],
+    title: "Faerie's Dream",
+    tags: {
+      mainColors: [MainColors.green, MainColors.blue, MainColors.purple],
+      misc: [MiscTags.Cold, MiscTags.Magic, MiscTags.Intense]
+    }
+  },
   {
     colors: ["#60efff", "#00ff87"],
     title: "Morning Breeze"
@@ -37,10 +46,6 @@ export const gradients: GradientsJSON = [
   {
     colors: ["#f3f520", "#59d102"],
     title: "Freshly Cut Grass"
-  },
-  {
-    colors: ["#84ffc9", "#aab2ff", "#eca0ff"],
-    title: "Faerie's Dream"
   },
   {
     colors: ["#ebf4f5", "#b5c6e0"],

@@ -1,15 +1,15 @@
 export enum MainColors {
-  Blue,
-  Cyan,
-  Green,
-  Yellow,
-  Orange,
-  Red,
-  Purple,
-  White,
-  Gray,
-  Black,
-  Brown
+  blue,
+  cyan,
+  green,
+  yellow,
+  orange,
+  red,
+  purple,
+  white,
+  gray,
+  black,
+  brown
 }
 
 export enum MiscTags {
@@ -17,5 +17,7 @@ export enum MiscTags {
   Dark,
   Magic,
   Cold,
-  Warm
+  Warm,
+  Intense,
+  Calm
 }
