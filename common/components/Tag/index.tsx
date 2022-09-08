@@ -9,7 +9,7 @@ interface TagProps {
   onClick?: () => void;
 }
 
-const Tag: React.FC<TagProps> = ({children, type, color, onClick}) => {
+const Tag: React.FC<TagProps> = ({ children, type, color, onClick }) => {
   return (
     <div
       className={styles.tag}
