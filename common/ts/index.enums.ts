@@ -1,7 +1,7 @@
 export enum MainColors {
   Blue = '#4EB1FF',
   Cyan = '#03CEAC',
-  Green = '#5DC022',
+  Green = '#97DE40',
   Yellow = '#FFC933',
   Orange = '#FB943D',
   Red = '#EE3939',
