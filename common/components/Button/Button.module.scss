@@ -6,7 +6,8 @@
     flex items-center gap-1
     border border-gray-draw-3 rounded-lg
     hover:bg-gray-draw-1
-    xs:text-sm xs:px-2;
+    xs:text-sm xs:px-2
+    md:text-base;
 
   &__icon {
     @apply h-[0.9rem] xs:h-5;
