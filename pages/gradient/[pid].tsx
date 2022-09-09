@@ -5,6 +5,7 @@ import Gradient from '@components/Gradient';
 import Color from '@components/Color';
 import IconSVG from '@components/IconSVG';
 import Button from '@components/Button';
+import CodeSnippet from '@components/CodeSnippet';
 import { GradientScheme } from '@interfaces';
 import getCleanHex from '@utils/getCleanHex';
 import Tag from '@components/Tag';
@@ -105,6 +106,12 @@ const GradientPid: NextPage<GradientPidProps> = ({
           </div>
         )}
       </div>
+
+      <section className={styles['code-snippets']}>
+        <CodeSnippet>
+          {gradient.colors.map((color, index) => <span key={index}>{color}</span>)}
+        </CodeSnippet>
+      </section>
 
       {/* <section className={styles['actions']}>
         <header>
