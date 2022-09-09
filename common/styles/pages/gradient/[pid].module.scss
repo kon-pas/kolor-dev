@@ -23,7 +23,8 @@
     @apply
       w-full aspect-square
       border border-black/5 rounded-lg
-      mt-4 mb-2;
+      mt-4 mb-2
+      xs:aspect-auto xs:container;
   }
 
   .buttons {
@@ -64,6 +65,13 @@
         @apply w-5 h-8;
       }
     }
+  }
+
+  .code-snippets {
+    @apply
+      w-full
+      my-10
+      flex flex-col gap-4;
   }
 
   .tags {

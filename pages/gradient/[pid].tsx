@@ -81,7 +81,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
       </div>
 
       <div className={styles['colors-list']}>
-        { gradient.colors.map((color, idx, colors) =>
+        {gradient.colors.map((color, idx, colors) =>
           <div
             className={styles['colors-list__item']}
             key={idx}
@@ -108,22 +108,18 @@ const GradientPid: NextPage<GradientPidProps> = ({
       </div>
 
       <section className={styles['code-snippets']}>
-        <CodeSnippet>
+        <CodeSnippet title="CSS">
+          {gradient.colors.map((color, index) => <span key={index}>{color}</span>)}
+        </CodeSnippet>
+
+        <CodeSnippet title="CSS">
+          {gradient.colors.map((color, index) => <span key={index}>{color}</span>)}
+        </CodeSnippet>
+
+        <CodeSnippet title="CSS">
           {gradient.colors.map((color, index) => <span key={index}>{color}</span>)}
         </CodeSnippet>
       </section>
-
-      {/* <section className={styles['actions']}>
-        <header>
-          <h1>
-            Want to edit this gradient?
-          </h1>
-
-          <h1>
-            Or create a new one!
-          </h1>
-        </header>
-      </section> */}
 
       <div className={styles['tags']}>
         <div className={styles['tags__color-tags']}>
