@@ -24,7 +24,7 @@
       w-full aspect-square
       border border-black/5 rounded-lg
       mt-4 mb-2
-      xs:aspect-auto xs:container;
+      xs:aspect-auto xs:h-[360px];
   }
 
   .buttons {
@@ -45,7 +45,8 @@
     @apply
       w-full
       grid justify-items-center
-      my-10;
+      my-10
+      sm:w-[560px] sm:mx-auto;
 
     &__item {
       @apply w-full grid justify-items-center;
@@ -58,7 +59,8 @@
         @apply
           w-full h-10
           border border-black/5
-          shadow-inner;
+          shadow-inner
+          xs:h-14 xs:w-[360px] xs:mx-auto;
       }
   
       #{ $self }__arrow {
@@ -71,7 +73,8 @@
     @apply
       w-full
       my-10
-      flex flex-col gap-4;
+      grid justify-items-center gap-4
+      sm:w-[560px] sm:mx-auto;
   }
 
   .tags {
