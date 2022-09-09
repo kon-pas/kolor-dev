@@ -15,10 +15,18 @@ const Tag: React.FC<TagProps> = ({ children, type, color, onClick }) => {
       className={styles.tag}
       onClick={onClick}
     >
-      { type === 'color' && color }
+      {/* {type === 'color' &&
+        <span className={styles['tag__color-probe']}>
+          {color}
+        </span>
+      } */}
       <span className={styles.tag__label}>
-        { type === 'hash' && '#' }
-        { children }
+        {type === 'hash' &&
+          <span className={styles['tag__hash-symbol']}>
+            #
+          </span>
+        }
+        {children}
       </span>
     </div>
   )

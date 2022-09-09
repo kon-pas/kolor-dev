@@ -67,11 +67,21 @@
   }
 
   .tags {
-    @apply w-full flex flex-wrap justify-center;
+    @apply
+      w-full
+      flex flex-wrap justify-center
+      gap-1
+      xs:gap-2
+      md:gap-3;
 
     &__color-tags,
     &__hash-tags  {
-      @apply w-full flex justify-center gap-2;
+      @apply
+        w-full
+        flex justify-center
+        gap-1
+        xs:gap-2
+        md:gap-3;
     }
   }
 }
