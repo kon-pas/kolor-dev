@@ -15,14 +15,12 @@ const Tag: React.FC<TagProps> = ({ children, type, color, onClick }) => {
       className={styles.tag}
       onClick={onClick}
     >
-      {/* <span className={styles.tag__label}> */}
-        {type === 'hash' &&
-          <span className={styles['tag__hash-symbol']}>
-            #
-          </span>
-        }
-        {children}
-      {/* </span> */}
+      {type === 'hash' &&
+        <span className={styles['tag__hash-symbol']}>
+          #
+        </span>
+      }
+      {children}
     </div>
   )
 }

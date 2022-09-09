@@ -1,15 +1,16 @@
 export enum MainColors {
-  Blue = 'blue',
-  Cyan = 'cyan',
-  Green = 'green',
-  Yellow = 'yellow',
-  Orange = 'orange',
-  Red = 'red',
-  Purple = 'purple',
-  White = 'white',
-  Gray = 'gray',
-  Black = 'black',
-  Brown = 'brown'
+  Blue = '#4EB1FF',
+  Cyan = '#03CEAC',
+  Green = '#5DC022',
+  Yellow = '#FFC933',
+  Orange = '#FB943D',
+  Red = '#EE3939',
+  Purple = '#B794FF',
+  Pink = '#FF8AF0',
+  White = '#FFFFFF',
+  Gray = '#A9B4BF',
+  Black = '#000000',
+  Brown = '#513927'
 }
 
 export enum MiscTags {
