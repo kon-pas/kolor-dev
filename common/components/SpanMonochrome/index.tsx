@@ -1,7 +1,9 @@
 import getColorBrightness from '@utils/getColorBrightness';
 
+import type { HexColor } from '@types';
+
 interface SpanMonochromeProps {
-  color: string;
+  color: HexColor;
   children: React.ReactNode;
 }
 

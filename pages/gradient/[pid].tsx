@@ -123,6 +123,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
           { gradient.tags?.mainColors.map((color, idx) => 
             <Tag
               type='color'
+              color={color}
               key={idx}
             >
               {color}

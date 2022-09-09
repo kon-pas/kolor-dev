@@ -1,5 +1,7 @@
 import styles from './Tag.module.scss';
 
+import SpanMonochrome from '@components/SpanMonochrome';
+
 import type { MainColors } from '@enums';
  
 interface TagProps {
@@ -14,13 +16,21 @@ const Tag: React.FC<TagProps> = ({ children, type, color, onClick }) => {
     <div
       className={styles.tag}
       onClick={onClick}
+      style={{ 
+        ...(type === 'color' && color) && { backgroundColor: `${color}` }
+      }}
     >
       {type === 'hash' &&
         <span className={styles['tag__hash-symbol']}>
           #
         </span>
       }
-      {children}
+
+      { type === 'color' && color
+        ? <SpanMonochrome color={color}>{children}</SpanMonochrome>
+        : <span>{children}</span>
+      }
+      
     </div>
   )
 }
