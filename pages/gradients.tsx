@@ -4,7 +4,6 @@ import type { NextPage, GetStaticProps } from 'next'
 
 import GradientCard from '@components/GradientCard'
 import TextUnderline from '@components/TextUnderline';
-
 import { GradientScheme } from '@interfaces';
 
 interface GradientsProps {
