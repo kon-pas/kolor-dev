@@ -1,7 +1,7 @@
 import styles from './Tag.module.scss';
 
 import SpanMonochrome from '@components/SpanMonochrome';
-import  { MainColors } from '@enums';
+import { MainColors } from '@enums';
  
 interface TagProps {
   children?: React.ReactNode;
