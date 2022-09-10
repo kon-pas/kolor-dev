@@ -1,4 +1,5 @@
 import styles from './Footer.module.scss';
+
 import IconSVG from '@components/IconSVG';
 
 const Footer = (): JSX.Element => {

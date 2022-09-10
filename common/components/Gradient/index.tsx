@@ -1,4 +1,5 @@
 import styles from "./Gradient.module.scss";
+
 import type { GradientHue } from "@types";
 
 interface GradientProps {
