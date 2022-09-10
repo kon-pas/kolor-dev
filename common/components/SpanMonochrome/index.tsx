@@ -1,5 +1,4 @@
 import getColorBrightness from '@utils/getColorBrightness';
-
 import type { HexColor } from '@types';
 
 interface SpanMonochromeProps {
