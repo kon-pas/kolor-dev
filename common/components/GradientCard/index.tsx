@@ -7,12 +7,9 @@ import Gradient from '@components/Gradient';
 import Color from '@components/Color';
 import SpanMonochrome from '@components/SpanMonochrome';
 import Button from '@components/Button';
-
 import getCleanHex from '@utils/getCleanHex';
-
-import { GradientScheme } from '@interfaces';
+import type { GradientScheme } from '@interfaces';
 import type { GradientId } from '@types';
-
 
 interface GradientCardProps {
   gradient: GradientScheme;
