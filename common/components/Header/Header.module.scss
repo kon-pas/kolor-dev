@@ -20,17 +20,20 @@
 
     #{ $self }__title {
       @apply
-        flex items-center h-8
+        h-8
+        flex items-center
         xs:ml-4;
   
       #{ $self }__logo {
         @apply
-          w-8 h-8;
+          w-8
+          h-8;
       }
   
       #{ $self }__heading {
         @apply
-          ml-1 font-bold
+          ml-1
+          font-bold
           text-2xl
           sm:text-3xl;
       }
@@ -48,7 +51,10 @@
     @include content;
 
     @apply
-      bg-white w-full shadow-sm pb-3
+      bg-white
+      w-full
+      pb-3
+      shadow-sm
       sm:hidden;
   }
 
@@ -63,7 +69,8 @@
 
     &__item {
       @apply
-        h-12 mr-8 grid items-center text-right
+        h-12 mr-8
+        grid items-center text-right
         text-lg
         sm:inline-block sm:m-0 sm:content-center sm:h-fit sm:my-auto sm:ml-12 sm:first:ml-0;
     }
