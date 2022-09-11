@@ -2,24 +2,25 @@
   $self: &;
 
   @apply
-    h-32 w-full mt-auto
+    h-32 w-full
+    mt-auto
     bg-gray-draw-3
     flex justify-center items-center
     md:h-40;
 
   &__author {
     @apply
-      flex items-center justify-center p-6
+      p-6
+      flex items-center justify-center
       text-sm
-      xs:text-base
-      ;
+      xs:text-base;
 
     #{ $self }__heart {
       @apply
-      h-3 mx-1
-      xs:h-4
-      sm:h-[1.15rem] sm:mx-2
-      ;
+        h-3
+        mx-1
+        xs:h-4
+        sm:h-[1.15rem] sm:mx-2;
     }
   }
 }
