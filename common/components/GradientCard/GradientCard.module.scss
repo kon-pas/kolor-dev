@@ -1,7 +1,10 @@
 .card {
   $self: &;
 
-  @apply relative cursor-pointer h-40;
+  @apply
+    h-40
+    relative
+    cursor-pointer;
 
   &__colors {
     // `border` => 1px
@@ -9,7 +12,10 @@
     clip-path: inset(1px round 0.5rem 0.5rem 0 0);
 
     @apply
-      absolute top-0 flex w-full z-20
+      w-full
+      flex
+      absolute top-0
+      z-20
       transition-height-opacity duration-100 h-[25%] opacity-0;
 
     #{ $self }__color {
@@ -18,23 +24,27 @@
         transition-width duration-100;
 
       &:hover {
-        @apply w-[150%] transition-width duration-100;
+        @apply
+          w-[150%]
+          transition-width duration-100;
       }
     }
   }
 
   &:hover &__colors {
-    @apply opacity-100 h-14 md:h-16;
+    @apply
+      h-14
+      opacity-100
+      md:h-16;
   }
 
   &__gradient {
     @apply
-      absolute top-0
       w-full h-[75%]
+      absolute top-0
       border border-black/5 rounded-lg
       shadow-inner
-      hoverable:h-full hoverable:transition-height hoverable:duration-150
-      hoverable:z-10;
+      hoverable:h-full hoverable:transition-height hoverable:duration-150 hoverable:z-10;
   }
 
   &:hover &__gradient {
@@ -43,15 +53,16 @@
 
   &__desc {
     @apply
-      absolute bottom-0
       w-full h-[25%]
+      absolute bottom-0
       flex justify-between items-center
       text-xs
       xs:text-sm;
 
     #{ $self }__like-button {
       @apply
-        w-[3.25rem] px-2 py-1 box-content
+        w-[3.25rem]
+        px-2 py-1 box-content
         flex items-center gap-1
         border border-gray-draw-3 rounded-lg
         hover:bg-gray-draw-1;
