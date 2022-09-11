@@ -1,6 +1,8 @@
 @mixin content {
   @apply
-    max-w-7xl px-5 mx-auto
+    max-w-7xl
+    mx-auto
+    px-5
     md:px-6;
 }
 

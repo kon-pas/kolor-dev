@@ -1,10 +1,10 @@
 .button {
   @apply
-    text-xs
     w-fit h-5
     px-1 py-1 box-content
     flex items-center gap-1
     border border-gray-draw-3 rounded-lg
+    text-xs
     hover:bg-gray-draw-1
     xs:text-sm xs:px-2
     md:text-base;
