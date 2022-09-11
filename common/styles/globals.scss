@@ -9,7 +9,9 @@
   }
 
   body {
-    @apply min-w-[250px] font-inter;
+    @apply
+      min-w-[250px]
+      font-inter;
   }
 
   a {
