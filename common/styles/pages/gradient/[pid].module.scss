@@ -22,8 +22,8 @@
   .gradient {
     @apply
       w-full aspect-square
-      border border-black/5 rounded-lg
       mt-4 mb-2
+      border border-black/5 rounded-lg
       xs:aspect-auto xs:h-[360px];
   }
 
@@ -44,12 +44,14 @@
 
     @apply
       w-full
-      grid justify-items-center
       my-10
+      grid justify-items-center
       sm:w-[560px] sm:mx-auto;
 
     &__item {
-      @apply w-full grid justify-items-center;
+      @apply
+        w-full
+        grid justify-items-center;
 
       #{ $self }__color {
         // `border` => 1px
