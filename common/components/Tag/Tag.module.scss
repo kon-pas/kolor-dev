@@ -6,6 +6,8 @@
     flex justify-center
     py-1 px-2
     text-xs
+    cursor-pointer
+    hover:border-black/50 duration-200
     xs:text-sm
     md:text-base;
 
