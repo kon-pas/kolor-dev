@@ -8,13 +8,17 @@ interface BannerProps {
 const Banner: React.FC<BannerProps> = ({title, desc}) => {
   return (
     <div className={styles.banner}>
-      <h1>
-        {title}
-      </h1>
-      
-      <span>
-        {desc}
-      </span>
+      { title &&
+        <h1>
+          {title}
+        </h1>
+      }
+
+      { desc &&
+        <span>
+          {desc}
+        </span>
+      }
     </div>
   )
 }
