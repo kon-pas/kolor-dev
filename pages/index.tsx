@@ -18,6 +18,34 @@ const Home: NextPage = () => {
           Carefully selected
         </p>
       </div>
+
+      <div>
+        <header>
+          <h1>
+            25
+          </h1>
+          <h2>
+            Gradients
+          </h2>
+        </header>
+        <p>
+          Carefully selected
+        </p>
+      </div>
+
+      <div>
+        <header>
+          <h1>
+            25
+          </h1>
+          <h2>
+            Gradients
+          </h2>
+        </header>
+        <p>
+          Carefully selected
+        </p>
+      </div>
     </div>
   );
 };
