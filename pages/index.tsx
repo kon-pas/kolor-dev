@@ -13,10 +13,10 @@ const Home: NextPage = () => {
           <h2>
             Gradients
           </h2>
-          <p>
-            Carefully selected
-          </p>
         </header>
+        <p>
+          Carefully selected
+        </p>
       </div>
     </div>
   );
