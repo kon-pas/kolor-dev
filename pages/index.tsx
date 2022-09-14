@@ -22,10 +22,10 @@ const Home: NextPage = () => {
       <div>
         <header>
           <h1>
-            25
+            30
           </h1>
           <h2>
-            Gradients
+            Palletes
           </h2>
         </header>
         <p>
@@ -36,10 +36,10 @@ const Home: NextPage = () => {
       <div>
         <header>
           <h1>
-            25
+            35
           </h1>
           <h2>
-            Gradients
+            Colors
           </h2>
         </header>
         <p>
