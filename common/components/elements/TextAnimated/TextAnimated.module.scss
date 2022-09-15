@@ -2,11 +2,12 @@
   @apply relative;
   
   &__space-filler {
-    @apply opacity-0;
+    @apply inline-block bg-gray-draw-3 transition-height duration-1000;
+    overflow: hidden;
   }
 
   &__label {
-    @apply absolute right-0 w-full;
+    @apply absolute right-0;
   }
 
 }
