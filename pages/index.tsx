@@ -5,6 +5,7 @@ import type { NextPage } from "next";
 import MAIN_COLORS from '@constants/main-colors';
 
 import TextUnderlined from '@components/elements/TextUnderlined';
+import TextGradiented from '@components/elements/TextGradiented';
 
 const Home: NextPage = () => {
   return (
@@ -23,7 +24,15 @@ const Home: NextPage = () => {
 
           <span className={styles['header__space']}>&nbsp;</span>
 
-          <span>your work!</span>
+          <span>
+            <span>your work</span>
+
+            <TextGradiented
+              colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
+            >
+              .
+            </TextGradiented>
+          </span>
           {/* <span>with ease</span>
           <span>for free</span> */}
         </h1>
