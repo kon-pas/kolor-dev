@@ -5,13 +5,13 @@ import type { GradientHue, EightDirections } from '@types';
 interface TextGradientedProps {
   colors: GradientHue;
   children: string;
-  direction?: EightDirections;
+  to?: EightDirections;
 }
 
 const TextGradiented: React.FC<TextGradientedProps> = ({
   children: text,
   colors,
-  direction
+  to: direction
 }) => {
   return(
     <span 

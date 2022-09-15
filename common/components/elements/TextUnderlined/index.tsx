@@ -10,7 +10,7 @@ interface TextUnderlineProps {
   offset?: number;
   opacity?: number;
   colors?: GradientHue;
-  direction?: EightDirections;
+  to?: EightDirections;
 }
 
 const TextUnderline: React.FC<TextUnderlineProps> = ({
@@ -19,7 +19,7 @@ const TextUnderline: React.FC<TextUnderlineProps> = ({
   offset = 0,
   opacity = 0.75,
   colors,
-  direction
+  to: direction
 }) => {
   return (
     <>
