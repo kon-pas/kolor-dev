@@ -3,11 +3,11 @@ import styles from '@styles/pages/gradient/[pid].module.scss';
 import type { NextPage, GetServerSideProps } from 'next';
 
 import TextUnderline from '@components/TextUnderline';
-import Gradient from '@components/Gradient';
+import Gradient from '@components/elements/Gradient';
 import Color from '@components/Color';
-import IconSVG from '@components/IconSVG';
-import Button from '@components/Button';
-import CodeSnippet from '@components/CodeSnippet';
+import IconSVG from '@components/elements/IconSVG';
+import Button from '@components/elements/Button';
+import CodeSnippet from '@components/elements/CodeSnippet';
 import Tag from '@components/Tag';
 
 import getCleanHex from '@utils/getCleanHex';
