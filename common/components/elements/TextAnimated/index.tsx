@@ -29,32 +29,11 @@ const TextAnimated: React.FC<TextAnimatedProps> = ({
 
   return (
     <div className={styles['text-animated']}>
+      <div className={styles['text']}>
+        {currentLabel}
+      </div>
 
-
-      <div className={styles['text']}>{currentLabel}</div>
-
-      <div className={styles['block']}></div>
-      
-
-
-      {/* {labels.map((label, idx) =>
-        <>
-          <div
-            className={styles['text-animated__space-filler']}
-            style={{
-              ...(label === currentLabel) && {opacity: '1', height: '100px'},
-              ...(label !== currentLabel) && {opacity: '0', height: '0px'}
-            }}
-          >{label}</div>
-
-          <span
-            className={styles['text-animated__label']}
-            key={idx}
-          >
-            {currentLabel}
-          </span>
-        </>
-      )} */}
+      <div className={styles['block']} />
     </div>
   )
 }
