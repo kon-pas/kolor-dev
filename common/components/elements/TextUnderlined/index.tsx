@@ -2,7 +2,7 @@
 
 import styles from './TextUnderline.module.scss';
 
-import type { GradientHue } from '@types';
+import type { GradientHue, EightDirections } from '@types';
 
 interface TextUnderlineProps {
   children?: string;
@@ -10,6 +10,7 @@ interface TextUnderlineProps {
   offset?: number;
   opacity?: number;
   colors?: GradientHue;
+  direction?: EightDirections;
 }
 
 const TextUnderline: React.FC<TextUnderlineProps> = ({
@@ -17,7 +18,8 @@ const TextUnderline: React.FC<TextUnderlineProps> = ({
   thickness = 10,
   offset = 0,
   opacity = 0.75,
-  colors
+  colors,
+  direction
 }) => {
   return (
     <>
@@ -30,7 +32,7 @@ const TextUnderline: React.FC<TextUnderlineProps> = ({
           height: `${thickness}px`,
           bottom: `${offset * (-1)}px`,
           opacity: `${opacity}`,
-          ...colors && {backgroundImage: `linear-gradient(to right, ${colors.join(', ')})`}
+          ...colors && {backgroundImage: `linear-gradient(to ${direction ?? 'right'}, ${colors.join(', ')})`}
         }}
       ></div>
     </>
