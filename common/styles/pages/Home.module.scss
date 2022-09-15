@@ -1,8 +1,6 @@
 @import '@styles';
 
 .home-page {
-  @apply bg-black;
-
   &__content {
     @include content;
 
