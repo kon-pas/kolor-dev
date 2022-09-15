@@ -2,17 +2,30 @@ import styles from '@styles/pages/Home.module.scss';
 
 import type { NextPage } from "next";
 
+import TextGradiented from '@components/elements/TextGradiented';
+
 const Home: NextPage = () => {
   return (
     <div className={styles["home-page"]}>
 
       <header>
         <h1>
-          <strong>Kolorize</strong>your work!
-        </h1>
-        <p>
-          Free to use for everybody
-        </p>
+          <strong>
+            <TextGradiented
+              colors={['']}
+            >
+              Kolor
+            </TextGradiented>
+          </strong>
+
+          <span>&nbsp;</span>
+
+          <span>your work</span>
+          {/* <span>with ease</span>
+          <span>for free</span> */}
+
+          <span>!</span>
+        </h1>  
       </header>
 
       <div>
