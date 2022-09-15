@@ -17,22 +17,19 @@
     bg-white w-full
     ;
 
-  // height: 100%;
-
-  animation: eh 2s infinite;
+  animation: eh 4s infinite;
   animation-timing-function: linear;
-  animation-delay: 2s;
 
   @keyframes eh {
     0% {
       bottom: 0;
       height: 0%;
     }
-    25% {
+    10% {
       bottom: 0;
       height: 100%;
     }
-    50% {
+    20% {
       top: 0;
       height: 0%;
     }
