@@ -2,6 +2,8 @@ import styles from '@styles/pages/Home.module.scss';
 
 import type { NextPage } from "next";
 
+import MAIN_COLORS from '@constants/main-colors';
+
 import TextGradiented from '@components/elements/TextGradiented';
 
 const Home: NextPage = () => {
@@ -12,7 +14,7 @@ const Home: NextPage = () => {
         <h1>
           <strong>
             <TextGradiented
-              colors={['']}
+              colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
             >
               Kolor
             </TextGradiented>
