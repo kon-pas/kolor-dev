@@ -3,7 +3,7 @@ import styles from '@styles/pages/Gradients.module.scss'
 import type { NextPage, GetStaticProps } from 'next'
 
 import GradientCard from '@components/elements/GradientCard'
-import TextUnderline from '@components/elements/TextUnderline';
+import TextUnderlined from '@components/elements/TextUnderlined';
 
 import type { GradientScheme } from '@interfaces';
 
@@ -20,12 +20,12 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
         </h1>
 
         <h2 className={styles['header__heading-2']}>
-          <TextUnderline
+          <TextUnderlined
             thickness={16}
             offset={2}
           >
             Gradients
-          </TextUnderline>
+          </TextUnderlined>
         </h2>
 
         <p className={styles['header__paragraph']}>

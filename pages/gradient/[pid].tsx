@@ -2,7 +2,7 @@ import styles from '@styles/pages/gradient/[pid].module.scss';
 
 import type { NextPage, GetServerSideProps } from 'next';
 
-import TextUnderline from '@components/elements/TextUnderline';
+import TextUnderlined from '@components/elements/TextUnderlined';
 import Gradient from '@components/elements/GradientBackground';
 import Color from '@components/elements/ColorBackground';
 import IconSVG from '@components/elements/IconSVG';
@@ -26,11 +26,11 @@ const GradientPid: NextPage<GradientPidProps> = ({
     <div className={styles['gradient-pid']}>
       <header className={styles['header']}>
         <h1 className={styles['header__heading']}>
-          <TextUnderline
+          <TextUnderlined
             colors={gradient.colors}
           >
             {gradient.title}
-          </TextUnderline>
+          </TextUnderlined>
         </h1>
       </header>
 
