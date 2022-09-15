@@ -6,11 +6,23 @@
   .header {
     $self: '.header';
 
+    @apply flex justify-center;
+
     #{ $self }__heading {
       @include heading-2;
 
-      strong {
-        @apply relative;
+      @apply
+        flex flex-col
+        xs:flex-row;
+
+      #{ $self }__text-underlined {
+        @apply relative mx-auto;
+      }
+
+      #{ $self }__space {
+        @apply
+          hidden
+          xs:inline-block;
       }
     }
   }

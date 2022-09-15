@@ -11,21 +11,21 @@ const Home: NextPage = () => {
     <div className={styles["home-page"]}>
       <header className={styles['header']}>
         <h1 className={styles['header__heading']}>
-          <strong>
+          <strong className={styles['header__text-underlined']}>
             <TextUnderlined
               colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
+              thickness={12}
+              offset={-2}
             >
               Kolor
             </TextUnderlined>
           </strong>
 
-          <span>&nbsp;</span>
+          <span className={styles['header__space']}>&nbsp;</span>
 
-          <span>your work</span>
+          <span>your work!</span>
           {/* <span>with ease</span>
           <span>for free</span> */}
-
-          <span>!</span>
         </h1>
       </header>
 

@@ -28,7 +28,7 @@ const TextUnderline: React.FC<TextUnderlineProps> = ({
         className={styles['text-underline']}
         style={{ 
           height: `${thickness}px`,
-          bottom: `-${offset}px`,
+          bottom: `${offset * (-1)}px`,
           opacity: `${opacity}`,
           ...colors && {backgroundImage: `linear-gradient(to right, ${colors.join(', ')})`}
         }}
