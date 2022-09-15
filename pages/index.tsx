@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 
 import MAIN_COLORS from '@constants/main-colors';
 
-import TextGradiented from '@components/elements/TextGradiented';
+import TextUnderlined from '@components/elements/TextUnderlined';
 
 const Home: NextPage = () => {
   return (
@@ -12,11 +12,11 @@ const Home: NextPage = () => {
       <header className={styles['header']}>
         <h1 className={styles['header__heading']}>
           <strong>
-            <TextGradiented
+            <TextUnderlined
               colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
             >
               Kolor
-            </TextGradiented>
+            </TextUnderlined>
           </strong>
 
           <span>&nbsp;</span>
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
           <span>!</span>
         </h1>
       </header>
-      
+
       {/* <div>
         <header>
           <h1>

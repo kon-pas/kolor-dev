@@ -1,14 +1,16 @@
 @import '@styles';
 
 .home-page {
-  &__content {
-    @include content;
+  @include content;
 
-    .header {
-      $self: '.header';
+  .header {
+    $self: '.header';
 
-      #{ $self }__heading {
-        @apply text-lg m-0;
+    #{ $self }__heading {
+      @include heading-2;
+
+      strong {
+        @apply relative;
       }
     }
   }
