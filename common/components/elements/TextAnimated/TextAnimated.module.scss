@@ -1,7 +1,12 @@
 .text-animated {
   @apply relative;
+  
+  &__space-filler {
+    @apply opacity-0;
+  }
 
   &__label {
-    @apply absolute top-0;
+    @apply absolute right-0 w-full;
   }
+
 }
