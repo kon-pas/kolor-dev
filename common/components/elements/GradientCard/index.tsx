@@ -3,9 +3,9 @@ import styles from './GradientCard.module.scss';
 import { useRouter, NextRouter } from 'next/router';
 
 import IconSVG from '@components/elements/IconSVG';
-import Gradient from '@components/elements/Gradient';
-import Color from '@components/Color';
-import SpanMonochrome from '@components/SpanMonochrome';
+import Gradient from '@components/elements/GradientBackground';
+import Color from '@components/elements/ColorBackground';
+import SpanMonochrome from '@components/elements/SpanMonochrome';
 import Button from '@components/elements/Button';
 
 import getCleanHex from '@utils/getCleanHex';

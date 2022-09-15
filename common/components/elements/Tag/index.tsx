@@ -1,6 +1,6 @@
 import styles from './Tag.module.scss';
 
-import SpanMonochrome from '@components/SpanMonochrome';
+import SpanMonochrome from '@components/elements/SpanMonochrome';
 import { MainColors } from '@enums';
  
 interface TagProps {
