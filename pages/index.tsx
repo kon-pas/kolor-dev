@@ -6,8 +6,15 @@ const Home: NextPage = () => {
   return (
     <div className={styles["home-page"]}>
 
+      <header>
+        <h1>
+          <strong>Kolorize</strong>your work!
+        </h1>
+        <p>
+          Free to use for everybody
+        </p>
+      </header>
 
-      
       <div>
         <header>
           <h1>
