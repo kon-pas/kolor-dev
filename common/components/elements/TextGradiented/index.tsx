@@ -5,6 +5,7 @@ import type { GradientHue } from '@types';
 interface TextGradientedProps {
   colors: GradientHue;
   children: string;
+  direction?: string;
 }
 
 const TextGradiented: React.FC<TextGradientedProps> = ({ children: text, colors }) => {
