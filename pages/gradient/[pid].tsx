@@ -23,7 +23,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
   gradient
 }) => {
   return (
-    <section className={styles['gradient-id']}>
+    <section className={styles['gradient-pid']}>
       <header className={styles['header']}>
         <h1 className={styles['header__heading']}>
           <TextUnderline
