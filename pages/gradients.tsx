@@ -13,7 +13,7 @@ interface GradientsProps {
 
 const Gradients: NextPage<GradientsProps> = ({gradients}) => {
   return (
-    <section className={styles['gradients-page']}>
+    <div className={styles['gradients-page']}>
       <header className={styles['header']}>
         <h1 className={styles['header__heading-1']}>
           {Object.keys(gradients).length}
@@ -62,7 +62,7 @@ const Gradients: NextPage<GradientsProps> = ({gradients}) => {
           />
         )}
       </div>
-    </section>
+    </div>
   )
 }
 
