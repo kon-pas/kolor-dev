@@ -18,17 +18,26 @@ const TextAnimated: React.FC<TextAnimatedProps> = ({
   }, [labelIndex, labels]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setLabelIndex(e => (e + 1) % labels.length)
-    }, 3000);
+    let interval: any;
+    setTimeout(() => {
+      interval = setInterval(() => {
+        setLabelIndex(e => (e + 1) % labels.length)
+      }, 2000);
+    }, 500)
     return () => clearInterval(interval);
   }, [labels]);
 
   return (
-    <span className={styles['text-animated']}>
+    <div className={styles['text-animated']}>
 
 
-      {labels.map((label, idx) =>
+      <div className={styles['text']}>{currentLabel}</div>
+
+      <div className={styles['block']}></div>
+      
+
+
+      {/* {labels.map((label, idx) =>
         <>
           <div
             className={styles['text-animated__space-filler']}
@@ -38,15 +47,15 @@ const TextAnimated: React.FC<TextAnimatedProps> = ({
             }}
           >{label}</div>
 
-          {/* <span
+          <span
             className={styles['text-animated__label']}
             key={idx}
           >
             {currentLabel}
-          </span> */}
+          </span>
         </>
-      )}
-    </span>
+      )} */}
+    </div>
   )
 }
 

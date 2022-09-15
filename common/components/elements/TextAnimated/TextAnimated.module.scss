@@ -1,13 +1,50 @@
 .text-animated {
-  @apply relative;
+  @apply relative text-5xl w-[500px] h-[100px];
   
-  &__space-filler {
-    @apply inline-block bg-gray-draw-3 transition-height duration-1000;
-    overflow: hidden;
-  }
+  // &__space-filler {
+  //   @apply inline-block bg-gray-draw-3 transition-height duration-1000;
+  //   overflow: hidden;
+  // }
 
-  &__label {
-    @apply absolute right-0;
-  }
+  // &__label {
+  //   @apply absolute right-0;
+  // }
+}
 
+.block {
+  @apply
+    absolute
+    bg-white w-full
+    ;
+
+  // height: 100%;
+
+  animation: eh 2s infinite;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+
+  @keyframes eh {
+    0% {
+      bottom: 0;
+      height: 0%;
+    }
+    25% {
+      bottom: 0;
+      height: 100%;
+    }
+    50% {
+      top: 0;
+      height: 0%;
+    }
+    100% {
+      top: 0;
+      height: 0%;
+    }
+  }
+}
+
+.text {
+  @apply
+    absolute;
+  line-height: 4rem;
 }
