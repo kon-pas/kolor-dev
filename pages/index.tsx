@@ -29,6 +29,7 @@ const Home: NextPage = () => {
 
             <TextGradiented
               colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
+              to='top left'
             >
               .
             </TextGradiented>
