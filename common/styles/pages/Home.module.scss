@@ -1,5 +1,17 @@
 @import '@styles';
 
 .home-page {
-  @include content;
+  @apply bg-black;
+
+  &__content {
+    @include content;
+
+    .header {
+      $self: '.header';
+
+      #{ $self }__heading {
+        @apply text-lg m-0;
+      }
+    }
+  }
 }
