@@ -6,6 +6,7 @@ import MAIN_COLORS from '@constants/main-colors';
 
 import TextUnderlined from '@components/elements/TextUnderlined';
 import TextGradiented from '@components/elements/TextGradiented';
+import TextAnimated from '@components/elements/TextAnimated';
 
 const Home: NextPage = () => {
   return (
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
           <span className={styles['header__space']}>&nbsp;</span>
 
           <span>
-            <span>your work</span>
+            <TextAnimated labels={['your work', 'with ease', 'for free']} />
 
             <TextGradiented
               colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}

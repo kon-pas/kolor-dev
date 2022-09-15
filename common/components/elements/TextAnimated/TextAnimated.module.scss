@@ -1,0 +1,7 @@
+.text-animated {
+  @apply relative;
+
+  &__label {
+    @apply absolute top-0;
+  }
+}
