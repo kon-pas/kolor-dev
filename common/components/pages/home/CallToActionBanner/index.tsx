@@ -11,7 +11,18 @@ const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
   subtitle
 }) => {
   return (
-    <>
-    </>
+    <div>
+      <header>
+        <h1>
+          30
+        </h1>
+        <h2>
+          Palletes
+        </h2>
+      </header>
+      <p>
+        Carefully selected
+      </p>
+    </div>
   )
 }
