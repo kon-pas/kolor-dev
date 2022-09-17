@@ -36,51 +36,9 @@ const Home: NextPage = () => {
               .
             </TextGradiented>
           </span>
-          {/* <span>with ease</span>
-          <span>for free</span> */}
         </h1>
       </header>
 
-
-      {/* <div>
-        <header>
-          <h1>
-            25
-          </h1>
-          <h2>
-            Gradients
-          </h2>
-        </header>
-        <p>
-          Carefully selected
-        </p>
-      </div>
-      <div>
-        <header>
-          <h1>
-            30
-          </h1>
-          <h2>
-            Palletes
-          </h2>
-        </header>
-        <p>
-          Carefully selected
-        </p>
-      </div>
-      <div>
-        <header>
-          <h1>
-            35
-          </h1>
-          <h2>
-            Colors
-          </h2>
-        </header>
-        <p>
-          Carefully selected
-        </p>
-      </div> */}
     </div>
   );
 };
