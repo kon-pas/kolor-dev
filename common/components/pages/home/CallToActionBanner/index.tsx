@@ -11,7 +11,7 @@ const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
   subtitle
 }) => {
   return (
-    <div className={styles['call-to-action-banner']}>
+    <article className={styles['call-to-action-banner']}>
       <header className={styles['call-to-action-banner__header']}>
         <h1 className={styles['call-to-action-banner__heading-1']}>
           30
@@ -23,6 +23,6 @@ const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
       <p className={styles['call-to-action-banner__paragraph']}>
         Carefully selected
       </p>
-    </div>
+    </article>
   )
 }
