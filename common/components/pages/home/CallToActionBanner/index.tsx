@@ -9,7 +9,8 @@ interface CallToActionBannerProps {
 
 const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
   title,
-  subtitle
+  subtitle,
+  desc
 }) => {
   return (
     <article className={styles['call-to-action-banner']}>
@@ -22,7 +23,7 @@ const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
         </h2>
       </header>
       <p className={styles['call-to-action-banner__paragraph']}>
-        Carefully selected
+        {desc}
       </p>
     </article>
   )
