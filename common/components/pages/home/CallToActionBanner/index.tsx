@@ -26,3 +26,5 @@ const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
     </article>
   )
 }
+
+export default CallToActionBanner;

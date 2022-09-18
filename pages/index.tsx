@@ -7,6 +7,7 @@ import MAIN_COLORS from '@constants/main-colors';
 import TextUnderlined from '@components/elements/TextUnderlined';
 import TextGradiented from '@components/elements/TextGradiented';
 import TextAnimated from '@components/elements/TextAnimated';
+import CallToActionBanner from '@components/pages/home/CallToActionBanner';
 
 const Home: NextPage = () => {
   return (
