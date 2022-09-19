@@ -14,27 +14,30 @@
       absolute
       w-full
       bg-white;
-  
-    animation: eh 4s infinite;
-    animation-timing-function: linear;
-    animation-delay: 2s;
-  
-    @keyframes eh {
-      0% {
-        bottom: 0;
-        height: 0%;
+
+      animation-name: roll;
+      animation-duration: 4s;
+      animation-delay: 2s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+
+      @keyframes roll {
+        0% {
+          bottom: 0;
+          height: 0%;
+        }
+        8%,
+        12% {
+          bottom: 0;
+          height: 100%;
+        }
+        20%,
+        100% {
+          top: 0;
+          height: 0%;
+        }
       }
-      8%,
-      12% {
-        bottom: 0;
-        height: 100%;
-      }
-      20%,
-      100% {
-        top: 0;
-        height: 0%;
-      }
-    }
+
   }
 }
 

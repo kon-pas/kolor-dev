@@ -45,11 +45,11 @@ const TextAnimated: React.FC<TextAnimatedProps> = ({
 
   return (
     <div className={styles['text-animated']}>
-      <div className={styles['text']}>
+      <div className={styles['text-animated__text']}>
         {currentLabel}
       </div>
 
-      <div className={styles['block']} />
+      <div className={styles['text-animated__block']} />
     </div>
   )
 }
