@@ -2,7 +2,7 @@
 
 import styles from './TextAnimated.module.scss';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface TextAnimatedProps {
   labels: string[];
@@ -15,29 +15,38 @@ const TextAnimated: React.FC<TextAnimatedProps> = ({
   const [labelIndex, setLabelIndex] = useState(0);
   const [currentLabel, setCurrentLabel] = useState(labels[0]);
 
+  const requestRef = useRef<number>();
+
+  const animate = (): void  => {
+    setLabelIndex(e => e + 1);
+    setTimeout(() => {
+      requestRef.current = requestAnimationFrame(animate);
+    }, 4000);
+  }
+
+  // setTimeout(() => animate(), 2400);
+
   useEffect(() => {
     setCurrentLabel(labels[labelIndex % labels.length])
   }, [labelIndex, labels]);
 
   useEffect(() => {
-    function animate() {
-      setLabelIndex(e => e + 1);
-      setTimeout(function () {
-          requestAnimationFrame(animate)
-      }, 4000);
-    }
-    setTimeout(() => animate(), 2400);
-
-    // let interval: NodeJS.Timer;
-
-    // interval = setInterval(() => {
-    //   setTimeout(() => {
-    //     setLabelIndex(e => e + 1);
-    //   }, 400);
-    // }, 4000);
-
-    // return () => clearInterval(interval);
+    setTimeout(() => {
+      requestRef.current = requestAnimationFrame(animate);
+    }, 2400);
+    // requestRef.current = requestAnimationFrame(animate);
+    // return () => cancelAnimationFrame(requestRef.current);
   }, []);
+
+  // useEffect(() => {
+    // const animate = (): void  => {
+    //   setLabelIndex(e => e + 1);
+    //   setTimeout(() => {
+    //     requestRef.current = requestAnimationFrame(animate);
+    //   }, 4000);
+    // }
+    // setTimeout(() => animate(), 2400);
+  // }, []);
 
   return (
     <div className={styles['text-animated']}>
