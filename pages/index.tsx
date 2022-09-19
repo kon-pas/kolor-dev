@@ -19,7 +19,7 @@ const Home: NextPage = () => {
             <TextUnderlined
               colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
               thickness={12}
-              offset={-10}
+              offset={-5}
             >
               Kolor
             </TextUnderlined>
@@ -37,16 +37,17 @@ const Home: NextPage = () => {
 
           <div className={styles['header__animated-text']}>
             <TextAnimated labels={['your work', 'with ease', 'for free']} />
+
+            <span className={styles['header__dot']}>
+              <TextGradiented
+                colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
+                to='top left'
+              >
+                .
+              </TextGradiented>
+            </span>
           </div>
 
-          <span className={styles['header__dot']}>
-            <TextGradiented
-              colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
-              to='top left'
-            >
-              .
-            </TextGradiented>
-          </span>
         </h1>
       </header>
 
