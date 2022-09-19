@@ -6,7 +6,9 @@
   .header {
     $self: '.header';
 
-    @apply flex justify-center;
+    @apply
+      flex justify-center
+      xs:absolute xs:left-0 xs:w-full;
 
     #{ $self }__heading {
       @include heading-2;
@@ -16,24 +18,29 @@
 
       @apply
         flex flex-col
-        xs:flex-row;
+        xs:w-full;
 
       #{ $self }__text-underlined {
-        @apply relative mx-auto;
+        @apply
+          relative mx-auto
+          xs:hidden;
+
+          &--desktop {
+            @apply w-full;
+
+            &__line {
+              @apply h-2;
+            }
+          }
       }
 
-      #{ $self }__space {
-        @apply
-          hidden
-          xs:inline-block;
-      }
 
       #{ $self }__animated-text {
-        @apply text-justify;
+        @apply text-justify -mt-2;
       }
 
       #{ $self }__dot {
-        @apply hidden;
+        @apply hidden xs:block;
       }
     }
   }

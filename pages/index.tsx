@@ -7,6 +7,7 @@ import MAIN_COLORS from '@constants/main-colors';
 import TextUnderlined from '@components/elements/TextUnderlined';
 import TextGradiented from '@components/elements/TextGradiented';
 import TextAnimated from '@components/elements/TextAnimated';
+import GradientBackground from '@components/elements/GradientBackground';
 import CallToActionBanner from '@components/pages/home/CallToActionBanner';
 
 const Home: NextPage = () => {
@@ -22,6 +23,13 @@ const Home: NextPage = () => {
             >
               Kolor
             </TextUnderlined>
+          </strong>
+
+          <strong className={styles['header__text-underlined--desktop']}>
+            Kolor
+            <div className={styles['header__text-underlined--desktop__line']}>
+              <GradientBackground colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}/>
+            </div>
           </strong>
 
           <div className={styles['header__animated-text']}>
