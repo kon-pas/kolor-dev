@@ -26,21 +26,39 @@
           xs:hidden;
 
           &--desktop {
-            @apply w-full;
+            @apply
+               w-full
+               relative
+               hidden
+               xs:block;
+
+            &__text {
+              @apply
+                relative left-1/4 z-10;
+            }
 
             &__line {
-              @apply h-2;
+              @apply h-4 w-full absolute bottom-3;
             }
           }
       }
 
 
       #{ $self }__animated-text {
-        @apply text-justify -mt-2;
+        @apply
+          text-justify
+          -mt-2
+          xs:w-full
+          xs:text-right
+          xs:relative
+          xs:right-1/4;
       }
 
       #{ $self }__dot {
-        @apply hidden xs:block;
+        @apply
+          hidden
+          xs:block
+;
       }
     }
   }

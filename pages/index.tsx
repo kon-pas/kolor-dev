@@ -26,7 +26,10 @@ const Home: NextPage = () => {
           </strong>
 
           <strong className={styles['header__text-underlined--desktop']}>
-            Kolor
+            <span className={styles['header__text-underlined--desktop__text']}>
+              Kolor
+            </span>
+
             <div className={styles['header__text-underlined--desktop__line']}>
               <GradientBackground colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}/>
             </div>
