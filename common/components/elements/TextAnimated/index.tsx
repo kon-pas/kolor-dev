@@ -11,8 +11,8 @@ interface TextAnimatedProps {
 const TextAnimated: React.FC<TextAnimatedProps> = ({
   labels
 }) => {
-  
   const [labelIndex, setLabelIndex] = useState(0);
+
   const [currentLabel, setCurrentLabel] = useState(labels[0]);
 
   const requestRef = useRef<number>();
@@ -37,6 +37,7 @@ const TextAnimated: React.FC<TextAnimatedProps> = ({
   useEffect((): void => {
     setCurrentLabel(labels[labelIndex % labels.length])
   }, [labelIndex, labels]);
+  
   return (
     <div className={styles['text-animated']}>
       <div className={styles['text']}>
