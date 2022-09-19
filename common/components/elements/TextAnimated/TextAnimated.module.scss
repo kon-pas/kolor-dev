@@ -1,6 +1,7 @@
 .text-animated {
   @apply
-    relative w-full h-full;
+    relative
+    w-full h-full;
 
   &__text {
     @apply
@@ -15,29 +16,28 @@
       w-full
       bg-white;
 
-      animation-name: roll;
-      animation-duration: 4s;
-      animation-delay: 2s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
+    animation-name: roll;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 
-      @keyframes roll {
-        0% {
-          bottom: 0;
-          height: 0%;
-        }
-        8%,
-        12% {
-          bottom: 0;
-          height: 100%;
-        }
-        20%,
-        100% {
-          top: 0;
-          height: 0%;
-        }
+    @keyframes roll {
+      0% {
+        bottom: 0;
+        height: 0%;
       }
-
+      8%,
+      12% {
+        bottom: 0;
+        height: 100%;
+      }
+      20%,
+      100% {
+        top: 0;
+        height: 0%;
+      }
+    }
   }
 }
 
