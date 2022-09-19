@@ -24,13 +24,11 @@ const Home: NextPage = () => {
             </TextUnderlined>
           </strong>
 
-          <span className={styles['header__space']}>&nbsp;</span>
-
           <div className={styles['header__animated-text']}>
             <TextAnimated labels={['your work', 'with ease', 'for free']} />
           </div>
 
-          <span>
+          <span className={styles['header__dot']}>
             <TextGradiented
               colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
               to='top left'

@@ -29,7 +29,11 @@
       }
 
       #{ $self }__animated-text {
-        @apply min-w-[300px] text-justify mt-10;
+        @apply text-justify;
+      }
+
+      #{ $self }__dot {
+        @apply hidden;
       }
     }
   }
