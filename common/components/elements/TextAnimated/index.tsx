@@ -18,12 +18,11 @@ const TextAnimated: React.FC<TextAnimatedProps> = ({
   const requestRef = useRef<number>();
 
   const animate = useCallback((): void => {
-      setLabelIndex(e => e + 1);
-      setTimeout((): void => {
-        requestRef.current = requestAnimationFrame(animate);
-      }, 4000);
-    }
-  , []);
+    setLabelIndex(e => e + 1);
+    setTimeout((): void => {
+      requestRef.current = requestAnimationFrame(animate);
+    }, 4000);
+  }, []);
 
   useEffect((): { (): void } => {
     setTimeout((): void => {
