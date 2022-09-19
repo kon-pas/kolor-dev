@@ -14,12 +14,12 @@
 .block {
   @apply
     absolute
-    bg-white w-full
-    ;
+    w-full
+    bg-white;
 
   animation: eh 4s infinite;
   animation-timing-function: linear;
-  animation-delay: 4s;
+  animation-delay: 2s;
 
   @keyframes eh {
     0% {
@@ -30,14 +30,14 @@
       bottom: 0;
       height: 100%;
     }
-    20% {
+    20%, 100% {
       top: 0;
       height: 0%;
     }
-    100% {
-      top: 0;
-      height: 0%;
-    }
+    // 100% {
+    //   top: 0;
+    //   height: 0%;
+    // }
   }
 }
 

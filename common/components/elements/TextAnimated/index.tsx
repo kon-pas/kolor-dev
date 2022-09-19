@@ -20,16 +20,24 @@ const TextAnimated: React.FC<TextAnimatedProps> = ({
   }, [labelIndex, labels]);
 
   useEffect(() => {
-    let interval: NodeJS.Timer;
+    function animate() {
+      setLabelIndex(e => e + 1);
+      setTimeout(function () {
+          requestAnimationFrame(animate)
+      }, 4000);
+    }
+    setTimeout(() => animate(), 2400);
 
-    interval = setInterval(() => {
-      setTimeout(() => {
-        setLabelIndex(e => e + 1);
-      }, 400);
-    }, 4000);
+    // let interval: NodeJS.Timer;
 
-    return () => clearInterval(interval);
-  }, [labels]);
+    // interval = setInterval(() => {
+    //   setTimeout(() => {
+    //     setLabelIndex(e => e + 1);
+    //   }, 400);
+    // }, 4000);
+
+    // return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className={styles['text-animated']}>
