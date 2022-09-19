@@ -1,4 +1,4 @@
-import styles from '@styles/pages/Gradients.module.scss'
+import styles from '@styles/pages/gradients.module.scss'
 
 import type { NextPage, GetStaticProps } from 'next'
 
