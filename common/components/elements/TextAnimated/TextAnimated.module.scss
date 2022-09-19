@@ -1,14 +1,12 @@
 .text-animated {
-  @apply relative text-5xl w-[500px] h-[100px];
-  
-  // &__space-filler {
-  //   @apply inline-block bg-gray-draw-3 transition-height duration-1000;
-  //   overflow: hidden;
-  // }
+  @apply
+    relative w-full h-full;
+}
 
-  // &__label {
-  //   @apply absolute right-0;
-  // }
+.text {
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .block {
@@ -26,23 +24,15 @@
       bottom: 0;
       height: 0%;
     }
-    10% {
+    8%,
+    12% {
       bottom: 0;
       height: 100%;
     }
-    20%, 100% {
+    20%,
+    100% {
       top: 0;
       height: 0%;
     }
-    // 100% {
-    //   top: 0;
-    //   height: 0%;
-    // }
   }
-}
-
-.text {
-  @apply
-    absolute;
-  line-height: 4rem;
 }

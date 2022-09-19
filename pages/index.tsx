@@ -27,8 +27,7 @@ const Home: NextPage = () => {
           <span className={styles['header__space']}>&nbsp;</span>
 
           <span>
-            {/* <span>placeholder</span> */}
-            <TextAnimated labels={['your work', 'with ease', 'for free']} />
+            <span>placeholder</span>
 
             <TextGradiented
               colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
@@ -39,6 +38,11 @@ const Home: NextPage = () => {
           </span>
         </h1>
       </header>
+
+      <div className={styles['test']}>
+        <TextAnimated labels={['your work', 'with ease', 'for free']} />
+      </div>
+
 
     </div>
   );
