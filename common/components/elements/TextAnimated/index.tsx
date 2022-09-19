@@ -2,7 +2,12 @@
 
 import styles from './TextAnimated.module.scss';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback
+} from 'react';
 
 interface TextAnimatedProps {
   labels: string[];
