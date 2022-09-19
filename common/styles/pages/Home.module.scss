@@ -8,7 +8,9 @@
 
     @apply
       flex justify-center
-      xs:absolute xs:left-0 xs:w-full;
+      xs:absolute
+      xs:left-0
+      xs:w-full;
 
     #{ $self }__heading {
       @include heading-2;
@@ -34,11 +36,16 @@
 
             &__text {
               @apply
-                relative left-1/4 z-10;
+                relative
+                left-1/4
+                z-10;
             }
 
             &__line {
-              @apply h-4 w-full absolute bottom-3;
+              @apply
+                h-4 w-full
+                absolute
+                bottom-3;
             }
           }
       }
