@@ -37,11 +37,14 @@ const Home: NextPage = () => {
         </header>
 
         <div className={styles['hero-section__hero-image-wrapper']}>
-          {/* <Image
+          <Image
             src='/assets/images/hero_page_phone.jpg'
             alt='Phone mockup'
-            layout='fill'
-          /> */}
+            width='100%'
+            height='100%'
+            layout='responsive'
+            objectFit='contain'
+          />
         </div>
       </section>
 

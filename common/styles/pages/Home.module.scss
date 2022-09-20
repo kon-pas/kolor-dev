@@ -5,8 +5,36 @@
   .hero-section {
     $self: '.hero-section';
 
+    #{ $self }__header {
+      // @apply w-full;
+
+      #{ $self }__heading {
+        @apply
+          w-fit mx-auto
+          flex items-center flex-col
+          font-satoshi
+          font-bold
+          text-4xl
+        ;
+
+        #{ $self }__strong {
+          @apply m-0;
+        }
+
+        #{ $self }__text-animated {
+          @apply m-0;
+        }
+
+        #{ $self }__dot {
+          @apply
+            hidden
+          ;
+        }
+      }
+    }
+
     #{ $self }__hero-image-wrapper {
-      @apply w-10 h-10 bg-black;
+      @apply w-3/4;
     }
   }
 
