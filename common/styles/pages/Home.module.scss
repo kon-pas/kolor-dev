@@ -42,8 +42,7 @@
                 left-[30%]
                 z-30
                 -bottom-2
-                md:left-1/2
-                md:translate-x-1/2;
+                md:left-[35%];
             }
 
             &__line {
@@ -67,7 +66,8 @@
           xs:text-right
           xs:relative
           xs:right-[30%]
-          xs:flex;
+          xs:flex
+          md:right-[35%];
       }
 
       #{ $self }__dot {
