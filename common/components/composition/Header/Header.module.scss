@@ -26,16 +26,17 @@
   
       #{ $self }__logo {
         @apply
-          w-8
-          h-8;
+          w-6
+          h-[1.85rem]
+          sm:w-7;
       }
   
       #{ $self }__heading {
         @apply
           ml-1
           font-bold
-          text-2xl
-          sm:text-3xl;
+          text-xl
+          sm:text-2xl;
       }
     }
   
