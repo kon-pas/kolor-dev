@@ -4,7 +4,9 @@
   @apply
     h-40
     relative
-    cursor-pointer;
+    cursor-pointer
+    rounded-lg
+    overflow-hidden;
 
   &__colors {
     // `border` => 1px
