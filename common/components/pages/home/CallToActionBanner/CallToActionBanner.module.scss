@@ -3,20 +3,31 @@
 
   @apply
     w-full h-full
-    p-2
+    p-4
     bg-gray-draw-3
     rounded-md
-    border
-    border-gray-font/20
-    aspect-video;
+    aspect-video
+    sm:p-6
+    md:p-4;
 
   &__header {
-    #{ $self }__heading-1 {
-      @apply m-0;
+    #{ $self }__heading {
+      @apply
+        font-satoshi
+        text-3xl
+        xs:text-4xl
+        sm:text-5xl
+        md:text-6xl;
     }
   }
 
-  #{ $self }__paragraph {
-    @apply m-0;
+  &__desc {
+    @apply
+      max-w-[70%]
+      text-gray-font
+      text-base
+      xs:text-lg
+      sm:text-xl
+      md:text-2xl;
   }
 }
