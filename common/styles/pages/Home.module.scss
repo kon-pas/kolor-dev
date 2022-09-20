@@ -82,15 +82,16 @@
 
     @apply
       w-full
-      mt-12
+      my-20
       grid
+      container
       gap-5
       justify-items-center
       md:grid-cols-2
       md:gap-6;
 
     #{ $self }__action {
-      @apply w-full container;
+      @apply w-full;
     }
   }
 }

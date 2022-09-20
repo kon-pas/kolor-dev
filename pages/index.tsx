@@ -58,8 +58,26 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles['actions__action']}>
-          <CallToActionBanner desc='dsa'>
-            desc
+          <CallToActionBanner desc='Work in Progress'>
+            Gradient Generator
+          </CallToActionBanner>
+        </div>
+
+        <div className={styles['actions__action']}>
+          <CallToActionBanner desc='Work in Progress'>
+            Color Palettes
+          </CallToActionBanner>
+        </div>
+
+        <div className={styles['actions__action']}>
+          <CallToActionBanner desc='Work in Progress'>
+            Palette Generator
+          </CallToActionBanner>
+        </div>
+
+        <div className={styles['actions__action']}>
+          <CallToActionBanner desc='Work in Progress'>
+            Color Finder
           </CallToActionBanner>
         </div>
       </div>

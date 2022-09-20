@@ -14,20 +14,20 @@
     #{ $self }__heading {
       @apply
         font-satoshi
-        text-3xl
-        xs:text-4xl
-        sm:text-5xl
-        md:text-6xl;
+        text-xl
+        xs:text-2xl
+        sm:text-3xl
+        md:text-4xl;
     }
   }
 
   &__desc {
     @apply
-      max-w-[70%]
+      max-w-[65%]
       text-gray-font
-      text-base
-      xs:text-lg
-      sm:text-xl
-      md:text-2xl;
+      text-sm
+      xs:text-base
+      sm:text-lg
+      md:text-xl;
   }
 }
