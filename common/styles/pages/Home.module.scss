@@ -39,15 +39,21 @@
             &__text {
               @apply
                 relative
-                left-[20%]
-                z-20;
+                left-[30%]
+                z-30
+                -bottom-2
+                md:left-1/2
+                md:translate-x-1/2;
             }
 
             &__line {
               @apply
-                h-4 w-full
+                h-2 w-full
                 absolute
-                bottom-3;
+                z-20
+                bottom-0
+                sm:h-3
+                md:h-4;
             }
           }
       }
@@ -60,7 +66,7 @@
           xs:w-full
           xs:text-right
           xs:relative
-          xs:right-[20%]
+          xs:right-[30%]
           xs:flex;
       }
 
