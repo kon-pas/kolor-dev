@@ -46,11 +46,17 @@
       absolute top-0
       border border-black/5 rounded-lg
       shadow-inner
-      hoverable:h-full hoverable:transition-height hoverable:duration-150 hoverable:z-10;
+      hoverable:h-full
+      hoverable:transition-height
+      hoverable:duration-150
+      hoverable:z-10;
   }
 
   &:hover &__gradient {
-    @apply hoverable:h-[75%] transition-height duration-100;
+    @apply
+      hoverable:h-[75%]
+      transition-height
+      duration-100;
   }
 
   &__desc {
