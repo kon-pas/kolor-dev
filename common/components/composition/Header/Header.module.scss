@@ -27,7 +27,8 @@
       #{ $self }__logo {
         @apply
           w-6
-          h-[1.85rem]
+          h-[1.6rem]
+          sm:h-[1.85rem]
           sm:w-7;
       }
   
