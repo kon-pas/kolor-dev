@@ -1,7 +1,6 @@
 @import '@styles';
 
 .home-page {
-
   .hero-section {
     $self: '.hero-section';
 
@@ -38,6 +37,15 @@
     #{ $self }__hero-image-wrapper {
       @apply w-3/4 mx-auto relative bottom-8 -z-10;
     }
+  }
+
+  &__call-to-action-button {
+    @apply
+      w-6
+      mx-auto
+      p-4
+      box-content
+      animate-bounce;
   }
 
 

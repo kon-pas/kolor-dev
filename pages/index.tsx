@@ -9,6 +9,7 @@ import TextUnderlined from '@components/elements/TextUnderlined';
 import TextGradiented from '@components/elements/TextGradiented';
 import TextAnimated from '@components/elements/TextAnimated';
 import GradientBackground from '@components/elements/GradientBackground';
+import IconSVG from '@components/elements/IconSVG';
 import CallToActionBanner from '@components/pages/home/CallToActionBanner';
 
 const Home: NextPage = () => {
@@ -49,7 +50,13 @@ const Home: NextPage = () => {
       </section>
 
       <div className={styles['home-page__call-to-action-button']}>
-        
+        <IconSVG>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+          />
+        </IconSVG>
       </div>
 
 
