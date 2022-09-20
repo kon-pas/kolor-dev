@@ -4,10 +4,11 @@
   @apply
     w-full h-full
     p-2
-    bg-gray-draw-1
+    bg-gray-draw-3
     rounded-md
     border
-    border-black;
+    border-gray-font/20
+    aspect-video;
 
   &__header {
     #{ $self }__heading-1 {

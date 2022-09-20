@@ -51,13 +51,17 @@ const Home: NextPage = () => {
       </header>
 
       <div className={styles['actions']}>
-        <CallToActionBanner desc='dsa'>
-          desc
-        </CallToActionBanner>
-        
-        <CallToActionBanner desc='dsa'>
-          desc
-        </CallToActionBanner>
+        <div className={styles['actions__action']}>
+          <CallToActionBanner desc='Carefully selected for Artists, Designers & Developers'>
+            <b>25</b> Gradients
+          </CallToActionBanner>
+        </div>
+
+        <div className={styles['actions__action']}>
+          <CallToActionBanner desc='dsa'>
+            desc
+          </CallToActionBanner>
+        </div>
       </div>
 
     </div>
