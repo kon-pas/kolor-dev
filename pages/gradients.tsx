@@ -2,7 +2,7 @@ import styles from '@styles/pages/gradients.module.scss'
 
 import type { NextPage, GetStaticProps } from 'next'
 
-import GradientCard from '@components/elements/GradientCard'
+import GradientCard from '@components/pages/gradients/GradientCard'
 import TextUnderlined from '@components/elements/TextUnderlined';
 
 import type { GradientScheme } from '@interfaces';
