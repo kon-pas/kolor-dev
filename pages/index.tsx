@@ -1,5 +1,6 @@
 import styles from '@styles/pages/home.module.scss';
 
+import Image from "next/image";
 import type { NextPage } from "next";
 
 import MAIN_COLORS from '@constants/main-colors';
@@ -12,8 +13,43 @@ import CallToActionBanner from '@components/pages/home/CallToActionBanner';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles["home-page"]}>
-      <header className={styles['header']}>
+    <div className={styles['home-page']}>
+      <section className={styles['hero-section']}>
+        <header className={styles['hero-section__header']}>
+          <h1 className={styles['hero-section__heading']}>
+            <strong className={styles['hero-section__strong']}>
+              Kolor
+            </strong>
+
+            <span className={styles['hero-section__text-animated']}>
+              <TextAnimated labels={['your work', 'with ease', 'for free']} />
+            </span>
+
+            <span className={styles['hero-section__dot']}>
+              <TextGradiented
+                colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
+                to='top left'
+              >
+                .
+              </TextGradiented>
+            </span>
+          </h1>
+        </header>
+
+        <div className={styles['hero-section__hero-image-wrapper']}>
+          {/* <Image
+            src='/assets/images/hero_page_phone.jpg'
+            alt='Phone mockup'
+            layout='fill'
+          /> */}
+        </div>
+      </section>
+
+
+
+
+
+      {/* <header className={styles['header']}>
         <h1 className={styles['header__heading']}>
           <strong className={styles['header__text-underlined']}>
             <TextUnderlined
@@ -48,7 +84,7 @@ const Home: NextPage = () => {
             </span>
           </div>
         </h1>
-      </header>
+      </header> */}
 
       <div className={styles['actions']}>
         <div className={styles['actions__action']}>
