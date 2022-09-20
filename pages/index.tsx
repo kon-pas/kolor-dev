@@ -47,11 +47,18 @@ const Home: NextPage = () => {
               </TextGradiented>
             </span>
           </div>
-
         </h1>
       </header>
 
-
+      <div className={styles['actions']}>
+        <CallToActionBanner desc='dsa'>
+          desc
+        </CallToActionBanner>
+        
+        <CallToActionBanner desc='dsa'>
+          desc
+        </CallToActionBanner>
+      </div>
 
     </div>
   );

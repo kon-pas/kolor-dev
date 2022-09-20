@@ -1,14 +1,12 @@
 @import '@styles';
 
 .home-page {
-  @include content;
-
   .header {
     $self: '.header';
 
     @apply
       flex justify-center
-      xs:absolute
+      xs:relative
       xs:left-0
       xs:w-full;
 
@@ -57,7 +55,6 @@
           }
       }
 
-
       #{ $self }__animated-text {
         @apply
           text-justify
@@ -76,5 +73,13 @@
           xs:inline-block;
       }
     }
+  }
+
+  .actions {
+    $self: '.actions';
+
+    @include content;
+
+    @apply w-full mt-12 grid gap-5 md:gap-6 max-w-3xl;
   }
 }

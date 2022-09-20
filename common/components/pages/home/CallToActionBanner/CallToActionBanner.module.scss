@@ -1,12 +1,16 @@
 .call-to-action-banner {
   $self: &;
 
+  @apply
+    w-full h-full
+    p-2
+    bg-gray-draw-1
+    rounded-md
+    border
+    border-black;
+
   &__header {
     #{ $self }__heading-1 {
-      @apply m-0;
-    }
-
-    #{ $self }__heading-2 {
       @apply m-0;
     }
   }

@@ -1,28 +1,24 @@
 import styles from './CallToActionBanner.module.scss';
 
 interface CallToActionBannerProps {
-  title: string;
-  subtitle: string;
+  children: React.ReactNode;
   desc: string;
   color?: string;
 }
 
 const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
-  title,
-  subtitle,
-  desc
+  desc,
+  children: title
 }) => {
   return (
     <article className={styles['call-to-action-banner']}>
       <header className={styles['call-to-action-banner__header']}>
-        <h1 className={styles['call-to-action-banner__heading-1']}>
+        <h1 className={styles['call-to-action-banner__heading']}>
           {title}
         </h1>
-        <h2 className={styles['call-to-action-banner__heading-2']}>
-          {subtitle}
-        </h2>
       </header>
-      <p className={styles['call-to-action-banner__paragraph']}>
+      
+      <p className={styles['call-to-action-banner__desc']}>
         {desc}
       </p>
     </article>
