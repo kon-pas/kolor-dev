@@ -11,12 +11,13 @@
 
       #{ $self }__heading {
         @apply
-          w-fit mx-auto
-          flex items-center flex-col
-          font-satoshi
-          font-bold
+          mx-auto
+          flex flex-col items-center
+          font-satoshi font-bold
           text-5xl
           xs:text-6xl
+          sm:items-end
+          sm:m-0
         ;
 
         #{ $self }__strong {
