@@ -22,6 +22,16 @@ const Home: NextPage = () => {
               Kolor
             </strong>
 
+            <strong className={styles['hero-section__strong--underlined']}>
+              <TextUnderlined
+                colors={[MAIN_COLORS.Y, MAIN_COLORS.M, MAIN_COLORS.C]}
+                thickness={16}
+                offset={0}
+              >
+                Kolor
+              </TextUnderlined>
+            </strong>
+
             <span className={styles['hero-section__text-animated']}>
               <TextAnimated labels={['your work', 'with ease', 'for free']} />
             </span>
@@ -49,14 +59,20 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <div className={styles['home-page__call-to-action-button']}>
-        <IconSVG>
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
-          />
-        </IconSVG>
+      <div className={styles['call-to-action']}>
+        <span className={styles['call-to-action__label']}>
+          Explore
+        </span>
+
+        <div className={styles['call-to-action__icon']}>
+          <IconSVG>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+            />
+          </IconSVG>
+        </div>
       </div>
 
 

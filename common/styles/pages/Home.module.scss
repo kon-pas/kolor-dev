@@ -15,11 +15,17 @@
           flex items-center flex-col
           font-satoshi
           font-bold
-          text-4xl
+          text-5xl
         ;
 
         #{ $self }__strong {
-          @apply m-0;
+          @apply
+            hidden
+          ;
+
+          &--underlined {
+            @apply relative;
+          }
         }
 
         #{ $self }__text-animated {
@@ -39,15 +45,26 @@
     }
   }
 
-  &__call-to-action-button {
-    @apply
-      w-6
-      mx-auto
-      p-4
-      box-content
-      animate-bounce;
-  }
+  .call-to-action {
+    $self: '.call-to-action';
 
+    @apply
+      flex
+      flex-col
+      items-center;
+
+    #{ $self }__label {
+      @apply
+        mb-2
+        text-sm;
+    }
+
+    #{ $self }__icon {
+      @apply
+        w-5
+        animate-bounce;
+    }
+  }
 
   // .header {
   //   $self: '.header';
