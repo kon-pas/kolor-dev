@@ -16,6 +16,7 @@
           font-satoshi
           font-bold
           text-5xl
+          xs:text-6xl
         ;
 
         #{ $self }__strong {
@@ -46,7 +47,8 @@
         mx-auto
         relative
         bottom-8
-        -z-10;
+        -z-10
+        xs:w-5/6;
     }
   }
 
