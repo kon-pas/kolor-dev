@@ -41,7 +41,12 @@
     }
 
     #{ $self }__hero-image-wrapper {
-      @apply w-3/4 mx-auto relative bottom-8 -z-10;
+      @apply
+        w-3/4
+        mx-auto
+        relative
+        bottom-8
+        -z-10;
     }
   }
 
