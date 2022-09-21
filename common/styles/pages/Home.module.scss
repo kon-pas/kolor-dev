@@ -31,12 +31,13 @@
         }
 
         #{ $self }__text-animated {
-          @apply m-0;
+          @apply flex;
         }
 
         #{ $self }__dot {
           @apply
             hidden
+            sm:block
           ;
         }
       }

@@ -34,16 +34,17 @@ const Home: NextPage = () => {
 
             <span className={styles['hero-section__text-animated']}>
               <TextAnimated labels={['your work', 'with ease', 'for free']} />
+              
+              <span className={styles['hero-section__dot']}>
+                <TextGradiented
+                  colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
+                  to='top left'
+                >
+                  .
+                </TextGradiented>
+              </span>
             </span>
 
-            <span className={styles['hero-section__dot']}>
-              <TextGradiented
-                colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
-                to='top left'
-              >
-                .
-              </TextGradiented>
-            </span>
           </h1>
         </header>
 
