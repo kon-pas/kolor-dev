@@ -11,19 +11,17 @@
 
       #{ $self }__heading {
         @apply
-          mx-auto
+          mx-auto w-fit
           flex flex-col items-center
           font-satoshi font-bold
           text-5xl
           xs:text-6xl
           sm:items-end
-          sm:m-0
-        ;
+          sm:mr-12;
 
         #{ $self }__strong {
           @apply
-            hidden
-          ;
+            hidden;
 
           &--underlined {
             @apply relative;
@@ -37,8 +35,7 @@
         #{ $self }__dot {
           @apply
             hidden
-            sm:block
-          ;
+            sm:block;
         }
       }
     }
