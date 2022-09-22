@@ -91,41 +91,6 @@
   //       flex flex-col
   //       xs:w-full;
 
-  //     #{ $self }__text-underlined {
-  //       @apply
-  //         relative
-  //         mx-auto
-  //         z-10
-  //         xs:hidden;
-
-  //         &--desktop {
-  //           @apply
-  //              w-full
-  //              relative
-  //              hidden
-  //              xs:block;
-
-  //           &__text {
-  //             @apply
-  //               relative
-  //               left-[30%]
-  //               z-30
-  //               -bottom-2
-  //               md:left-[35%];
-  //           }
-
-  //           &__line {
-  //             @apply
-  //               h-2 w-full
-  //               absolute
-  //               z-20
-  //               bottom-0
-  //               sm:h-3
-  //               md:h-4;
-  //           }
-  //         }
-  //     }
-
   //     #{ $self }__animated-text {
   //       @apply
   //         text-justify
