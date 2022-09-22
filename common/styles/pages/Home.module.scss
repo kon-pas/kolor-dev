@@ -81,22 +81,6 @@
   //     xs:left-0
   //     xs:w-full;
 
-  //   #{ $self }__heading {
-  //     @include heading-2;
-
-  //     // NOTE: Used to not overflow animated text.
-  //     line-height: normal;
-
-  //     @apply
-  //       flex flex-col
-  //       xs:w-full;
-
-  //     #{ $self }__dot {
-  //       @apply
-  //         hidden
-  //         xs:inline-block;
-  //     }
-  //   }
   // }
 
   .actions {
