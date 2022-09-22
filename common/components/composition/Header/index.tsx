@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import IconSVG from '@components/elements/IconSVG';
 
-const Header = (): JSX.Element => {
+const Header: React.FC = () => {
   return (
     <header className={styles['header']}>
       <div className={styles['header__top']}>
