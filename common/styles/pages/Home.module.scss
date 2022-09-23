@@ -17,7 +17,8 @@
           text-5xl
           xs:text-6xl
           sm:items-end
-          sm:mr-12;
+          sm:mr-12
+          md:mr-auto md:pl-40 md:text-7xl;
 
         #{ $self }__strong {
           @apply
