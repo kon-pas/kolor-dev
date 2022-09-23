@@ -62,7 +62,10 @@
     @apply
       flex
       flex-col
-      items-center;
+      items-center
+      relative
+      sm:bottom-32
+      md:bottom-40;
 
     #{ $self }__label {
       @apply
