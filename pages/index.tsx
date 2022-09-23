@@ -58,23 +58,25 @@ const Home: NextPage = () => {
             objectFit='contain'
           />
         </div>
+
+        <div className={styles['call-to-action']}>
+          <span className={styles['call-to-action__label']}>
+            Explore
+          </span>
+
+          <div className={styles['call-to-action__icon']}>
+            <IconSVG>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+              />
+            </IconSVG>
+          </div>
+        </div>
+
       </section>
 
-      <div className={styles['call-to-action']}>
-        <span className={styles['call-to-action__label']}>
-          Explore
-        </span>
-
-        <div className={styles['call-to-action__icon']}>
-          <IconSVG>
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
-            />
-          </IconSVG>
-        </div>
-      </div>
 
 
 
