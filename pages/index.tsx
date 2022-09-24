@@ -119,6 +119,20 @@ const Home: NextPage = () => {
         </h1>
       </header> */}
 
+      <section className={styles['tools-section']}>
+        <header className={styles['tools-section__header']}>
+          <h1 className={styles['tools-section__heading']}>
+            Explore tools
+          </h1>
+        </header>
+
+      
+
+      </section>
+
+
+
+
       <div className={styles['banner-actions']}>
         <div className={styles['banner-actions__card']}>
           <CallToActionBanner desc='Carefully selected for Artists, Designers & Developers'>
