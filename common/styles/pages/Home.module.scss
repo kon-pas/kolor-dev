@@ -71,12 +71,14 @@
     #{ $self }__label {
       @apply
         mb-2
-        text-sm;
+        text-sm
+        sm:text-base;
     }
 
     #{ $self }__icon {
       @apply
-        w-5
+        w-4
+        sm:w-5
         animate-bounce;
     }
   }
