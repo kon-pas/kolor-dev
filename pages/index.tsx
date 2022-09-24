@@ -119,32 +119,32 @@ const Home: NextPage = () => {
         </h1>
       </header> */}
 
-      <div className={styles['actions']}>
-        <div className={styles['actions__action']}>
+      <div className={styles['banner-actions']}>
+        <div className={styles['banner-actions__card']}>
           <CallToActionBanner desc='Carefully selected for Artists, Designers & Developers'>
             <b>25</b> Gradients
           </CallToActionBanner>
         </div>
 
-        <div className={styles['actions__action']}>
+        <div className={styles['banner-actions__card']}>
           <CallToActionBanner desc='Work in Progress'>
             Gradient Generator
           </CallToActionBanner>
         </div>
 
-        <div className={styles['actions__action']}>
+        <div className={styles['banner-actions__card']}>
           <CallToActionBanner desc='Work in Progress'>
             Color Palettes
           </CallToActionBanner>
         </div>
 
-        <div className={styles['actions__action']}>
+        <div className={styles['banner-actions__card']}>
           <CallToActionBanner desc='Work in Progress'>
             Palette Generator
           </CallToActionBanner>
         </div>
 
-        <div className={styles['actions__action']}>
+        <div className={styles['banner-actions__card']}>
           <CallToActionBanner desc='Work in Progress'>
             Color Finder
           </CallToActionBanner>
