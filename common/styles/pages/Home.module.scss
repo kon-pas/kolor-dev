@@ -65,8 +65,8 @@
       flex-col
       items-center
       relative
-      sm:bottom-32
-      md:bottom-40;
+      bottom-16
+      sm:bottom-40;
 
     #{ $self }__label {
       @apply
@@ -77,9 +77,9 @@
 
     #{ $self }__icon {
       @apply
+        animate-bounce
         w-4
-        sm:w-5
-        animate-bounce;
+        sm:w-5;
     }
   }
 
