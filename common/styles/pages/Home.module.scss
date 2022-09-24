@@ -57,6 +57,18 @@
     }
   }
 
+  .tools-section {
+    $self: '.tools-section';
+
+    @apply flex justify-center;
+
+    @include heading-3;
+
+    #{ $self }__header {
+      @apply mb-6;
+    }
+  }
+
   .call-to-action {
     $self: '.call-to-action';
 

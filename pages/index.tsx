@@ -121,7 +121,7 @@ const Home: NextPage = () => {
 
       <section className={styles['tools-section']}>
         <header className={styles['tools-section__header']}>
-          <h1 className={styles['tools-section__heading']}>
+          <h1>
             Explore tools
           </h1>
         </header>
