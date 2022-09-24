@@ -83,8 +83,8 @@
     }
   }
 
-  .actions {
-    $self: '.actions';
+  .banner-actions {
+    $self: '.banner-actions';
 
     @include content;
 
@@ -98,7 +98,7 @@
       md:grid-cols-2
       md:gap-6;
 
-    #{ $self }__action {
+    #{ $self }__card {
       @apply w-full;
     }
   }
