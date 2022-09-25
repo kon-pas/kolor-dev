@@ -3,7 +3,7 @@ import styles from '@styles/pages/home.module.scss';
 import Image from "next/image";
 import type { NextPage } from "next";
 
-import MAIN_COLORS from '@constants/main-colors';
+import { MAIN_COLORS } from '@constants';
 
 import TextUnderlined from '@components/elements/TextUnderlined';
 import TextGradiented from '@components/elements/TextGradiented';

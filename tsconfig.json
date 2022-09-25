@@ -20,6 +20,7 @@
       "@interfaces": ["common/ts/index.interfaces.ts"],
       "@enums": ["common/ts/index.enums.ts"],
       "@styles": ["common/styles/"],
+      "@constants": ["common/constants/"],
       "@components/*": ["common/components/*"],
       "@constants/*": ["common/constants/*"],
       "@hooks/*": ["common/hooks/*"],
