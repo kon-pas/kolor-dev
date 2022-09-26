@@ -77,33 +77,14 @@ const Home: NextPage = () => {
 
       </section>
 
-
-
-
-
-
-      {/* <header className={styles['header']}>
-        <h1 className={styles['header__heading']}>
-          <strong className={styles['header__text-underlined']}>
-            <TextUnderlined
-              colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
-              thickness={12}
-              offset={-5}
-            >
-              Kolor
-            </TextUnderlined>
-          </strong>
-        </h1>
-      </header> */}
-
       <section className={styles['tools-section']}>
         <header className={styles['tools-section__header']}>
           <h1>
             Explore tools
           </h1>
         </header>
-
       
+
 
       </section>
 
