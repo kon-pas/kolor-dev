@@ -74,7 +74,6 @@ const Home: NextPage = () => {
             </IconSVG>
           </div>
         </div>
-
       </section>
 
       <section className={styles['tools-section']}>
@@ -83,13 +82,7 @@ const Home: NextPage = () => {
             Explore tools
           </h1>
         </header>
-      
-
-
       </section>
-
-
-
 
       <div className={styles['banner-actions']}>
         <div className={styles['banner-actions__card']}>
