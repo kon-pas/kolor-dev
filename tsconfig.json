@@ -21,12 +21,11 @@
       "@enums": ["common/ts/index.enums.ts"],
       "@styles": ["common/styles/"],
       "@constants": ["common/constants/"],
+      "@utils": ["common/utils/"],
       "@components/*": ["common/components/*"],
-      "@constants/*": ["common/constants/*"],
       "@hooks/*": ["common/hooks/*"],
       "@jsons/*": ["common/jsons/*"],
       "@styles/*": ["common/styles/*"],
-      "@utils/*": ["common/utils/*"],
       "@svgs/*": ["public/assets/svgs/*"],
       "@images/*": ["public/assets/images/*"],
     }
