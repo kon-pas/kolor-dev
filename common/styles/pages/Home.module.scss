@@ -1,8 +1,8 @@
-@import '@styles';
+@import "@styles";
 
 .home-page {
   .hero-section {
-    $self: '.hero-section';
+    $self: ".hero-section";
 
     @apply relative;
 
@@ -10,8 +10,7 @@
       // @apply w-full;
 
       #{ $self }__heading {
-        @apply
-          mx-auto w-fit
+        @apply mx-auto w-fit
           flex flex-col items-center
           font-satoshi font-bold
           text-5xl
@@ -22,8 +21,7 @@
           sm:text-7xl;
 
         #{ $self }__strong {
-          @apply
-            hidden;
+          @apply hidden;
 
           &--underlined {
             @apply relative;
@@ -35,16 +33,14 @@
         }
 
         #{ $self }__dot {
-          @apply
-            hidden
+          @apply hidden
             sm:block;
         }
       }
     }
 
     #{ $self }__hero-image-wrapper {
-      @apply
-        w-3/4
+      @apply w-3/4
         mx-auto
         relative
         bottom-8
@@ -58,10 +54,10 @@
   }
 
   .tools-section {
-    $self: '.tools-section';
+    $self: ".tools-section";
 
     @include heading-3;
-    
+
     @apply flex justify-center;
 
     #{ $self }__header {
@@ -70,10 +66,9 @@
   }
 
   .call-to-action {
-    $self: '.call-to-action';
+    $self: ".call-to-action";
 
-    @apply
-      flex
+    @apply flex
       flex-col
       items-center
       relative
@@ -81,27 +76,24 @@
       sm:bottom-40;
 
     #{ $self }__label {
-      @apply
-        mb-2
+      @apply mb-2
         text-sm
         sm:text-base;
     }
 
     #{ $self }__icon {
-      @apply
-        animate-bounce
+      @apply animate-bounce
         w-4
         sm:w-5;
     }
   }
 
   .banner-actions {
-    $self: '.banner-actions';
+    $self: ".banner-actions";
 
     @include content;
 
-    @apply
-      w-full
+    @apply w-full
       mb-20
       grid
       container

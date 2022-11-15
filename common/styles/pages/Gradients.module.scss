@@ -1,13 +1,12 @@
-@import '@styles';
+@import "@styles";
 
 .gradients-page {
   @include content;
 
   .header {
-    $self: '.header';
+    $self: ".header";
 
-    @apply
-      flex items-center flex-col;
+    @apply flex items-center flex-col;
 
     * {
       @apply text-center;
@@ -24,8 +23,7 @@
     }
 
     &__paragraph {
-      @apply
-        my-10
+      @apply my-10
         text-gray-font text-lg
         md:text-xl;
 
@@ -36,8 +34,7 @@
   }
 
   .gradients-list {
-    @apply
-      flex flex-col gap-y-5
+    @apply flex flex-col gap-y-5
       sm:grid sm:grid-cols-2 sm:gap-x-5
       md:grid-cols-3 md:gap-6;
   }

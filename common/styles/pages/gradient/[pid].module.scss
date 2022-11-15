@@ -1,15 +1,14 @@
-@import '@styles';
+@import "@styles";
 
 .gradient-pid {
   $self: &;
-  
+
   @include content;
 
   .header {
-    $self: '.header';
+    $self: ".header";
 
-    @apply
-      w-full
+    @apply w-full
       flex justify-center;
 
     &__heading {
@@ -20,8 +19,7 @@
   }
 
   .gradient {
-    @apply
-      w-full aspect-square
+    @apply w-full aspect-square
       mt-4 mb-2
       border border-black/5 rounded-lg
       xs:aspect-auto xs:h-[360px];
@@ -32,25 +30,22 @@
 
     &__left,
     &__right {
-      @apply
-        flex
+      @apply flex
         gap-1
         sm:gap-2;
     }
   }
 
   .colors-list {
-    $self: '.colors-list';
+    $self: ".colors-list";
 
-    @apply
-      w-full
+    @apply w-full
       my-10
       grid justify-items-center
       sm:w-[560px] sm:mx-auto;
 
     &__item {
-      @apply
-        w-full
+      @apply w-full
         grid justify-items-center;
 
       #{ $self }__color {
@@ -58,13 +53,12 @@
         // `rounded-lg` => 0.5rem
         clip-path: inset(1px round 0.5rem 0.5rem 0.5rem 0.5rem);
 
-        @apply
-          w-full h-10
+        @apply w-full h-10
           border border-black/5
           shadow-inner
           xs:h-14 xs:w-[360px] xs:mx-auto;
       }
-  
+
       #{ $self }__arrow {
         @apply w-5 h-8;
       }
@@ -72,25 +66,22 @@
   }
 
   .code-snippets {
-    @apply
-      w-full
+    @apply w-full
       my-10
       grid justify-items-center gap-4
       sm:w-[560px] sm:mx-auto;
   }
 
   .tags {
-    @apply
-      w-full
+    @apply w-full
       flex flex-wrap justify-center
       gap-1
       xs:gap-2
       md:gap-3;
 
     &__color-tags,
-    &__hash-tags  {
-      @apply
-        w-full
+    &__hash-tags {
+      @apply w-full
         flex justify-center
         gap-1
         xs:gap-2
