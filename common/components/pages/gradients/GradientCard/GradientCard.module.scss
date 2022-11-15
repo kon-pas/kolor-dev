@@ -37,14 +37,16 @@
     @apply
       h-14
       opacity-100
+      border border-black/5 rounded-lg
       md:h-16;
   }
 
   &__gradient {
     @apply
-      w-full h-[75%]
+      w-full h-[100%]
       absolute top-0
       border border-black/5 rounded-lg
+      overflow-hidden
       shadow-inner
       hoverable:h-full
       hoverable:transition-height
@@ -63,7 +65,7 @@
     @apply
       w-full h-[25%]
       absolute bottom-0
-      flex justify-between items-center
+      flex justify-between items-end
       text-xs
       xs:text-sm;
 
