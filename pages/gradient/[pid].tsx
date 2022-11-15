@@ -1,46 +1,42 @@
-import styles from '@styles/pages/gradient/[pid].module.scss';
+import styles from "@styles/pages/gradient/[pid].module.scss";
 
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetServerSideProps } from "next";
 
-import TextUnderlined from '@components/elements/TextUnderlined';
-import Gradient from '@components/elements/GradientBackground';
-import Color from '@components/elements/ColorBackground';
-import IconSVG from '@components/elements/IconSVG';
-import Button from '@components/elements/Button';
-import CodeSnippet from '@components/elements/CodeSnippet';
-import Tag from '@components/elements/Tag';
+import TextUnderlined from "@components/elements/TextUnderlined";
+import Gradient from "@components/elements/GradientBackground";
+import Color from "@components/elements/ColorBackground";
+import IconSVG from "@components/elements/IconSVG";
+import Button from "@components/elements/Button";
+import CodeSnippet from "@components/elements/CodeSnippet";
+import Tag from "@components/elements/Tag";
 
-import getCleanHex from '@utils/getCleanHex';
+import getCleanHex from "@utils/getCleanHex";
 
-import { MiscTags } from '@enums';
-import type { GradientScheme } from '@interfaces';
+import { MiscTags } from "@enums";
+import type { GradientScheme } from "@interfaces";
 
 interface GradientPidProps {
-  gradient: GradientScheme
+  gradient: GradientScheme;
 }
 
-const GradientPid: NextPage<GradientPidProps> = ({
-  gradient
-}) => {
+const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
   return (
-    <div className={styles['gradient-pid']}>
-      <header className={styles['header']}>
-        <h1 className={styles['header__heading']}>
-          <TextUnderlined
-            colors={gradient.colors}
-          >
+    <div className={styles["gradient-pid"]}>
+      <header className={styles["header"]}>
+        <h1 className={styles["header__heading"]}>
+          <TextUnderlined colors={gradient.colors}>
             {gradient.title}
           </TextUnderlined>
         </h1>
       </header>
 
-      <div className={styles['gradient']}>
-        <Gradient colors={gradient.colors}/>
+      <div className={styles["gradient"]}>
+        <Gradient colors={gradient.colors} />
       </div>
 
-      <div className={styles['buttons']}>
-        <div className={styles['buttons__left']}>
-          <Button label='Save'>
+      <div className={styles["buttons"]}>
+        <div className={styles["buttons__left"]}>
+          <Button label="Save">
             <IconSVG>
               <path
                 strokeLinecap="round"
@@ -51,7 +47,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
           </Button>
         </div>
 
-        <div className={styles['buttons__right']}>
+        <div className={styles["buttons__right"]}>
           <Button label="Link">
             <IconSVG>
               <path
@@ -84,20 +80,15 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </div>
       </div>
 
-      <div className={styles['colors-list']}>
-        {gradient.colors.map((color, idx, colors) =>
-          <div
-            className={styles['colors-list__item']}
-            key={idx}
-          >
-            <div className={styles['colors-list__color']}>
-              <Color hex={color}>
-                {getCleanHex(color)}
-              </Color>
+      <div className={styles["colors-list"]}>
+        {gradient.colors.map((color, idx, colors) => (
+          <div className={styles["colors-list__item"]} key={idx}>
+            <div className={styles["colors-list__color"]}>
+              <Color hex={color}>{getCleanHex(color)}</Color>
             </div>
 
-            { idx+1 !== colors.length &&
-              <div className={styles['colors-list__arrow']}>
+            {idx + 1 !== colors.length && (
+              <div className={styles["colors-list__arrow"]}>
                 <IconSVG>
                   <path
                     strokeLinecap="round"
@@ -106,68 +97,70 @@ const GradientPid: NextPage<GradientPidProps> = ({
                   />
                 </IconSVG>
               </div>
-            }
+            )}
           </div>
-        )}
+        ))}
       </div>
 
-      <section className={styles['code-snippets']}>
+      <section className={styles["code-snippets"]}>
         <CodeSnippet title="CSS">
-          {gradient.colors.map((color, index) => <span key={index}>{color}</span>)}
+          {gradient.colors.map((color, index) => (
+            <span key={index}>{color}</span>
+          ))}
         </CodeSnippet>
 
         <CodeSnippet title="CSS">
-          {gradient.colors.map((color, index) => <span key={index}>{color}</span>)}
+          {gradient.colors.map((color, index) => (
+            <span key={index}>{color}</span>
+          ))}
         </CodeSnippet>
 
         <CodeSnippet title="CSS">
-          {gradient.colors.map((color, index) => <span key={index}>{color}</span>)}
+          {gradient.colors.map((color, index) => (
+            <span key={index}>{color}</span>
+          ))}
         </CodeSnippet>
       </section>
 
-      <div className={styles['tags']}>
-        <div className={styles['tags__color-tags']}>
-          { gradient.tags?.mainColors.map((color, idx) => 
-            <Tag
-              type='color'
-              color={color}
-              key={idx}
-            >
+      <div className={styles["tags"]}>
+        <div className={styles["tags__color-tags"]}>
+          {gradient.tags?.mainColors.map((color, idx) => (
+            <Tag type="color" color={color} key={idx}>
               {color}
             </Tag>
-          )}
+          ))}
         </div>
 
-        <div className={styles['tags__hash-tags']}>
-          { gradient.tags?.misc.map((label, idx) => 
-            <Tag
-              type='hash'
-              key={idx}
-            >
+        <div className={styles["tags__hash-tags"]}>
+          {gradient.tags?.misc.map((label, idx) => (
+            <Tag type="hash" key={idx}>
               {MiscTags[label]}
             </Tag>
-          )}
+          ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(`http://localhost:3000/api/gradient/${context.query.pid}`, {
-    method: 'GET',
-    headers: {
-      "Content-Type": "application/json"
+  const res = await fetch(
+    `http://localhost:3000/api/gradient/${context.query.pid}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
-  });
+  );
 
-  const gradient = await res.json()
+  const gradient = await res.json();
 
   return {
     props: {
-      gradient
-    }
-  }
-}
+      gradient,
+    },
+  };
+};
 
 export default GradientPid;

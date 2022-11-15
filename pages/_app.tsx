@@ -1,10 +1,10 @@
-import '@styles/globals.scss';
+import "@styles/globals.scss";
 
-import Head from 'next/head';
+import Head from "next/head";
 
-import type { AppProps } from 'next/app';
+import type { AppProps } from "next/app";
 
-import Layout from '@components/composition/Layout';
+import Layout from "@components/composition/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Layout>
     </>
-  )
+  );
 }
 
 export default MyApp;
