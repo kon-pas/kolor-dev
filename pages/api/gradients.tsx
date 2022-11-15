@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
 
-import { gradients } from '@jsons/gradients';
-import { GradientsJSON } from '@interfaces';
+import { gradients } from "@jsons/gradients";
+import { GradientsJSON } from "@interfaces";
 
 export default function handler(
   _: NextApiRequest,
