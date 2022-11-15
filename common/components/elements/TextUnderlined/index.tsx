@@ -1,8 +1,8 @@
 // NOTE: Parent component has to be `display: relative`.
 
-import styles from './TextUnderline.module.scss';
+import styles from "./TextUnderline.module.scss";
 
-import type { GradientHue, EightDirections } from '@types';
+import type { GradientHue, EightDirections } from "@types";
 
 interface TextUnderlineProps {
   children?: string;
@@ -19,24 +19,26 @@ const TextUnderline: React.FC<TextUnderlineProps> = ({
   offset = 0,
   opacity = 0.75,
   colors,
-  to: direction
+  to: direction,
 }) => {
   return (
     <>
-      { children && 
-        <span>{children}</span>
-      }
+      {children && <span>{children}</span>}
       <div
-        className={styles['text-underline']}
-        style={{ 
+        className={styles["text-underline"]}
+        style={{
           height: `${thickness}px`,
-          bottom: `${offset * (-1)}px`,
+          bottom: `${offset * -1}px`,
           opacity: `${opacity}`,
-          ...colors && {backgroundImage: `linear-gradient(to ${direction ?? 'right'}, ${colors.join(', ')})`}
+          ...(colors && {
+            backgroundImage: `linear-gradient(to ${
+              direction ?? "right"
+            }, ${colors.join(", ")})`,
+          }),
         }}
       ></div>
     </>
-  )
-}
+  );
+};
 
 export default TextUnderline;

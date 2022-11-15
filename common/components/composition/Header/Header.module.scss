@@ -1,10 +1,9 @@
-@import '@styles';
+@import "@styles";
 
 .header {
   $self: &;
 
-  @apply
-    w-full
+  @apply w-full
     bg-gradient-to-b from-white/80 to-white/60
     backdrop-blur-sm
     shadow-sm
@@ -13,37 +12,32 @@
   &__top {
     @include content;
 
-    @apply
-      flex justify-between items-center
+    @apply flex justify-between items-center
       h-14
       sm:h-16;
 
     #{ $self }__title {
-      @apply
-        h-8
+      @apply h-8
         flex items-center
         xs:ml-4;
-  
+
       #{ $self }__logo {
-        @apply
-          w-6
+        @apply w-6
           h-[1.6rem]
           sm:h-[1.85rem]
           sm:w-7;
       }
-  
+
       #{ $self }__heading {
-        @apply
-          ml-1
+        @apply ml-1
           font-bold
           text-xl
           sm:text-2xl;
       }
     }
-  
+
     #{ $self }__burger {
-      @apply
-        w-8
+      @apply w-8
         xs:mr-4
         sm:hidden;
     }
@@ -52,8 +46,7 @@
   &__bottom {
     @include content;
 
-    @apply
-      bg-white
+    @apply bg-white
       w-full
       pb-3
       shadow-sm
@@ -64,17 +57,16 @@
     @apply w-full;
 
     &--desktop {
-      @apply
-        hidden
+      @apply hidden
         sm:mr-8 sm:p-0 sm:h-fit sm:flex sm:justify-end sm:w-fit;
     }
 
     &__item {
-      @apply
-        h-12 mr-8
+      @apply h-12 mr-8
         grid items-center text-right
         text-base
-        sm:inline-block sm:m-0 sm:content-center sm:h-fit sm:my-auto sm:ml-12 sm:first:ml-0;
+        sm:inline-block sm:m-0 sm:content-center
+        sm:h-fit sm:my-auto sm:ml-12 sm:first:ml-0;
     }
   }
 }

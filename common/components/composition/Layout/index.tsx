@@ -11,12 +11,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-        <main className={styles.main}>
-          {children}
-        </main>
+      <main className={styles.main}>{children}</main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default Layout;

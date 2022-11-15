@@ -1,17 +1,14 @@
 .text-animated {
-  @apply
-    relative
+  @apply relative
     w-full h-full;
 
   &__text {
-    @apply
-      whitespace-nowrap
+    @apply whitespace-nowrap
       break-words;
   }
 
   &__block {
-    @apply
-      absolute
+    @apply absolute
       w-full
       bg-white;
 
@@ -39,4 +36,3 @@
     }
   }
 }
-

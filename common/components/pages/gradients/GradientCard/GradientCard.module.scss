@@ -1,8 +1,7 @@
 .card {
   $self: &;
 
-  @apply
-    h-40
+  @apply h-40
     relative
     cursor-pointer
     rounded-lg
@@ -13,37 +12,32 @@
     // `rounded-lg` => 0.5rem
     clip-path: inset(1px round 0.5rem 0.5rem 0 0);
 
-    @apply
-      w-full
+    @apply w-full
       flex
       absolute top-0
       z-20
       transition-height-opacity duration-100 h-[25%] opacity-0;
 
     #{ $self }__color {
-      @apply
-        w-full h-full
+      @apply w-full h-full
         transition-width duration-100;
 
       &:hover {
-        @apply
-          w-[150%]
+        @apply w-[150%]
           transition-width duration-100;
       }
     }
   }
 
   &:hover &__colors {
-    @apply
-      h-14
+    @apply h-14
       opacity-100
       border border-black/5 rounded-lg
       md:h-16;
   }
 
   &__gradient {
-    @apply
-      w-full h-[100%]
+    @apply w-full h-[100%]
       absolute top-0
       border border-black/5 rounded-lg
       overflow-hidden
@@ -55,23 +49,20 @@
   }
 
   &:hover &__gradient {
-    @apply
-      hoverable:h-[75%]
+    @apply hoverable:h-[75%]
       transition-height
       duration-100;
   }
 
   &__desc {
-    @apply
-      w-full h-[25%]
+    @apply w-full h-[25%]
       absolute bottom-0
       flex justify-between items-end
       text-xs
       xs:text-sm;
 
     #{ $self }__like-button {
-      @apply
-        w-[3.25rem]
+      @apply w-[3.25rem]
         px-2 py-1 box-content
         flex items-center gap-1
         border border-gray-draw-3 rounded-lg
@@ -79,8 +70,7 @@
     }
 
     #{ $self }__title {
-      @apply
-        px-2 py-1 box-content
+      @apply px-2 py-1 box-content
         border border-gray-draw-3 rounded-lg
         hover:bg-gray-draw-1;
     }

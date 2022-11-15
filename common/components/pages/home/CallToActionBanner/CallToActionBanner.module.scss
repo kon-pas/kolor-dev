@@ -1,8 +1,7 @@
 .call-to-action-banner {
   $self: &;
 
-  @apply
-    w-full h-full
+  @apply w-full h-full
     p-4
     bg-gray-draw-3
     rounded-md
@@ -12,8 +11,7 @@
 
   &__header {
     #{ $self }__heading {
-      @apply
-        font-satoshi
+      @apply font-satoshi
         text-xl
         xs:text-2xl
         sm:text-3xl
@@ -22,8 +20,7 @@
   }
 
   &__desc {
-    @apply
-      max-w-[65%]
+    @apply max-w-[65%]
       text-gray-font
       text-sm
       xs:text-base

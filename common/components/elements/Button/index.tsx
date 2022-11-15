@@ -1,42 +1,31 @@
-import styles from './Button.module.scss';
+import styles from "./Button.module.scss";
 
 interface ButtonProps {
   onClick?: () => void;
   label?: string;
   children?: React.ReactNode;
-  iconSide?: 'left' | 'right';
+  iconSide?: "left" | "right";
 }
 
 const Button: React.FC<ButtonProps> = ({
   onClick,
   label,
   children,
-  iconSide = 'left'
+  iconSide = "left",
 }) => {
-  return(
-    <button
-      className={styles['button']}
-      onClick={onClick}
-    >
-      { iconSide === 'left' &&
-        <span className={styles['button__icon']}>
-          {children}
-        </span>
-      }
+  return (
+    <button className={styles["button"]} onClick={onClick}>
+      {iconSide === "left" && (
+        <span className={styles["button__icon"]}>{children}</span>
+      )}
 
-      { label &&
-        <span className={styles['button__label']}>
-          {label}
-        </span>
-      }
+      {label && <span className={styles["button__label"]}>{label}</span>}
 
-      { iconSide === 'right' &&
-        <span className={styles['button__icon']}>
-          {children}
-        </span>
-      }
+      {iconSide === "right" && (
+        <span className={styles["button__icon"]}>{children}</span>
+      )}
     </button>
-  )
-}
+  );
+};
 
 export default Button;

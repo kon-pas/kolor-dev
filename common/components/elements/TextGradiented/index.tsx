@@ -1,6 +1,6 @@
-import styles from './TextGradiented.module.scss';
+import styles from "./TextGradiented.module.scss";
 
-import type { GradientHue, EightDirections } from '@types';
+import type { GradientHue, EightDirections } from "@types";
 
 interface TextGradientedProps {
   colors: GradientHue;
@@ -11,18 +11,20 @@ interface TextGradientedProps {
 const TextGradiented: React.FC<TextGradientedProps> = ({
   children: text,
   colors,
-  to: direction
+  to: direction,
 }) => {
-  return(
-    <span 
-      className={styles['text-gradiented']}
-      style={{ 
-        backgroundImage: `linear-gradient(to ${direction ?? 'right'}, ${colors.join(', ')})`
+  return (
+    <span
+      className={styles["text-gradiented"]}
+      style={{
+        backgroundImage: `linear-gradient(to ${
+          direction ?? "right"
+        }, ${colors.join(", ")})`,
       }}
     >
       {text}
     </span>
-  )
-}
+  );
+};
 
 export default TextGradiented;

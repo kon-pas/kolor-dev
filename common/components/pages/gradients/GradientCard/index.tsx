@@ -1,54 +1,52 @@
-import styles from './GradientCard.module.scss';
+import styles from "./GradientCard.module.scss";
 
-import { useRouter, NextRouter } from 'next/router';
+import { useRouter, NextRouter } from "next/router";
 
-import IconSVG from '@components/elements/IconSVG';
-import Gradient from '@components/elements/GradientBackground';
-import Color from '@components/elements/ColorBackground';
-import SpanMonochrome from '@components/elements/SpanMonochrome';
-import Button from '@components/elements/Button';
+import IconSVG from "@components/elements/IconSVG";
+import Gradient from "@components/elements/GradientBackground";
+import Color from "@components/elements/ColorBackground";
+import SpanMonochrome from "@components/elements/SpanMonochrome";
+import Button from "@components/elements/Button";
 
-import getCleanHex from '@utils/getCleanHex';
+import getCleanHex from "@utils/getCleanHex";
 
-import type { GradientScheme } from '@interfaces';
-import type { GradientId } from '@types';
+import type { GradientScheme } from "@interfaces";
+import type { GradientId } from "@types";
 
 interface GradientCardProps {
   gradient: GradientScheme;
   gradientId: GradientId;
 }
 
-const GradientCard: React.FC<GradientCardProps> = ({gradient, gradientId}) => {
+const GradientCard: React.FC<GradientCardProps> = ({
+  gradient,
+  gradientId,
+}) => {
   const router: NextRouter = useRouter();
 
   return (
     <div
       onClick={() => router.push(`/gradient/${gradientId}`)}
-      className={styles['card']}
+      className={styles["card"]}
     >
-      <div className={styles['card__colors']}>
-        {gradient.colors.map((color, idx) => 
-          <div
-            className={styles['card__color']}
-            key={idx}
-          >
+      <div className={styles["card__colors"]}>
+        {gradient.colors.map((color, idx) => (
+          <div className={styles["card__color"]} key={idx}>
             <Color hex={color}>
               <SpanMonochrome color={color}>
                 {getCleanHex(color)}
               </SpanMonochrome>
             </Color>
           </div>
-        )}
+        ))}
       </div>
 
-      <div
-        className={styles['card__gradient']}
-      >
-        <Gradient colors={gradient.colors}/>
+      <div className={styles["card__gradient"]}>
+        <Gradient colors={gradient.colors} />
       </div>
 
-      <div className={styles['card__desc']}>
-        <Button label='Save'>
+      <div className={styles["card__desc"]}>
+        <Button label="Save">
           <IconSVG title="Like gradient" strokeWidth={1}>
             <path
               strokeLinecap="round"
@@ -57,7 +55,7 @@ const GradientCard: React.FC<GradientCardProps> = ({gradient, gradientId}) => {
             />
           </IconSVG>
         </Button>
-        
+
         {/* <button className={styles['card__like-button']}>
           <span>
             Save
@@ -68,6 +66,6 @@ const GradientCard: React.FC<GradientCardProps> = ({gradient, gradientId}) => {
       </div>
     </div>
   );
-}
+};
 
 export default GradientCard;

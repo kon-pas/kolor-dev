@@ -1,8 +1,7 @@
 .tag {
   $self: &;
 
-  @apply
-    border border-gray-draw-3 rounded-md
+  @apply border border-gray-draw-3 rounded-md
     flex justify-center
     py-1 px-2
     text-xs
