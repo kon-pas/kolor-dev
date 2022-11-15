@@ -1,5 +1,5 @@
-import * as TYPES from '@types';
-import * as ENUMS from '@enums';
+import * as TYPES from "@types";
+import * as ENUMS from "@enums";
 
 export interface Tags {
   readonly mainColors: ENUMS.MainColors[];

@@ -16,6 +16,10 @@ export const gradients: GradientsJSON = [
     title: "Morning Breeze"
   },
   {
+    colors: ["#BFFF00", "#60F10A"],
+    title: "Guilty Lime"
+  },
+  {
     colors: ["#f89b29", "#ff0f7b"],
     title: "Ripe Mirabelle"
   },
