@@ -2,7 +2,7 @@ import styles from "@styles/pages/gradient/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import type { NextPage, GetServerSideProps } from "next";
-import { toast, ToastContainer, Flip } from "react-toastify";
+import { toast, ToastContainer, Flip, ToastOptions } from "react-toastify";
 
 import { getCleanHex, getRGB } from "@utils";
 
@@ -52,33 +52,36 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
     },
   ];
 
+  const toastOptions: ToastOptions = {
+    position: "bottom-center",
+    autoClose: 1000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
+    transition: Flip,
+    theme: "dark",
+  };
+
+  const handleCodeSnippetOnClick = (expr: string): void => {
+    navigator.clipboard.writeText(expr).then(
+      () => {
+        toast("Copied to clipboard", toastOptions);
+      },
+      () => {
+        toast("Copy to clipboard failed :/", toastOptions);
+      }
+    );
+  };
+
   const handleColorOnCLick = (color: string): void => {
     navigator.clipboard.writeText(color).then(
       () => {
-        toast(`Copied ${color}`, {
-          position: "bottom-center",
-          autoClose: 1000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: false,
-          progress: undefined,
-          transition: Flip,
-          theme: "dark",
-        });
+        toast(`Copied ${color}`, toastOptions);
       },
       () => {
-        toast(`Copy to clipboard failed :/`, {
-          position: "bottom-center",
-          autoClose: 1000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: false,
-          progress: undefined,
-          transition: Flip,
-          theme: "dark",
-        });
+        toast("Copy to clipboard failed :/", toastOptions);
       }
     );
   };
@@ -170,39 +173,15 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
         </div>
 
         <section className={styles["code-snippets"]}>
-          <CodeSnippet title="Plain">
-            <span>
-              {`${gradient.colors.map((color, idx) =>
-                idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-              )}`}
-            </span>
-          </CodeSnippet>
-
-          <CodeSnippet title="CSS">
-            <span>
-              {`background: linear-gradient(${gradient.colors.map(
-                (color, idx) =>
-                  idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-              )});`}
-            </span>
-          </CodeSnippet>
-
-          <CodeSnippet title="Plain">
-            <span>
-              {`${gradient.colors.map((color, idx) =>
-                idx === 0 ? getRGB(color) : " " + getRGB(color)
-              )}`}
-            </span>
-          </CodeSnippet>
-
-          <CodeSnippet title="CSS">
-            <span>
-              {`background: linear-gradient(${gradient.colors.map(
-                (color, idx) =>
-                  idx === 0 ? getRGB(color) : " " + getRGB(color)
-              )});`}
-            </span>
-          </CodeSnippet>
+          {codeSnippets.map(({ title, expr }, idx) => (
+            <CodeSnippet
+              key={idx}
+              title={title}
+              onClick={() => handleCodeSnippetOnClick(expr)}
+            >
+              <span>{expr}</span>
+            </CodeSnippet>
+          ))}
         </section>
 
         <div className={styles["tags"]}>
