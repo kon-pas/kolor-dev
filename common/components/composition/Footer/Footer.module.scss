@@ -10,8 +10,7 @@
   &__author {
     @apply p-6
       flex items-center justify-center
-      text-sm
-      xs:text-base;
+      text-sm;
 
     #{ $self }__heart {
       @apply h-3

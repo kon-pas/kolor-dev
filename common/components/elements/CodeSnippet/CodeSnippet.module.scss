@@ -1,17 +1,20 @@
 .code-snippet {
   @apply m-0
-    p-1
+    p-3
     w-full
-    bg-gray-draw-3
-    rounded-md;
-
-  &__title {
-    @apply text-end
-      text-sm
-      font-bold;
-  }
+    bg-black
+    text-white
+    rounded-sm grid
+    grid-cols-[1fr_auto];
 
   &__code {
-    @apply text-sm;
+    @apply text-sm block;
+  }
+
+  &__title {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+
+    @apply text-gray-font;
   }
 }

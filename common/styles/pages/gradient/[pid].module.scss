@@ -46,6 +46,7 @@
 
     &__item {
       @apply w-full
+        cursor-pointer
         grid justify-items-center;
 
       #{ $self }__color {
@@ -69,7 +70,7 @@
     @apply w-full
       my-10
       grid justify-items-center gap-4
-      sm:w-[560px] sm:mx-auto;
+      sm:w-[700px] sm:mx-auto;
   }
 
   .tags {
