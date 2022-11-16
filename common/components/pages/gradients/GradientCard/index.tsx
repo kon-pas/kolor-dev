@@ -8,7 +8,7 @@ import Color from "@components/elements/ColorBackground";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 import Button from "@components/elements/Button";
 
-import getCleanHex from "@utils/getCleanHex";
+import { getCleanHex } from "@utils";
 
 import type { GradientScheme } from "@interfaces";
 import type { GradientId } from "@types";
