@@ -2,9 +2,9 @@ import styles from "@styles/pages/gradient/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import type { NextPage, GetServerSideProps } from "next";
-import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer, Flip } from "react-toastify";
 
-import { getCleanHex } from "@utils";
+import { getCleanHex, getRGB } from "@utils";
 
 import { MiscTags } from "@enums";
 import type { GradientScheme } from "@interfaces";
@@ -22,6 +22,67 @@ interface GradientPidProps {
 }
 
 const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
+  const codeSnippets = [
+    {
+      title: "Plain",
+      expr: `${gradient.colors.map((color, idx) =>
+        idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+      )}`,
+    },
+
+    {
+      title: "CSS",
+      expr: `background: linear-gradient(${gradient.colors.map((color, idx) =>
+        idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+      )});`,
+    },
+
+    {
+      title: "Plain",
+      expr: `${gradient.colors.map((color, idx) =>
+        idx === 0 ? getRGB(color) : " " + getRGB(color)
+      )}`,
+    },
+
+    {
+      title: "CSS",
+      expr: `background: linear-gradient(${gradient.colors.map((color, idx) =>
+        idx === 0 ? getRGB(color) : " " + getRGB(color)
+      )});`,
+    },
+  ];
+
+  const handleColorOnCLick = (color: string): void => {
+    navigator.clipboard.writeText(color).then(
+      () => {
+        toast(`Copied ${color}`, {
+          position: "bottom-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          transition: Flip,
+          theme: "dark",
+        });
+      },
+      () => {
+        toast(`Copy to clipboard failed :/`, {
+          position: "bottom-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          transition: Flip,
+          theme: "dark",
+        });
+      }
+    );
+  };
+
   return (
     <>
       <div className={styles["gradient-pid"]}>
@@ -88,18 +149,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
             <div className={styles["colors-list__item"]} key={idx}>
               <div
                 className={styles["colors-list__color"]}
-                onClick={() => {
-                  toast(`Copied ${color.toUpperCase()}`, {
-                    position: "bottom-center",
-                    autoClose: 1000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: false,
-                    progress: undefined,
-                    theme: "dark",
-                  });
-                }}
+                onClick={() => handleColorOnCLick(color.toUpperCase())}
               >
                 <Color hex={color}>{getCleanHex(color)}</Color>
               </div>
@@ -120,22 +170,38 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
         </div>
 
         <section className={styles["code-snippets"]}>
-          <CodeSnippet title="CSS">
-            {gradient.colors.map((color, index) => (
-              <span key={index}>{color}</span>
-            ))}
+          <CodeSnippet title="Plain">
+            <span>
+              {`${gradient.colors.map((color, idx) =>
+                idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+              )}`}
+            </span>
           </CodeSnippet>
 
           <CodeSnippet title="CSS">
-            {gradient.colors.map((color, index) => (
-              <span key={index}>{color}</span>
-            ))}
+            <span>
+              {`background: linear-gradient(${gradient.colors.map(
+                (color, idx) =>
+                  idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+              )});`}
+            </span>
+          </CodeSnippet>
+
+          <CodeSnippet title="Plain">
+            <span>
+              {`${gradient.colors.map((color, idx) =>
+                idx === 0 ? getRGB(color) : " " + getRGB(color)
+              )}`}
+            </span>
           </CodeSnippet>
 
           <CodeSnippet title="CSS">
-            {gradient.colors.map((color, index) => (
-              <span key={index}>{color}</span>
-            ))}
+            <span>
+              {`background: linear-gradient(${gradient.colors.map(
+                (color, idx) =>
+                  idx === 0 ? getRGB(color) : " " + getRGB(color)
+              )});`}
+            </span>
           </CodeSnippet>
         </section>
 
@@ -168,6 +234,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
         pauseOnFocusLoss={false}
         draggable={false}
         pauseOnHover
+        transition={Flip}
         theme="dark"
       />
     </>
