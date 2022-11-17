@@ -1,9 +1,9 @@
-import { GradientsJSON } from "@interfaces";
+import type { GradientsJSON } from "@interfaces";
 import { customAlphabet } from "nanoid";
 import { MainColors, MiscTags } from "@enums";
 
 const nanoid = customAlphabet(
-  "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
   8
 );
 
@@ -117,8 +117,10 @@ export const gradients: GradientsJSON = [
     title: "Black & White",
   },
 ]
-  .map((gradient) => ({
-    [nanoid()]: {
+  .map((gradient, idx) => ({
+    // @@@ Cannot use it like this and get same IDs on different fetches
+    // [nanoid()]: {
+    [`vENCrfkC${idx}`]: {
       ...gradient,
     },
   }))
