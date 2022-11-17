@@ -4,7 +4,11 @@
   @apply w-full h-full
     p-4
     bg-gray-draw-3
+
+    hover:brightness-95 duration-200
+
     rounded-md
+    cursor-pointer
     aspect-video
     sm:p-6
     md:p-4;

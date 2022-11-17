@@ -12,13 +12,15 @@
       #{ $self }__heading {
         @apply mx-auto w-fit
           flex flex-col items-center
+          select-none
           font-satoshi font-bold
           text-5xl
           xs:text-6xl
           sm:items-end
           sm:mr-auto
           sm:pl-40
-          sm:text-7xl;
+          sm:text-7xl
+          md:text-8xl;
 
         #{ $self }__strong {
           @apply hidden;
@@ -48,7 +50,7 @@
         max-w-2xl
         box-content
         xs:w-5/6
-        sm:bottom-28
+        sm:bottom-24
         md:pr-40;
     }
   }
@@ -69,11 +71,14 @@
     $self: ".call-to-action";
 
     @apply flex
+      w-20
+      mx-auto
       flex-col
       items-center
       relative
-      bottom-16
-      sm:bottom-40;
+      cursor-pointer
+      bottom-6
+      sm:bottom-20;
 
     #{ $self }__label {
       @apply mb-2
