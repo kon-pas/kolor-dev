@@ -1,16 +1,16 @@
 import styles from "@styles/pages/gradient/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
+import { MiscTags } from "@enums";
+import type { GradientScheme, GradientsJSON } from "@interfaces";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+
+import ErrorPage from "next/error";
 import { toast, ToastContainer, Flip } from "react-toastify";
 import { ParsedUrlQuery } from "querystring";
 
 import { getCleanHex, getRGB } from "@utils";
 import { TOAST_OPTIONS } from "@constants";
-
-import { MiscTags } from "@enums";
-import type { GradientScheme, GradientsJSON } from "@interfaces";
-
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Gradient from "@components/elements/GradientBackground";
 import Color from "@components/elements/ColorBackground";
@@ -21,10 +21,15 @@ import Tag from "@components/elements/Tag";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 
 interface GradientPidProps {
-  gradient: GradientScheme;
+  statusCode: 404 | 500;
+  gradient?: GradientScheme;
 }
 
-const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
+const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
+  if (statusCode === 404) return <ErrorPage statusCode={statusCode} />;
+
+  gradient = gradient as GradientScheme;
+
   const codeSnippets = [
     {
       title: "Plain",
@@ -239,16 +244,27 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     pid: string;
   };
   const { pid } = params as Params;
-  const res = await fetch(`http://localhost:3000/api/gradient/${pid}`, {
+  const res = await fetch(`http://localhost:3000/api/gradient/${pid}a`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json; charset=utf8",
     },
   });
+
+  if (!res.ok) {
+    return {
+      props: {
+        statusCode: 404,
+      },
+    };
+  }
+
   const gradient = await res.json();
+
   return {
     props: {
       gradient,
+      statusCode: 500,
     },
   };
 };
