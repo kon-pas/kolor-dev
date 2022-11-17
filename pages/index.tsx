@@ -1,18 +1,22 @@
 import styles from "@styles/pages/home.module.scss";
 
+import { useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import type { NextPage } from "next";
 
 import { MAIN_COLORS } from "@constants";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import TextGradiented from "@components/elements/TextGradiented";
-import TextAnimated from "@components/elements/TextAnimated";
-import GradientBackground from "@components/elements/GradientBackground";
 import IconSVG from "@components/elements/IconSVG";
 import CallToActionBanner from "@components/pages/home/CallToActionBanner";
+import AnimatedText from "@components/pages/home/AnimatedText";
 
 const Home: NextPage = () => {
+  const callToActionRef = useRef<HTMLInputElement>(null);
+  const { push: navigate } = useRouter();
+
   return (
     <div className={styles["home-page"]}>
       <section className={styles["hero-section"]}>
@@ -31,7 +35,9 @@ const Home: NextPage = () => {
             </strong>
 
             <span className={styles["hero-section__text-animated"]}>
-              <TextAnimated labels={["your work", "with ease", "for free"]} />
+              {/* @@@ NOTE: Temporarily using less scalable `AnimatedText` */}
+              {/* <TextAnimated labels={["your work", "with ease", "for free"]} /> */}
+              <AnimatedText />
 
               <span className={styles["hero-section__dot"]}>
                 <TextGradiented
@@ -56,7 +62,13 @@ const Home: NextPage = () => {
           />
         </div>
 
-        <div className={styles["call-to-action"]}>
+        <div
+          className={styles["call-to-action"]}
+          ref={callToActionRef}
+          onClick={() =>
+            callToActionRef.current!.scrollIntoView({ behavior: "smooth" })
+          }
+        >
           <span className={styles["call-to-action__label"]}>Explore</span>
 
           <div className={styles["call-to-action__icon"]}>
@@ -71,14 +83,16 @@ const Home: NextPage = () => {
         </div>
       </section>
 
+      {/* @@@ TODO: Why is this section empty? */}
       <section className={styles["tools-section"]}>
-        <header className={styles["tools-section__header"]}>
-          <h1>Explore tools</h1>
-        </header>
+        <h1 className={styles["tools-section__header"]}>Explore tools</h1>
       </section>
 
       <div className={styles["banner-actions"]}>
-        <div className={styles["banner-actions__card"]}>
+        <div
+          className={styles["banner-actions__card"]}
+          onClick={() => navigate("/gradients")}
+        >
           <CallToActionBanner desc="Carefully selected for Artists, Designers & Developers">
             <b>25</b> Gradients
           </CallToActionBanner>
