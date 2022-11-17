@@ -1,13 +1,15 @@
 import styles from "@styles/pages/gradient/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
-import type { NextPage, GetServerSideProps } from "next";
-import { toast, ToastContainer, Flip, ToastOptions } from "react-toastify";
+import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import { toast, ToastContainer, Flip } from "react-toastify";
+import { ParsedUrlQuery } from "querystring";
 
 import { getCleanHex, getRGB } from "@utils";
+import { TOAST_OPTIONS } from "@constants";
 
 import { MiscTags } from "@enums";
-import type { GradientScheme } from "@interfaces";
+import type { GradientScheme, GradientsJSON } from "@interfaces";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Gradient from "@components/elements/GradientBackground";
@@ -16,6 +18,7 @@ import IconSVG from "@components/elements/IconSVG";
 import Button from "@components/elements/Button";
 import CodeSnippet from "@components/elements/CodeSnippet";
 import Tag from "@components/elements/Tag";
+import SpanMonochrome from "@components/elements/SpanMonochrome";
 
 interface GradientPidProps {
   gradient: GradientScheme;
@@ -52,25 +55,13 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
     },
   ];
 
-  const toastOptions: ToastOptions = {
-    position: "bottom-center",
-    autoClose: 1000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: false,
-    progress: undefined,
-    transition: Flip,
-    theme: "dark",
-  };
-
   const handleCodeSnippetOnClick = (expr: string): void => {
     navigator.clipboard.writeText(expr).then(
       () => {
-        toast("Copied to clipboard", toastOptions);
+        toast("Copied to clipboard", TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to clipboard failed :/", toastOptions);
+        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
       }
     );
   };
@@ -78,10 +69,10 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
   const handleColorOnCLick = (color: string): void => {
     navigator.clipboard.writeText(color).then(
       () => {
-        toast(`Copied ${color}`, toastOptions);
+        toast(`Copied ${color}`, TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to clipboard failed :/", toastOptions);
+        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
       }
     );
   };
@@ -154,7 +145,11 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
                 className={styles["colors-list__color"]}
                 onClick={() => handleColorOnCLick(color.toUpperCase())}
               >
-                <Color hex={color}>{getCleanHex(color)}</Color>
+                <Color hex={color}>
+                  <SpanMonochrome color={color}>
+                    {getCleanHex(color)}
+                  </SpanMonochrome>
+                </Color>
               </div>
 
               {idx + 1 !== colors.length && (
@@ -220,19 +215,37 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const res = await fetch(
-    `http://localhost:3000/api/gradient/${context.query.pid}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch("http://localhost:3000/api/gradients", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const gradients: GradientsJSON = await res.json();
+  type Path = {
+    params: {
+      pid: string;
+    };
+  };
+  const paths: Path[] = Object.keys(gradients).map((key) => ({
+    params: { pid: key },
+  }));
+  return { paths, fallback: false };
+};
 
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  type Params = ParsedUrlQuery & {
+    pid: string;
+  };
+  const { pid } = params as Params;
+  const res = await fetch(`http://localhost:3000/api/gradient/${pid}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json; charset=utf8",
+    },
+  });
   const gradient = await res.json();
-
   return {
     props: {
       gradient,
