@@ -68,9 +68,9 @@
 
   .code-snippets {
     @apply w-full
-      my-10
-      grid justify-items-center gap-4
-      sm:w-[700px] sm:mx-auto;
+      my-12
+      grid justify-items-center gap-6
+      sm:max-w-[700px] sm:mx-auto;
   }
 
   .tags {

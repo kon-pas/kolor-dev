@@ -1,10 +1,11 @@
 .code-snippet {
   @apply m-0
-    p-3
+    px-3 py-4
     w-full
     bg-black
     text-white
-    rounded-sm grid
+    rounded-md grid
+    cursor-pointer
     grid-cols-[1fr_auto];
 
   &__code {
