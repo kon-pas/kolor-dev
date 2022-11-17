@@ -244,7 +244,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     pid: string;
   };
   const { pid } = params as Params;
-  const res = await fetch(`http://localhost:3000/api/gradient/${pid}a`, {
+  const res = await fetch(`http://localhost:3000/api/gradient/${pid}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json; charset=utf8",

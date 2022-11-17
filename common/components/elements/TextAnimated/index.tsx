@@ -1,4 +1,4 @@
-// NOTE: This component is written terribly, but for now it's doing its job. I will rewrite it the other time, surely.
+// @@@ NOTE: This component is written terribly, but for now it's doing its job. I will rewrite it the other time, surely.
 
 import styles from "./TextAnimated.module.scss";
 
@@ -8,6 +8,9 @@ interface TextAnimatedProps {
   labels: string[];
 }
 
+/**
+ * @deprecated To be repaired. Animation is out of sync.
+ */
 const TextAnimated: React.FC<TextAnimatedProps> = ({ labels }) => {
   const [labelIndex, setLabelIndex] = useState<number>(0);
 
