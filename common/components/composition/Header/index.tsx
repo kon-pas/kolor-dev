@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import IconSVG from "@components/elements/IconSVG";
+import NAV_ITEMS from "common/constants/nav-items";
 
 const Header: React.FC = () => {
   return (
@@ -38,36 +39,24 @@ const Header: React.FC = () => {
 
         <nav className={clsx(styles["nav"], styles["nav--desktop"])}>
           <ul>
-            <li className={styles["nav__item"]}>
-              <a>Item 1</a>
-            </li>
-
-            <li className={styles["nav__item"]}>
-              <a>Item 2</a>
-            </li>
-
-            <li className={styles["nav__item"]}>
-              <a>Item 3</a>
-            </li>
+            {NAV_ITEMS.map(({ label, path }, idx) => (
+              <li className={styles["nav__item"]} key={idx}>
+                {path ? <Link href={path}>{label}</Link> : <span>{label}</span>}
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
 
-      <div className={styles['header__bottom']}>
-        <nav className={styles['header__nav']}>
-            <ul>
-              <li className={styles['header__item']}>
-                <a>Item 1</a>
+      <div className={styles["header__bottom"]}>
+        <nav className={styles["header__nav"]}>
+          <ul>
+            {NAV_ITEMS.map(({ label, path }, idx) => (
+              <li className={styles["nav__item"]} key={idx}>
+                {path ? <Link href={path}>{label}</Link> : <span>{label}</span>}
               </li>
-
-              <li className={styles['header__item']}>
-                <a>Item 2</a>
-              </li>
-
-              <li className={styles['header__item']}>
-                <a>Item 3</a>
-              </li>
-            </ul>
+            ))}
+          </ul>
         </nav>
       </div>
     </header>
