@@ -16,3 +16,8 @@ export interface GradientScheme {
 export interface GradientsJSON {
   readonly [key: TYPES.GradientId]: GradientScheme;
 }
+
+export interface NavItem {
+  readonly label: string;
+  readonly path: string | null;
+}
