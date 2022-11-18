@@ -2,6 +2,7 @@ import styles from "./Header.module.scss";
 
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 import IconSVG from "@components/elements/IconSVG";
 
@@ -9,19 +10,21 @@ const Header: React.FC = () => {
   return (
     <header className={styles["header"]}>
       <div className={styles["header__top"]}>
-        <a className={styles["header__title"]}>
-          <div className={styles["header__logo"]}>
-            <Image
-              src="/assets/svgs/kolor_logo_cube_2_1.svg"
-              alt="Kolor Cube"
-              height={40}
-              width={40}
-            />
-          </div>
+        <Link href="/" passHref>
+          <a className={styles["header__title"]}>
+            <div className={styles["header__logo"]}>
+              <Image
+                src="/assets/svgs/kolor_logo_cube_2_1.svg"
+                alt="Kolor Cube"
+                height={40}
+                width={40}
+              />
+            </div>
 
-          <h1 className={styles["header__heading"]}>Kolor</h1>
-          {/* <span className={styles['header__subtitle']}>/gradients</span> */}
-        </a>
+            <h1 className={styles["header__heading"]}>Kolor</h1>
+            {/* <span className={styles['header__subtitle']}>/gradients</span> */}
+          </a>
+        </Link>
 
         <button className={styles["header__burger"]}>
           <IconSVG title="Open menu">
@@ -50,7 +53,7 @@ const Header: React.FC = () => {
         </nav>
       </div>
 
-      {/* <div className={styles['header__bottom']}>
+      <div className={styles['header__bottom']}>
         <nav className={styles['header__nav']}>
             <ul>
               <li className={styles['header__item']}>
@@ -66,7 +69,7 @@ const Header: React.FC = () => {
               </li>
             </ul>
         </nav>
-      </div> */}
+      </div>
     </header>
   );
 };
