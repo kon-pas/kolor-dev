@@ -37,7 +37,10 @@ module.exports = {
         width: 'width',
         height: 'height',
         'width-opacity': 'width, opacity',
-        'height-opacity': 'height, opacity'
+        'max-width-opacity': 'max-width, opacity',
+        'max-width-opacity-visibility': 'max-width, opacity, visibility',
+        'height-opacity': 'height, opacity',
+        'max-height-opacity-visibility': 'max-height, opacity, visibility',
       }
     }
   }
