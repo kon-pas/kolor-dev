@@ -4,9 +4,10 @@
   $self: &;
 
   @apply w-full
-    bg-gradient-to-b from-white/80 to-white/60
+    bg-gradient-to-b from-white/90 to-white/80
     backdrop-blur-sm
     shadow-sm
+    select-none
     sticky top-0 z-50;
 
   &__top {
@@ -24,6 +25,7 @@
       #{ $self }__logo {
         @apply w-6
           h-[1.6rem]
+          flex items-center
           sm:h-[1.85rem]
           sm:w-7;
       }
@@ -39,18 +41,35 @@
     #{ $self }__burger {
       @apply w-8
         xs:mr-4
-        sm:hidden;
+        md:hidden;
     }
   }
 
   &__bottom {
     @include content;
 
-    @apply bg-white
+    @apply bg-gradient-to-t from-white/90 to-white/80
+      backdrop-blur-sm
       w-full
       pb-3
       shadow-sm
-      sm:hidden;
+      absolute
+      opacity-100
+      visible
+      max-h-[300px]
+      md:hidden;
+
+    transition: visibility 0s linear 0s, max-height 1s ease-out,
+      opacity 1s ease-out;
+
+    &--closed {
+      @apply opacity-0 max-h-[0px];
+
+      visibility: hidden;
+
+      transition: visibility 0s linear 1s, max-height 1s ease-out,
+        opacity 1s ease-out;
+    }
   }
 
   .nav {
@@ -58,15 +77,56 @@
 
     &--desktop {
       @apply hidden
-        sm:mr-8 sm:p-0 sm:h-fit sm:flex sm:justify-end sm:w-fit;
+        md:mr-8 md:p-0 md:h-fit md:flex md:justify-end md:w-fit;
     }
 
     &__item {
-      @apply h-12 mr-8
+      @apply h-12
         grid items-center text-right
         text-base
-        sm:inline-block sm:m-0 sm:content-center
-        sm:h-fit sm:my-auto sm:ml-12 sm:first:ml-0;
+        xs:mr-4
+        md:inline-block md:m-0 md:content-center
+        md:h-fit md:my-auto md:ml-12 md:first:ml-0;
+
+      &--inactive {
+        @apply text-gray-font cursor-not-allowed;
+      }
     }
+  }
+}
+
+@keyframes openn {
+  0% {
+    visibility: none;
+    opacity: 0;
+    height: 0px;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+    height: 0px;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    height: 300px;
+  }
+}
+
+@keyframes closee {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    height: 300px;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+    height: 0px;
+  }
+  100% {
+    visibility: none;
+    opacity: 0;
+    height: 0px;
   }
 }
