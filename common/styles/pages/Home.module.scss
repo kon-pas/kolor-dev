@@ -108,7 +108,13 @@
       md:gap-6;
 
     #{ $self }__card {
+      $self: ".banner-actions__card";
+
       @apply w-full;
+
+    }
+    #{ $self }__card--inactive {
+      @apply cursor-not-allowed;
     }
   }
 }
