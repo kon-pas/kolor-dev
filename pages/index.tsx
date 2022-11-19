@@ -1,9 +1,10 @@
 import styles from "@styles/pages/home.module.scss";
 
+import type { NextPage } from "next";
 import { useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import type { NextPage } from "next";
+import clsx from "clsx";
 
 import { MAIN_COLORS } from "@constants";
 
@@ -87,7 +88,7 @@ const Home: NextPage = () => {
       <section className={styles["tools-section"]}>
         <h1 className={styles["tools-section__header"]}>Explore tools</h1>
       </section>
-
+s
       <div className={styles["banner-actions"]}>
         <div
           className={styles["banner-actions__card"]}
@@ -98,25 +99,45 @@ const Home: NextPage = () => {
           </CallToActionBanner>
         </div>
 
-        <div className={styles["banner-actions__card"]}>
+        <div
+          className={clsx(
+            styles["banner-actions__card"],
+            styles["banner-actions__card--inactive"]
+          )}
+        >
           <CallToActionBanner desc="Work in Progress">
             Gradient Generator
           </CallToActionBanner>
         </div>
 
-        <div className={styles["banner-actions__card"]}>
+        <div
+          className={clsx(
+            styles["banner-actions__card"],
+            styles["banner-actions__card--inactive"]
+          )}
+        >
           <CallToActionBanner desc="Work in Progress">
             Color Palettes
           </CallToActionBanner>
         </div>
 
-        <div className={styles["banner-actions__card"]}>
+        <div
+          className={clsx(
+            styles["banner-actions__card"],
+            styles["banner-actions__card--inactive"]
+          )}
+        >
           <CallToActionBanner desc="Work in Progress">
             Palette Generator
           </CallToActionBanner>
         </div>
 
-        <div className={styles["banner-actions__card"]}>
+        <div
+          className={clsx(
+            styles["banner-actions__card"],
+            styles["banner-actions__card--inactive"]
+          )}
+        >
           <CallToActionBanner desc="Work in Progress">
             Color Finder
           </CallToActionBanner>
