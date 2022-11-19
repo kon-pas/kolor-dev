@@ -1,5 +1,6 @@
 import styles from "./Header.module.scss";
 
+import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +9,8 @@ import IconSVG from "@components/elements/IconSVG";
 import NAV_ITEMS from "common/constants/nav-items";
 
 const Header: React.FC = () => {
+  const [isOpened, setIsOpened] = useState<boolean>(false);
+
   return (
     <header className={styles["header"]}>
       <div className={styles["header__top"]}>
@@ -27,13 +30,24 @@ const Header: React.FC = () => {
           </a>
         </Link>
 
-        <button className={styles["header__burger"]}>
+        <button
+          className={styles["header__burger"]}
+          onClick={() => setIsOpened((isOpened) => !isOpened)}
+        >
           <IconSVG title="Open menu">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
+            {isOpened ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            )}
           </IconSVG>
         </button>
 
@@ -41,19 +55,32 @@ const Header: React.FC = () => {
           <ul>
             {NAV_ITEMS.map(({ label, path }, idx) => (
               <li className={styles["nav__item"]} key={idx}>
-                {path ? <Link href={path}>{label}</Link> : <span>{label}</span>}
+                {path ? (
+                  <Link href={path}>{label}</Link>
+                ) : (
+                  <span className={styles["nav__item--inactive"]}>{label}</span>
+                )}
               </li>
             ))}
           </ul>
         </nav>
       </div>
 
-      <div className={styles["header__bottom"]}>
+      <div
+        className={clsx(
+          styles["header__bottom"],
+          !isOpened && styles["header__bottom--closed"]
+        )}
+      >
         <nav className={styles["header__nav"]}>
           <ul>
             {NAV_ITEMS.map(({ label, path }, idx) => (
               <li className={styles["nav__item"]} key={idx}>
-                {path ? <Link href={path}>{label}</Link> : <span>{label}</span>}
+                {path ? (
+                  <Link href={path}>{label}</Link>
+                ) : (
+                  <span className={styles["nav__item--inactive"]}>{label}</span>
+                )}
               </li>
             ))}
           </ul>
