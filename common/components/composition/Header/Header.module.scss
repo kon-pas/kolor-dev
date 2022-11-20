@@ -4,8 +4,6 @@
   $self: &;
 
   @apply w-full
-    bg-gradient-to-b from-white/90 to-white/80
-    backdrop-blur-sm
     shadow-sm
     select-none
     sticky top-0 z-50;
@@ -13,7 +11,7 @@
   &__top {
     @include content;
 
-    @apply flex justify-between items-center
+    @apply flex justify-between items-center backdrop-blur-md bg-white/90
       h-14
       sm:h-16;
 
@@ -48,27 +46,23 @@
   &__bottom {
     @include content;
 
-    @apply bg-gradient-to-t from-white/90 to-white/80
-      backdrop-blur-sm
+    @apply bg-white/90 backdrop-blur-md
       w-full
       pb-3
-      shadow-sm
       absolute
       opacity-100
       visible
       max-h-[300px]
       md:hidden;
 
-    transition: visibility 0s linear 0s, max-height 1s ease-out,
-      opacity 1s ease-out;
+    transition: visibility 0s linear 0s, max-height 0.1s ease-out,
+      opacity 0.15s ease-in;
 
     &--closed {
-      @apply opacity-0 max-h-[0px];
+      @apply opacity-0 max-h-[0px] invisible;
 
-      visibility: hidden;
-
-      transition: visibility 0s linear 1s, max-height 1s ease-out,
-        opacity 1s ease-out;
+      transition: visibility 0s linear 0.1s, max-height 0.15s ease-in,
+        opacity 0.1s ease-in;
     }
   }
 
@@ -92,41 +86,5 @@
         @apply text-gray-font cursor-not-allowed;
       }
     }
-  }
-}
-
-@keyframes openn {
-  0% {
-    visibility: none;
-    opacity: 0;
-    height: 0px;
-  }
-  1% {
-    visibility: visible;
-    opacity: 0;
-    height: 0px;
-  }
-  100% {
-    visibility: visible;
-    opacity: 1;
-    height: 300px;
-  }
-}
-
-@keyframes closee {
-  0% {
-    visibility: visible;
-    opacity: 1;
-    height: 300px;
-  }
-  99% {
-    visibility: visible;
-    opacity: 0;
-    height: 0px;
-  }
-  100% {
-    visibility: none;
-    opacity: 0;
-    height: 0px;
   }
 }
