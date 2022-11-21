@@ -83,12 +83,11 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-
       {/* @@@ TODO: Why is this section empty? */}
       <section className={styles["tools-section"]}>
         <h1 className={styles["tools-section__header"]}>Explore tools</h1>
       </section>
-s
+      s
       <div className={styles["banner-actions"]}>
         <div
           className={styles["banner-actions__card"]}
@@ -99,46 +98,26 @@ s
           </CallToActionBanner>
         </div>
 
-        <div
-          className={clsx(
-            styles["banner-actions__card"],
-            styles["banner-actions__card--inactive"]
-          )}
-        >
-          <CallToActionBanner desc="Work in Progress">
+        <div className={clsx(styles["banner-actions__card"])}>
+          <CallToActionBanner desc="Work in Progress" wip>
             Gradient Generator
           </CallToActionBanner>
         </div>
 
-        <div
-          className={clsx(
-            styles["banner-actions__card"],
-            styles["banner-actions__card--inactive"]
-          )}
-        >
-          <CallToActionBanner desc="Work in Progress">
+        <div className={clsx(styles["banner-actions__card"])}>
+          <CallToActionBanner desc="Work in Progress" wip>
             Color Palettes
           </CallToActionBanner>
         </div>
 
-        <div
-          className={clsx(
-            styles["banner-actions__card"],
-            styles["banner-actions__card--inactive"]
-          )}
-        >
-          <CallToActionBanner desc="Work in Progress">
+        <div className={clsx(styles["banner-actions__card"])}>
+          <CallToActionBanner desc="Work in Progress" wip>
             Palette Generator
           </CallToActionBanner>
         </div>
 
-        <div
-          className={clsx(
-            styles["banner-actions__card"],
-            styles["banner-actions__card--inactive"]
-          )}
-        >
-          <CallToActionBanner desc="Work in Progress">
+        <div className={clsx(styles["banner-actions__card"])}>
+          <CallToActionBanner desc="Work in Progress" wip>
             Color Finder
           </CallToActionBanner>
         </div>
