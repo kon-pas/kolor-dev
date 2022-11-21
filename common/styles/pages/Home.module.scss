@@ -82,14 +82,15 @@
 
     #{ $self }__label {
       @apply mb-2
+        font-bold
         text-sm
         sm:text-base;
     }
 
     #{ $self }__icon {
       @apply animate-bounce
-        w-4
-        sm:w-5;
+        w-5
+        sm:w-6;
     }
   }
 
@@ -112,9 +113,6 @@
 
       @apply w-full;
 
-    }
-    #{ $self }__card--inactive {
-      @apply cursor-not-allowed;
     }
   }
 }
