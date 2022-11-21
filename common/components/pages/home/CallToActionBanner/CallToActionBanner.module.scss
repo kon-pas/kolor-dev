@@ -4,9 +4,6 @@
   @apply w-full h-full
     p-4
     bg-gray-draw-3
-
-    hover:brightness-95 duration-200
-
     rounded-md
     cursor-pointer
     aspect-video
@@ -31,4 +28,12 @@
       sm:text-lg
       md:text-xl;
   }
+}
+
+.active {
+  @apply hover:brightness-95 duration-200;
+}
+
+.inactive {
+  @apply cursor-not-allowed;
 }
