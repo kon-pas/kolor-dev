@@ -9,13 +9,10 @@
     grid-cols-[1fr_auto];
 
   &__code {
-    @apply text-sm block;
+    @apply text-sm block font-roboto tracking-tight;
   }
 
   &__title {
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-
-    @apply text-gray-font;
+    @apply text-gray-font text-xs leading-5;
   }
 }
