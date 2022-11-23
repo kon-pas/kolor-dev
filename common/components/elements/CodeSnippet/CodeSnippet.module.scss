@@ -9,7 +9,7 @@
     grid-cols-[1fr_auto];
 
   &__code {
-    @apply text-sm block font-roboto tracking-tight;
+    @apply text-sm block font-roboto tracking-tight font-medium;
   }
 
   &__title {
