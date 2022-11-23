@@ -30,6 +30,8 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 
   gradient = gradient as GradientScheme;
 
+  // const {  }
+
   const codeSnippets = [
     {
       title: "Plain",
@@ -60,15 +62,25 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
     },
   ];
 
-  const handleCodeSnippetOnClick = (expr: string): void => {
-    navigator.clipboard.writeText(expr).then(
+  const handleSaveButtonOnClick = () => {};
+
+  const handleLinkButtonOnClick = () => {
+    
+
+    navigator.clipboard.writeText().then(
       () => {
-        toast("Copied to clipboard", TOAST_OPTIONS);
+        toast("Link Copied to Clipboard", TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
+        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
       }
     );
+  };
+
+  const handleImageButtonOnClick = () => {};
+
+  const handleEditButtonOnClick = (): void => {
+    toast("Not Yet Available", TOAST_OPTIONS);
   };
 
   const handleColorOnCLick = (color: string): void => {
@@ -77,7 +89,18 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
         toast(`Copied ${color}`, TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
+        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+      }
+    );
+  };
+
+  const handleCodeSnippetOnClick = (expr: string): void => {
+    navigator.clipboard.writeText(expr).then(
+      () => {
+        toast("Copied to Clipboard", TOAST_OPTIONS);
+      },
+      () => {
+        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
       }
     );
   };
@@ -99,7 +122,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 
         <div className={styles["buttons"]}>
           <div className={styles["buttons__left"]}>
-            <Button label="Save">
+            <Button label="Save" onClick={handleSaveButtonOnClick}>
               <IconSVG>
                 <path
                   strokeLinecap="round"
@@ -111,7 +134,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
           </div>
 
           <div className={styles["buttons__right"]}>
-            <Button label="Link">
+            <Button label="Link" onClick={handleLinkButtonOnClick}>
               <IconSVG>
                 <path
                   strokeLinecap="round"
@@ -121,7 +144,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
               </IconSVG>
             </Button>
 
-            <Button label="Image">
+            <Button label="Image" onClick={handleImageButtonOnClick}>
               <IconSVG>
                 <path
                   strokeLinecap="round"
@@ -131,7 +154,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
               </IconSVG>
             </Button>
 
-            <Button label="Edit">
+            <Button label="Edit" onClick={handleEditButtonOnClick}>
               <IconSVG>
                 <path
                   strokeLinecap="round"
