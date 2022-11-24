@@ -30,8 +30,6 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 
   gradient = gradient as GradientScheme;
 
-  // const {  }
-
   const codeSnippets = [
     {
       title: "Plain",
@@ -64,10 +62,8 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 
   const handleSaveButtonOnClick = () => {};
 
-  const handleLinkButtonOnClick = () => {
-    
-
-    navigator.clipboard.writeText().then(
+  const handleLinkButtonOnClick = (): void => {
+    navigator.clipboard.writeText(window.location.href).then(
       () => {
         toast("Link Copied to Clipboard", TOAST_OPTIONS);
       },
@@ -77,7 +73,35 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
     );
   };
 
-  const handleImageButtonOnClick = () => {};
+  const handleImageButtonOnClick = (): void => {
+    const [width, height] = [1920, 1080];
+
+    const canvas = document.createElement("canvas") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const linearGradient = ctx.createLinearGradient(
+      0,
+      height / 2,
+      width,
+      height / 2
+    );
+
+    gradient!.colors.forEach((color, idx, colors) => {
+      linearGradient.addColorStop(idx / (colors.length - 1), color);
+    });
+
+    [canvas.width, canvas.height] = [width, height];
+    ctx.fillStyle = linearGradient;
+    ctx.fillRect(0, 0, width, height);
+
+    const image = canvas.toDataURL();
+    const link = document.createElement("a");
+    const name = gradient!.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
+
+    link.download = `${name}.png`;
+    link.href = image;
+
+    link.click();
+  };
 
   const handleEditButtonOnClick = (): void => {
     toast("Not Yet Available", TOAST_OPTIONS);
