@@ -9,6 +9,7 @@ export interface Tags {
 export interface GradientScheme {
   readonly colors: TYPES.GradientHue;
   readonly title: string;
+  readonly id: string;
   readonly tags?: Tags;
   readonly desc?: string;
 }

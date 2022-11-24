@@ -122,6 +122,7 @@ export const gradients: GradientsJSON = [
     // [nanoid()]: {
     [`vENCrfkC${idx}`]: {
       ...gradient,
+      id: `vENCrfkC${idx}`,
     },
   }))
   .reduce((firstGradient, secondGradient) => ({
