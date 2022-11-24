@@ -9,3 +9,9 @@ export { default as getGreen } from "./get-green";
 export { default as getBlue } from "./get-blue";
 
 export { default as getRGB } from "./get-rgb";
+
+export { default as getFavGradients } from "./get-fav-gradients";
+
+export { default as setFavGradient } from "./set-fav-gradient";
+
+export { default as removeFavGradient } from "./remove-fav-gradient";
