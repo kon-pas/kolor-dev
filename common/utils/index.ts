@@ -10,8 +10,12 @@ export { default as getBlue } from "./get-blue";
 
 export { default as getRGB } from "./get-rgb";
 
-export { default as getFavGradients } from "./get-fav-gradients";
+// export { default as getFavGradients } from "./get-fav-gradients";
 
-export { default as setFavGradient } from "./set-fav-gradient";
+// export { default as addFavGradient } from "./add-fav-gradient";
 
-export { default as removeFavGradient } from "./remove-fav-gradient";
+// export { default as removeFavGradient } from "./remove-fav-gradient";
+
+// export { default as handleGradientSave } from "./handle-gradient-save";
+
+// export { default as isGradientSaved } from "./is-gradient-saved";
