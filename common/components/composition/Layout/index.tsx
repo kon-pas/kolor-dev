@@ -11,7 +11,8 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <Loader />
+      {/* @@@ TODO: Fix for SSG */}
+      {/* <Loader /> */}
 
       <Header />
       <main className={styles.main}>{children}</main>
