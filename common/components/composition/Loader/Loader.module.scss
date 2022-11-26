@@ -1,0 +1,13 @@
+.loader {
+  @apply fixed top-0 left-0
+    h-screen w-full
+    bg-white
+    flex justify-center items-center
+    z-50;
+
+  .animation {
+    svg {
+      @apply w-8 h-8 animate-spin;
+    }
+  }
+}
