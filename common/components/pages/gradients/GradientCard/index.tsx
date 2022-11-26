@@ -24,11 +24,10 @@ const GradientCard: React.FC<GradientCardProps> = ({
 }) => {
   const router: NextRouter = useRouter();
 
+  const handleRedirect = () => router.push(`/gradient/${gradientId}`);
+
   return (
-    <div
-      onClick={() => router.push(`/gradient/${gradientId}`)}
-      className={styles["card"]}
-    >
+    <div className={styles["card"]}>
       <div className={styles["card__colors"]}>
         {gradient.colors.map((color, idx) => (
           <div className={styles["card__color"]} key={idx}>
@@ -41,7 +40,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
         ))}
       </div>
 
-      <div className={styles["card__gradient"]}>
+      <div className={styles["card__gradient"]} onClick={handleRedirect}>
         <Gradient colors={gradient.colors} />
       </div>
 
@@ -62,7 +61,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
           </span>
         </button> */}
 
-        <Button label={gradient.title} />
+        <Button onClick={handleRedirect} label={gradient.title} />
       </div>
     </div>
   );
