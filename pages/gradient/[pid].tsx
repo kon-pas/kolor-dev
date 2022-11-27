@@ -7,7 +7,7 @@ import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 
 import { useState, useEffect } from "react";
 import ErrorPage from "next/error";
-import { toast, ToastContainer, Flip } from "react-toastify";
+import { toast } from "react-toastify";
 import { ParsedUrlQuery } from "querystring";
 
 import { TOAST_OPTIONS } from "@constants";
@@ -30,6 +30,7 @@ interface GradientPidProps {
 
 const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
+
   useEffect(() => {
     setIsSaved(gradient ? local.gradients.includes(gradient.id) : false);
   }, [gradient]);
@@ -266,20 +267,6 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
           </div>
         </div>
       </div>
-
-      <ToastContainer
-        position="bottom-center"
-        autoClose={1000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable={false}
-        pauseOnHover
-        transition={Flip}
-        theme="dark"
-      />
     </>
   );
 };
