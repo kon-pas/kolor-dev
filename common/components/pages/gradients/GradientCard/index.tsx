@@ -1,17 +1,21 @@
 import styles from "./GradientCard.module.scss";
+import "react-toastify/dist/ReactToastify.css";
+
+import type { GradientScheme } from "@interfaces";
+import type { GradientId } from "@types";
 
 import { useRouter, NextRouter } from "next/router";
+import { toast, ToastContainer, Flip } from "react-toastify";
+
+import { TOAST_OPTIONS } from "@constants";
+import { getCleanHex } from "@utils";
+// import { local } from "@services";
 
 import IconSVG from "@components/elements/IconSVG";
 import Gradient from "@components/elements/GradientBackground";
 import Color from "@components/elements/ColorBackground";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 import Button from "@components/elements/Button";
-
-import { getCleanHex } from "@utils";
-
-import type { GradientScheme } from "@interfaces";
-import type { GradientId } from "@types";
 
 interface GradientCardProps {
   gradient: GradientScheme;
@@ -26,11 +30,26 @@ const GradientCard: React.FC<GradientCardProps> = ({
 
   const handleRedirect = () => router.push(`/gradient/${gradientId}`);
 
+  const handleColorOnClick = (color: string) => {
+    navigator.clipboard.writeText(color).then(
+      () => {
+        toast(`Copied ${color}`, TOAST_OPTIONS);
+      },
+      () => {
+        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+      }
+    );
+  };
+
   return (
     <div className={styles["card"]}>
       <div className={styles["card__colors"]}>
         {gradient.colors.map((color, idx) => (
-          <div className={styles["card__color"]} key={idx}>
+          <div
+            className={styles["card__color"]}
+            key={idx}
+            onClick={() => handleColorOnClick(color.toUpperCase())}
+          >
             <Color hex={color}>
               <SpanMonochrome color={color}>
                 {getCleanHex(color)}
@@ -55,14 +74,22 @@ const GradientCard: React.FC<GradientCardProps> = ({
           </IconSVG>
         </Button>
 
-        {/* <button className={styles['card__like-button']}>
-          <span>
-            Save
-          </span>
-        </button> */}
-
         <Button onClick={handleRedirect} label={gradient.title} />
       </div>
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={1000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover
+        transition={Flip}
+        theme="dark"
+      />
     </div>
   );
 };
