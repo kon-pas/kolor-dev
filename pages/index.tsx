@@ -87,7 +87,7 @@ const Home: NextPage = () => {
       <section className={styles["tools-section"]}>
         <h1 className={styles["tools-section__header"]}>Explore tools</h1>
       </section>
-      s
+
       <div className={styles["banner-actions"]}>
         <div
           className={styles["banner-actions__card"]}

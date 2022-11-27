@@ -1,4 +1,5 @@
-// @@@ NOTE: This component is written terribly, but for now it's doing its job. I will rewrite it the other time, surely.
+// @@@ NOTE: This component is written terribly, but for now it's doing its job.
+// I will rewrite it the other time, surely.
 
 import styles from "./TextAnimated.module.scss";
 

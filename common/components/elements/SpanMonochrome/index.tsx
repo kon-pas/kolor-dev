@@ -7,7 +7,7 @@ interface SpanMonochromeProps {
 }
 
 const SpanMonochrome: React.FC<SpanMonochromeProps> = ({ color, children }) => {
-  return getColorBrightness(color) > 0.45 ? (
+  return getColorBrightness(color) > 0.475 ? (
     <span>{children}</span>
   ) : (
     <span style={{ color: "white" }}>{children}</span>
