@@ -12,6 +12,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import { TOAST_OPTIONS } from "@constants";
 import { getCleanHex, getRGB } from "@utils";
+import { local } from "@services";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Gradient from "@components/elements/GradientBackground";
@@ -28,11 +29,10 @@ interface GradientPidProps {
 }
 
 const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
-  // @@@
   const [isSaved, setIsSaved] = useState<boolean>(false);
-  // useEffect(() => {
-  //   setIsSaved(true);
-  // }, [gradient]);
+  useEffect(() => {
+    setIsSaved(gradient ? local.gradients.includes(gradient.id) : false);
+  }, [gradient]);
 
   if (statusCode === 404) return <ErrorPage statusCode={statusCode} />;
 
@@ -68,9 +68,10 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
     },
   ];
 
-  // @@@
   const handleSaveButtonOnClick = () => {
-    // handleGradientSave(gradient!.id);
+    const { id } = gradient as GradientScheme;
+    if (local.gradients.includes(id)) local.gradients.remove(id);
+    else local.gradients.add(id);
     setIsSaved((isSaved) => !isSaved);
   };
 
