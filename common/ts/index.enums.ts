@@ -17,8 +17,10 @@ export enum MiscTags {
   Light,
   Dark,
   Magic,
-  Cold,
-  Warm,
   Intense,
   Calm,
+  Cold,
+  Warm,
+  Mono,
+  Varied
 }
