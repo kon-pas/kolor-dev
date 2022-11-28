@@ -1,6 +1,8 @@
 import styles from "@styles/pages/home.module.scss";
 
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
+import type { GradientsJSON } from "@interfaces";
+
 import { useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -14,7 +16,11 @@ import IconSVG from "@components/elements/IconSVG";
 import CallToActionBanner from "@components/pages/home/CallToActionBanner";
 import AnimatedText from "@components/pages/home/AnimatedText";
 
-const Home: NextPage = () => {
+interface HomeProps {
+  numGradients: number | "Plenty of";
+}
+
+const Home: NextPage<HomeProps> = (props) => {
   const callToActionRef = useRef<HTMLInputElement>(null);
   const { push: navigate } = useRouter();
 
@@ -37,7 +43,8 @@ const Home: NextPage = () => {
 
             <span className={styles["hero-section__text-animated"]}>
               {/* @@@ NOTE: Temporarily using less scalable `AnimatedText` */}
-              {/* <TextAnimated labels={["your work", "with ease", "for free"]} /> */}
+              {/* <TextAnimated labels={["your work", "with ease", "for free"]} 
+              /> */}
               <AnimatedText />
 
               <span className={styles["hero-section__dot"]}>
@@ -93,37 +100,65 @@ const Home: NextPage = () => {
           className={styles["banner-actions__card"]}
           onClick={() => navigate("/gradients")}
         >
-          <CallToActionBanner desc="Carefully selected for Artists, Designers & Developers">
-            <b>25</b> Gradients
+          <CallToActionBanner
+            color="yellow"
+            desc="Carefully selected for Artists, Designers & Developers"
+          >
+            {props.numGradients} Gradients
           </CallToActionBanner>
         </div>
 
         <div className={clsx(styles["banner-actions__card"])}>
-          <CallToActionBanner desc="Work in Progress" wip>
+          <CallToActionBanner color="magenta" desc="Work in Progress" wip>
             Gradient Generator
           </CallToActionBanner>
         </div>
 
         <div className={clsx(styles["banner-actions__card"])}>
-          <CallToActionBanner desc="Work in Progress" wip>
+          <CallToActionBanner color="blue" desc="Work in Progress" wip>
             Color Palettes
           </CallToActionBanner>
         </div>
 
         <div className={clsx(styles["banner-actions__card"])}>
-          <CallToActionBanner desc="Work in Progress" wip>
+          <CallToActionBanner color="yellow" desc="Work in Progress" wip>
             Palette Generator
           </CallToActionBanner>
         </div>
 
         <div className={clsx(styles["banner-actions__card"])}>
-          <CallToActionBanner desc="Work in Progress" wip>
+          <CallToActionBanner color="magenta" desc="Work in Progress" wip>
             Color Finder
           </CallToActionBanner>
         </div>
       </div>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const res: Response = await fetch("http://localhost:3000/api/gradients", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const gradients = (await res.json()) as GradientsJSON;
+
+    return {
+      props: {
+        numGradients: Object.entries(gradients).length,
+      },
+    };
+  } catch {
+    return {
+      props: {
+        numGradients: "Plenty of",
+      },
+    };
+  }
 };
 
 export default Home;
