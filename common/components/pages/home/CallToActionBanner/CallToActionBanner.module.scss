@@ -3,37 +3,51 @@
 
   @apply w-full h-full
     p-4
-    bg-gray-draw-3
     rounded-md
     cursor-pointer
     aspect-video
+    flex flex-col justify-center items-center
     sm:p-6
     md:p-4;
 
   &__header {
     #{ $self }__heading {
       @apply font-satoshi
-        text-xl
-        xs:text-2xl
-        sm:text-3xl
-        md:text-4xl;
+        text-center
+        font-bold
+        text-4xl
+        sm:text-5xl;
     }
   }
 
   &__desc {
-    @apply max-w-[65%]
-      text-gray-font
-      text-sm
-      xs:text-base
+    @apply max-w-[75%]
+      text-black
+      font-semibold
+      text-center
+      text-base
       sm:text-lg
       md:text-xl;
   }
 }
 
 .active {
-  @apply hover:brightness-95 duration-200;
+  @apply grayscale hover:grayscale-0 duration-200;
 }
 
 .inactive {
-  @apply cursor-not-allowed;
+  @apply cursor-not-allowed bg-gray-draw-3 opacity-50 grayscale;
+}
+
+// @@@ TODO: This could be done better.
+.yellow {
+  @apply bg-yellow/70 saturate-150;
+}
+
+.magenta {
+  @apply bg-magenta/70 saturate-150;
+}
+
+.cyan {
+  @apply bg-cyan/70 saturate-150;
 }
