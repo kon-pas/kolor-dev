@@ -5,7 +5,7 @@ import clsx from "clsx";
 interface CallToActionBannerProps {
   children: React.ReactNode;
   desc: string;
-  color?: string;
+  color: "yellow" | "magenta" | "blue";
   wip?: boolean;
 }
 
@@ -19,7 +19,8 @@ const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
     <article
       className={clsx(
         styles["call-to-action-banner"],
-        styles[wip ? "inactive" : "active"]
+        styles[wip ? "inactive" : "active"],
+        !wip && styles[color]
       )}
     >
       <header className={styles["call-to-action-banner__header"]}>
