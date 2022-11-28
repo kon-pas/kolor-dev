@@ -278,15 +278,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
       "Content-Type": "application/json",
     },
   });
+
   const gradients: GradientsJSON = await res.json();
+
   type Path = {
     params: {
       pid: string;
     };
   };
+
   const paths: Path[] = Object.keys(gradients).map((key) => ({
     params: { pid: key },
   }));
+
   return { paths, fallback: false };
 };
 
@@ -294,7 +298,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   type Params = ParsedUrlQuery & {
     pid: string;
   };
+
   const { pid } = params as Params;
+
   const res = await fetch(`http://localhost:3000/api/gradient/${pid}`, {
     method: "GET",
     headers: {
