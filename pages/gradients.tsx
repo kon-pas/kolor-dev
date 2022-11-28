@@ -51,6 +51,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
   );
 };
 
+// @@@ TODO: Error handling.
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch("http://localhost:3000/api/gradients", {
     method: "GET",

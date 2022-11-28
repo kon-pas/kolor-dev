@@ -271,6 +271,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
   );
 };
 
+// @@@ TODO: Error handling.
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch("http://localhost:3000/api/gradients", {
     method: "GET",
