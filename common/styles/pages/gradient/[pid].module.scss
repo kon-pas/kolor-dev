@@ -46,7 +46,7 @@
 
     &__item {
       @apply w-full
-        cursor-pointer
+        cursor-copy
         grid justify-items-center;
 
       #{ $self }__color {

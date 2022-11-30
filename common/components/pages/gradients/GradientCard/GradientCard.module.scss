@@ -20,6 +20,7 @@
 
     #{ $self }__color {
       @apply w-full h-full
+        cursor-copy
         transition-width duration-100;
 
       &:hover {
