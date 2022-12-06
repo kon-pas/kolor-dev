@@ -7,7 +7,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { local } from "@services";
-
 import Layout from "@components/composition/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
