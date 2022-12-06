@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import gradients from "@jsons/gradients";
-
+import { gradients } from "@database";
 import { GradientScheme } from "@interfaces";
 
 export default function handler(
