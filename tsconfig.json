@@ -23,9 +23,10 @@
       "@constants": ["common/constants/"],
       "@utils": ["common/utils/"],
       "@services": ["common/services/"],
+      "@database": ["common/database/"],
+      "@api": ["common/api/"],
+      "@hooks": ["common/hooks/"],
       "@components/*": ["common/components/*"],
-      "@hooks/*": ["common/hooks/*"],
-      "@jsons/*": ["common/jsons/*"],
       "@styles/*": ["common/styles/*"],
       "@svgs/*": ["public/assets/svgs/*"],
       "@images/*": ["public/assets/images/*"]
