@@ -2,7 +2,7 @@ import styles from "@styles/pages/gradient/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import { MiscTags } from "@enums";
-import type { GradientScheme, GradientsJSON } from "@interfaces";
+import type { GradientScheme, GradientsJSON, ApiResponse } from "@interfaces";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 
 import { useState, useEffect } from "react";
@@ -13,6 +13,7 @@ import { ParsedUrlQuery } from "querystring";
 import { TOAST_OPTIONS } from "@constants";
 import { getCleanHex, getRGB } from "@utils";
 import { local } from "@services";
+import { gradientApiCall, gradientsApiCall } from "@api";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Gradient from "@components/elements/GradientBackground";
@@ -271,14 +272,8 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
   );
 };
 
-// @@@ TODO: Error handling.
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch("http://localhost:3000/api/gradients", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res: ApiResponse = await gradientsApiCall();
 
   const gradients: GradientsJSON = await res.json();
 
@@ -302,12 +297,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { pid } = params as Params;
 
-  const res = await fetch(`http://localhost:3000/api/gradient/${pid}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json; charset=utf8",
-    },
-  });
+  const res: ApiResponse = await gradientApiCall(Number(pid));
 
   if (!res.ok) {
     return {

@@ -3,6 +3,7 @@ import styles from "@styles/pages/gradients.module.scss";
 import type { NextPage, GetStaticProps } from "next";
 import type { GradientScheme } from "@interfaces";
 
+import { gradientsApiCall } from "@api";
 import GradientCard from "@components/pages/gradients/GradientCard";
 import TextUnderlined from "@components/elements/TextUnderlined";
 
@@ -50,20 +51,14 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
   );
 };
 
-// @@@ TODO: Error handling.
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/gradients", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await gradientsApiCall();
 
   const gradients = await res.json();
 
   return {
     props: {
-      gradients,
+      gradients: gradients ?? [],
     },
   };
 };
