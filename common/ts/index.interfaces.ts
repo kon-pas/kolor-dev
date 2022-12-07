@@ -1,13 +1,13 @@
-import * as TYPES from "@types";
-import * as ENUMS from "@enums";
+import type { GradientHue, GradientId } from "@types";
+import type { MainColors, MiscTags } from "@enums";
 
 export interface Tags {
-  readonly mainColors: ENUMS.MainColors[];
-  readonly misc: ENUMS.MiscTags[];
+  readonly mainColors: MainColors[];
+  readonly misc: MiscTags[];
 }
 
 export interface GradientScheme {
-  readonly colors: TYPES.GradientHue;
+  readonly colors: GradientHue;
   readonly title: string;
   readonly id: string;
   readonly tags?: Tags;
@@ -15,10 +15,18 @@ export interface GradientScheme {
 }
 
 export interface GradientsJSON {
-  readonly [key: TYPES.GradientId]: GradientScheme;
+  readonly [key: GradientId]: GradientScheme;
 }
 
 export interface NavItem {
   readonly label: string;
   readonly path: string | null;
+}
+
+export interface ApiResponse {
+  status: number;
+  statusText: string;
+  ok: boolean;
+  body: string | null;
+  json: () => Promise<any>;
 }
