@@ -12,7 +12,11 @@
 
 <center>
   <b>Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers.</b>
-  <br />
+</center>
+
+<br />
+
+<center>
   <sup>1</sup>As of now, not really a toolkit.
 </center>
 
