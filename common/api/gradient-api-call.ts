@@ -2,7 +2,7 @@ import type { ApiResponse } from "@interfaces";
 
 import { gradients } from "@database";
 
-const gradientApiCAll = async (pid: number): Promise<ApiResponse> =>
+const gradientApiCAll = async (pid: string): Promise<ApiResponse> =>
   pid in gradients
     ? {
         status: 200,

@@ -297,7 +297,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const { pid } = params as Params;
 
-  const res: ApiResponse = await gradientApiCall(Number(pid));
+  const res: ApiResponse = await gradientApiCall(pid);
 
   if (!res.ok) {
     return {
