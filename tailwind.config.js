@@ -17,7 +17,7 @@ module.exports = {
           "2": '#f7f7f7',
           "3": '#f5f5f5'
         },
-        font: '#7b7b7b'
+        font: '#494949'
       },
       black: '#000000',
       cyan: '#2386CD',
