@@ -63,8 +63,11 @@ const Home: NextPage<HomeProps> = (props) => {
           <Image
             src="/assets/images/hero_page_phone.jpg"
             alt="Phone mockup"
-            width="100%"
-            height="100%"
+            width="1080px"
+            height="1080px"
+            sizes="(min-width: 400px) 83.3%,
+              (min-width: 1000px) 100%,
+              75%"
             layout="responsive"
             objectFit="contain"
             priority
