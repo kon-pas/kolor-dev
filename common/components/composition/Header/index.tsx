@@ -41,7 +41,7 @@ const Header: React.FC = () => {
           className={styles["header__burger"]}
           onClick={() => setIsOpened((isOpened) => !isOpened)}
         >
-          <IconSVG title="Open menu">
+          <IconSVG title="Open main navigation">
             {isOpened ? (
               <path
                 strokeLinecap="round"

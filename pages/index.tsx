@@ -67,6 +67,7 @@ const Home: NextPage<HomeProps> = (props) => {
             height="100%"
             layout="responsive"
             objectFit="contain"
+            priority
           />
         </div>
 
@@ -91,9 +92,9 @@ const Home: NextPage<HomeProps> = (props) => {
         </div>
       </section>
       {/* @@@ TODO: Why is this section empty? */}
-      <section className={styles["tools-section"]}>
+      {/* <section className={styles["tools-section"]}>
         <h1 className={styles["tools-section__header"]}>Explore tools</h1>
-      </section>
+      </section> */}
 
       {/* @@@ TODO: Get rid of the wrapping jargon */}
       <div className={styles["banner-actions"]}>
