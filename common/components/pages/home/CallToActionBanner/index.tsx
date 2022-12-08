@@ -17,13 +17,18 @@ const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
 }) => {
   return (
     <article
-      className={clsx(
-        styles["call-to-action-banner"],
-        styles[wip ? "inactive" : "active"],
-        !wip && styles[color]
-      )}
+      className={clsx(styles["call-to-action-banner"], !wip && styles[color])}
     >
-      <header className={styles["call-to-action-banner__header"]}>
+      <header
+        className={clsx(
+          styles["call-to-action-banner__header"],
+          styles[
+            wip
+              ? "call-to-action-banner__header--inactive"
+              : "call-to-action-banner__header--active"
+          ]
+        )}
+      >
         <h1 className={styles["call-to-action-banner__heading"]}>{title}</h1>
         <p className={styles["call-to-action-banner__desc"]}>{desc}</p>
       </header>
