@@ -95,6 +95,7 @@ const Home: NextPage<HomeProps> = (props) => {
         <h1 className={styles["tools-section__header"]}>Explore tools</h1>
       </section>
 
+      {/* @@@ TODO: Get rid of the wrapping jargon */}
       <div className={styles["banner-actions"]}>
         <div
           className={styles["banner-actions__card"]}
