@@ -10,15 +10,10 @@
   </a>
 </p>
 
-<center>
+<p align="center">
   <b>Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers.</b>
-</center>
-
-<br />
-
-<center>
-  <sup>1</sup>As of now, not really a toolkit.
-</center>
+  <center><sup>1</sup>As of now, not really a toolkit.</center>
+</p>
 
 
 
