@@ -2,41 +2,56 @@
   $self: &;
 
   @apply w-full h-full
-    p-4
     rounded-md
     cursor-pointer
     aspect-video
-    flex flex-col justify-center items-center
-    sm:p-6
-    md:p-4;
+    flex flex-col justify-center
+    overflow-hidden;
 
   &__header {
+    @apply w-full h-full
+      flex 
+      flex-col
+      justify-center
+      items-center
+      gap-1
+      duration-200;
+
+    &:hover {
+      @apply hover:scale-110 duration-200;
+    }
+
     #{ $self }__heading {
-      @apply font-satoshi
+      @apply duration-200
+          font-satoshi
+          text-center
+          font-bold
+          text-3xl
+          sm:text-4xl;
+    }
+
+    #{ $self }__desc {
+      @apply duration-200
+        max-w-[75%]
+        text-black
+        font-normal
         text-center
-        font-bold
-        text-4xl
-        sm:text-5xl;
+        text-base
+        sm:text-lg
+        md:text-xl;
     }
   }
-
-  &__desc {
-    @apply max-w-[75%]
-      text-black
-      font-semibold
-      text-center
-      text-base
-      sm:text-lg
-      md:text-xl;
-  }
 }
 
-.active {
-  @apply grayscale hover:grayscale-0 duration-200;
-}
+// .active {
+//   @apply grayscale hover:grayscale-0 duration-200;
+// }
+// .active {
+//   @apply hover:border-2 hover:border-black/75;
+// }
 
 .inactive {
-  @apply cursor-not-allowed bg-gray-draw-3 opacity-50 grayscale;
+  @apply cursor-not-allowed bg-gray-draw-3 opacity-50;
 }
 
 // @@@ TODO: This could be done better.
