@@ -26,3 +26,10 @@
     sm:text-4xl
     md:text-5xl;
 }
+
+@mixin heading-4 {
+  @apply font-bold font-satoshi
+    text-2xl
+    sm:text-3xl
+    md:text-4xl;
+}
