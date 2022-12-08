@@ -17,8 +17,16 @@
       gap-1
       duration-200;
 
-    &:hover {
-      @apply hover:scale-110 duration-200;
+    &--active {
+      @apply duration-200;
+
+      &:hover {
+        @apply hover:scale-110 duration-200;
+      }
+    }
+
+    &--inactive {
+      @apply cursor-not-allowed bg-gray-draw-3;
     }
 
     #{ $self }__heading {
@@ -41,17 +49,6 @@
         md:text-xl;
     }
   }
-}
-
-// .active {
-//   @apply grayscale hover:grayscale-0 duration-200;
-// }
-// .active {
-//   @apply hover:border-2 hover:border-black/75;
-// }
-
-.inactive {
-  @apply cursor-not-allowed bg-gray-draw-3 opacity-50;
 }
 
 // @@@ TODO: This could be done better.

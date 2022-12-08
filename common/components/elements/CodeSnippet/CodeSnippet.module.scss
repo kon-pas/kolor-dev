@@ -4,7 +4,7 @@
     w-full
     bg-black
     text-white
-    rounded-md grid
+    rounded-md grid gap-2
     cursor-copy
     grid-cols-[1fr_auto];
 
@@ -13,6 +13,6 @@
   }
 
   &__title {
-    @apply text-gray-font text-xs leading-5;
+    @apply text-gray-draw-3 text-xs leading-5;
   }
 }

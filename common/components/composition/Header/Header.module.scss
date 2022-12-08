@@ -86,7 +86,9 @@
         md:h-fit md:my-auto md:ml-12 md:first:ml-0;
 
       &--inactive {
-        @apply text-gray-font cursor-not-allowed;
+        @apply text-gray-font 
+          cursor-not-allowed
+          line-through;
       }
     }
   }
