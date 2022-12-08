@@ -11,8 +11,9 @@
 </p>
 
 <p align="center">
-  <b>Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers.</b>
-  <center><sup>1</sup>As of now, not really a toolkit.</center>
+  <b>Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers.<b>
+  <br />
+  <span><sup>1</sup>As of now, not really a toolkit.</span>
 </p>
 
 
