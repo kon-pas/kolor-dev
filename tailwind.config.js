@@ -5,6 +5,9 @@ module.exports = {
     "./pages/**/*.tsx",
     "./common/components/**/*.tsx"
   ],
+  plugins: [
+    require('tailwindcss-debug-screens'),
+  ],
   theme: {
     colors: {
       white: '#ffffff',
@@ -27,6 +30,7 @@ module.exports = {
       roboto: '"Roboto Mono", monospace',
     },
     screens: {
+      touch: { 'raw': '(pointer: coarse)' },
       hoverable: { 'raw': '(hover: hover) and (pointer: fine)' },
       xs: '400px',
       sm: '600px',
