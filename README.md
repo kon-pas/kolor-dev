@@ -10,11 +10,29 @@
   </a>
 </p>
 
-<p align="center">
-  <b>Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers.<b>
+<center>
+  <b>Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers</b>
   <br />
   <span><sup>1</sup>As of now, not really a toolkit.</span>
-</p>
+</center>
 
+## Table of Contents <!-- omit in toc -->
+- [Introduction](#introduction)
+- [Tech Stack](#tech-stack)
+- [Implementation](#implementation)
+- [Showcase](#showcase)
+- [Acknowledgments](#acknowledgments)
 
+## Introduction
+
+## Tech Stack
+
+## Implementation
+lighthouse, bem, 
+
+## Showcase
+website, run locally, screenshots link to /showcase, features
+
+## Acknowledgments
+icons, phone graphic
 
