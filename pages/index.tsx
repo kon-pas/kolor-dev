@@ -1,6 +1,6 @@
 import styles from "@styles/pages/home.module.scss";
 
-import type { NextPage, GetStaticProps } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import type { GradientsJSON } from "@interfaces";
 
 import { useRef } from "react";
@@ -63,8 +63,8 @@ const Home: NextPage<HomeProps> = (props) => {
           <Image
             src="/assets/images/hero_page_phone.jpg"
             alt="Phone mockup"
-            width="1080px"
-            height="1080px"
+            width="100%"
+            height="100%"
             sizes="(min-width: 400px) 83.3%,
               (min-width: 1000px) 100%,
               75%"
@@ -141,7 +141,7 @@ const Home: NextPage<HomeProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const res: Response = await fetch("http://localhost:3000/api/gradients", {
       method: "GET",
