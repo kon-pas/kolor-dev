@@ -1,4 +1,4 @@
-import type { GradientHue, GradientId } from "@types";
+import type { GradientHue, GradientId, GradientScheme } from "@types";
 import type { MainColors, MiscTags } from "@enums";
 
 export interface Tags {
@@ -6,13 +6,14 @@ export interface Tags {
   readonly misc: MiscTags[];
 }
 
-export interface GradientScheme {
-  readonly colors: GradientHue;
-  readonly title: string;
-  readonly id: string;
-  readonly tags?: Tags;
-  readonly desc?: string;
-}
+// @@@ DEPRECATED: Scheme declared with `prisma`.
+// export interface GradientScheme {
+//   id: string;
+//   colors: GradientHue;
+//   title: string;
+//   tags?: Tags;
+//   desc?: string;
+// }
 
 export interface GradientsJSON {
   readonly [key: GradientId]: GradientScheme;

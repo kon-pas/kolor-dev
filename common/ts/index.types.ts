@@ -1,6 +1,6 @@
 export type HexColor = string;
 
-export type GradientHue = readonly HexColor[];
+export type GradientHue = HexColor[];
 
 export type GradientId = string;
 
@@ -15,3 +15,5 @@ export type EightDirections =
   | "bottom left"
   | "left"
   | "top left";
+
+export type { Gradient as GradientScheme } from "@prisma/client";
