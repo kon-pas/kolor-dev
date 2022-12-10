@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_HOST")
+}
+
+model Gradient {
+  id     String   @id @map("_id")
+  colors String[]
+  title  String   @unique
+  tags   Tags?
+  desc   String?
+
+  @@map(name: "gradients")
+}
+
+type Tags {
+  mainColors MainColors[]
+  misc       MiscTags[]
+}
+
+enum MainColors {
+  Blue
+  Cyan
+  Green
+  Yellow
+  Orange
+  Red
+  Purple
+  Pink
+  White
+  Gray
+  Black
+  Brown
+}
+
+enum MiscTags {
+  Light
+  Dark
+  Magic
+  Intense
+  Calm
+  Cold
+  Warm
+  Mono
+  Varied
+}
