@@ -2,7 +2,8 @@ import styles from "@styles/pages/gradient/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import { MiscTags } from "@enums";
-import type { GradientScheme, GradientsJSON, ApiResponse } from "@interfaces";
+import type { GradientsJSON, ApiResponse } from "@interfaces";
+import type { GradientScheme } from "@types";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 
 import { useState, useEffect } from "react";
