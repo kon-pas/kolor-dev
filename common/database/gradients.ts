@@ -1,11 +1,11 @@
 import type { GradientsJSON } from "@interfaces";
 import { MainColors, MiscTags } from "@enums";
-// import { customAlphabet } from "nanoid";
+import { customAlphabet } from "nanoid";
 
-// const nanoid = customAlphabet(
-//   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
-//   8
-// );
+const nanoid = customAlphabet(
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  8
+);
 
 export const gradients: GradientsJSON = [
   {
@@ -218,11 +218,11 @@ export const gradients: GradientsJSON = [
   },
 ]
   .map((gradient, idx) => ({
-    // @@@ Cannot use it like this and get same IDs on different fetches
-    // [nanoid()]: {
-    [`vENCrfkC${idx}`]: {
+    // [`vENCrfkC${idx}`]: {
+    [nanoid()]: {
       ...gradient,
       id: `vENCrfkC${idx}`,
+      desc: null
     },
   }))
   .reduce((firstGradient, secondGradient) => ({
