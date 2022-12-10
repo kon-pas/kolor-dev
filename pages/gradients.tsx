@@ -1,9 +1,10 @@
 import styles from "@styles/pages/gradients.module.scss";
 
 import type { NextPage, GetStaticProps } from "next";
-import type { GradientScheme } from "@interfaces";
+import type { GradientScheme } from "@types";
 
-import { gradientsApiCall } from "@api";
+import { prisma } from "@lib";
+
 import GradientCard from "@components/pages/gradients/GradientCard";
 import TextUnderlined from "@components/elements/TextUnderlined";
 
@@ -52,9 +53,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await gradientsApiCall();
-
-  const gradients = await res.json();
+  const gradients = await prisma.gradient.findMany();
 
   return {
     props: {
