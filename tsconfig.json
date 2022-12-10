@@ -25,6 +25,7 @@
       "@services": ["common/services/"],
       "@database": ["common/database/"],
       "@api": ["common/api/"],
+      "@lib": ["common/lib/"],
       "@hooks": ["common/hooks/"],
       "@components/*": ["common/components/*"],
       "@styles/*": ["common/styles/*"],
