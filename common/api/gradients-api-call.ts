@@ -1,15 +1,21 @@
-import type { ApiResponse } from "@interfaces";
+// @@@ NOTE: Imitating external API.
+// Cannot fetch data with SSG from internet API.
 
-import { gradients } from "@database";
+// @@@ DEPRECATED: Moved to MongoDB & Prisma.
 
-const gradientsApiCall = async (): Promise<ApiResponse> => ({
-  status: 200,
-  statusText: "OK",
-  ok: true,
-  body: JSON.stringify(gradients),
-  async json() {
-    return JSON.parse(JSON.stringify(gradients));
-  },
-});
+// import type { ApiResponse } from "@interfaces";
 
-export default gradientsApiCall;
+// import { gradients } from "@database";
+
+// const gradientsApiCall = async (): Promise<ApiResponse> => ({
+//   status: 200,
+//   statusText: "OK",
+//   ok: true,
+//   body: JSON.stringify(gradients),
+//   async json() {
+//     return JSON.parse(JSON.stringify(gradients));
+//   },
+// });
+
+// export default gradientsApiCall;
+export {};
