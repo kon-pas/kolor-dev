@@ -16,9 +16,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
   return (
     <div className={styles["gradients-page"]}>
       <header className={styles["header"]}>
-        <h1 className={styles["header__heading-1"]}>
-          {Object.keys(gradients).length}
-        </h1>
+        <h1 className={styles["header__heading-1"]}>{gradients.length}</h1>
 
         <h2 className={styles["header__heading-2"]}>
           <TextUnderlined thickness={16} offset={2}>
@@ -44,8 +42,8 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
       </header>
 
       <div className={styles["gradients-list"]}>
-        {Object.entries(gradients).map(([id, gradient], index) => (
-          <GradientCard key={index} gradient={gradient} gradientId={id} />
+        {gradients.map((gradient, index) => (
+          <GradientCard key={index} gradient={gradient} />
         ))}
       </div>
     </div>
@@ -53,13 +51,21 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const gradients = await prisma.gradient.findMany();
+  try {
+    const gradients = await prisma.gradient.findMany();
 
-  return {
-    props: {
-      gradients,
-    },
-  };
+    return {
+      props: {
+        gradients,
+      },
+    };
+  } catch {
+    return {
+      props: {
+        gradients: [],
+      },
+    };
+  }
 };
 
 export default Gradients;

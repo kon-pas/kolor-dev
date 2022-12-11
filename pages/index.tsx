@@ -151,7 +151,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         numGradients,
       },
     };
-  } catch (e) {
+  } catch {
     return {
       props: {
         numGradients: "Plenty of",
