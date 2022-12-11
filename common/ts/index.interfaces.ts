@@ -8,7 +8,7 @@ export interface Tags {
 
 // @@@ DEPRECATED: Scheme declared with Prisma.
 // export interface GradientScheme {
-//   id: string;
+//   id: GradientId;
 //   colors: GradientHue;
 //   title: string;
 //   tags?: Tags;
