@@ -1,16 +1,16 @@
 import { getColorBrightness } from "@utils";
-import type { HexColor } from "@types";
 
 interface SpanMonochromeProps {
-  color: HexColor;
+  color: string;
   children: React.ReactNode;
+  breakpoint?: number;
 }
 
-const SpanMonochrome: React.FC<SpanMonochromeProps> = ({ color, children }) => {
-  return getColorBrightness(color) > 0.475 ? (
-    <span>{children}</span>
+const SpanMonochrome: React.FC<SpanMonochromeProps> = (props) => {
+  return getColorBrightness(props.color) > (props.breakpoint ?? 0.475) ? (
+    <span>{props.children}</span>
   ) : (
-    <span style={{ color: "white" }}>{children}</span>
+    <span style={{ color: "white" }}>{props.children}</span>
   );
 };
 

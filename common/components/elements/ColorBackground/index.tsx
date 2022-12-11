@@ -1,9 +1,7 @@
 import styles from "./Color.module.scss";
 
-import type { HexColor } from "@types";
-
 interface ColorProps {
-  hex: HexColor;
+  hex: string;
   children?: React.ReactNode;
 }
 
