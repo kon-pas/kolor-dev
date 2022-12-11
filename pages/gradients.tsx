@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      gradients: gradients ?? [],
+      gradients,
     },
   };
 };

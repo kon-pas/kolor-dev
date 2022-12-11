@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import clsx from "clsx";
 
 import { MAIN_COLORS } from "@constants";
+import { prisma } from "@lib";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import TextGradiented from "@components/elements/TextGradiented";
@@ -143,21 +144,14 @@ const Home: NextPage<HomeProps> = (props) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const res: Response = await fetch("http://localhost:3000/api/gradients", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const gradients = (await res.json()) as GradientsJSON;
+    const numGradients: number = (await prisma.gradient.findMany()).length;
 
     return {
       props: {
-        numGradients: Object.entries(gradients).length,
+        numGradients,
       },
     };
-  } catch {
+  } catch (e) {
     return {
       props: {
         numGradients: "Plenty of",

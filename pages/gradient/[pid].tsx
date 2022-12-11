@@ -2,7 +2,6 @@ import styles from "@styles/pages/gradient/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import { MiscTags } from "@enums";
-import type { GradientsJSON, ApiResponse } from "@interfaces";
 import type { GradientScheme } from "@types";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 
@@ -14,7 +13,7 @@ import { ParsedUrlQuery } from "querystring";
 import { TOAST_OPTIONS } from "@constants";
 import { getCleanHex, getRGB } from "@utils";
 import { local } from "@services";
-import { gradientApiCall, gradientsApiCall } from "@api";
+import { prisma } from "@lib";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Gradient from "@components/elements/GradientBackground";
@@ -274,9 +273,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res: ApiResponse = await gradientsApiCall();
-
-  const gradients: GradientsJSON = await res.json();
+  const gradients: GradientScheme[] = await prisma.gradient.findMany();
 
   type Path = {
     params: {
@@ -296,19 +293,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     pid: string;
   };
 
-  const { pid } = params as Params;
+  const { pid: id } = params as Params;
 
-  const res: ApiResponse = await gradientApiCall(pid);
+  const gradient: GradientScheme | null = await prisma.gradient.findUnique({
+    where: {
+      id,
+    },
+  });
 
-  if (!res.ok) {
+  if (typeof gradient === null) {
     return {
       props: {
         statusCode: 404,
       },
     };
   }
-
-  const gradient = await res.json();
 
   return {
     props: {
