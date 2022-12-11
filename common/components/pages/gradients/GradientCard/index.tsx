@@ -62,7 +62,7 @@ const GradientCard: React.FC<GradientCardProps> = ({ gradient }) => {
           >
             <Color hex={color}>
               <SpanMonochrome color={color}>
-                {getCleanHex(color)}
+                {color}
               </SpanMonochrome>
             </Color>
           </div>

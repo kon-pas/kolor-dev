@@ -217,9 +217,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
                 onClick={() => handleColorOnCLick(color.toUpperCase())}
               >
                 <Color hex={color}>
-                  <SpanMonochrome color={color}>
-                    {getCleanHex(color)}
-                  </SpanMonochrome>
+                  <SpanMonochrome color={color}>{color}</SpanMonochrome>
                 </Color>
               </div>
 
