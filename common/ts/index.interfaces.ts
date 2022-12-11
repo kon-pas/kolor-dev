@@ -6,7 +6,7 @@ export interface Tags {
   readonly misc: MiscTags[];
 }
 
-// @@@ DEPRECATED: Scheme declared with `prisma`.
+// @@@ DEPRECATED: Scheme declared with Prisma.
 // export interface GradientScheme {
 //   id: string;
 //   colors: GradientHue;
@@ -24,10 +24,11 @@ export interface NavItem {
   readonly path: string | null;
 }
 
-export interface ApiResponse {
-  status: number;
-  statusText: string;
-  ok: boolean;
-  body: string | null;
-  json: () => Promise<any>;
-}
+// @@@ DEPRECATED: Got rid of fake API.
+// export interface ApiResponse {
+//   status: number;
+//   statusText: string;
+//   ok: boolean;
+//   body: string | null;
+//   json: () => Promise<any>;
+// }
