@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 
-import { MAIN_COLORS } from "@constants";
+import { BRAND_COLORS } from "@constants";
 import { prisma } from "@lib";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
@@ -34,7 +34,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
             <strong className={styles["hero-section__strong--underlined"]}>
               <TextUnderlined
-                colors={[MAIN_COLORS.Y, MAIN_COLORS.M, MAIN_COLORS.C]}
+                colors={[BRAND_COLORS.Y, BRAND_COLORS.M, BRAND_COLORS.C]}
                 thickness={16}
                 offset={0}
               >
@@ -50,7 +50,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
               <span className={styles["hero-section__dot"]}>
                 <TextGradiented
-                  colors={[MAIN_COLORS.C, MAIN_COLORS.M, MAIN_COLORS.Y]}
+                  colors={[BRAND_COLORS.C, BRAND_COLORS.M, BRAND_COLORS.Y]}
                   to="top left"
                 >
                   .
