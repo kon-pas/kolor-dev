@@ -2,4 +2,6 @@
 
 // export { default as gradientApiCall } from "./gradient-api-call";
 
-export {};
+export { default as getGradient } from "./get-gradient";
+
+export { default as getGradients } from "./get-gradients";
