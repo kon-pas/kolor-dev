@@ -13,7 +13,7 @@ import { ParsedUrlQuery } from "querystring";
 import { TOAST_OPTIONS } from "@constants";
 import { getCleanHex, getRGB } from "@utils";
 import { local } from "@services";
-import { prisma } from "@lib";
+import { getGradient, getGradients } from "@api";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Gradient from "@components/elements/GradientBackground";
@@ -273,7 +273,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const gradients: GradientScheme[] = await prisma.gradient.findMany();
+  const gradients: GradientScheme[] = await getGradients();
 
   type Path = {
     params: {
@@ -281,8 +281,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
   };
 
-  const paths: Path[] = Object.keys(gradients).map((key) => ({
-    params: { pid: key },
+  const paths: Path[] = gradients.map(({ id }) => ({
+    params: { pid: id },
   }));
 
   return { paths, fallback: false };
@@ -293,13 +293,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     pid: string;
   };
 
-  const { pid: id } = params as Params;
+  const { pid } = params as Params;
 
-  const gradient: GradientScheme | null = await prisma.gradient.findUnique({
-    where: {
-      id,
-    },
-  });
+  const gradient: GradientScheme | null = await getGradient(pid);
 
   if (typeof gradient === null) {
     return {
