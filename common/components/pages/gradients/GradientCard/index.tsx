@@ -1,7 +1,7 @@
 import styles from "./GradientCard.module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
-import type { GradientScheme } from "@interfaces";
+import type { GradientScheme } from "@types";
 import type { GradientId } from "@types";
 
 import { useState, useEffect } from "react";
@@ -20,13 +20,9 @@ import Button from "@components/elements/Button";
 
 interface GradientCardProps {
   gradient: GradientScheme;
-  gradientId: GradientId;
 }
 
-const GradientCard: React.FC<GradientCardProps> = ({
-  gradient,
-  gradientId,
-}) => {
+const GradientCard: React.FC<GradientCardProps> = ({ gradient }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
   useEffect(() => {
@@ -35,7 +31,7 @@ const GradientCard: React.FC<GradientCardProps> = ({
 
   const router: NextRouter = useRouter();
 
-  const handleRedirect = () => void router.push(`/gradient/${gradientId}`);
+  const handleRedirect = () => void router.push(`/gradient/${gradient.id}`);
 
   const handleColorOnClick = (color: string) => {
     navigator.clipboard.writeText(color).then(
