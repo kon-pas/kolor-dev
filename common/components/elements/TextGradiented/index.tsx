@@ -1,5 +1,6 @@
 import styles from "./TextGradiented.module.scss";
 
+import type { FC } from "react";
 import type { GradientHue, EightDirections } from "@types";
 
 interface TextGradientedProps {
@@ -8,7 +9,7 @@ interface TextGradientedProps {
   to?: EightDirections;
 }
 
-const TextGradiented: React.FC<TextGradientedProps> = ({
+const TextGradiented: FC<TextGradientedProps> = ({
   children: text,
   colors,
   to: direction,

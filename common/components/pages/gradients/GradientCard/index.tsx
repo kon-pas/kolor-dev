@@ -1,8 +1,8 @@
 import styles from "./GradientCard.module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
+import type { FC } from "react";
 import type { GradientScheme } from "@types";
-import type { GradientId } from "@types";
 
 import { useState, useEffect } from "react";
 import { useRouter, NextRouter } from "next/router";
@@ -22,7 +22,7 @@ interface GradientCardProps {
   gradient: GradientScheme;
 }
 
-const GradientCard: React.FC<GradientCardProps> = ({ gradient }) => {
+const GradientCard: FC<GradientCardProps> = ({ gradient }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
   useEffect(() => {

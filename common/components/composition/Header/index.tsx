@@ -1,5 +1,6 @@
 import styles from "./Header.module.scss";
 
+import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
@@ -8,7 +9,7 @@ import { useRouter } from "next/router";
 import IconSVG from "@components/elements/IconSVG";
 import NAV_ITEMS from "common/constants/nav-items";
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const { push } = useRouter();
 

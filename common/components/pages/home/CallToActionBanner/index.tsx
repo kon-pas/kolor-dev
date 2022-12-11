@@ -1,15 +1,16 @@
 import styles from "./CallToActionBanner.module.scss";
 
+import type { FC, ReactNode } from "react";
 import clsx from "clsx";
 
 interface CallToActionBannerProps {
-  children: React.ReactNode;
+  children: ReactNode;
   desc: string;
   color: "yellow" | "magenta" | "blue";
   wip?: boolean;
 }
 
-const CallToActionBanner: React.FC<CallToActionBannerProps> = ({
+const CallToActionBanner: FC<CallToActionBannerProps> = ({
   desc,
   children: title,
   color,

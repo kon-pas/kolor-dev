@@ -3,6 +3,7 @@
 
 import styles from "./TextAnimated.module.scss";
 
+import type { FC } from "react";
 import { useState, useEffect, useRef, useCallback } from "react";
 
 interface TextAnimatedProps {
@@ -12,7 +13,7 @@ interface TextAnimatedProps {
 /**
  * @deprecated To be repaired. Animation is out of sync.
  */
-const TextAnimated: React.FC<TextAnimatedProps> = ({ labels }) => {
+const TextAnimated: FC<TextAnimatedProps> = ({ labels }) => {
   const [labelIndex, setLabelIndex] = useState<number>(0);
 
   const [currentLabel, setCurrentLabel] = useState<string>(labels[0]);

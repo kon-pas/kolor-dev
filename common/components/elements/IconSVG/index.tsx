@@ -1,14 +1,16 @@
 import styles from "./IconSVG.module.scss";
 
+import type { FC, ReactNode } from "react";
+
 interface IconSVGProps {
-  children: React.ReactNode;
+  children: ReactNode;
   strokeWidth?: number;
   title?: string;
   desc?: string;
   filled?: boolean;
 }
 
-const IconSVG: React.FC<IconSVGProps> = ({
+const IconSVG: FC<IconSVGProps> = ({
   children: path,
   strokeWidth,
   title,

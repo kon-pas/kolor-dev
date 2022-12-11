@@ -1,11 +1,13 @@
 import styles from "./Color.module.scss";
 
+import type { FC, ReactNode } from "react";
+
 interface ColorProps {
   hex: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-const Color: React.FC<ColorProps> = ({ hex, children }) => {
+const Color: FC<ColorProps> = ({ hex, children }) => {
   return (
     <div className={styles.color} style={{ backgroundColor: hex }}>
       {children}

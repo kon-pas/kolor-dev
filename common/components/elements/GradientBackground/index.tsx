@@ -1,12 +1,13 @@
 import styles from "./Gradient.module.scss";
 
+import type { FC } from "react";
 import type { GradientHue } from "@types";
 
 interface GradientProps {
   colors: GradientHue;
 }
 
-const Gradient: React.FC<GradientProps> = ({ colors }) => {
+const Gradient: FC<GradientProps> = ({ colors }) => {
   return (
     <div
       className={styles.gradient}

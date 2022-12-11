@@ -1,5 +1,6 @@
 import styles from "./Layout.module.scss";
 
+import type { FC, ReactNode } from "react";
 import { ToastContainer, Flip } from "react-toastify";
 
 import Header from "@components/composition/Header";
@@ -7,10 +8,10 @@ import Footer from "@components/composition/Footer";
 import Loader from "@components/composition/Loader";
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Loader />

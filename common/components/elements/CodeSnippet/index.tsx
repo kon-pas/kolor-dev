@@ -1,12 +1,14 @@
 import styles from "./CodeSnippet.module.scss";
 
+import type { FC, ReactNode } from "react";
+
 interface CodeSnippetProps {
-  children: React.ReactNode;
+  children: ReactNode;
   title?: string;
   onClick?: () => void;
 }
 
-const CodeSnippet: React.FC<CodeSnippetProps> = ({
+const CodeSnippet: FC<CodeSnippetProps> = ({
   children,
   title,
   onClick,

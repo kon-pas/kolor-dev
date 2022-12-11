@@ -1,8 +1,10 @@
 import styles from "./Footer.module.scss";
 
+import type { FC } from "react";
+
 import IconSVG from "@components/elements/IconSVG";
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   return (
     <footer className={styles["footer"]}>
       <a href="https://github.com/kon-pas" className={styles["footer__author"]}>

@@ -1,13 +1,15 @@
 import styles from "./Button.module.scss";
 
+import type { FC, ReactNode } from "react";
+
 interface ButtonProps {
   onClick?: () => void;
   label?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   iconSide?: "left" | "right";
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
   onClick,
   label,
   children,
