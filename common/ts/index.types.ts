@@ -1,6 +1,6 @@
-export type HexColor = string;
+export type HexColor = `#${string}`;
 
-export type GradientHue = HexColor[];
+export type GradientHue = string[];
 
 export type GradientId = string;
 
