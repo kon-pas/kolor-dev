@@ -1,3 +1,7 @@
+// @@@ NOTE: This is a mess but almost never used.
+// As for now, its only purpose is to seed database and gets the job done.
+// See `@database/seed-database`.
+
 import type { GradientsJSON } from "@interfaces";
 import { MainColors, MiscTags } from "@enums";
 import { customAlphabet } from "nanoid";
@@ -217,14 +221,18 @@ export const gradients: GradientsJSON = [
     },
   },
 ]
-  .map((gradient, idx) => ({
+  .map((gradient, idx) => {
     // [`vENCrfkC${idx}`]: {
-    [nanoid()]: {
-      ...gradient,
-      id: `vENCrfkC${idx}`,
-      desc: null
-    },
-  }))
+    // const id = nanoid();
+    return {
+      [idx]: {
+        ...gradient,
+        // id: `vENCrfkC${idx}`,
+        id: nanoid(),
+        desc: null,
+      },
+    };
+  })
   .reduce((firstGradient, secondGradient) => ({
     ...firstGradient,
     ...secondGradient,
