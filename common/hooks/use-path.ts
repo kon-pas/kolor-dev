@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { PathContext } from "@contexts";
+import { PathContextManager } from "@contexts";
 
-const usePath = () => useContext(PathContext);
+const usePath = () => useContext(PathContextManager.PathContext);
 
 export default usePath;
