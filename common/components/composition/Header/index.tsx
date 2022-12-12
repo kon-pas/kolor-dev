@@ -4,25 +4,29 @@ import type { FC } from "react";
 import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
+import { usePath } from "@hooks";
 import IconSVG from "@components/elements/IconSVG";
 import NAV_ITEMS from "common/constants/nav-items";
+import { useNavigation } from "@hooks";
 
 const Header: FC = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
-  const { push } = useRouter();
 
-  const navigateTo = (path: string): void => {
+  const { navigateTo } = useNavigation();
+
+  const handleNavigation = (path: string): void => {
     setIsOpened(false);
-    push(path);
+    navigateTo(path);
   };
+
+  const { name: pathname } = usePath();
 
   return (
     <header className={styles["header"]}>
       <div className={styles["header__top"]}>
         <div
-          onClick={() => navigateTo("/")}
+          onClick={() => handleNavigation("/")}
           className={styles["header__title"]}
         >
           <div className={styles["header__logo"]}>
@@ -35,7 +39,9 @@ const Header: FC = () => {
           </div>
 
           <h1 className={styles["header__heading"]}>KOLOR</h1>
-          {/* <span className={styles['header__subtitle']}>/gradients</span> */}
+          <span className={styles["header__subtitle"]}>
+            &nbsp;{pathname !== "" ? `• ${pathname.toUpperCase()}` : null}
+          </span>
         </div>
 
         <button
