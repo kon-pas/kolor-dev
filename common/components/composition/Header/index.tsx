@@ -34,7 +34,7 @@ const Header: FC = () => {
             />
           </div>
 
-          <h1 className={styles["header__heading"]}>Kolor</h1>
+          <h1 className={styles["header__heading"]}>KOLOR</h1>
           {/* <span className={styles['header__subtitle']}>/gradients</span> */}
         </div>
 

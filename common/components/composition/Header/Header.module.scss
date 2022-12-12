@@ -31,7 +31,9 @@
 
       #{ $self }__heading {
         @apply ml-1
-          font-bold
+          font-semibold
+          tracking-wide
+          font-twcen
           text-xl
           sm:text-2xl;
       }
