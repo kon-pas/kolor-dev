@@ -1,13 +1,13 @@
 import styles from "@styles/pages/home.module.scss";
 
 import type { NextPage, GetServerSideProps } from "next";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import clsx from "clsx";
 
 import { BRAND_COLORS } from "@constants";
 import { getGradients } from "@api";
+import { useNavigation, usePath } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import TextGradiented from "@components/elements/TextGradiented";
@@ -21,7 +21,14 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = (props) => {
   const callToActionRef = useRef<HTMLInputElement>(null);
-  const { push: navigate } = useRouter();
+
+  const { navigateTo } = useNavigation();
+
+  const { setName } = usePath();
+
+  useEffect(() => {
+    setName("");
+  }, [setName]);
 
   return (
     <div className={styles["home-page"]}>
@@ -101,7 +108,7 @@ const Home: NextPage<HomeProps> = (props) => {
       <div className={styles["banner-actions"]} ref={callToActionRef}>
         <div
           className={styles["banner-actions__card"]}
-          onClick={() => navigate("/gradients")}
+          onClick={() => navigateTo("/gradients")}
         >
           <CallToActionBanner
             color="yellow"

@@ -2,8 +2,10 @@ import styles from "@styles/pages/gradients.module.scss";
 
 import type { NextPage, GetStaticProps } from "next";
 import type { GradientScheme } from "@types";
+import { useEffect } from "react";
 
 import { prisma } from "@lib";
+import { usePath } from "@hooks";
 
 import GradientCard from "@components/pages/gradients/GradientCard";
 import TextUnderlined from "@components/elements/TextUnderlined";
@@ -13,6 +15,12 @@ interface GradientsProps {
 }
 
 const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
+  const { setName } = usePath();
+
+  useEffect(() => {
+    setName("gradients");
+  }, [setName]);
+
   return (
     <div className={styles["gradients-page"]}>
       <header className={styles["header"]}>

@@ -11,9 +11,10 @@ import { toast } from "react-toastify";
 import { ParsedUrlQuery } from "querystring";
 
 import { TOAST_OPTIONS } from "@constants";
-import { getCleanHex, getRGB } from "@utils";
+import { getRGB } from "@utils";
 import { local } from "@services";
 import { getGradient, getGradients } from "@api";
+import { usePath } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Gradient from "@components/elements/GradientBackground";
@@ -31,6 +32,12 @@ interface GradientPidProps {
 
 const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
+
+  const { setName } = usePath();
+
+  useEffect(() => {
+    setName("gradient");
+  }, [setName]);
 
   useEffect(() => {
     setIsSaved(gradient ? local.gradients.includes(gradient.id) : false);
