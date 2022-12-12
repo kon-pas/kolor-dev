@@ -28,6 +28,7 @@ module.exports = {
       inter: 'Inter, sans-serif',
       satoshi: 'Satoshi, sans-serif',
       roboto: '"Roboto Mono", monospace',
+      twcen: '"Tw Cen MT Std", sans-serif',
     },
     screens: {
       touch: { 'raw': '(pointer: coarse)' },
