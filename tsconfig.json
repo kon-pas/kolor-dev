@@ -27,6 +27,7 @@
       "@api": ["common/api/"],
       "@lib": ["common/lib/"],
       "@hooks": ["common/hooks/"],
+      "@contexts": ["common/contexts/"],
       "@components/*": ["common/components/*"],
       "@styles/*": ["common/styles/*"],
       "@svgs/*": ["public/assets/svgs/*"],
