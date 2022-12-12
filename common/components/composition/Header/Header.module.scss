@@ -11,7 +11,8 @@
   &__top {
     @include content;
 
-    @apply flex justify-between items-center backdrop-blur-md bg-white/90
+    @apply flex justify-between items-center 
+      backdrop-blur-md bg-white/90
       h-14
       sm:h-16;
 
@@ -32,6 +33,14 @@
       #{ $self }__heading {
         @apply ml-1
           font-semibold
+          tracking-wide
+          font-twcen
+          text-xl
+          sm:text-2xl;
+      }
+
+      #{ $self }__subtitle {
+        @apply font-semibold
           tracking-wide
           font-twcen
           text-xl
