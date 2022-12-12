@@ -1,7 +1,9 @@
 import { gradients } from "@database";
 import { prisma } from "@lib";
 
-const initDatabase = async () => {
+const seedDatabase = async () => {
+  await prisma.gradient.deleteMany({});
+
   for (const [_, gradient] of Object.entries(gradients)) {
     await prisma.gradient.create({
       data: {
@@ -11,4 +13,4 @@ const initDatabase = async () => {
   }
 };
 
-export default initDatabase;
+export default seedDatabase;
