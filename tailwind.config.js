@@ -35,7 +35,7 @@ module.exports = {
       hoverable: { 'raw': '(hover: hover) and (pointer: fine)' },
       xs: '400px',
       sm: '600px',
-      md: '1000px'
+      md: '1100px'
     },
     extend: {
       transitionProperty: {
