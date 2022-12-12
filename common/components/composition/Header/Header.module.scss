@@ -40,8 +40,7 @@
       }
 
       #{ $self }__subtitle {
-        @apply font-semibold
-          tracking-wide
+        @apply font-thin
           font-twcen
           text-xl
           sm:text-2xl;
@@ -83,7 +82,8 @@
 
     &--desktop {
       @apply hidden
-        md:mr-8 md:p-0 md:h-fit md:flex md:justify-end md:w-fit;
+        md:mr-8 md:p-0 md:h-fit md:justify-end md:w-fit
+        md:flex;
     }
 
     &__item {
