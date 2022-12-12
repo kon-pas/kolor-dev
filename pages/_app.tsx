@@ -9,6 +9,7 @@ import { PathContextManager } from "@contexts";
 
 import { local } from "@services";
 import Layout from "@components/composition/Layout";
+import Loader from "@components/composition/Loader";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { events } = useRouter();
@@ -27,6 +28,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Kolor</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+
+      <Loader />
 
       <PathContextManager.PathContextProvider>
         <Layout>
