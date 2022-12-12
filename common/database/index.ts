@@ -3,4 +3,4 @@
 
 export { default as gradients } from "./gradients";
 
-export { default as initDatabase } from "./init-database";
+export { default as seedDatabase } from "./seed-database";
