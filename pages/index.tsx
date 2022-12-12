@@ -1,15 +1,13 @@
 import styles from "@styles/pages/home.module.scss";
 
 import type { NextPage, GetServerSideProps } from "next";
-import type { GradientsJSON } from "@interfaces";
-
 import { useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 
 import { BRAND_COLORS } from "@constants";
-import { prisma } from "@lib";
+import { getGradients } from "@api";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import TextGradiented from "@components/elements/TextGradiented";
@@ -77,7 +75,6 @@ const Home: NextPage<HomeProps> = (props) => {
 
         <div
           className={styles["call-to-action"]}
-          ref={callToActionRef}
           onClick={() =>
             callToActionRef.current!.scrollIntoView({ behavior: "smooth" })
           }
@@ -101,7 +98,7 @@ const Home: NextPage<HomeProps> = (props) => {
       </section> */}
 
       {/* @@@ TODO: Get rid of the wrapping jargon */}
-      <div className={styles["banner-actions"]}>
+      <div className={styles["banner-actions"]} ref={callToActionRef}>
         <div
           className={styles["banner-actions__card"]}
           onClick={() => navigate("/gradients")}
@@ -144,7 +141,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const numGradients: number = (await prisma.gradient.findMany()).length;
+    const numGradients: number = (await getGradients()).length;
 
     return {
       props: {
