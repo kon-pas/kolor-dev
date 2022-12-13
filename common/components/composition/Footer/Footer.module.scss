@@ -1,22 +1,25 @@
 .footer {
   $self: &;
 
-  @apply h-32 w-full
+  @apply w-full
     mt-auto
-    bg-gray-draw-3
+    text-white
+    bg-black
     flex justify-center items-center
-    md:h-40;
+    h-40
+    md:h-52;
 
   &__author {
     @apply p-6
       flex items-center justify-center
-      text-sm;
+      text-xs;
 
     #{ $self }__heart {
       @apply h-3
         mx-1
         xs:h-4
-        sm:h-[1.15rem] sm:mx-2;
+        sm:h-[1.15rem] sm:mx-1
+        scale-90;
     }
   }
 }
