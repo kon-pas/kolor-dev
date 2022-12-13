@@ -3,6 +3,8 @@
 .gradient-pid {
   $self: &;
 
+  @apply pt-10 pb-40;
+
   @include content;
 
   .header {

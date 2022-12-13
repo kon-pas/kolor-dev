@@ -1,6 +1,8 @@
 @import "@styles";
 
 .gradients-page {
+  @apply pt-10 pb-40;
+
   @include content;
 
   .header {
