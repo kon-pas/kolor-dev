@@ -4,24 +4,20 @@
   .hero-section {
     $self: ".hero-section";
 
-    @apply relative;
+    @apply h-screen relative;
 
     #{ $self }__header {
-      // @apply w-full;
+      @apply absolute top-[10%] w-full;
 
       #{ $self }__heading {
         @apply mx-auto w-fit
           flex flex-col items-center
           select-none
-          font-satoshi font-bold
+          font-epilogue font-bold
           text-5xl
           xs:text-6xl
-          sm:items-end
-          sm:mr-auto
-          sm:pl-40
           sm:text-7xl
-          md:text-8xl
-          md:pt-4;
+          md:text-8xl;
 
         #{ $self }__strong {
           @apply hidden;
@@ -35,39 +31,55 @@
           @apply flex;
         }
 
-        #{ $self }__dot {
-          @apply hidden
-            sm:block;
-        }
+        // #{ $self }__dot {
+        //   @apply hidden
+        //     sm:block;
+        // }
       }
     }
 
-    #{ $self }__hero-image-wrapper {
-      @apply w-3/4
-        mx-auto
-        relative
-        bottom-12
-        -z-50
-        max-w-2xl
-        box-content
-        xs:w-5/6
-        sm:bottom-28
-        md:pr-48;
+    #{ $self }__hero-image {
+      @apply absolute 
+      -translate-x-1/2
+      w-[200%]
+      h-full
+      top-1/3
+      sm:w-full sm:translate-x-0
+      -translate-y-1/3 
+      -z-10;
+
+      // img {
+      //   @apply top-0;
+      // }
+
     }
+
+    // #{ $self }__hero-image-wrapper {
+    //   @apply w-3/4
+    //     mx-auto
+    //     relative
+    //     bottom-12
+    //     -z-50
+    //     max-w-2xl
+    //     box-content
+    //     xs:w-5/6
+    //     sm:bottom-28
+    //     md:pr-48;
+    // }
   }
 
   .call-to-action {
     $self: ".call-to-action";
 
     @apply flex
-      w-20
+      w-full
       mx-auto
       flex-col
       items-center
-      relative
+      absolute
       cursor-pointer
-      bottom-6
-      sm:bottom-20;
+      bottom-20
+      sm:bottom-24;
 
     #{ $self }__label {
       @apply mb-2
@@ -96,10 +108,13 @@
       @apply
         grid
         container
-        gap-5
+        gap-6
         justify-items-center
+        sm:w-[500px]
+        sm:gap-8
+        md:container
         md:grid-cols-2
-        md:gap-6;
+        md:gap-12;
   
       #{ $self }__card {
         $self: ".banner-actions__card";

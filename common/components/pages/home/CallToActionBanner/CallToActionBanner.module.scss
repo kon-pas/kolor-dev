@@ -6,7 +6,8 @@
     cursor-pointer
     aspect-video
     flex flex-col justify-center
-    overflow-hidden;
+    overflow-hidden
+    shadow-md;
 
   &__header {
     @apply w-full h-full
@@ -26,7 +27,7 @@
     }
 
     &--inactive {
-      @apply cursor-not-allowed bg-gray-draw-3;
+      @apply cursor-not-allowed bg-gray-draw-1;
     }
 
     #{ $self }__heading {
@@ -53,13 +54,13 @@
 
 // @@@ TODO: This could be done better.
 .yellow {
-  @apply bg-yellow/70 saturate-150;
+  @apply bg-yellow saturate-150;
 }
 
 .magenta {
-  @apply bg-magenta/70 saturate-150;
+  @apply bg-magenta saturate-150;
 }
 
 .cyan {
-  @apply bg-cyan/70 saturate-150;
+  @apply bg-cyan saturate-150;
 }
