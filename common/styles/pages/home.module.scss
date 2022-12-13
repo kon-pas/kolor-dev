@@ -84,35 +84,28 @@
   }
 
   .tools-section {
-    $self: ".tools-section";
-
-    @apply flex justify-center;
-
-    #{ $self }__header {
-      @apply mb-8;
-
-      @include heading-4;
-    }
-  }
-
-  .banner-actions {
-    $self: ".banner-actions";
-
-    @include content;
-
     @apply w-full
-      mb-20
-      grid
-      container
-      gap-5
-      justify-items-center
-      md:grid-cols-2
-      md:gap-6;
+      bg-gray-draw-3
+      py-20;
 
-    #{ $self }__card {
-      $self: ".banner-actions__card";
-
-      @apply w-full;
+    .banner-actions {
+      $self: ".banner-actions";
+  
+      @include content;
+  
+      @apply
+        grid
+        container
+        gap-5
+        justify-items-center
+        md:grid-cols-2
+        md:gap-6;
+  
+      #{ $self }__card {
+        $self: ".banner-actions__card";
+  
+        @apply w-full;
+      }
     }
   }
 }

@@ -105,41 +105,43 @@ const Home: NextPage<HomeProps> = (props) => {
       </section> */}
 
       {/* @@@ TODO: Get rid of the wrapping jargon */}
-      <div className={styles["banner-actions"]} ref={callToActionRef}>
-        <div
-          className={styles["banner-actions__card"]}
-          onClick={() => navigateTo("/gradients")}
-        >
-          <CallToActionBanner
-            color="yellow"
-            desc="Carefully selected for Artists, Designers & Developers"
+      <div className={styles["tools-section"]} ref={callToActionRef}>
+        <div className={styles["banner-actions"]}>
+          <div
+            className={styles["banner-actions__card"]}
+            onClick={() => navigateTo("/gradients")}
           >
-            {props.numGradients} Gradients
-          </CallToActionBanner>
-        </div>
+            <CallToActionBanner
+              color="yellow"
+              desc="Carefully selected for Artists, Designers & Developers"
+            >
+              {props.numGradients} Gradients
+            </CallToActionBanner>
+          </div>
 
-        <div className={clsx(styles["banner-actions__card"])}>
-          <CallToActionBanner color="magenta" desc="Work in Progress" wip>
-            Gradient Generator
-          </CallToActionBanner>
-        </div>
+          <div className={clsx(styles["banner-actions__card"])}>
+            <CallToActionBanner color="magenta" desc="Work in Progress" wip>
+              Gradient Generator
+            </CallToActionBanner>
+          </div>
 
-        <div className={clsx(styles["banner-actions__card"])}>
-          <CallToActionBanner color="blue" desc="Work in Progress" wip>
-            Color Palettes
-          </CallToActionBanner>
-        </div>
+          <div className={clsx(styles["banner-actions__card"])}>
+            <CallToActionBanner color="blue" desc="Work in Progress" wip>
+              Color Palettes
+            </CallToActionBanner>
+          </div>
 
-        <div className={clsx(styles["banner-actions__card"])}>
-          <CallToActionBanner color="yellow" desc="Work in Progress" wip>
-            Palette Generator
-          </CallToActionBanner>
-        </div>
+          <div className={clsx(styles["banner-actions__card"])}>
+            <CallToActionBanner color="yellow" desc="Work in Progress" wip>
+              Palette Generator
+            </CallToActionBanner>
+          </div>
 
-        <div className={clsx(styles["banner-actions__card"])}>
-          <CallToActionBanner color="magenta" desc="Work in Progress" wip>
-            Color Finder
-          </CallToActionBanner>
+          <div className={clsx(styles["banner-actions__card"])}>
+            <CallToActionBanner color="magenta" desc="Work in Progress" wip>
+              Color Finder
+            </CallToActionBanner>
+          </div>
         </div>
       </div>
     </div>
