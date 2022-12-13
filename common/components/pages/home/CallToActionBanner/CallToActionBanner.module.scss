@@ -7,27 +7,39 @@
     aspect-video
     flex flex-col justify-center
     overflow-hidden
+    relative
+    bg-white
     shadow-md;
 
+  &__image {
+    @apply z-20 w-full h-full absolute top-[20%];
+  }
+
   &__header {
-    @apply w-full h-full
+    @apply z-10
+      w-full h-full
       flex 
       flex-col
       justify-center
       items-center
       gap-1
+      text-black
       duration-200;
 
     &--active {
-      @apply duration-200;
+      @apply duration-200 
+        z-30;
 
       &:hover {
-        @apply hover:scale-110 duration-200;
+        @apply hover:scale-110 
+          duration-200;
       }
     }
 
     &--inactive {
-      @apply cursor-not-allowed bg-gray-draw-1;
+      @apply z-30 
+        cursor-not-allowed
+        bg-gray-draw-1;
     }
 
     #{ $self }__heading {
@@ -35,17 +47,18 @@
           font-satoshi
           text-center
           font-bold
-          text-3xl
+          text-2xl
+          xs:text-3xl
           sm:text-4xl;
     }
 
     #{ $self }__desc {
       @apply duration-200
         max-w-[75%]
-        text-black
         font-normal
         text-center
-        text-base
+        text-sm
+        xs:text-base
         sm:text-lg
         md:text-xl;
     }
@@ -54,13 +67,13 @@
 
 // @@@ TODO: This could be done better.
 .yellow {
-  @apply bg-yellow saturate-150;
+  @apply bg-white;
 }
 
 .magenta {
-  @apply bg-magenta saturate-150;
+  @apply bg-magenta;
 }
 
 .cyan {
-  @apply bg-cyan saturate-150;
+  @apply bg-cyan/50;
 }

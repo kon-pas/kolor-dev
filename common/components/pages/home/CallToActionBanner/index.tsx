@@ -1,12 +1,13 @@
 import styles from "./CallToActionBanner.module.scss";
 
 import type { FC, ReactNode } from "react";
+import Image from "next/image";
 import clsx from "clsx";
 
 interface CallToActionBannerProps {
   children: ReactNode;
   desc: string;
-  color: "yellow" | "magenta" | "blue";
+  color: "yellow" | "magenta" | "cyan";
   wip?: boolean;
 }
 
@@ -18,8 +19,23 @@ const CallToActionBanner: FC<CallToActionBannerProps> = ({
 }) => {
   return (
     <article
-      className={clsx(styles["call-to-action-banner"], !wip && styles[color])}
+      className={clsx(styles["call-to-action-banner"]
+      // , !wip && styles[color]
+      )}
     >
+      <div className={styles["call-to-action-banner__image"]}>
+        <Image
+          src="/assets/svgs/gradient_wave_1_0.svg"
+          alt="Gradient Wave"
+          width="100%"
+          height="10%"
+          layout="fill"
+          objectPosition="absolute"
+          objectFit="contain"
+          priority
+        />
+      </div>
+
       <header
         className={clsx(
           styles["call-to-action-banner__header"],
