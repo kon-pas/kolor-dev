@@ -20,7 +20,8 @@
           sm:mr-auto
           sm:pl-40
           sm:text-7xl
-          md:text-8xl;
+          md:text-8xl
+          md:pt-4;
 
         #{ $self }__strong {
           @apply hidden;
@@ -45,13 +46,13 @@
       @apply w-3/4
         mx-auto
         relative
-        bottom-8
+        bottom-12
         -z-50
         max-w-2xl
         box-content
         xs:w-5/6
-        sm:bottom-24
-        md:pr-40;
+        sm:bottom-28
+        md:pr-48;
     }
   }
 

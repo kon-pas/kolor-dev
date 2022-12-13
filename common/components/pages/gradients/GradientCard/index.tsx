@@ -62,7 +62,7 @@ const GradientCard: FC<GradientCardProps> = ({ gradient }) => {
           >
             <Color hex={color}>
               <SpanMonochrome color={color}>
-                {color}
+                {color.toUpperCase()}
               </SpanMonochrome>
             </Color>
           </div>

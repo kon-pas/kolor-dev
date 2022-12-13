@@ -123,6 +123,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
     link.click();
   };
 
+  // @@@ TODO: Redirect `/gradient/create` with filters
   const handleEditButtonOnClick = () => {
     toast("Not Yet Available", TOAST_OPTIONS);
   };
@@ -148,6 +149,11 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
       }
     );
   };
+
+  // @@@ TODO: Redirect to `/gradients` with filters.
+  const handleTagOnClick = () => {
+    toast("Not Yet Available", TOAST_OPTIONS);
+  }
 
   return (
     <>
@@ -258,7 +264,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
         <div className={styles["tags"]}>
           <div className={styles["tags__color-tags"]}>
             {gradient.tags?.mainColors.map((color, idx) => (
-              <Tag type="color" color={color} key={idx}>
+              <Tag type="color" color={color} key={idx} onClick={handleTagOnClick}>
                 {color}
               </Tag>
             ))}
@@ -266,7 +272,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 
           <div className={styles["tags__hash-tags"]}>
             {gradient.tags?.misc.map((label, idx) => (
-              <Tag type="hash" key={idx}>
+              <Tag type="hash" key={idx} onClick={handleTagOnClick}>
                 {MiscTags[label]}
               </Tag>
             ))}
