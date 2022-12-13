@@ -6,15 +6,16 @@
   @apply w-full
     shadow-sm
     select-none
-    sticky top-0 z-50;
+    sticky top-0 z-50
+    bg-white;
 
   &__top {
     @include content;
 
     @apply flex justify-between items-center 
-      backdrop-blur-md bg-white/90
       h-14
       sm:h-16;
+      // bg-white/90 backdrop-blur-md
 
     #{ $self }__title {
       @apply h-8
@@ -57,7 +58,8 @@
   &__bottom {
     @include content;
 
-    @apply bg-white/90 backdrop-blur-md
+    @apply bg-white
+      shadow-sm
       w-full
       pb-3
       absolute
@@ -65,6 +67,7 @@
       visible
       max-h-[300px]
       md:hidden;
+      // bg-white/90 backdrop-blur-md
 
     transition: visibility 0s linear 0s, max-height 0.1s ease-out,
       opacity 0.15s ease-in;
@@ -82,7 +85,11 @@
 
     &--desktop {
       @apply hidden
-        md:mr-8 md:p-0 md:h-fit md:justify-end md:w-fit
+        md:mr-8 
+        md:p-0 
+        md:h-fit 
+        md:justify-end 
+        md:w-fit
         md:flex;
     }
 
@@ -93,8 +100,13 @@
         font-bold
         cursor-pointer
         xs:mr-4
-        md:inline-block md:m-0 md:content-center
-        md:h-fit md:my-auto md:ml-12 md:first:ml-0;
+        md:inline-block 
+        md:m-0 
+        md:content-center
+        md:h-fit 
+        md:my-auto 
+        md:ml-12 
+        md:first:ml-0;
 
       &--inactive {
         @apply text-gray-font 
