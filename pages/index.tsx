@@ -32,19 +32,20 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return (
     <div className={styles["home-page"]}>
+      {/* @@@ TODO: Clean up this section out of commented out code */}
       <section className={styles["hero-section"]}>
         <header className={styles["hero-section__header"]}>
           <h1 className={styles["hero-section__heading"]}>
             <strong className={styles["hero-section__strong"]}>Kolor</strong>
 
             <strong className={styles["hero-section__strong--underlined"]}>
-              <TextUnderlined
+              {/* <TextUnderlined
                 colors={[BRAND_COLORS.Y, BRAND_COLORS.M, BRAND_COLORS.C]}
                 thickness={16}
                 offset={0}
-              >
+              > */}
                 Kolor
-              </TextUnderlined>
+              {/* </TextUnderlined> */}
             </strong>
 
             <span className={styles["hero-section__text-animated"]}>
@@ -52,7 +53,6 @@ const Home: NextPage<HomeProps> = (props) => {
               {/* <TextAnimated labels={["your work", "with ease", "for free"]} 
               /> */}
               <AnimatedText />
-
               <span className={styles["hero-section__dot"]}>
                 <TextGradiented
                   colors={[BRAND_COLORS.C, BRAND_COLORS.M, BRAND_COLORS.Y]}
@@ -65,7 +65,20 @@ const Home: NextPage<HomeProps> = (props) => {
           </h1>
         </header>
 
-        <div className={styles["hero-section__hero-image-wrapper"]}>
+        <div className={styles["hero-section__hero-image"]}>
+          <Image
+            src="/assets/svgs/gradient_wave_0_1.svg"
+            alt="Gradient Wave"
+            width="100%"
+            height="100%"
+            layout="fill"
+            objectPosition="relative"
+            objectFit="contain"
+            priority
+          />
+        </div>
+
+        {/* <div className={styles["hero-section__hero-image-wrapper"]}>
           <Image
             src="/assets/images/hero_page_phone.jpg"
             alt="Phone mockup"
@@ -78,7 +91,7 @@ const Home: NextPage<HomeProps> = (props) => {
             objectFit="contain"
             priority
           />
-        </div>
+        </div> */}
 
         <div
           className={styles["call-to-action"]}
