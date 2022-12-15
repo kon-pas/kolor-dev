@@ -19,8 +19,9 @@ const CallToActionBanner: FC<CallToActionBannerProps> = ({
 }) => {
   return (
     <article
-      className={clsx(styles["call-to-action-banner"]
-      // , !wip && styles[color]
+      className={clsx(
+        styles["call-to-action-banner"],
+        !wip && styles["call-to-action-banner--active"]
       )}
     >
       <div className={styles["call-to-action-banner__image"]}>
