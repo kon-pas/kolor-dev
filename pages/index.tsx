@@ -44,7 +44,7 @@ const Home: NextPage<HomeProps> = (props) => {
                 thickness={16}
                 offset={0}
               > */}
-                Kolor
+              Kolor
               {/* </TextUnderlined> */}
             </strong>
 
@@ -111,14 +111,19 @@ const Home: NextPage<HomeProps> = (props) => {
             </IconSVG>
           </div>
         </div>
+
+        <TextUnderlined
+          colors={[BRAND_COLORS.Y, BRAND_COLORS.M, BRAND_COLORS.C]}
+          thickness={16}
+        />
       </section>
-      {/* @@@ TODO: Why is this section empty? */}
-      {/* <section className={styles["tools-section"]}>
-        <h1 className={styles["tools-section__header"]}>Explore tools</h1>
-      </section> */}
 
       {/* @@@ TODO: Get rid of the wrapping jargon */}
       <div className={styles["tools-section"]} ref={callToActionRef}>
+        <div className={styles["tools-section__heading"]}>
+            {"//"} Tools:
+        </div>
+
         <div className={styles["banner-actions"]}>
           <div
             className={styles["banner-actions__card"]}
