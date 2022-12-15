@@ -51,7 +51,6 @@
       // img {
       //   @apply top-0;
       // }
-
     }
 
     // #{ $self }__hero-image-wrapper {
@@ -98,15 +97,20 @@
   .tools-section {
     @apply w-full
       bg-gray-draw-3
-      py-20;
+      py-12;
+
+    &__heading {
+      @include heading-3;
+
+      @apply mx-auto w-fit mb-8 relative;
+    }
 
     .banner-actions {
       $self: ".banner-actions";
-  
+
       @include content;
-  
-      @apply
-        grid
+
+      @apply grid
         container
         gap-6
         justify-items-center
@@ -115,10 +119,10 @@
         md:container
         md:grid-cols-2
         md:gap-12;
-  
+
       #{ $self }__card {
         $self: ".banner-actions__card";
-  
+
         @apply w-full;
       }
     }

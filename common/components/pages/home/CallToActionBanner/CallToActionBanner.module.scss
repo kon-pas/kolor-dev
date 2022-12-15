@@ -11,6 +11,11 @@
     bg-white
     shadow-md;
 
+  &--active {
+    @apply hover:scale-105 hover:shadow-lg
+    duration-200;
+  }
+
   &__image {
     @apply z-20 w-full h-full absolute top-[20%];
   }
@@ -30,10 +35,10 @@
       @apply duration-200 
         z-30;
 
-      &:hover {
-        @apply hover:scale-110 
-          duration-200;
-      }
+      // &:hover {
+      //   @apply hover:scale-110
+      //     duration-200;
+      // }
     }
 
     &--inactive {
