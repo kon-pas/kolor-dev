@@ -31,6 +31,10 @@
     font-weight: inherit;
   }
 
+  hr {
+    @apply bg-gray-draw-5 border-none h-[1px];
+  }
+
   * {
     @apply box-border
       scroll-mt-14
