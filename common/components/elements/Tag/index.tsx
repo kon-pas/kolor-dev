@@ -4,7 +4,6 @@ import type { FC, ReactNode } from "react";
 
 import { MainColors } from "@enums";
 import { getMainColorHex } from "@utils";
-import SpanMonochrome from "@components/elements/SpanMonochrome";
 
 interface TagProps {
   children?: ReactNode;
@@ -15,14 +14,7 @@ interface TagProps {
 
 const Tag: FC<TagProps> = ({ children, type, color, onClick }) => {
   return (
-    <div
-      className={styles.tag}
-      onClick={onClick}
-      style={{
-        ...(type === "color" &&
-          color && { backgroundColor: `${getMainColorHex(color)}` }),
-      }}
-    >
+    <div className={styles.tag} onClick={onClick}>
       {type === "hash" && (
         <span>
           <span className={styles["tag__hash-symbol"]}>#</span>
@@ -31,13 +23,19 @@ const Tag: FC<TagProps> = ({ children, type, color, onClick }) => {
       )}
 
       {type === "color" && color && (
-        <SpanMonochrome color={getMainColorHex(color)} breakpoint={0.5}>
+        <span>
+          <span
+            className={styles["tag__color-symbol"]}
+            style={{ color: getMainColorHex(color) }}
+          >
+            ■
+          </span>
           {
             Object.keys(MainColors)[
               Object.values(MainColors).indexOf(color as unknown as MainColors)
             ]
           }
-        </SpanMonochrome>
+        </span>
       )}
     </div>
   );
