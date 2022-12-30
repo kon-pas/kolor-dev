@@ -35,6 +35,25 @@
     }
   }
 
+  .form {
+    $self: ".form";
+
+    @apply w-full flex flex-col;
+
+    #{ $self }__input {
+      @apply my-1
+        w-full
+        xs:w-3/4
+        xs:mx-auto
+        sm:w-2/3
+        md:w-1/2;
+    }
+
+    #{ $self }__tags {
+      @apply flex flex-wrap gap-1 my-1 justify-center;
+    }
+  }
+
   .gradients-list {
     @apply flex flex-col gap-y-5
       sm:grid sm:grid-cols-2 sm:gap-x-5
