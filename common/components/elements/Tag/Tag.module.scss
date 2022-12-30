@@ -6,11 +6,16 @@
     py-1 px-2
     text-xs
     cursor-pointer
+    select-none
     hover:border-black/75 duration-200
     xs:text-sm
     md:text-base;
 
   &__hash-symbol {
     @apply mr-[1px] text-gray-font;
+  }
+
+  &__color-symbol {
+    @apply mr-[2px];
   }
 }
