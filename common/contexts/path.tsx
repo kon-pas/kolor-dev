@@ -8,7 +8,7 @@ interface PathContextProviderProps {
   children: ReactNode;
 }
 
-const PathContextProvider: FC<PathContextProviderProps> = (props) => {
+const PathContextProvider: FC<PathContextProviderProps> = props => {
   const [name, setName] = useState<string>("");
 
   return (
