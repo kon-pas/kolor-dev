@@ -1,10 +1,10 @@
 import styles from "@styles/pages/home.module.scss";
 
 import type { NextPage, GetServerSideProps } from "next";
+
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import clsx from "clsx";
-
 import { BRAND_COLORS } from "@constants";
 import { getGradients } from "@api";
 import { useNavigation, usePath } from "@hooks";
