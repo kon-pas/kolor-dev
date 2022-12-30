@@ -6,8 +6,6 @@
   @include content;
 
   .header {
-    $self: ".header";
-
     @apply flex items-center flex-col;
 
     * {
@@ -36,11 +34,9 @@
   }
 
   .form {
-    $self: ".form";
+    @apply w-full flex flex-col my-6;
 
-    @apply w-full flex flex-col;
-
-    #{ $self }__input {
+    &__input {
       @apply my-1
         w-full
         xs:w-3/4
@@ -49,7 +45,7 @@
         md:w-1/2;
     }
 
-    #{ $self }__tags {
+    &__tags {
       @apply flex flex-wrap gap-1 my-1 justify-center;
     }
   }
