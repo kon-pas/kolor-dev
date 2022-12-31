@@ -37,8 +37,8 @@
     @apply w-full flex flex-col my-6 gap-1;
 
     &__input {
-      @apply mt-6 pl-2 py-2
-        border border-gray-draw-3 rounded-md
+      @apply mt-6 p-2
+        border border-gray-draw-3 rounded-md text-center
         w-full
         xs:w-3/4
         xs:mx-auto
