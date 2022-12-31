@@ -64,7 +64,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
         case "REMOVE_MISC_TAG":
           return {
             ...state,
-            miscTags: [...state.miscTags].filter(tag => tag !== miscTag),
+            miscTags: state.miscTags.filter(tag => tag !== miscTag),
           };
         case "ADD_COLOR_TAG":
           return {
@@ -77,7 +77,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
         case "REMOVE_COLOR_TAG":
           return {
             ...state,
-            mainColor: [...state.mainColors].filter(tag => tag !== mainColor),
+            mainColors: state.mainColors.filter(tag => tag !== mainColor),
           };
       }
     },
@@ -144,29 +144,47 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
         />
 
         <div className={styles["form__tags"]}>
-          {Object.values(MAIN_COLORS).map((color, idx) => (
-            <Tag
-              type="color"
-              color={color}
-              key={idx}
-              onClick={() =>
-                filtersDispatch({
-                  type: "ADD_COLOR_TAG",
-                  payload: { mainColor: color },
-                })
-              }
-            >
-              {color}
-            </Tag>
-          ))}
+          {Object.values(MAIN_COLORS).map((mainColor, idx) => {
+            const isActive: boolean = filters.mainColors.includes(mainColor);
+            return (
+              <Tag
+                type="color"
+                color={mainColor}
+                key={idx}
+                active={isActive}
+                onClick={() =>
+                  filtersDispatch({
+                    type: isActive ? "REMOVE_COLOR_TAG" : "ADD_COLOR_TAG",
+                    payload: { mainColor },
+                  })
+                }
+              >
+                {mainColor}
+              </Tag>
+            );
+          })}
         </div>
 
         <div className={styles["form__tags"]}>
-          {Object.values(MISC_TAGS).map((label, idx) => (
-            <Tag type="hash" key={idx}>
-              {label}
-            </Tag>
-          ))}
+          {Object.values(MISC_TAGS).map((miscTag, idx) => {
+            const isActive: boolean = filters.miscTags.includes(miscTag);
+
+            return (
+              <Tag
+                type="hash"
+                key={idx}
+                active={isActive}
+                onClick={() =>
+                  filtersDispatch({
+                    type: isActive ? "REMOVE_MISC_TAG" : "ADD_MISC_TAG",
+                    payload: { miscTag },
+                  })
+                }
+              >
+                {miscTag}
+              </Tag>
+            );
+          })}
         </div>
       </div>
 
