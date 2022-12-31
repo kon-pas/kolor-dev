@@ -2,6 +2,7 @@ import styles from "./Tag.module.scss";
 
 import type { FC, ReactNode } from "react";
 
+import clsx from "clsx";
 import { MainColors } from "@enums";
 import { getMainColorHex } from "@utils";
 
@@ -10,11 +11,15 @@ interface TagProps {
   type?: "hash" | "color";
   color?: MainColors;
   onClick?: () => void;
+  active?: boolean;
 }
 
-const Tag: FC<TagProps> = ({ children, type, color, onClick }) => {
+const Tag: FC<TagProps> = ({ children, type, color, onClick, active }) => {
   return (
-    <div className={styles.tag} onClick={onClick}>
+    <div
+      className={clsx(styles["tag"], active && styles["tag--active"])}
+      onClick={onClick}
+    >
       {type === "hash" && (
         <span>
           <span className={styles["tag__hash-symbol"]}>#</span>
