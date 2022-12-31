@@ -18,11 +18,10 @@ interface GradientsProps {
 }
 
 const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
-  const { setName } = usePath();
+  const [gradientsDisplayed, setGradientsDisplay] =
+    useState<GradientScheme[]>(gradients);
 
-  useEffect(() => {
-    setName("gradients");
-  }, [setName]);
+  const { setName } = usePath();
 
   const [filters, filtersDispatch] = useReducer(
     (
@@ -48,6 +47,8 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
         type,
         payload: { miscTag, mainColor, search },
       } = action;
+
+      console.log(mainColor);
 
       switch (type) {
         case "SEARCH":
@@ -82,6 +83,28 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
     },
     { miscTags: [], mainColors: [] }
   );
+
+  useEffect(() => {
+    setName("gradients");
+  }, [setName]);
+
+  useEffect(() => {
+    let newGradients = [...gradients];
+
+    filters.miscTags.forEach((tag: MiscTags) => {
+      newGradients = newGradients.filter(gradient =>
+        gradient.tags?.misc.includes(tag)
+      );
+    });
+
+    filters.mainColors.forEach((color: MainColors) => {
+      newGradients = newGradients.filter(gradient =>
+        gradient.tags?.mainColors.includes(color)
+      );
+    });
+
+    setGradientsDisplay(newGradients);
+  }, [filters, gradients]);
 
   return (
     <div className={styles["gradients-page"]}>
@@ -122,7 +145,17 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
 
         <div className={styles["form__tags"]}>
           {Object.values(MAIN_COLORS).map((color, idx) => (
-            <Tag type="color" color={color} key={idx}>
+            <Tag
+              type="color"
+              color={color}
+              key={idx}
+              onClick={() =>
+                filtersDispatch({
+                  type: "ADD_COLOR_TAG",
+                  payload: { mainColor: color },
+                })
+              }
+            >
               {color}
             </Tag>
           ))}
@@ -138,7 +171,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
       </div>
 
       <div className={styles["gradients-list"]}>
-        {gradients.map((gradient, index) => (
+        {gradientsDisplayed.map((gradient, index) => (
           <GradientCard key={index} gradient={gradient} />
         ))}
       </div>
