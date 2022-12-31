@@ -23,6 +23,8 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
     setName("gradients");
   }, [setName]);
 
+  
+
   return (
     <div className={styles["gradients-page"]}>
       <header className={styles["header"]}>
@@ -52,10 +54,12 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
       </header>
 
       <div className={styles["form"]}>
+        <hr />
+
         <input
           className={styles["form__input"]}
           type="text"
-          placeholder="Name"
+          placeholder="Search by name"
         />
 
         <div className={styles["form__tags"]}>
