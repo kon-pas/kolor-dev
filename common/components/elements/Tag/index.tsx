@@ -22,7 +22,14 @@ const Tag: FC<TagProps> = ({ children, type, color, onClick, active }) => {
     >
       {type === "hash" && (
         <span>
-          <span className={styles["tag__hash-symbol"]}>#</span>
+          <span
+            className={clsx(
+              styles["tag__hash-symbol"],
+              active && styles["tag__hash-symbol--active"]
+            )}
+          >
+            #
+          </span>
           {children}
         </span>
       )}
