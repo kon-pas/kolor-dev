@@ -2,8 +2,9 @@ import styles from "@styles/pages/gradients.module.scss";
 
 import type { NextPage, GetStaticProps } from "next";
 import type { GradientScheme } from "@types";
+import type { MainColors, MiscTags } from "@enums";
 
-import { useEffect } from "react";
+import { useEffect, useState, useCallback, useReducer } from "react";
 import { prisma } from "@lib";
 import { usePath } from "@hooks";
 import { MISC_TAGS, MAIN_COLORS } from "@constants";
@@ -23,7 +24,64 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
     setName("gradients");
   }, [setName]);
 
-  
+  const [filters, filtersDispatch] = useReducer(
+    (
+      state: {
+        miscTags: MiscTags[];
+        mainColors: MainColors[];
+      },
+      action: {
+        type:
+          | "SEARCH"
+          | "ADD_MISC_TAG"
+          | "REMOVE_MISC_TAG"
+          | "ADD_COLOR_TAG"
+          | "REMOVE_COLOR_TAG";
+        payload: {
+          miscTag?: MiscTags;
+          mainColor?: MainColors;
+          search?: string;
+        };
+      }
+    ) => {
+      const {
+        type,
+        payload: { miscTag, mainColor, search },
+      } = action;
+
+      switch (type) {
+        case "SEARCH":
+          return {
+            ...state,
+            search,
+          };
+        case "ADD_MISC_TAG":
+          return {
+            ...state,
+            miscTags: [...state.miscTags, ...(miscTag ? [miscTag] : [])],
+          };
+        case "REMOVE_MISC_TAG":
+          return {
+            ...state,
+            miscTags: [...state.miscTags].filter(tag => tag !== miscTag),
+          };
+        case "ADD_COLOR_TAG":
+          return {
+            ...state,
+            mainColors: [
+              ...state.mainColors,
+              ...(mainColor ? [mainColor] : []),
+            ],
+          };
+        case "REMOVE_COLOR_TAG":
+          return {
+            ...state,
+            mainColor: [...state.mainColors].filter(tag => tag !== mainColor),
+          };
+      }
+    },
+    { miscTags: [], mainColors: [] }
+  );
 
   return (
     <div className={styles["gradients-page"]}>
@@ -58,7 +116,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
 
         <input
           className={styles["form__input"]}
-          type="text"
+          type="search"
           placeholder="Search by name"
         />
 
