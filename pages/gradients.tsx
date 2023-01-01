@@ -200,7 +200,6 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const gradients = await prisma.gradient.findMany();
-
     return {
       props: {
         gradients,
