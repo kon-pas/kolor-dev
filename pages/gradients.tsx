@@ -23,6 +23,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
 
   const { setName } = usePath();
 
+  // @@@ TODO: Reducer is probably bad here.
   const [filters, filtersDispatch] = useReducer(
     (
       state: {
