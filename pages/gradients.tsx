@@ -55,7 +55,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
         case "SEARCH":
           return {
             ...state,
-            search,
+            ...(search ? [search] : []),
           };
         case "ADD_MISC_TAG":
           return {
