@@ -49,8 +49,6 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
         payload: { miscTag, mainColor, search },
       } = action;
 
-      console.log(mainColor);
-
       switch (type) {
         case "SEARCH":
           return {
