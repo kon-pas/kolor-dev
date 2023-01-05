@@ -88,6 +88,10 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
   }, [setName]);
 
   useEffect(() => {
+    
+  }, [])
+
+  useEffect(() => {
     let newGradients = [...gradients];
 
     filters.miscTags.forEach((tag: MiscTags) => {
