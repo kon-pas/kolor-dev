@@ -88,7 +88,6 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
   }, [setName]);
 
   useEffect(() => {
-    
   }, [])
 
   useEffect(() => {
