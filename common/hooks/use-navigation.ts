@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { usePath } from "@hooks";
 
+// @@@ NOTE: Remove? After clean-up this hook is an overkill.
 const useNavigation = () => {
   // const path = usePath();
   const { push } = useRouter();
