@@ -5,7 +5,6 @@ import { usePath } from "@hooks";
 const useNavigation = () => {
   // const path = usePath();
   const { push } = useRouter();
-
   return {
     navigateTo: (url: string, pathname?: string) => {
       // path.setName(pathname ?? url);
