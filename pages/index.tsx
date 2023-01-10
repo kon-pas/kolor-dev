@@ -7,7 +7,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { BRAND_COLORS } from "@constants";
 import { getGradients } from "@api";
-import { useNavigation, usePath } from "@hooks";
+import { useNavigation, usePathName } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import TextGradiented from "@components/elements/TextGradiented";
@@ -24,11 +24,11 @@ const Home: NextPage<HomeProps> = (props) => {
 
   const { navigateTo } = useNavigation();
 
-  const { setName } = usePath();
+  const { setPathName } = usePathName();
 
   useEffect(() => {
-    setName("");
-  }, [setName]);
+    setPathName("");
+  }, [setPathName]);
 
   return (
     <div className={styles["home-page"]}>

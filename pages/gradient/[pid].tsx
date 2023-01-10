@@ -14,7 +14,7 @@ import { TOAST_OPTIONS } from "@constants";
 import { getRGB } from "@utils";
 import { local } from "@services";
 import { getGradient, getGradients } from "@api";
-import { usePath } from "@hooks";
+import { usePathName } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Gradient from "@components/elements/GradientBackground";
@@ -33,11 +33,11 @@ interface GradientPidProps {
 const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
-  const { setName } = usePath();
+  const { setPathName } = usePathName();
 
   useEffect(() => {
-    setName("gradient");
-  }, [setName]);
+    setPathName("gradient");
+  }, [setPathName]);
 
   useEffect(() => {
     setIsSaved(gradient ? local.gradients.includes(gradient.id) : false);
@@ -81,7 +81,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
     const { id } = gradient as GradientScheme;
     if (local.gradients.includes(id)) local.gradients.remove(id);
     else local.gradients.add(id);
-    setIsSaved((isSaved) => !isSaved);
+    setIsSaved(isSaved => !isSaved);
   };
 
   const handleLinkButtonOnClick = () => {
@@ -153,7 +153,7 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
   // @@@ TODO: Redirect to `/gradients` with filters.
   const handleTagOnClick = () => {
     toast("Not Yet Available", TOAST_OPTIONS);
-  }
+  };
 
   return (
     <>
@@ -264,7 +264,12 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
         <div className={styles["tags"]}>
           <div className={styles["tags__color-tags"]}>
             {gradient.tags?.mainColors.map((color, idx) => (
-              <Tag type="color" color={color} key={idx} onClick={handleTagOnClick}>
+              <Tag
+                type="color"
+                color={color}
+                key={idx}
+                onClick={handleTagOnClick}
+              >
                 {color}
               </Tag>
             ))}
