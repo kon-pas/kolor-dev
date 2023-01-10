@@ -5,7 +5,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
-import { usePath, useNavigation } from "@hooks";
+import { usePathName, useNavigation } from "@hooks";
 import IconSVG from "@components/elements/IconSVG";
 import NAV_ITEMS from "common/constants/nav-items";
 
@@ -19,7 +19,7 @@ const Header: FC = () => {
     navigateTo(path);
   };
 
-  const { name: pathname } = usePath();
+  const { pathName} = usePathName();
 
   return (
     <header className={styles["header"]}>
@@ -39,7 +39,7 @@ const Header: FC = () => {
 
           <h1 className={styles["header__heading"]}>KOLOR</h1>
           <span className={styles["header__subtitle"]}>
-            &nbsp;{pathname !== "" ? `| ${pathname}` : null}
+            &nbsp;{pathName !== "" ? `| ${pathName}` : null}
           </span>
         </div>
 
