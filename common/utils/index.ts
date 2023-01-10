@@ -11,3 +11,5 @@ export { default as getBlue } from "./get-blue";
 export { default as getRGB } from "./get-rgb";
 
 export { default as getMainColorHex } from "./get-main-color-hex";
+
+export { default as getCleanString } from "./get-clean-string";
