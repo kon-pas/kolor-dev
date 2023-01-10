@@ -1,26 +1,28 @@
+// @@@ TODO: Simplify this spaghetti.
+
 import type { ReactNode, FC } from "react";
 import { createContext, useState } from "react";
 
 // @@@ TODO: The `any` terrifies me.
-const PathContext = createContext<any>({});
+const PathNameContext = createContext<any>({});
 
-interface PathContextProviderProps {
+interface PathNameContextProviderProps {
   children: ReactNode;
 }
 
-const PathContextProvider: FC<PathContextProviderProps> = props => {
-  const [name, setName] = useState<string>("");
+const PathNameContextProvider: FC<PathNameContextProviderProps> = props => {
+  const [pathName, setPathName] = useState<string>("");
 
   return (
-    <PathContext.Provider value={{ name, setName }}>
+    <PathNameContext.Provider value={{ pathName, setPathName }}>
       {props.children}
-    </PathContext.Provider>
+    </PathNameContext.Provider>
   );
 };
 
-const PathContextManager = {
-  PathContext,
-  PathContextProvider,
+const PathNameContextManager = {
+  PathNameContext,
+  PathNameContextProvider,
 };
 
-export default PathContextManager;
+export default PathNameContextManager;
