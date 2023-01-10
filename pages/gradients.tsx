@@ -6,7 +6,8 @@ import type { MainColors, MiscTags } from "@enums";
 
 import { useEffect, useState, useCallback, useReducer } from "react";
 import { prisma } from "@lib";
-import { usePath } from "@hooks";
+import { usePathName, useDebounce, useDebouncedCallback } from "@hooks";
+import { getCleanString } from "@utils";
 import { MISC_TAGS, MAIN_COLORS } from "@constants";
 
 import GradientCard from "@components/pages/gradients/GradientCard";
@@ -21,12 +22,15 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
   const [gradientsDisplayed, setGradientsDisplay] =
     useState<GradientScheme[]>(gradients);
 
-  const { setName } = usePath();
+  const [rawSearchQuery, setRawSearchQuery] = useState<string>("");
 
+  const { setPathName } = usePathName();
+  
   // @@@ TODO: Reducer is probably bad here.
   const [filters, filtersDispatch] = useReducer(
     (
       state: {
+        searchQuery: string;
         miscTags: MiscTags[];
         mainColors: MainColors[];
       },
@@ -40,30 +44,20 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
         payload: {
           miscTag?: MiscTags;
           mainColor?: MainColors;
-          search?: string;
+          searchQuery?: string;
         };
       }
     ) => {
       const {
         type,
-        payload: { miscTag, mainColor, search },
+        payload: { miscTag, mainColor, searchQuery },
       } = action;
 
       switch (type) {
         case "SEARCH":
           return {
             ...state,
-            ...(search ? [search] : []),
-          };
-        case "ADD_MISC_TAG":
-          return {
-            ...state,
-            miscTags: [...state.miscTags, ...(miscTag ? [miscTag] : [])],
-          };
-        case "REMOVE_MISC_TAG":
-          return {
-            ...state,
-            miscTags: state.miscTags.filter(tag => tag !== miscTag),
+            searchQuery: searchQuery ?? "",
           };
         case "ADD_COLOR_TAG":
           return {
@@ -78,35 +72,55 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
             ...state,
             mainColors: state.mainColors.filter(tag => tag !== mainColor),
           };
+        case "ADD_MISC_TAG":
+          return {
+            ...state,
+            miscTags: [...state.miscTags, ...(miscTag ? [miscTag] : [])],
+          };
+        case "REMOVE_MISC_TAG":
+          return {
+            ...state,
+            miscTags: state.miscTags.filter(tag => tag !== miscTag),
+          };
       }
     },
-    { miscTags: [], mainColors: [] }
+    { miscTags: [], mainColors: [], searchQuery: "" }
   );
 
   useEffect(() => {
-    setName("gradients");
-  }, [setName]);
+    setPathName("gradients");
+  }, [setPathName]);
 
   useEffect(() => {
-  }, [])
+    let filteredGradients = [...gradients];
 
-  useEffect(() => {
-    let newGradients = [...gradients];
-
-    filters.miscTags.forEach((tag: MiscTags) => {
-      newGradients = newGradients.filter(gradient =>
-        gradient.tags?.misc.includes(tag)
-      );
-    });
+    filteredGradients = filteredGradients.filter(gradient =>
+      getCleanString(gradient.title).match(filters.searchQuery)
+    );
 
     filters.mainColors.forEach((color: MainColors) => {
-      newGradients = newGradients.filter(gradient =>
+      filteredGradients = filteredGradients.filter(gradient =>
         gradient.tags?.mainColors.includes(color)
       );
     });
 
-    setGradientsDisplay(newGradients);
+    filters.miscTags.forEach((tag: MiscTags) => {
+      filteredGradients = filteredGradients.filter(gradient =>
+        gradient.tags?.misc.includes(tag)
+      );
+    });
+
+    setGradientsDisplay(filteredGradients);
   }, [filters, gradients]);
+
+  const handleSearch = useDebouncedCallback((searchQuery: string) => {
+    filtersDispatch({
+      type: "SEARCH",
+      payload: {
+        searchQuery: getCleanString(searchQuery),
+      },
+    });
+  }, 250);
 
   return (
     <div className={styles["gradients-page"]}>
@@ -143,6 +157,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
           className={styles["form__input"]}
           type="search"
           placeholder="Search by name"
+          onChange={event => handleSearch(event.target.value)}
         />
 
         <div className={styles["form__tags"]}>
