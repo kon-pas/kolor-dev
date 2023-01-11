@@ -49,6 +49,12 @@ const Tag: FC<TagProps> = ({ children, type, color, onClick, active }) => {
           }
         </span>
       )}
+
+      {!type && (
+        <span>
+          {children}
+        </span>
+      )}
     </div>
   );
 };
