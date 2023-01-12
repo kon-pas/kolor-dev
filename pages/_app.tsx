@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       events.off("routeChangeStart", local.gradients.save);
     };
   });
-
+  
   return (
     <>
       <Head>
