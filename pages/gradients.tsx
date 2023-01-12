@@ -4,12 +4,13 @@ import type { NextPage, GetStaticProps } from "next";
 import type { GradientScheme } from "@types";
 import type { MainColors, MiscTags } from "@enums";
 
-import { useEffect, useState, useCallback, useReducer } from "react";
+import { useEffect, useState, useReducer } from "react";
 import { prisma } from "@lib";
-import { usePathName, useDebounce, useDebouncedCallback } from "@hooks";
+import { usePathName, useDebouncedCallback } from "@hooks";
 import { getCleanString } from "@utils";
 import { MISC_TAGS, MAIN_COLORS } from "@constants";
 
+import IconSVG from "@components/elements/IconSVG";
 import GradientCard from "@components/pages/gradients/GradientCard";
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Tag from "@components/elements/Tag";
@@ -25,8 +26,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
   const [rawSearchQuery, setRawSearchQuery] = useState<string>("");
 
   const { setPathName } = usePathName();
-  
-  // @@@ TODO: Reducer is probably bad here.
+
   const [filters, filtersDispatch] = useReducer(
     (
       state: {

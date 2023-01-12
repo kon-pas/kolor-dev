@@ -19,7 +19,7 @@ interface HomeProps {
   numGradients: number | "Plenty of";
 }
 
-const Home: NextPage<HomeProps> = (props) => {
+const Home: NextPage<HomeProps> = props => {
   const callToActionRef = useRef<HTMLInputElement>(null);
 
   const { navigateTo } = useNavigation();
@@ -29,7 +29,7 @@ const Home: NextPage<HomeProps> = (props) => {
   useEffect(() => {
     setPathName("");
   }, [setPathName]);
-
+  
   return (
     <div className={styles["home-page"]}>
       {/* @@@ TODO: Clean up this section out of commented out code */}
@@ -120,9 +120,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
       {/* @@@ TODO: Get rid of the wrapping jargon */}
       <div className={styles["tools-section"]} ref={callToActionRef}>
-        <div className={styles["tools-section__heading"]}>
-            {"//"} Tools:
-        </div>
+        <div className={styles["tools-section__heading"]}>{"//"} Tools:</div>
 
         <div className={styles["banner-actions"]}>
           <div
