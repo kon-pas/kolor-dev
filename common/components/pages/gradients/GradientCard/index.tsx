@@ -9,7 +9,6 @@ import { useRouter, NextRouter } from "next/router";
 import { toast } from "react-toastify";
 
 import { TOAST_OPTIONS } from "@constants";
-import { getCleanHex } from "@utils";
 import { local } from "@services";
 
 import IconSVG from "@components/elements/IconSVG";
