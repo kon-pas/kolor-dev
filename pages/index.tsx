@@ -29,29 +29,19 @@ const Home: NextPage<HomeProps> = props => {
   useEffect(() => {
     setPathName("");
   }, [setPathName]);
-  
+
   return (
     <div className={styles["home-page"]}>
-      {/* @@@ TODO: Clean up this section out of commented out code */}
       <section className={styles["hero-section"]}>
         <header className={styles["hero-section__header"]}>
           <h1 className={styles["hero-section__heading"]}>
             <strong className={styles["hero-section__strong"]}>Kolor</strong>
 
             <strong className={styles["hero-section__strong--underlined"]}>
-              {/* <TextUnderlined
-                colors={[BRAND_COLORS.Y, BRAND_COLORS.M, BRAND_COLORS.C]}
-                thickness={16}
-                offset={0}
-              > */}
               Kolor
-              {/* </TextUnderlined> */}
             </strong>
 
             <span className={styles["hero-section__text-animated"]}>
-              {/* @@@ NOTE: Temporarily using less scalable `AnimatedText` */}
-              {/* <TextAnimated labels={["your work", "with ease", "for free"]} 
-              /> */}
               <AnimatedText />
               <span className={styles["hero-section__dot"]}>
                 <TextGradiented
@@ -69,29 +59,12 @@ const Home: NextPage<HomeProps> = props => {
           <Image
             src="/assets/svgs/gradient_wave_0_1.svg"
             alt="Gradient Wave"
-            width="100%"
-            height="100%"
             layout="fill"
             objectPosition="relative"
             objectFit="contain"
             priority
           />
         </div>
-
-        {/* <div className={styles["hero-section__hero-image-wrapper"]}>
-          <Image
-            src="/assets/images/hero_page_phone.jpg"
-            alt="Phone mockup"
-            width="100%"
-            height="100%"
-            sizes="(min-width: 400px) 83.3%,
-              (min-width: 1000px) 100%,
-              75%"
-            layout="responsive"
-            objectFit="contain"
-            priority
-          />
-        </div> */}
 
         <div
           className={styles["call-to-action"]}
