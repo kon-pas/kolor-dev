@@ -7,7 +7,12 @@ import { MAIN_COLORS_VALUES } from "@constants";
  * @param colorName Name of the color in plain english.
  * @returns The given color's hex code.
  */
-const getMainColorHex = (colorName: MainColors): string =>
-  MAIN_COLORS_VALUES[colorName];
+const getMainColorHex = (colorName: MainColors): string => {
+  if (colorName in MAIN_COLORS_VALUES) return MAIN_COLORS_VALUES[colorName];
+  else {
+    console.error("Main color not found!");
+    return Object.values(MAIN_COLORS_VALUES)[0];
+  }
+};
 
 export default getMainColorHex;
