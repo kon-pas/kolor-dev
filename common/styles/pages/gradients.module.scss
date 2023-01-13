@@ -36,17 +36,20 @@
   .form {
     @apply w-full flex flex-col mb-10 gap-1;
 
-    &__input {
+    &__input,
+    &__button {
       @apply p-2
         border border-gray-draw-3 rounded-md text-center
+        outline-none
         w-full
         xs:w-3/4
         xs:mx-auto
         sm:w-2/3
         md:w-1/2;
 
-      &:focus {
-        @apply outline-none border-black;
+      &:focus,
+      &:hover {
+        @apply border-black duration-200;
       }
     }
 
