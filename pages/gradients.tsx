@@ -10,7 +10,6 @@ import { usePathName, useDebouncedCallback } from "@hooks";
 import { getCleanString } from "@utils";
 import { MISC_TAGS, MAIN_COLORS } from "@constants";
 
-import IconSVG from "@components/elements/IconSVG";
 import GradientCard from "@components/pages/gradients/GradientCard";
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Tag from "@components/elements/Tag";
@@ -22,8 +21,6 @@ interface GradientsProps {
 const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
   const [gradientsDisplayed, setGradientsDisplay] =
     useState<GradientScheme[]>(gradients);
-
-  const [rawSearchQuery, setRawSearchQuery] = useState<string>("");
 
   const { setPathName } = usePathName();
 
@@ -203,6 +200,11 @@ const Gradients: NextPage<GradientsProps> = ({ gradients }) => {
             );
           })}
         </div>
+
+        {/* @@@ TODO: onClick */}
+        <button className={styles["form__button"]}>
+          I&apos;m feeling lucky
+        </button>
       </div>
 
       <div className={styles["gradients-list"]}>
