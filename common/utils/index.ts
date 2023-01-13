@@ -13,3 +13,11 @@ export { default as getRGB } from "./get-rgb";
 export { default as getMainColorHex } from "./get-main-color-hex";
 
 export { default as getCleanString } from "./get-clean-string";
+
+export { default as isArrMiscTags } from "./is-arr-misc-tags";
+
+export { default as isArrMainColors } from "./is-arr-main-colors";
+
+export { default as isMiscTag } from "./is-misc-tag";
+
+export { default as isMainColor } from "./is-main-color";
