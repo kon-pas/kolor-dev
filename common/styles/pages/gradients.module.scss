@@ -42,8 +42,8 @@
         border border-gray-draw-3 rounded-md text-center
         outline-none
         w-full
+        mx-auto
         xs:w-3/4
-        xs:mx-auto
         sm:w-2/3
         md:w-1/2;
 
@@ -51,6 +51,14 @@
       &:hover {
         @apply border-black duration-200;
       }
+    }
+
+    &__button {
+      @apply w-3/4
+        text-xs
+        xs:text-sm
+        xs:w-1/2
+        md:text-base;
     }
 
     &__tags {
