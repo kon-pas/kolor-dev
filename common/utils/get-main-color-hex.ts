@@ -1,4 +1,4 @@
-import type { MainColors } from "@enums";
+import type { MainColor } from "@enums";
 import { MAIN_COLORS_VALUES } from "@constants";
 
 // @@@ NOTE: THis is an overkill.
@@ -7,7 +7,7 @@ import { MAIN_COLORS_VALUES } from "@constants";
  * @param colorName Name of the color in plain english.
  * @returns The given color's hex code.
  */
-const getMainColorHex = (colorName: MainColors): string => {
+const getMainColorHex = (colorName: MainColor): string => {
   if (colorName in MAIN_COLORS_VALUES) return MAIN_COLORS_VALUES[colorName];
   else {
     console.error("Main color not found!");
