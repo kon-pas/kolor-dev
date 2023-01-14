@@ -1,9 +1,9 @@
 import type { GradientHue, GradientId, GradientScheme } from "@types";
-import type { MainColors, MiscTags } from "@enums";
+import type { MainColor, MiscTag } from "@enums";
 
 export interface Tags {
-  readonly mainColors: MainColors[];
-  readonly misc: MiscTags[];
+  readonly colors: MainColor[];
+  readonly misc: MiscTag[];
 }
 
 // @@@ DEPRECATED: Scheme declared with Prisma.

@@ -1,4 +1,4 @@
-export { MainColors } from "@prisma/client";
+export { MainColor } from "@prisma/client";
 // @@@ TODO: Remove after `prisma` migration.
 // export enum MainColors {
 //   Blue = "#4EB1FF",
@@ -15,7 +15,7 @@ export { MainColors } from "@prisma/client";
 //   Brown = "#513927",
 // }
 
-export { MiscTags } from "@prisma/client";
+export { MiscTag } from "@prisma/client";
 // @@@ TODO: Remove after `prisma` migration.
 // export enum MiscTags {
 //   Light,
