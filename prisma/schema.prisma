@@ -18,11 +18,11 @@ model Gradient {
 }
 
 type Tags {
-  mainColors MainColors[]
-  misc       MiscTags[]
+  colors MainColor[]
+  misc   MiscTag[]
 }
 
-enum MainColors {
+enum MainColor {
   Blue
   Cyan
   Green
@@ -37,7 +37,7 @@ enum MainColors {
   Brown
 }
 
-enum MiscTags {
+enum MiscTag {
   Light
   Dark
   Magic
