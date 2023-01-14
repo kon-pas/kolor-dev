@@ -10,6 +10,5 @@
 //   res.status(200).json(gradients);
 // }
 
-// @@@ DEPRECATED: Delete this API route.
-// @@@ NOTE: Use `@api` instead.
+// @@@ DEPRECATED: Delete this API route. Use `@api` instead.
 export {};

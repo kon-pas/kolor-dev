@@ -1,8 +1,6 @@
 // @@@ NOTE: Imitating external API.
 // Cannot fetch data with SSG from internet API.
 
-// @@@ DEPRECATED: Moved to MongoDB & Prisma.
-
 // import type { ApiResponse } from "@interfaces";
 
 // import { gradients } from "@database";
@@ -29,4 +27,6 @@
 //       };
 
 // export default gradientApiCAll;
+
+// @@@ DEPRECATED: Moved to MongoDB & Prisma.
 export {};

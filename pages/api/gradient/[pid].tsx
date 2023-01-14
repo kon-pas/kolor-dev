@@ -13,6 +13,5 @@
 //   else res.status(404).send(`PID Not Found: ${pid}`);
 // }
 
-// @@@ DEPRECATED: Delete this API route.
-// @@@ NOTE: Use `@api` instead.
+// @@@ DEPRECATED: Delete this API route. Use `@api` instead.
 export {};
