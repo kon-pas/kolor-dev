@@ -1,9 +1,11 @@
 import styles from "@styles/pages/gradient/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
-import { MiscTags } from "@enums";
+import type { MiscTag, MainColor } from "@enums";
 import type { GradientScheme } from "@types";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+
+import { NextRouter, withRouter } from "next/router";
 
 import { useState, useEffect } from "react";
 import ErrorPage from "next/error";
@@ -11,7 +13,7 @@ import { toast } from "react-toastify";
 import { ParsedUrlQuery } from "querystring";
 
 import { TOAST_OPTIONS } from "@constants";
-import { getRGB } from "@utils";
+import { getRGB, isMiscTag, isMainColor } from "@utils";
 import { local } from "@services";
 import { getGradient, getGradients } from "@api";
 import { usePathName } from "@hooks";
@@ -27,10 +29,15 @@ import SpanMonochrome from "@components/elements/SpanMonochrome";
 
 interface GradientPidProps {
   statusCode: 404 | 500;
+  router: NextRouter;
   gradient?: GradientScheme;
 }
 
-const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
+const GradientPid: NextPage<GradientPidProps> = ({
+  statusCode,
+  router,
+  gradient,
+}) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
   const { setPathName } = usePathName();
@@ -150,9 +157,19 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
     );
   };
 
-  // @@@ TODO: Redirect to `/gradients` with filters.
-  const handleTagOnClick = () => {
-    toast("Not Yet Available", TOAST_OPTIONS);
+  const handleTagOnClick = (tag: MiscTag | MainColor) => {
+    router.push({
+      pathname: "/gradients",
+      query: isMiscTag(tag)
+        ? {
+            misc: tag,
+          }
+        : isMainColor(tag)
+        ? {
+            colors: tag,
+          }
+        : undefined,
+    });
   };
 
   return (
@@ -263,12 +280,12 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 
         <div className={styles["tags"]}>
           <div className={styles["tags__color-tags"]}>
-            {gradient.tags?.mainColors.map((color, idx) => (
+            {gradient.tags?.colors.map((color, idx) => (
               <Tag
                 type="color"
                 color={color}
                 key={idx}
-                onClick={handleTagOnClick}
+                onClick={() => handleTagOnClick(color)}
               >
                 {color}
               </Tag>
@@ -277,8 +294,12 @@ const GradientPid: NextPage<GradientPidProps> = ({ gradient, statusCode }) => {
 
           <div className={styles["tags__hash-tags"]}>
             {gradient.tags?.misc.map((label, idx) => (
-              <Tag type="hash" key={idx} onClick={handleTagOnClick}>
-                {MiscTags[label]}
+              <Tag
+                type="hash"
+                key={idx}
+                onClick={() => handleTagOnClick(label)}
+              >
+                {label}
               </Tag>
             ))}
           </div>
@@ -329,4 +350,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default GradientPid;
+export default withRouter(GradientPid);
