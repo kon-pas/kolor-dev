@@ -14,9 +14,9 @@ export { default as getMainColorHex } from "./get-main-color-hex";
 
 export { default as getCleanString } from "./get-clean-string";
 
-export { default as isArrMiscTags } from "./is-arr-misc-tags";
+export { default as isMiscTagArr } from "./is-misc-tag-arr";
 
-export { default as isArrMainColors } from "./is-arr-main-colors";
+export { default as isMainColorArr } from "./is-main-color-arr";
 
 export { default as isMiscTag } from "./is-misc-tag";
 
