@@ -3,12 +3,12 @@ import styles from "@styles/pages/gradients.module.scss";
 import type { NextPage, GetServerSideProps } from "next";
 import type { NextRouter } from "next/router";
 import type { GradientScheme } from "@types";
-import { MainColors, MiscTags } from "@enums";
+import type { MainColor, MiscTag } from "@enums";
 
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { withRouter } from "next/router";
 import { prisma } from "@lib";
-import { usePathName, useDebouncedCallback } from "@hooks";
+import { usePathName } from "@hooks";
 import { getCleanString, isMiscTag, isMainColor } from "@utils";
 import { MISC_TAGS, MAIN_COLORS } from "@constants";
 
@@ -21,210 +21,98 @@ interface GradientsProps {
   router: NextRouter;
 }
 
-interface FilterState {
-  searchQuery: string;
-  miscTags: MiscTags[];
-  mainColors: MainColors[];
-}
-
-// type FilterActions =
-//   | { type: "SEARCH"; payload: { searchQuery: string } }
-//   | { type: "ADD_MISC_TAG"; payload: { miscTag: MiscTags } }
-//   | { type: "REMOVE_MISC_TAG"; payload: { miscTag: MiscTags } }
-//   | { type: "ADD_COLOR_TAG"; payload: { mainColor: MainColors } }
-//   | { type: "REMOVE_COLOR_TAG"; payload: { mainColor: MainColors } };
-
 const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
   const [gradientsDisplayed, setGradientsDisplay] =
     useState<GradientScheme[]>(gradients);
 
-  const [filters, setGradientFilters] = useState<FilterState>({
-    searchQuery: "",
-    miscTags: [],
-    mainColors: [],
+  const [filters, setFilters] = useState<{
+    name: string;
+    misc: MiscTag[];
+    colors: MainColor[];
+  }>({
+    name: "",
+    misc: [],
+    colors: [],
   });
 
   const { setPathName } = usePathName();
-
-  // const [filters, filtersDispatch] = useReducer(
-  //   (state: FilterState, action: FilterActions) => {
-  //     const { type, payload } = action;
-
-  //     switch (type) {
-  //       case "SEARCH":
-  //         router.replace({
-  //           query: {
-  //             ...router.query,
-  //             name: payload.searchQuery,
-  //           },
-  //         });
-  //         return {
-  //           ...state,
-  //           searchQuery: payload.searchQuery,
-  //         };
-  //       case "ADD_COLOR_TAG":
-  //         return {
-  //           ...state,
-  //           mainColors: [
-  //             ...state.mainColors,
-  //             ...(payload.mainColor ? [payload.mainColor] : []),
-  //           ],
-  //         };
-  //       case "REMOVE_COLOR_TAG":
-  //         return {
-  //           ...state,
-  //           mainColors: state.mainColors.filter(
-  //             tag => tag !== payload.mainColor
-  //           ),
-  //         };
-  //       case "ADD_MISC_TAG":
-  //         return {
-  //           ...state,
-  //           miscTags: [
-  //             ...state.miscTags,
-  //             ...(payload.miscTag ? [payload.miscTag] : []),
-  //           ],
-  //         };
-  //       case "REMOVE_MISC_TAG":
-  //         return {
-  //           ...state,
-  //           miscTags: state.miscTags.filter(tag => tag !== payload.miscTag),
-  //         };
-  //     }
-  //   },
-  //   {
-  //     searchQuery: "",
-  //     miscTags: [],
-  //     mainColors: [],
-  //   }
-  // );
-
-  // @@@ TODO: Should run this before `filters` reducer declaration and
-  // initialize reducer's default values with query values to prevent the
-  // all-gradients-list-blink on page load.
-  useEffect(() => {
-    // if (typeof router.query.name === "string")
-    //   filtersDispatch({
-    //     type: "SEARCH",
-    //     payload: {
-    //       searchQuery: getCleanString(router.query.name),
-    //     },
-    //   });
-    // if (typeof router.query.colors === "string")
-    //   for (const color of router.query.colors.split(","))
-    //     if (isMainColor(color))
-    //       filtersDispatch({
-    //         type: "ADD_COLOR_TAG",
-    //         payload: {
-    //           mainColor: color,
-    //         },
-    //       });
-    // if (typeof router.query.tags === "string")
-    //   for (const tag of router.query.tags.split(","))
-    //     if (isMiscTag(tag))
-    //       filtersDispatch({
-    //         type: "ADD_MISC_TAG",
-    //         payload: {
-    //           miscTag: tag,
-    //         },
-    //       });
-
-    let filteredGradients = [...gradients];
-
-    const { name } = router.query;
-
-    if (typeof name === "string") {
-      setGradientFilters(prev => ({
-        ...prev,
-        searchQuery: name,
-      }));
-      filteredGradients = filteredGradients.filter(gradient =>
-        getCleanString(gradient.title).match(name)
-      );
-    }
-
-    // if (typeof router.query.colors === "string")
-    //   for (const color of router.query.colors.split(","))
-    //     if (isMainColor(color))
-    //       filtersDispatch({
-    //         type: "ADD_COLOR_TAG",
-    //         payload: {
-    //           mainColor: color,
-    //         },
-    //       });
-    // if (typeof router.query.tags === "string")
-    //   for (const tag of router.query.tags.split(","))
-    //     if (isMiscTag(tag))
-    //       filtersDispatch({
-    //         type: "ADD_MISC_TAG",
-    //         payload: {
-    //           miscTag: tag,
-    //         },
-    //       });
-
-    setGradientsDisplay(filteredGradients);
-  }, [router, gradients]); // @@@ WARNING: This may be a bad approach, but router.query
-  // changes on every `filtersDispatch` call, so putting whole `router` as
-  // dependency prevents the infinite loop.
 
   useEffect(() => {
     setPathName("gradients");
   }, [setPathName]);
 
-  // useEffect(() => {
-  //   let filteredGradients = [...gradients];
+  useEffect(() => {
+    const { name, colors, misc } = router.query;
 
-  //   filteredGradients = filteredGradients.filter(gradient =>
-  //     getCleanString(gradient.title).match(filters.searchQuery)
-  //   );
+    if (typeof name === "string")
+      setFilters(prev => ({ ...prev, name }));
 
-  //   filters.mainColors.forEach((color: MainColors) => {
-  //     filteredGradients = filteredGradients.filter(gradient =>
-  //       gradient.tags?.mainColors.includes(color)
-  //     );
-  //   });
+    if (typeof colors === "string")
+      colors.split(",").forEach(color => {
+        if (isMainColor(color))
+          setFilters(prev => ({
+            ...prev,
+            colors: [...prev.colors, color],
+          }));
+      });
 
-  //   filters.miscTags.forEach((tag: MiscTags) => {
-  //     filteredGradients = filteredGradients.filter(gradient =>
-  //       gradient.tags?.misc.includes(tag)
-  //     );
-  //   });
+    if (typeof misc === "string")
+      misc.split(",").forEach(tag => {
+        if (isMiscTag(tag))
+          setFilters(prev => ({
+            ...prev,
+            misc: [...prev.misc, tag],
+          }));
+      });
+  }, [router.query]);
 
-  //   setGradientsDisplay(filteredGradients);
+  useEffect(() => {
+    let filteredGradients = [...gradients];
 
-  //   // router.push('/gradients', undefined, { shallow: true })
-  // }, [
-  //   filters.mainColors,
-  //   filters.miscTags,
-  //   filters.searchQuery,
-  //   gradients,
-  //   router,
-  // ]);
-
-  const handleSearch = useDebouncedCallback((searchQuery: string) => {
-    // filtersDispatch({
-    //   type: "SEARCH",
-    //   payload: {
-    //     searchQuery: getCleanString(searchQuery),
-    //   },
-    // });
-
-    // setGradientFilters(prev => ({ ...prev, searchQuery }));
-
-    router.replace(
-      {
-        pathname: "/gradients",
-        query: {
-          ...router.query,
-          name: searchQuery,
-        },
-      },
-      undefined,
-      {
-        shallow: true,
-      }
+    filteredGradients = filteredGradients.filter(gradient =>
+      getCleanString(gradient.title).match(getCleanString(filters.name))
     );
-  }, 250);
+
+    filters.colors.forEach((color: MainColor) => {
+      filteredGradients = filteredGradients.filter(gradient =>
+        gradient.tags?.colors.includes(color)
+      );
+    });
+
+    filters.misc.forEach((tag: MiscTag) => {
+      filteredGradients = filteredGradients.filter(gradient =>
+        gradient.tags?.misc.includes(tag)
+      );
+    });
+
+    setGradientsDisplay(filteredGradients);
+  }, [gradients, filters.colors, filters.misc, filters.name]);
+
+  const handleNameToggle = useCallback((name: string) => {
+    setFilters(prev => ({
+      ...prev,
+      name,
+    }));
+  }, []);
+
+  const handleColorToggle = useCallback(
+    (color: MainColor, isIncluded: boolean) => {
+      setFilters(prev => ({
+        ...prev,
+        colors: isIncluded
+          ? prev.colors.filter(e => e !== color)
+          : [...prev.colors, color],
+      }));
+    },
+    []
+  );
+
+  const handleTagToggle = useCallback((tag: MiscTag, isIncluded: boolean) => {
+    setFilters(prev => ({
+      ...prev,
+      misc: isIncluded ? prev.misc.filter(e => e !== tag) : [...prev.misc, tag],
+    }));
+  }, []);
 
   return (
     <div className={styles["gradients-page"]}>
@@ -261,49 +149,39 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
           className={styles["form__input"]}
           type="search"
           placeholder="Search by name"
-          value={filters.searchQuery}
-          onChange={event => handleSearch(event.target.value)}
+          value={filters.name}
+          onChange={event => handleNameToggle(event.target.value)}
         />
 
         <div className={styles["form__tags"]}>
-          {Object.values(MAIN_COLORS).map((mainColor, idx) => {
-            const isActive: boolean = filters.mainColors.includes(mainColor);
+          {Object.values(MAIN_COLORS).map((color, idx) => {
+            const isActive: boolean = filters.colors.includes(color);
             return (
               <Tag
                 type="color"
-                color={mainColor}
+                color={color}
                 key={idx}
                 active={isActive}
-                onClick={() => {
-                  //   filtersDispatch({
-                  //     type: isActive ? "REMOVE_COLOR_TAG" : "ADD_COLOR_TAG",
-                  //     payload: { mainColor },
-                  //   })
-                }}
+                onClick={() => handleColorToggle(color, isActive)}
               >
-                {mainColor}
+                {color}
               </Tag>
             );
           })}
         </div>
 
         <div className={styles["form__tags"]}>
-          {Object.values(MISC_TAGS).map((miscTag, idx) => {
-            const isActive: boolean = filters.miscTags.includes(miscTag);
+          {Object.values(MISC_TAGS).map((tag, idx) => {
+            const isActive: boolean = filters.misc.includes(tag);
 
             return (
               <Tag
                 type="hash"
                 key={idx}
                 active={isActive}
-                onClick={() => {
-                  // filtersDispatch({
-                  //   type: isActive ? "REMOVE_MISC_TAG" : "ADD_MISC_TAG",
-                  //   payload: { miscTag },
-                  // })
-                }}
+                onClick={() => handleTagToggle(tag, isActive)}
               >
-                {miscTag}
+                {tag}
               </Tag>
             );
           })}
