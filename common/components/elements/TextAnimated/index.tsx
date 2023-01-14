@@ -1,5 +1,6 @@
 // @@@ NOTE: This component is written terribly, but for now it's doing its job.
 // I will rewrite it the other time, surely.
+// @@@ UPDATE: Do NOT use it for now. Animation is out of sync.
 
 import styles from "./TextAnimated.module.scss";
 
