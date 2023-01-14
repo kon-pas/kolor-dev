@@ -1,7 +1,7 @@
-import type { MainColors } from "@enums";
+import type { MainColor } from "@enums";
 import type { HexColor } from "@types";
 
-const MAIN_COLORS: { [key in MainColors]: HexColor } = {
+const MAIN_COLORS: { [key in MainColor]: HexColor } = {
   Blue: "#51A9FF",
   Cyan: "#03CEAC",
   Green: "#97DE40",

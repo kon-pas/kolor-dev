@@ -1,1 +1,1 @@
-export { MainColors as default } from "@prisma/client";
+export { MainColor as default } from "@prisma/client";

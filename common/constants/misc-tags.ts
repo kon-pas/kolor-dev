@@ -1,1 +1,1 @@
-export { MiscTags as default } from "@prisma/client";
+export { MiscTag as default } from "@prisma/client";
