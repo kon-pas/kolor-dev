@@ -7,7 +7,7 @@
     @apply h-screen relative;
 
     #{ $self }__header {
-      @apply absolute top-[10%] w-full;
+      @apply absolute top-[8%] w-full;
 
       #{ $self }__heading {
         @apply mx-auto w-fit
@@ -47,24 +47,7 @@
       sm:w-full sm:translate-x-0
       -translate-y-1/3 
       -z-10;
-
-      // img {
-      //   @apply top-0;
-      // }
     }
-
-    // #{ $self }__hero-image-wrapper {
-    //   @apply w-3/4
-    //     mx-auto
-    //     relative
-    //     bottom-12
-    //     -z-50
-    //     max-w-2xl
-    //     box-content
-    //     xs:w-5/6
-    //     sm:bottom-28
-    //     md:pr-48;
-    // }
   }
 
   .call-to-action {
@@ -100,7 +83,7 @@
       py-12;
 
     &__heading {
-      @include heading-3;
+      @include heading-4;
 
       @apply mx-auto w-fit mb-8 relative;
     }
@@ -115,7 +98,7 @@
         gap-6
         justify-items-center
         sm:w-[500px]
-        sm:gap-8
+        sm:gap-12
         md:container
         md:grid-cols-2
         md:gap-12;
