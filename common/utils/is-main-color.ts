@@ -1,5 +1,9 @@
 import { MainColor } from "@enums";
 
-const isMainColor = (el: any): el is MainColor => el in MainColor;
+/**
+ * Type guard for `MainColor`
+ */
+const isMainColor = (element: any): element is MainColor =>
+  element in MainColor;
 
 export default isMainColor;
