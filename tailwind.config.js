@@ -32,6 +32,7 @@ module.exports = {
       roboto: '"Roboto Mono", monospace',
       twcen: '"Tw Cen MT Std", sans-serif',
       epilogue: '"Epilogue", sans-serif',
+      martian: '"Martian Mono", monospace'
     },
     screens: {
       touch: { 'raw': '(pointer: coarse)' },
