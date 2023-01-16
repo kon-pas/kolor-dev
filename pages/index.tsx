@@ -91,43 +91,39 @@ const Home: NextPage<HomeProps> = props => {
         />
       </section>
 
-      {/* @@@ TODO: Get rid of the wrapping jargon */}
       <div className={styles["tools-section"]} ref={callToActionRef}>
-        <div className={styles["tools-section__heading"]}>{"//"} Tools:</div>
+        {/* <div className={styles["tools-section__heading"]}>tools</div> */}
 
         <div className={styles["banner-actions"]}>
           <div
             className={styles["banner-actions__card"]}
             onClick={() => navigateTo("/gradients")}
           >
-            <CallToActionBanner
-              color="yellow"
-              desc="Carefully selected for Artists, Designers & Developers"
-            >
+            <CallToActionBanner desc="Carefully selected for Artists, Designers & Developers">
               {props.numGradients} Gradients
             </CallToActionBanner>
           </div>
 
           <div className={clsx(styles["banner-actions__card"])}>
-            <CallToActionBanner color="magenta" desc="Work in Progress" wip>
+            <CallToActionBanner desc="Work in Progress" wip>
               Gradient Generator
             </CallToActionBanner>
           </div>
 
           <div className={clsx(styles["banner-actions__card"])}>
-            <CallToActionBanner color="cyan" desc="Work in Progress" wip>
+            <CallToActionBanner desc="Work in Progress" wip>
               Color Palettes
             </CallToActionBanner>
           </div>
 
           <div className={clsx(styles["banner-actions__card"])}>
-            <CallToActionBanner color="yellow" desc="Work in Progress" wip>
+            <CallToActionBanner desc="Work in Progress" wip>
               Palette Generator
             </CallToActionBanner>
           </div>
 
           <div className={clsx(styles["banner-actions__card"])}>
-            <CallToActionBanner color="magenta" desc="Work in Progress" wip>
+            <CallToActionBanner desc="Work in Progress" wip>
               Color Finder
             </CallToActionBanner>
           </div>
