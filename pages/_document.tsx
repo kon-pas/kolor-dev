@@ -32,6 +32,11 @@ export default function Document() {
         />
 
         <link
+          href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+
+        <link
           rel="icon"
           type="image/icon"
           href="/assets/svgs/kolor_logo_cube_2_1.svg"
