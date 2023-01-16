@@ -3,7 +3,6 @@
 
   @apply h-40
     relative
-    cursor-pointer
     rounded-lg
     overflow-hidden;
 
@@ -16,7 +15,8 @@
       flex
       absolute top-0
       z-20
-      transition-height-opacity duration-100 h-[25%] opacity-0;
+      h-[25%] opacity-0
+      transition-height-opacity duration-100;
 
     #{ $self }__color {
       @apply w-full h-full
@@ -40,6 +40,7 @@
   &__gradient {
     @apply w-full h-[100%]
       absolute top-0
+      cursor-pointer
       border border-black/5 rounded-lg
       overflow-hidden
       shadow-inner
@@ -65,14 +66,16 @@
 
     #{ $self }__like-button {
       @apply w-[3.25rem]
-        px-2 py-1 box-content
+        px-2 py-1
+        box-content
         flex items-center gap-1
         border border-gray-draw-3 rounded-lg
         hover:bg-gray-draw-1;
     }
 
     #{ $self }__title {
-      @apply px-2 py-1 box-content
+      @apply px-2 py-1
+        box-content
         border border-gray-draw-3 rounded-lg
         hover:bg-gray-draw-1;
     }
