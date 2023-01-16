@@ -23,21 +23,26 @@ interface GradientsProps {
   router: NextRouter;
 }
 
+interface Filters {
+  name: string;
+  misc: MiscTag[];
+  colors: MainColor[];
+  liked: boolean;
+}
+
+// @@@ NOTE: SWC does not support TypeScript 4.9 yet.
+const initialFilters: Filters = {
+  name: "",
+  misc: [],
+  colors: [],
+  liked: false,
+};
+
 const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
   const [gradientsDisplayed, setGradientsDisplay] =
     useState<GradientScheme[]>(gradients);
 
-  const [filters, setFilters] = useState<{
-    name: string;
-    misc: MiscTag[];
-    colors: MainColor[];
-    liked: boolean;
-  }>({
-    name: "",
-    misc: [],
-    colors: [],
-    liked: false,
-  });
+  const [filters, setFilters] = useState<Filters>({ ...initialFilters });
 
   const { setPathName } = usePathName();
 
@@ -131,11 +136,13 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
   }, []);
 
   const handleLuckyButton = useCallback(() => {
-    setFilters(prev => ({ ...prev, liked: !prev.liked }));
-  }, []);
+    router.push(
+      `/gradient/${gradients[Math.floor(Math.random() * gradients.length)].id}`
+    );
+  }, [router, gradients]);
 
   const handleResetButton = useCallback(() => {
-    setFilters(prev => ({ ...prev, liked: !prev.liked }));
+    setFilters({ ...initialFilters });
   }, []);
 
   return (
