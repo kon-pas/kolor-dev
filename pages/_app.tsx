@@ -9,7 +9,6 @@ import { PathNameContextManager } from "@contexts";
 
 import { local } from "@services";
 import Layout from "@components/composition/Layout";
-import Loader from "@components/composition/Loader";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { events } = useRouter();
