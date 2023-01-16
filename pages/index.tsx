@@ -134,21 +134,13 @@ const Home: NextPage<HomeProps> = props => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    const numGradients: number = (await getGradients()).length;
+  const numGradients: number = (await getGradients()).length;
 
-    return {
-      props: {
-        numGradients,
-      },
-    };
-  } catch {
-    return {
-      props: {
-        numGradients: "Plenty of",
-      },
-    };
-  }
+  return {
+    props: {
+      numGradients: numGradients > 0 ? numGradients : "Plenty of",
+    },
+  };
 };
 
 export default Home;
