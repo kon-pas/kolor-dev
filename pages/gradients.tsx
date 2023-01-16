@@ -7,10 +7,12 @@ import type { MainColor, MiscTag } from "@enums";
 
 import { useEffect, useState, useCallback } from "react";
 import { withRouter } from "next/router";
-import { prisma } from "@lib";
+import { clsx } from "clsx";
+import { getGradients } from "@api";
 import { usePathName } from "@hooks";
 import { getCleanString, isMiscTag, isMainColor } from "@utils";
 import { MISC_TAGS, MAIN_COLORS } from "@constants";
+import { local } from "@services";
 
 import GradientCard from "@components/pages/gradients/GradientCard";
 import TextUnderlined from "@components/elements/TextUnderlined";
@@ -29,10 +31,12 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
     name: string;
     misc: MiscTag[];
     colors: MainColor[];
+    liked: boolean;
   }>({
     name: "",
     misc: [],
     colors: [],
+    liked: false,
   });
 
   const { setPathName } = usePathName();
@@ -44,8 +48,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
   useEffect(() => {
     const { name, colors, misc } = router.query;
 
-    if (typeof name === "string")
-      setFilters(prev => ({ ...prev, name }));
+    if (typeof name === "string") setFilters(prev => ({ ...prev, name }));
 
     if (typeof colors === "string")
       colors.split(",").forEach(color => {
@@ -85,10 +88,19 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
       );
     });
 
-    setGradientsDisplay(filteredGradients);
-  }, [gradients, filters.colors, filters.misc, filters.name]);
+    if (filters.liked)
+      filteredGradients = filteredGradients.filter(gradient =>
+        local.gradients.includes(gradient.id)
+      );
 
-  const handleNameToggle = useCallback((name: string) => {
+    setGradientsDisplay(filteredGradients);
+  }, [gradients, filters.colors, filters.misc, filters.name, filters.liked]);
+
+  // @@@ TODO: All those `useCallback`s may be an overkill since neither
+  // callbacks passed are computationally intensive nor children components are
+  // heavy
+
+  const handleNameSearch = useCallback((name: string) => {
     setFilters(prev => ({
       ...prev,
       name,
@@ -112,6 +124,18 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
       ...prev,
       misc: isIncluded ? prev.misc.filter(e => e !== tag) : [...prev.misc, tag],
     }));
+  }, []);
+
+  const handleLikeButton = useCallback(() => {
+    setFilters(prev => ({ ...prev, liked: !prev.liked }));
+  }, []);
+
+  const handleLuckyButton = useCallback(() => {
+    setFilters(prev => ({ ...prev, liked: !prev.liked }));
+  }, []);
+
+  const handleResetButton = useCallback(() => {
+    setFilters(prev => ({ ...prev, liked: !prev.liked }));
   }, []);
 
   return (
@@ -146,11 +170,11 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
         <hr />
 
         <input
-          className={styles["form__input"]}
+          className={clsx(styles["form__input"], styles["form__container"])}
           type="search"
           placeholder="Search by name"
           value={filters.name}
-          onChange={event => handleNameToggle(event.target.value)}
+          onChange={event => handleNameSearch(event.target.value)}
         />
 
         <div className={styles["form__tags"]}>
@@ -187,36 +211,59 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
           })}
         </div>
 
-        {/* @@@ TODO: onClick */}
-        <button className={styles["form__button"]}>
-          I&apos;m feeling lucky
-        </button>
+        {/* @@@ TODO: event handlers */}
+        <div
+          className={clsx(styles["form__buttons"], styles["form__container"])}
+        >
+          <button
+            className={clsx(
+              styles["form__button"],
+              filters.liked && styles["form__button--active"]
+            )}
+            onClick={handleLikeButton}
+          >
+            Show Liked
+          </button>
+
+          <button
+            className={styles["form__button"]}
+            onClick={handleLuckyButton}
+          >
+            Lucky Roll
+          </button>
+
+          <button
+            className={styles["form__button"]}
+            onClick={handleResetButton}
+          >
+            Reset Filters
+          </button>
+        </div>
       </div>
 
-      <div className={styles["gradients-list"]}>
-        {gradientsDisplayed.map((gradient, index) => (
-          <GradientCard key={index} gradient={gradient} />
-        ))}
-      </div>
+      {gradientsDisplayed.length !== 0 ? (
+        <div className={styles["gradients-list"]}>
+          {gradientsDisplayed.map((gradient, index) => (
+            <GradientCard key={index} gradient={gradient} />
+          ))}
+        </div>
+      ) : (
+        <div className={styles["gradients-info"]}>
+          Not a single gradient matches that :/
+        </div>
+      )}
     </div>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    const gradients = await prisma.gradient.findMany();
-    return {
-      props: {
-        gradients,
-      },
-    };
-  } catch {
-    return {
-      props: {
-        gradients: [],
-      },
-    };
-  }
+  const gradients = await getGradients();
+
+  return {
+    props: {
+      gradients,
+    },
+  };
 };
 
 export default withRouter(Gradients);
