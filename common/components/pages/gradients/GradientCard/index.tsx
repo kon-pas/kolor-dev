@@ -22,7 +22,7 @@ interface GradientCardProps {
 }
 
 const GradientCard: FC<GradientCardProps> = ({ gradient }) => {
-  const [isSaved, setIsSaved] = useState<boolean>(false);
+  const [isSaved, setIsSaved] = useState<boolean>();
 
   useEffect(() => {
     setIsSaved(gradient ? local.gradients.includes(gradient.id) : false);
@@ -47,7 +47,8 @@ const GradientCard: FC<GradientCardProps> = ({ gradient }) => {
     const { id } = gradient as GradientScheme;
     if (local.gradients.includes(id)) local.gradients.remove(id);
     else local.gradients.add(id);
-    setIsSaved((isSaved) => !isSaved);
+    local.gradients.save();
+    setIsSaved(isSaved => !isSaved);
   };
 
   return (
