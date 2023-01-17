@@ -7,44 +7,44 @@
     shadow-sm
     select-none
     sticky top-0 z-50
-    bg-white;
+    bg-white/90 backdrop-blur-md;
 
   &__top {
     @include content;
 
     @apply flex justify-between items-center 
-      h-14
       sm:h-16;
-      // bg-white/90 backdrop-blur-md
+    // bg-white/90 backdrop-blur-md
 
     #{ $self }__title {
-      @apply h-8
-        flex items-center
-        cursor-pointer
-        xs:ml-4;
+      @apply h-fit
+        flex
+        items-center;
 
       #{ $self }__logo {
-        @apply w-6
-          h-[1.6rem]
-          flex items-center
-          sm:h-[1.85rem]
-          sm:w-7;
+        @apply flex items-center
+        cursor-pointer;
+        // sm:w-full
+        // h-[1.6rem]
+        // sm:h-[1.85rem]
       }
 
-      #{ $self }__heading {
-        @apply ml-1
-          font-semibold
-          tracking-tighter
-          font-twcen
-          text-xl
-          sm:text-2xl;
-      }
+      // #{ $self }__heading {
+      //   @apply ml-1
+      //     font-semibold
+      //     tracking-tighter
+      //     font-twcen
+      //     text-xl
+      //     sm:text-2xl;
+      // }
 
       #{ $self }__subtitle {
-        @apply font-thin
-          font-twcen
-          text-xl
-          sm:text-2xl;
+        @apply
+          font-inter
+          font-bold
+          text-base
+          sm:text-base
+          md:hidden;
       }
     }
 
@@ -58,7 +58,7 @@
   &__bottom {
     @include content;
 
-    @apply bg-white
+    @apply bg-white/90 backdrop-blur-md
       shadow-sm
       w-full
       pb-3
@@ -67,7 +67,7 @@
       visible
       max-h-[300px]
       md:hidden;
-      // bg-white/90 backdrop-blur-md
+    // bg-white/90 backdrop-blur-md
 
     transition: visibility 0s linear 0s, max-height 0.1s ease-out,
       opacity 0.15s ease-in;
