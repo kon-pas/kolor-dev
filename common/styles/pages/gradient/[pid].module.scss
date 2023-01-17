@@ -3,7 +3,7 @@
 .gradient-pid {
   $self: &;
 
-  @apply pt-10 pb-40;
+  @apply pt-10 pb-32;
 
   @include content;
 
@@ -11,12 +11,20 @@
     $self: ".header";
 
     @apply w-full
-      flex justify-center;
+      relative;
+
+    &__return {
+      @apply absolute 
+        p-2
+        flex items-center
+        h-[2.5rem] aspect-square
+        cursor-pointer;
+    }
 
     &__heading {
       @include heading-3;
 
-      @apply relative w-fit;
+      @apply relative w-fit mx-auto;
     }
   }
 
@@ -33,6 +41,7 @@
     &__left,
     &__right {
       @apply flex
+        duration-200
         gap-1
         sm:gap-2;
     }
@@ -44,7 +53,8 @@
     @apply w-full
       my-10
       grid justify-items-center
-      sm:w-[560px] sm:mx-auto;
+      sm:w-[560px]
+      sm:mx-auto;
 
     &__item {
       @apply w-full
@@ -59,7 +69,10 @@
         @apply w-full h-10
           border border-black/5
           shadow-inner
-          xs:h-14 xs:w-[360px] xs:mx-auto;
+          duration-200
+          xs:h-14
+          xs:w-[360px]
+          xs:mx-auto;
       }
 
       #{ $self }__arrow {
