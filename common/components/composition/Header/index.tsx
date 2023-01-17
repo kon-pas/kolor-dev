@@ -19,33 +19,34 @@ const Header: FC = () => {
     navigateTo(path);
   };
 
-  const { pathName} = usePathName();
+  const { pathName } = usePathName();
 
   return (
     <header className={styles["header"]}>
       <div className={styles["header__top"]}>
-        <div
-          onClick={() => handleNavigation("/")}
-          className={styles["header__title"]}
-        >
-          <div className={styles["header__logo"]}>
+        <div className={styles["header__title"]}>
+          <div
+            className={styles["header__logo"]}
+            onClick={() => handleNavigation("/")}
+          >
             <Image
-              src="/assets/svgs/kolor_logo_cube_2_1.svg"
+              // src="/assets/svgs/kolor_logo_cube_2_1.svg"
+              src="/assets/svgs/kolor_dev_logo_0.svg"
               alt="Kolor Cube"
-              height={40}
-              width={40}
+              height={64}
+              width={64}
             />
           </div>
 
-          <h1 className={styles["header__heading"]}>KOLOR</h1>
+          {/* <h1 className={styles["header__heading"]}>KOLOR</h1> */}
           <span className={styles["header__subtitle"]}>
-            &nbsp;{pathName !== "" ? `| ${pathName}` : null}
+            &nbsp;{pathName !== "" ? ` / ${pathName}` : null}
           </span>
         </div>
 
         <button
           className={styles["header__burger"]}
-          onClick={() => setIsOpened((isOpened) => !isOpened)}
+          onClick={() => setIsOpened(isOpened => !isOpened)}
         >
           <IconSVG title="Open main navigation">
             {isOpened ? (
