@@ -1,12 +1,14 @@
 @mixin content {
-  @apply max-w-7xl
+  @apply duration-200
+    max-w-7xl
     mx-auto
     px-5
     md:px-6;
 }
 
 @mixin heading-1 {
-  @apply font-bold font-satoshi
+  @apply duration-200
+    font-bold font-satoshi
     text-7xl
     xs:text-8xl
     sm:text-[7rem]
@@ -14,21 +16,24 @@
 }
 
 @mixin heading-2 {
-  @apply font-bold font-satoshi
+  @apply duration-200
+    font-bold font-satoshi
     text-4xl
     sm:text-5xl
     md:text-6xl;
 }
 
 @mixin heading-3 {
-  @apply font-bold font-satoshi
+  @apply duration-200
+    font-bold font-satoshi
     text-3xl
     sm:text-4xl
     md:text-5xl;
 }
 
 @mixin heading-4 {
-  @apply font-bold font-satoshi
+  @apply duration-200
+    font-bold font-satoshi
     text-2xl
     sm:text-3xl
     md:text-4xl;
