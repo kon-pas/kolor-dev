@@ -1,25 +1,30 @@
 import styles from "./CodeSnippet.module.scss";
 
 import type { FC, ReactNode } from "react";
+import IconSVG from "@components/elements/IconSVG";
 
 interface CodeSnippetProps {
   children: ReactNode;
-  title?: string;
   onClick?: () => void;
 }
 
-const CodeSnippet: FC<CodeSnippetProps> = ({
-  children,
-  title,
-  onClick,
-}) => {
+const CodeSnippet: FC<CodeSnippetProps> = ({ children, onClick }) => {
   return (
     <div
       className={styles["code-snippet"]}
       onClick={() => onClick && onClick()}
     >
       <div className={styles["code-snippet__code"]}>{children}</div>
-      <p className={styles["code-snippet__title"]}>{title}</p>
+
+      <p className={styles["code-snippet__title"]}>
+        <IconSVG>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+          />
+        </IconSVG>
+      </p>
     </div>
   );
 };
