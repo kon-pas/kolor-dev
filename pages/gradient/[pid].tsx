@@ -43,7 +43,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
   const { setPathName } = usePathName();
 
   useEffect(() => {
-    setPathName("gradient");
+    setPathName("Gradient");
   }, [setPathName]);
 
   useEffect(() => {
@@ -54,35 +54,9 @@ const GradientPid: NextPage<GradientPidProps> = ({
 
   gradient = gradient as GradientScheme;
 
-  const codeSnippets = [
-    {
-      title: "Plain",
-      expr: `${gradient.colors.map((color, idx) =>
-        idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-      )}`,
-    },
-
-    {
-      title: "CSS",
-      expr: `background: linear-gradient(${gradient.colors.map((color, idx) =>
-        idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-      )});`,
-    },
-
-    {
-      title: "Plain",
-      expr: `${gradient.colors.map((color, idx) =>
-        idx === 0 ? getRGB(color) : " " + getRGB(color)
-      )}`,
-    },
-
-    {
-      title: "CSS",
-      expr: `background: linear-gradient(${gradient.colors.map((color, idx) =>
-        idx === 0 ? getRGB(color) : " " + getRGB(color)
-      )});`,
-    },
-  ];
+  const handleReturnButtonOnClick = () => {
+    router.back();
+  };
 
   const handleSaveButtonOnClick = () => {
     const { id } = gradient as GradientScheme;
@@ -130,7 +104,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
     link.click();
   };
 
-  // @@@ TODO: Redirect `/gradient/create` with filters
+  // @@@ TODO: `/gradient/create`
   const handleEditButtonOnClick = () => {
     toast("Not Yet Available", TOAST_OPTIONS);
   };
@@ -172,10 +146,38 @@ const GradientPid: NextPage<GradientPidProps> = ({
     });
   };
 
+  const codeSnippets = [
+    `${gradient.colors.map((color, idx) =>
+      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    )}`,
+    `background: linear-gradient(${gradient.colors.map((color, idx) =>
+      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    )});`,
+    `${gradient.colors.map((color, idx) =>
+      idx === 0 ? getRGB(color) : " " + getRGB(color)
+    )}`,
+    `background: linear-gradient(${gradient.colors.map((color, idx) =>
+      idx === 0 ? getRGB(color) : " " + getRGB(color)
+    )});`,
+  ];
+
   return (
     <>
       <div className={styles["gradient-pid"]}>
         <header className={styles["header"]}>
+          <div
+            className={styles["header__return"]}
+            onClick={handleReturnButtonOnClick}
+          >
+            <IconSVG>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+              />
+            </IconSVG>
+          </div>
+
           <h1 className={styles["header__heading"]}>
             <TextUnderlined colors={gradient.colors}>
               {gradient.title}
@@ -247,7 +249,9 @@ const GradientPid: NextPage<GradientPidProps> = ({
                 onClick={() => handleColorOnCLick(color.toUpperCase())}
               >
                 <Color hex={color}>
-                  <SpanMonochrome color={color}>{color}</SpanMonochrome>
+                  <SpanMonochrome color={color}>
+                    {color.toUpperCase()}
+                  </SpanMonochrome>
                 </Color>
               </div>
 
@@ -267,13 +271,12 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </div>
 
         <section className={styles["code-snippets"]}>
-          {codeSnippets.map(({ title, expr }, idx) => (
+          {codeSnippets.map((code, idx) => (
             <CodeSnippet
               key={idx}
-              title={title}
-              onClick={() => handleCodeSnippetOnClick(expr)}
+              onClick={() => handleCodeSnippetOnClick(code)}
             >
-              <span>{expr}</span>
+              {code}
             </CodeSnippet>
           ))}
         </section>
