@@ -9,10 +9,16 @@
     grid-cols-[1fr_auto];
 
   &__code {
-    @apply text-sm block font-roboto tracking-tight font-medium;
+    @apply block
+      text-sm
+      font-roboto
+      tracking-tight
+      font-medium;
   }
 
   &__title {
-    @apply text-gray-draw-3 text-xs leading-5;
+    @apply w-5 aspect-square text-xs
+      text-gray-draw-3
+      leading-5;
   }
 }
