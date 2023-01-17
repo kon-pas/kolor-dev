@@ -47,7 +47,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
   const { setPathName } = usePathName();
 
   useEffect(() => {
-    setPathName("gradients");
+    setPathName("Gradients");
   }, [setPathName]);
 
   useEffect(() => {
