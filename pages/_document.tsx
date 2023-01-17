@@ -39,7 +39,7 @@ export default function Document() {
         <link
           rel="icon"
           type="image/icon"
-          href="/assets/svgs/kolor_logo_cube_2_1.svg"
+          href="/assets/svgs/kolor_dev_logo_0_textless.svg"
         />
 
         <meta
