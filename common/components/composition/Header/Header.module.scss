@@ -7,6 +7,7 @@
     select-none
     fixed top-0
     z-50
+    duration-200
     bg-white/90
     backdrop-blur-md;
 
@@ -16,20 +17,18 @@
     #{ $self }__top {
       @apply opacity-0 duration-200;
     }
-
-    &:hover {
-      @apply bg-white/90 backdrop-blur-md duration-200;
-
-      #{ $self }__top {
-        @apply opacity-100 duration-200;
-      }
-    }
   }
 
   &__logo {
     @apply absolute left-5 top-0
       cursor-pointer
-      w-14 h-14;
+      duration-200
+      max-w-7xl
+      aspect-square
+      h-12
+      mx-auto
+      md:h-14
+      ;
   }
 
   &__top {
@@ -39,7 +38,8 @@
       bg-transparent
       justify-between
       items-center
-      h-14;
+      h-12
+      md:h-14;
 
     #{ $self }__title {
       @apply h-fit
@@ -50,8 +50,10 @@
         @apply font-inter
           font-bold
           text-base
-          ml-14
+          ml-12
+          duration-200
           sm:text-base
+          md:ml-14
           md:hidden;
       }
     }
