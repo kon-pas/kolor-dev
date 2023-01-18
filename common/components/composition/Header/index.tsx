@@ -27,22 +27,26 @@ const Header: FC = () => {
   }, [isOpened]);
 
   useEffect(() => {
-    // let x: NodeJS.Timeout;
+    const handleResize = () => {
+      if (window.innerWidth > 1100) setIsOpened(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => void window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > scrollPosition) {
         setIsVisible(false);
-        // x = setTimeout(() => {
-        //   setIsOpened(false);
-        // }, 250);
       } else setIsVisible(true);
       setScrollPosition(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      // clearTimeout(x);
-    };
+
+    return () => void window.removeEventListener("scroll", handleScroll);
   }, [scrollPosition]);
 
   return (
@@ -51,6 +55,7 @@ const Header: FC = () => {
         styles["header"],
         !isVisible && styles["header--invisible"]
       )}
+      onMouseEnter={() => setIsVisible(true)}
     >
       <div className={styles["header__top"]}>
         <div className={styles["header__title"]}>
@@ -83,12 +88,15 @@ const Header: FC = () => {
         <nav className={clsx(styles["nav"], styles["nav--desktop"])}>
           <ul>
             {NAV_ITEMS.map(({ label, path }, idx) => (
-              <li className={styles["nav__item"]} key={idx}>
-                {path ? (
-                  <span onClick={() => navigateTo(path)}>{label}</span>
-                ) : (
-                  <span className={styles["nav__item--inactive"]}>{label}</span>
+              <li
+                className={clsx(
+                  styles["nav__item"],
+                  !path && styles["nav__item--inactive"]
                 )}
+                key={idx}
+                onClick={() => path && navigateTo(path)}
+              >
+                <span>{label}</span>
               </li>
             ))}
           </ul>
@@ -116,12 +124,15 @@ const Header: FC = () => {
         <nav className={styles["header__nav"]}>
           <ul>
             {NAV_ITEMS.map(({ label, path }, idx) => (
-              <li className={styles["nav__item"]} key={idx}>
-                {path ? (
-                  <span onClick={() => navigateTo(path)}>{label}</span>
-                ) : (
-                  <span className={styles["nav__item--inactive"]}>{label}</span>
+              <li
+                className={clsx(
+                  styles["nav__item"],
+                  !path && styles["nav__item--inactive"]
                 )}
+                key={idx}
+                onClick={() => path && navigateTo(path)}
+              >
+                <span>{label}</span>
               </li>
             ))}
           </ul>
