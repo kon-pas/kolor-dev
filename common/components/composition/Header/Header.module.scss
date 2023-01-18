@@ -4,53 +4,60 @@
   $self: &;
 
   @apply w-full
-    shadow-sm
     select-none
-    sticky top-0 z-50
-    bg-white/90 backdrop-blur-md;
+    fixed top-0
+    z-50
+    bg-white/90
+    backdrop-blur-md;
+
+  &--invisible {
+    @apply bg-transparent backdrop-blur-none duration-200;
+
+    #{ $self }__top {
+      @apply opacity-0 duration-200;
+    }
+
+    &:hover {
+      @apply bg-white/90 backdrop-blur-md duration-200;
+
+      #{ $self }__top {
+        @apply opacity-100 duration-200;
+      }
+    }
+  }
+
+  &__logo {
+    @apply absolute left-5 top-0
+      cursor-pointer
+      w-14 h-14;
+  }
 
   &__top {
     @include content;
 
-    @apply flex justify-between items-center 
-      sm:h-16;
-    // bg-white/90 backdrop-blur-md
+    @apply flex duration-200
+      bg-transparent
+      justify-between
+      items-center
+      h-14;
 
     #{ $self }__title {
       @apply h-fit
         flex
         items-center;
 
-      #{ $self }__logo {
-        @apply flex items-center
-        cursor-pointer;
-        // sm:w-full
-        // h-[1.6rem]
-        // sm:h-[1.85rem]
-      }
-
-      // #{ $self }__heading {
-      //   @apply ml-1
-      //     font-semibold
-      //     tracking-tighter
-      //     font-twcen
-      //     text-xl
-      //     sm:text-2xl;
-      // }
-
       #{ $self }__subtitle {
-        @apply
-          font-inter
+        @apply font-inter
           font-bold
           text-base
+          ml-14
           sm:text-base
           md:hidden;
       }
     }
 
     #{ $self }__burger {
-      @apply w-8
-        xs:mr-4
+      @apply w-7
         md:hidden;
     }
   }
@@ -58,16 +65,15 @@
   &__bottom {
     @include content;
 
-    @apply bg-white/90 backdrop-blur-md
-      shadow-sm
-      w-full
+    @apply w-full
       pb-3
       absolute
       opacity-100
+      max-h-[calc(10vh_*_6)]
+      bg-white/90
+      backdrop-blur-md
       visible
-      max-h-[300px]
       md:hidden;
-    // bg-white/90 backdrop-blur-md
 
     transition: visibility 0s linear 0s, max-height 0.1s ease-out,
       opacity 0.15s ease-in;
@@ -93,13 +99,16 @@
         md:flex;
     }
 
+    // @@@ TODO: Tailwind's `divide` for some reason does not work.
     &__item {
-      @apply h-12
+      @apply h-[10vh]
         grid items-center text-right
         text-base
         font-bold
         cursor-pointer
         xs:mr-4
+        border-b border-gray-draw-5 last:border-none
+        md:border-none
         md:inline-block 
         md:m-0 
         md:content-center
