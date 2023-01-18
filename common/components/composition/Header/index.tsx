@@ -57,6 +57,20 @@ const Header: FC = () => {
       )}
       onMouseEnter={() => setIsVisible(true)}
     >
+      <div className={styles["header__logo-wrapper"]}>
+        <div
+          className={styles["header__logo"]}
+          onClick={() => handleNavigation("/")}
+        >
+          <Image
+            // src="/assets/svgs/kolor_logo_cube_2_1.svg"
+            src="/assets/svgs/kolor_dev_logo_0.svg"
+            alt="Kolor Dev Logo"
+            layout="fill"
+          />
+        </div>
+      </div>
+
       <div className={styles["header__top"]}>
         <div className={styles["header__title"]}>
           <span className={styles["header__subtitle"]}>
@@ -101,18 +115,6 @@ const Header: FC = () => {
             ))}
           </ul>
         </nav>
-      </div>
-
-      <div
-        className={styles["header__logo"]}
-        onClick={() => handleNavigation("/")}
-      >
-        <Image
-          // src="/assets/svgs/kolor_logo_cube_2_1.svg"
-          src="/assets/svgs/kolor_dev_logo_0.svg"
-          alt="Kolor Dev Logo"
-          layout="fill"
-        />
       </div>
 
       <div
