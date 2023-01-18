@@ -5,7 +5,7 @@
 
   @apply w-full
     select-none
-    fixed top-0
+    sticky top-0
     z-50
     duration-200
     bg-white/90
@@ -19,16 +19,21 @@
     }
   }
 
-  &__logo {
-    @apply absolute left-5 top-0
-      cursor-pointer
-      duration-200
-      max-w-7xl
-      aspect-square
-      h-12
-      mx-auto
-      md:h-14
-      ;
+  // @@@ TODO: Terrible workaround. Remove the wrapper.
+  &__logo-wrapper {
+    @include content;
+
+    @apply relative top-0;
+
+    #{ $self }__logo {
+      @apply absolute ml-px
+        cursor-pointer
+        duration-200
+        aspect-square
+        h-12
+        mx-auto
+        md:h-14;
+    }
   }
 
   &__top {
@@ -59,7 +64,8 @@
     }
 
     #{ $self }__burger {
-      @apply w-7
+      @apply w-6
+        md:w-7
         md:hidden;
     }
   }
