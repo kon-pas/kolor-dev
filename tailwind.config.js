@@ -25,6 +25,7 @@ module.exports = {
       cyan: '#2386CD',
       magenta: '#F47EBD',
       yellow: '#F2C89A',
+      transparent: 'transparent',
     },
     fontFamily: {
       inter: 'Inter, sans-serif',
