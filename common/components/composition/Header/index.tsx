@@ -1,7 +1,7 @@
 import styles from "./Header.module.scss";
 
 import type { FC } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -11,34 +11,49 @@ import NAV_ITEMS from "common/constants/nav-items";
 
 const Header: FC = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
-
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
   const { navigateTo } = useNavigation();
+  const { pathName } = usePathName();
 
   const handleNavigation = (path: string): void => {
     setIsOpened(false);
     navigateTo(path);
   };
 
-  const { pathName } = usePathName();
+  useEffect(() => {
+    if (isOpened) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
+  }, [isOpened]);
+
+  useEffect(() => {
+    // let x: NodeJS.Timeout;
+    const handleScroll = () => {
+      if (window.scrollY > scrollPosition) {
+        setIsVisible(false);
+        // x = setTimeout(() => {
+        //   setIsOpened(false);
+        // }, 250);
+      } else setIsVisible(true);
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      // clearTimeout(x);
+    };
+  }, [scrollPosition]);
 
   return (
-    <header className={styles["header"]}>
+    <header
+      className={clsx(
+        styles["header"],
+        !isVisible && styles["header--invisible"]
+      )}
+    >
       <div className={styles["header__top"]}>
         <div className={styles["header__title"]}>
-          <div
-            className={styles["header__logo"]}
-            onClick={() => handleNavigation("/")}
-          >
-            <Image
-              // src="/assets/svgs/kolor_logo_cube_2_1.svg"
-              src="/assets/svgs/kolor_dev_logo_0.svg"
-              alt="Kolor Cube"
-              height={64}
-              width={64}
-            />
-          </div>
-
-          {/* <h1 className={styles["header__heading"]}>KOLOR</h1> */}
           <span className={styles["header__subtitle"]}>
             &nbsp;{pathName !== "" ? ` / ${pathName}` : null}
           </span>
@@ -78,6 +93,18 @@ const Header: FC = () => {
             ))}
           </ul>
         </nav>
+      </div>
+
+      <div
+        className={styles["header__logo"]}
+        onClick={() => handleNavigation("/")}
+      >
+        <Image
+          // src="/assets/svgs/kolor_logo_cube_2_1.svg"
+          src="/assets/svgs/kolor_dev_logo_0.svg"
+          alt="Kolor Dev Logo"
+          layout="fill"
+        />
       </div>
 
       <div
