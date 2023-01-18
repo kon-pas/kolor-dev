@@ -36,9 +36,9 @@
   }
 
   * {
-    @apply box-border
-      scroll-mt-14
-      sm:scroll-mt-16;
+    @apply box-border;
+      // scroll-mt-14
+      // sm:scroll-mt-16;
   }
 
   #__next {
