@@ -1,21 +1,23 @@
+// @@@ NOTE: This may be a bad design pattern. A lot of code is reduntant since
+// this page is a modified `/gradients/[pid]`. I wanted this to be SSR, but
+// `/gradients/[pid]` to stay SSG. I believe there is a better approach.
+
 import styles from "@styles/pages/gradients/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import type { MiscTag, MainColor } from "@enums";
 import type { GradientScheme } from "@types";
-import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 
 import { NextRouter, withRouter } from "next/router";
 import { useState, useEffect } from "react";
-import ErrorPage from "next/error";
 import Head from "next/head";
 import { toast } from "react-toastify";
-import { ParsedUrlQuery } from "querystring";
 
 import { TOAST_OPTIONS } from "@constants";
 import { getRGB, isMiscTag, isMainColor } from "@utils";
+import ErrorPage from "next/error";
 import { local } from "@services";
-import { getGradient, getGradients } from "@api";
 import { usePathName } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
@@ -28,15 +30,18 @@ import Tag from "@components/elements/Tag";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 
 interface GradientPidProps {
-  // statusCode: 404 | 500;
+  statusCode: 200 | 500;
   router: NextRouter;
-  // gradient?: GradientScheme;
+  initialGradient: {
+    dir: string;
+    colors: [string, string] | [string, string, string];
+  };
 }
 
 const GradientPid: NextPage<GradientPidProps> = ({
-  // statusCode,
+  statusCode,
   router,
-  // gradient,
+  initialGradient,
 }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
@@ -46,128 +51,124 @@ const GradientPid: NextPage<GradientPidProps> = ({
     router.push({ pathname: "/gradients" });
   }, [router]);
 
-  // useEffect(() => {
-  //   setPathName("Gradient");
-  // }, [setPathName]);
+  useEffect(() => {
+    setPathName("Gradient");
+  }, [setPathName]);
 
-  // useEffect(() => {
-  //   setIsSaved(gradient ? local.gradients.includes(gradient.id) : false);
-  // }, [gradient]);
+  if (statusCode === 500) return <ErrorPage statusCode={statusCode} />;
 
-  // if (statusCode === 404) return <ErrorPage statusCode={statusCode} />;
+  gradient = gradient as GradientScheme;
 
-  // gradient = gradient as GradientScheme;
+  const handleReturnButtonOnClick = () => {
+    router.back();
+  };
 
-  // const handleReturnButtonOnClick = () => {
-  //   router.back();
-  // };
+  const handleSaveButtonOnClick = () => {
+    const { id } = gradient as GradientScheme;
+    if (local.gradients.includes(id)) local.gradients.remove(id);
+    else local.gradients.add(id);
+    setIsSaved(isSaved => !isSaved);
+  };
 
-  // const handleSaveButtonOnClick = () => {
-  //   const { id } = gradient as GradientScheme;
-  //   if (local.gradients.includes(id)) local.gradients.remove(id);
-  //   else local.gradients.add(id);
-  //   setIsSaved(isSaved => !isSaved);
-  // };
+  const handleLinkButtonOnClick = () => {
+    navigator.clipboard.writeText(window.location.href).then(
+      () => {
+        toast("Link Copied to Clipboard", TOAST_OPTIONS);
+      },
+      () => {
+        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+      }
+    );
+  };
 
-  // const handleLinkButtonOnClick = () => {
-  //   navigator.clipboard.writeText(window.location.href).then(
-  //     () => {
-  //       toast("Link Copied to Clipboard", TOAST_OPTIONS);
-  //     },
-  //     () => {
-  //       toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
-  //     }
-  //   );
-  // };
+  const handleImageButtonOnClick = () => {
+    const [width, height] = [1920, 1080];
+    const canvas = document.createElement("canvas") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const linearGradient = ctx.createLinearGradient(
+      0,
+      height / 2,
+      width,
+      height / 2
+    );
 
-  // const handleImageButtonOnClick = () => {
-  //   const [width, height] = [1920, 1080];
-  //   const canvas = document.createElement("canvas") as HTMLCanvasElement;
-  //   const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-  //   const linearGradient = ctx.createLinearGradient(
-  //     0,
-  //     height / 2,
-  //     width,
-  //     height / 2
-  //   );
+    gradient!.colors.forEach((color, idx, colors) => {
+      linearGradient.addColorStop(idx / (colors.length - 1), color);
+    });
 
-  //   gradient!.colors.forEach((color, idx, colors) => {
-  //     linearGradient.addColorStop(idx / (colors.length - 1), color);
-  //   });
+    [canvas.width, canvas.height] = [width, height];
+    ctx.fillStyle = linearGradient;
+    ctx.fillRect(0, 0, width, height);
 
-  //   [canvas.width, canvas.height] = [width, height];
-  //   ctx.fillStyle = linearGradient;
-  //   ctx.fillRect(0, 0, width, height);
+    const image = canvas.toDataURL();
+    const link = document.createElement("a");
+    const name = gradient!.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
 
-  //   const image = canvas.toDataURL();
-  //   const link = document.createElement("a");
-  //   const name = gradient!.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
+    link.download = `${name}.png`;
+    link.href = image;
+    link.click();
+  };
 
-  //   link.download = `${name}.png`;
-  //   link.href = image;
-  //   link.click();
-  // };
+  // @@@ TODO: `/gradient/create`
+  const handleEditButtonOnClick = () => {
+    toast("Not Yet Available", TOAST_OPTIONS);
+  };
 
-  // // @@@ TODO: `/gradient/create`
-  // const handleEditButtonOnClick = () => {
-  //   toast("Not Yet Available", TOAST_OPTIONS);
-  // };
+  const handleColorOnCLick = (color: string) => {
+    navigator.clipboard.writeText(color).then(
+      () => {
+        toast(`Copied ${color}`, TOAST_OPTIONS);
+      },
+      () => {
+        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+      }
+    );
+  };
 
-  // const handleColorOnCLick = (color: string) => {
-  //   navigator.clipboard.writeText(color).then(
-  //     () => {
-  //       toast(`Copied ${color}`, TOAST_OPTIONS);
-  //     },
-  //     () => {
-  //       toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
-  //     }
-  //   );
-  // };
+  const handleCodeSnippetOnClick = (expr: string) => {
+    navigator.clipboard.writeText(expr).then(
+      () => {
+        toast("Snippet Copied to Clipboard", TOAST_OPTIONS);
+      },
+      () => {
+        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+      }
+    );
+  };
 
-  // const handleCodeSnippetOnClick = (expr: string) => {
-  //   navigator.clipboard.writeText(expr).then(
-  //     () => {
-  //       toast("Snippet Copied to Clipboard", TOAST_OPTIONS);
-  //     },
-  //     () => {
-  //       toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
-  //     }
-  //   );
-  // };
+  const handleTagOnClick = (tag: MiscTag | MainColor) => {
+    router.push({
+      pathname: "/gradients",
+      query: isMiscTag(tag)
+        ? {
+            misc: tag,
+          }
+        : isMainColor(tag)
+        ? {
+            colors: tag,
+          }
+        : undefined,
+    });
+  };
 
-  // const handleTagOnClick = (tag: MiscTag | MainColor) => {
-  //   router.push({
-  //     pathname: "/gradients",
-  //     query: isMiscTag(tag)
-  //       ? {
-  //           misc: tag,
-  //         }
-  //       : isMainColor(tag)
-  //       ? {
-  //           colors: tag,
-  //         }
-  //       : undefined,
-  //   });
-  // };
-
-  // const codeSnippets = [
-  //   `${gradient.colors.map((color, idx) =>
-  //     idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-  //   )}`,
-  //   `background: linear-gradient(${gradient.colors.map((color, idx) =>
-  //     idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-  //   )});`,
-  //   `${gradient.colors.map((color, idx) =>
-  //     idx === 0 ? getRGB(color) : " " + getRGB(color)
-  //   )}`,
-  //   `background: linear-gradient(${gradient.colors.map((color, idx) =>
-  //     idx === 0 ? getRGB(color) : " " + getRGB(color)
-  //   )});`,
-  // ];
+  const codeSnippets = [
+    `${gradient.colors.map((color, idx) =>
+      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    )}`,
+    `background: linear-gradient(${gradient.colors.map((color, idx) =>
+      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    )});`,
+    `${gradient.colors.map((color, idx) =>
+      idx === 0 ? getRGB(color) : " " + getRGB(color)
+    )}`,
+    `background: linear-gradient(${gradient.colors.map((color, idx) =>
+      idx === 0 ? getRGB(color) : " " + getRGB(color)
+    )});`,
+  ];
 
   return (
     <>
-      {/* <Head>
+      <Head>
         <title>Kolor Dev | {gradient.title}</title>
       </Head>
 
@@ -315,7 +316,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
             ))}
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
@@ -360,5 +361,11 @@ const GradientPid: NextPage<GradientPidProps> = ({
 //     },
 //   };
 // };
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
 
 export default withRouter(GradientPid);
