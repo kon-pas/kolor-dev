@@ -65,7 +65,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
     setIsSaved(isSaved => !isSaved);
   };
 
-  const handleLinkButtonOnClick = () => {
+  const handleShareButtonOnClick = () => {
     navigator.clipboard.writeText(window.location.href).then(
       () => {
         toast("Link Copied to Clipboard", TOAST_OPTIONS);
@@ -104,7 +104,6 @@ const GradientPid: NextPage<GradientPidProps> = ({
     link.click();
   };
 
-  // @@@ TODO: `/gradient/create`
   const handleEditButtonOnClick = () => {
     toast("Not Yet Available", TOAST_OPTIONS);
   };
@@ -213,7 +212,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
           </div>
 
           <div className={styles["buttons__right"]}>
-            <Button label="Link" onClick={handleLinkButtonOnClick}>
+            <Button label="Share" onClick={handleShareButtonOnClick}>
               <IconSVG>
                 <path
                   strokeLinecap="round"
