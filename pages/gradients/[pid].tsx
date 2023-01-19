@@ -4,13 +4,13 @@ import "react-toastify/dist/ReactToastify.css";
 import type { MiscTag, MainColor } from "@enums";
 import type { GradientScheme } from "@types";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import type { ParsedUrlQuery } from "querystring";
 
 import { NextRouter, withRouter } from "next/router";
 import { useState, useEffect } from "react";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import { toast } from "react-toastify";
-import { ParsedUrlQuery } from "querystring";
 
 import { TOAST_OPTIONS } from "@constants";
 import { getRGB, isMiscTag, isMainColor } from "@utils";
@@ -28,7 +28,7 @@ import Tag from "@components/elements/Tag";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 
 interface GradientPidProps {
-  statusCode: 404 | 500;
+  statusCode: 200 | 404;
   router: NextRouter;
   gradient?: GradientScheme;
 }
@@ -352,7 +352,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       gradient,
-      statusCode: 500,
+      statusCode: 200,
     },
   };
 };
