@@ -9,6 +9,7 @@ import { NextRouter, withRouter } from "next/router";
 
 import { useState, useEffect } from "react";
 import ErrorPage from "next/error";
+import Head from "next/head";
 import { toast } from "react-toastify";
 import { ParsedUrlQuery } from "querystring";
 
@@ -163,6 +164,10 @@ const GradientPid: NextPage<GradientPidProps> = ({
 
   return (
     <>
+      <Head>
+        <title>Kolor Dev | {gradient.title}</title>
+      </Head>
+
       <div className={styles["gradient-pid"]}>
         <header className={styles["header"]}>
           <div

@@ -7,7 +7,9 @@ import type { MainColor, MiscTag } from "@enums";
 
 import { useEffect, useState, useCallback } from "react";
 import { withRouter } from "next/router";
+import Head from "next/head";
 import { clsx } from "clsx";
+
 import { getGradients } from "@api";
 import { usePathName } from "@hooks";
 import { getCleanString, isMiscTag, isMainColor } from "@utils";
@@ -146,120 +148,126 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
   }, []);
 
   return (
-    <div className={styles["gradients-page"]}>
-      <header className={styles["header"]}>
-        <h1 className={styles["header__heading-1"]}>{gradients.length}</h1>
+    <>
+      <Head>
+        <title>Kolor Dev | Gradients</title>
+      </Head>
 
-        <h2 className={styles["header__heading-2"]}>
-          <TextUnderlined thickness={16} offset={2}>
-            Gradients
-          </TextUnderlined>
-        </h2>
+      <div className={styles["gradients-page"]}>
+        <header className={styles["header"]}>
+          <h1 className={styles["header__heading-1"]}>{gradients.length}</h1>
 
-        <p className={styles["header__paragraph"]}>
-          <span>Carefully selected for&nbsp;</span>
+          <h2 className={styles["header__heading-2"]}>
+            <TextUnderlined thickness={16} offset={2}>
+              Gradients
+            </TextUnderlined>
+          </h2>
 
-          <span>Artists</span>
+          <p className={styles["header__paragraph"]}>
+            <span>Carefully selected for&nbsp;</span>
 
-          <span>,&nbsp;</span>
+            <span>Artists</span>
 
-          <span>Designes</span>
+            <span>,&nbsp;</span>
 
-          <span>&nbsp;&&nbsp;</span>
+            <span>Designes</span>
 
-          <span>Developers</span>
+            <span>&nbsp;&&nbsp;</span>
 
-          <span>.</span>
-        </p>
-      </header>
+            <span>Developers</span>
 
-      <div className={styles["form"]}>
-        <hr />
+            <span>.</span>
+          </p>
+        </header>
 
-        <input
-          className={clsx(styles["form__input"], styles["form__container"])}
-          type="search"
-          placeholder="Search by name"
-          value={filters.name}
-          onChange={event => handleNameSearch(event.target.value)}
-        />
+        <div className={styles["form"]}>
+          <hr />
 
-        <div className={styles["form__tags"]}>
-          {Object.values(MAIN_COLORS).map((color, idx) => {
-            const isActive: boolean = filters.colors.includes(color);
-            return (
-              <Tag
-                type="color"
-                color={color}
-                key={idx}
-                active={isActive}
-                onClick={() => handleColorToggle(color, isActive)}
-              >
-                {color}
-              </Tag>
-            );
-          })}
+          <input
+            className={clsx(styles["form__input"], styles["form__container"])}
+            type="search"
+            placeholder="Search by name"
+            value={filters.name}
+            onChange={event => handleNameSearch(event.target.value)}
+          />
+
+          <div className={styles["form__tags"]}>
+            {Object.values(MAIN_COLORS).map((color, idx) => {
+              const isActive: boolean = filters.colors.includes(color);
+              return (
+                <Tag
+                  type="color"
+                  color={color}
+                  key={idx}
+                  active={isActive}
+                  onClick={() => handleColorToggle(color, isActive)}
+                >
+                  {color}
+                </Tag>
+              );
+            })}
+          </div>
+
+          <div className={styles["form__tags"]}>
+            {Object.values(MISC_TAGS).map((tag, idx) => {
+              const isActive: boolean = filters.misc.includes(tag);
+
+              return (
+                <Tag
+                  type="hash"
+                  key={idx}
+                  active={isActive}
+                  onClick={() => handleTagToggle(tag, isActive)}
+                >
+                  {tag}
+                </Tag>
+              );
+            })}
+          </div>
+
+          {/* @@@ TODO: event handlers */}
+          <div
+            className={clsx(styles["form__buttons"], styles["form__container"])}
+          >
+            <button
+              className={clsx(
+                styles["form__button"],
+                filters.liked && styles["form__button--active"]
+              )}
+              onClick={handleLikeButton}
+            >
+              Show Liked
+            </button>
+
+            <button
+              className={styles["form__button"]}
+              onClick={handleLuckyButton}
+            >
+              Lucky Roll
+            </button>
+
+            <button
+              className={styles["form__button"]}
+              onClick={handleResetButton}
+            >
+              Reset Filters
+            </button>
+          </div>
         </div>
 
-        <div className={styles["form__tags"]}>
-          {Object.values(MISC_TAGS).map((tag, idx) => {
-            const isActive: boolean = filters.misc.includes(tag);
-
-            return (
-              <Tag
-                type="hash"
-                key={idx}
-                active={isActive}
-                onClick={() => handleTagToggle(tag, isActive)}
-              >
-                {tag}
-              </Tag>
-            );
-          })}
-        </div>
-
-        {/* @@@ TODO: event handlers */}
-        <div
-          className={clsx(styles["form__buttons"], styles["form__container"])}
-        >
-          <button
-            className={clsx(
-              styles["form__button"],
-              filters.liked && styles["form__button--active"]
-            )}
-            onClick={handleLikeButton}
-          >
-            Show Liked
-          </button>
-
-          <button
-            className={styles["form__button"]}
-            onClick={handleLuckyButton}
-          >
-            Lucky Roll
-          </button>
-
-          <button
-            className={styles["form__button"]}
-            onClick={handleResetButton}
-          >
-            Reset Filters
-          </button>
-        </div>
+        {gradientsDisplayed.length !== 0 ? (
+          <div className={styles["gradients-list"]}>
+            {gradientsDisplayed.map((gradient, index) => (
+              <GradientCard key={index} gradient={gradient} />
+            ))}
+          </div>
+        ) : (
+          <div className={styles["gradients-info"]}>
+            Not a single gradient matches that :/
+          </div>
+        )}
       </div>
-
-      {gradientsDisplayed.length !== 0 ? (
-        <div className={styles["gradients-list"]}>
-          {gradientsDisplayed.map((gradient, index) => (
-            <GradientCard key={index} gradient={gradient} />
-          ))}
-        </div>
-      ) : (
-        <div className={styles["gradients-info"]}>
-          Not a single gradient matches that :/
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 
