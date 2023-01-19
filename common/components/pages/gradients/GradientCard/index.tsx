@@ -30,7 +30,7 @@ const GradientCard: FC<GradientCardProps> = ({ gradient }) => {
 
   const router: NextRouter = useRouter();
 
-  const handleRedirect = () => void router.push(`/gradient/${gradient.id}`);
+  const handleRedirect = () => void router.push(`/gradients/${gradient.id}`);
 
   const handleColorOnClick = (color: string) => {
     navigator.clipboard.writeText(color).then(
