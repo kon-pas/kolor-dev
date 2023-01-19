@@ -46,6 +46,8 @@ export default function Document() {
           name="description"
           content="Kolor is a kit of color-related tools and sets for Artists, Designes & Developers."
         ></meta>
+
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
       <body
