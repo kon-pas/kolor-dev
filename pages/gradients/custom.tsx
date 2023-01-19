@@ -6,7 +6,6 @@ import styles from "@styles/pages/gradients/[pid].module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import type { MiscTag, MainColor } from "@enums";
-import type { GradientScheme } from "@types";
 import type { NextPage, GetServerSideProps } from "next";
 
 import { NextRouter, withRouter } from "next/router";
@@ -17,7 +16,6 @@ import { toast } from "react-toastify";
 import { TOAST_OPTIONS } from "@constants";
 import { getRGB, isMiscTag, isMainColor } from "@utils";
 import ErrorPage from "next/error";
-import { local } from "@services";
 import { usePathName } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
@@ -26,7 +24,6 @@ import Color from "@components/elements/ColorBackground";
 import IconSVG from "@components/elements/IconSVG";
 import Button from "@components/elements/Button";
 import CodeSnippet from "@components/elements/CodeSnippet";
-import Tag from "@components/elements/Tag";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 
 interface GradientPidProps {
@@ -38,6 +35,11 @@ interface GradientPidProps {
   };
 }
 
+const gradient = {
+  colors: ["#BFFF00", "#BFFF00", "#BFFF00"],
+  title: "Sample",
+};
+
 const GradientPid: NextPage<GradientPidProps> = ({
   statusCode,
   router,
@@ -48,29 +50,22 @@ const GradientPid: NextPage<GradientPidProps> = ({
   const { setPathName } = usePathName();
 
   useEffect(() => {
-    router.push({ pathname: "/gradients" });
-  }, [router]);
-
-  useEffect(() => {
     setPathName("Gradient");
   }, [setPathName]);
 
   if (statusCode === 500) return <ErrorPage statusCode={statusCode} />;
 
-  gradient = gradient as GradientScheme;
-
   const handleReturnButtonOnClick = () => {
     router.back();
   };
 
-  const handleSaveButtonOnClick = () => {
-    const { id } = gradient as GradientScheme;
-    if (local.gradients.includes(id)) local.gradients.remove(id);
-    else local.gradients.add(id);
-    setIsSaved(isSaved => !isSaved);
-  };
+  const handleRotateButtonOnClick = () => {};
 
-  const handleLinkButtonOnClick = () => {
+  const handleRandomizeButtonOnClick = () => {};
+
+  const handleApplyChangesButtonOnClick = () => {};
+
+  const handleShareButtonOnClick = () => {
     navigator.clipboard.writeText(window.location.href).then(
       () => {
         toast("Link Copied to Clipboard", TOAST_OPTIONS);
@@ -82,36 +77,27 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const handleImageButtonOnClick = () => {
-    const [width, height] = [1920, 1080];
-    const canvas = document.createElement("canvas") as HTMLCanvasElement;
-    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-    const linearGradient = ctx.createLinearGradient(
-      0,
-      height / 2,
-      width,
-      height / 2
-    );
-
-    gradient!.colors.forEach((color, idx, colors) => {
-      linearGradient.addColorStop(idx / (colors.length - 1), color);
-    });
-
-    [canvas.width, canvas.height] = [width, height];
-    ctx.fillStyle = linearGradient;
-    ctx.fillRect(0, 0, width, height);
-
-    const image = canvas.toDataURL();
-    const link = document.createElement("a");
-    const name = gradient!.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
-
-    link.download = `${name}.png`;
-    link.href = image;
-    link.click();
-  };
-
-  // @@@ TODO: `/gradient/create`
-  const handleEditButtonOnClick = () => {
-    toast("Not Yet Available", TOAST_OPTIONS);
+    // const [width, height] = [1920, 1080];
+    // const canvas = document.createElement("canvas") as HTMLCanvasElement;
+    // const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    // const linearGradient = ctx.createLinearGradient(
+    //   0,
+    //   height / 2,
+    //   width,
+    //   height / 2
+    // );
+    // gradient!.colors.forEach((color, idx, colors) => {
+    //   linearGradient.addColorStop(idx / (colors.length - 1), color);
+    // });
+    // [canvas.width, canvas.height] = [width, height];
+    // ctx.fillStyle = linearGradient;
+    // ctx.fillRect(0, 0, width, height);
+    // const image = canvas.toDataURL();
+    // const link = document.createElement("a");
+    // const name = gradient!.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
+    // link.download = `${name}.png`;
+    // link.href = image;
+    // link.click();
   };
 
   const handleColorOnCLick = (color: string) => {
@@ -151,25 +137,25 @@ const GradientPid: NextPage<GradientPidProps> = ({
     });
   };
 
-  const codeSnippets = [
-    `${gradient.colors.map((color, idx) =>
-      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-    )}`,
-    `background: linear-gradient(${gradient.colors.map((color, idx) =>
-      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-    )});`,
-    `${gradient.colors.map((color, idx) =>
-      idx === 0 ? getRGB(color) : " " + getRGB(color)
-    )}`,
-    `background: linear-gradient(${gradient.colors.map((color, idx) =>
-      idx === 0 ? getRGB(color) : " " + getRGB(color)
-    )});`,
+  const codeSnippets: any[] = [
+    // `${gradient.colors.map((color, idx) =>
+    //   idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    // )}`,
+    // `background: linear-gradient(${gradient.colors.map((color, idx) =>
+    //   idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    // )});`,
+    // `${gradient.colors.map((color, idx) =>
+    //   idx === 0 ? getRGB(color) : " " + getRGB(color)
+    // )}`,
+    // `background: linear-gradient(${gradient.colors.map((color, idx) =>
+    //   idx === 0 ? getRGB(color) : " " + getRGB(color)
+    // )});`,
   ];
 
   return (
     <>
       <Head>
-        <title>Kolor Dev | {gradient.title}</title>
+        <title>Kolor Dev | Create Gradient</title>
       </Head>
 
       <div className={styles["gradient-pid"]}>
@@ -200,25 +186,46 @@ const GradientPid: NextPage<GradientPidProps> = ({
 
         <div className={styles["buttons"]}>
           <div className={styles["buttons__left"]}>
-            <Button label="Save" onClick={handleSaveButtonOnClick}>
-              {isSaved ? (
-                <IconSVG filled>
-                  <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
-                </IconSVG>
-              ) : (
-                <IconSVG>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                  />
-                </IconSVG>
-              )}
+            <Button label="Randomize" onClick={handleRandomizeButtonOnClick}>
+              <IconSVG viewBox={[24, 24]}>
+                <path d="M18 4l3 3l-3 3" />
+                <path d="M18 20l3 -3l-3 -3" />
+                <path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" />
+                <path d="M3 17h3a5 5 0 0 0 5 -5a5 5 0 0 1 5 -5h5" />
+                {/* <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                /> */}
+              </IconSVG>
+            </Button>
+
+            <Button label="Rotate" onClick={handleRotateButtonOnClick}>
+              <IconSVG>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                />
+              </IconSVG>
             </Button>
           </div>
 
           <div className={styles["buttons__right"]}>
-            <Button label="Link" onClick={handleLinkButtonOnClick}>
+            <Button
+              label="Apply Changes"
+              onClick={handleApplyChangesButtonOnClick}
+            >
+              <IconSVG>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12"
+                />
+              </IconSVG>
+            </Button>
+
+            <Button label="Share" onClick={handleShareButtonOnClick}>
               <IconSVG>
                 <path
                   strokeLinecap="round"
@@ -234,16 +241,6 @@ const GradientPid: NextPage<GradientPidProps> = ({
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                />
-              </IconSVG>
-            </Button>
-
-            <Button label="Edit" onClick={handleEditButtonOnClick}>
-              <IconSVG>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
                 />
               </IconSVG>
             </Button>
@@ -289,78 +286,10 @@ const GradientPid: NextPage<GradientPidProps> = ({
             </CodeSnippet>
           ))}
         </section>
-
-        <div className={styles["tags"]}>
-          <div className={styles["tags__color-tags"]}>
-            {gradient.tags?.colors.map((color, idx) => (
-              <Tag
-                type="color"
-                color={color}
-                key={idx}
-                onClick={() => handleTagOnClick(color)}
-              >
-                {color}
-              </Tag>
-            ))}
-          </div>
-
-          <div className={styles["tags__hash-tags"]}>
-            {gradient.tags?.misc.map((label, idx) => (
-              <Tag
-                type="hash"
-                key={idx}
-                onClick={() => handleTagOnClick(label)}
-              >
-                {label}
-              </Tag>
-            ))}
-          </div>
-        </div>
       </div>
     </>
   );
 };
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const gradients: GradientScheme[] = await getGradients();
-
-//   type Path = {
-//     params: {
-//       pid: string;
-//     };
-//   };
-
-//   const paths: Path[] = gradients.map(({ id }) => ({
-//     params: { pid: id },
-//   }));
-
-//   return { paths, fallback: false };
-// };
-
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   type Params = ParsedUrlQuery & {
-//     pid: string;
-//   };
-
-//   const { pid } = params as Params;
-
-//   const gradient: GradientScheme | null = await getGradient(pid);
-
-//   if (typeof gradient === null) {
-//     return {
-//       props: {
-//         statusCode: 404,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {
-//       gradient,
-//       statusCode: 500,
-//     },
-//   };
-// };
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
