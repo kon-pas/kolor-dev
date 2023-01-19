@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import type { MiscTag, MainColor } from "@enums";
 import type { NextPage, GetServerSideProps } from "next";
+import type { GradientHue } from "@types";
 
 import { NextRouter, withRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -29,28 +30,27 @@ import SpanMonochrome from "@components/elements/SpanMonochrome";
 interface GradientPidProps {
   statusCode: 200 | 500;
   router: NextRouter;
-  initialGradient: {
-    dir: string;
-    colors: [string, string] | [string, string, string];
-  };
+  initialGradient: CustomGradientScheme;
 }
 
-const gradient = {
-  colors: ["#BFFF00", "#BFFF00", "#BFFF00"],
-  title: "Sample",
-};
+interface CustomGradientScheme {
+  colors: GradientHue;
+  title: string;
+}
 
 const GradientPid: NextPage<GradientPidProps> = ({
   statusCode,
   router,
   initialGradient,
 }) => {
-  const [isSaved, setIsSaved] = useState<boolean>(false);
-
   const { setPathName } = usePathName();
+  const [currentGradient, setCurrentGradient] =
+    useState<CustomGradientScheme>(initialGradient);
+  const [newGradient, setNewGradient] =
+    useState<CustomGradientScheme>(initialGradient);
 
   useEffect(() => {
-    setPathName("Gradient");
+    setPathName("Gradients");
   }, [setPathName]);
 
   if (statusCode === 500) return <ErrorPage statusCode={statusCode} />;
@@ -77,27 +77,27 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const handleImageButtonOnClick = () => {
-    // const [width, height] = [1920, 1080];
-    // const canvas = document.createElement("canvas") as HTMLCanvasElement;
-    // const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-    // const linearGradient = ctx.createLinearGradient(
-    //   0,
-    //   height / 2,
-    //   width,
-    //   height / 2
-    // );
-    // gradient!.colors.forEach((color, idx, colors) => {
-    //   linearGradient.addColorStop(idx / (colors.length - 1), color);
-    // });
-    // [canvas.width, canvas.height] = [width, height];
-    // ctx.fillStyle = linearGradient;
-    // ctx.fillRect(0, 0, width, height);
-    // const image = canvas.toDataURL();
-    // const link = document.createElement("a");
-    // const name = gradient!.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
-    // link.download = `${name}.png`;
-    // link.href = image;
-    // link.click();
+    const [width, height] = [1920, 1080];
+    const canvas = document.createElement("canvas") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const linearGradient = ctx.createLinearGradient(
+      0,
+      height / 2,
+      width,
+      height / 2
+    );
+    currentGradient.colors.forEach((color, idx, colors) => {
+      linearGradient.addColorStop(idx / (colors.length - 1), color);
+    });
+    [canvas.width, canvas.height] = [width, height];
+    ctx.fillStyle = linearGradient;
+    ctx.fillRect(0, 0, width, height);
+    const image = canvas.toDataURL();
+    const link = document.createElement("a");
+    const name = currentGradient.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
+    link.download = `${name}.png`;
+    link.href = image;
+    link.click();
   };
 
   const handleColorOnCLick = (color: string) => {
@@ -174,14 +174,14 @@ const GradientPid: NextPage<GradientPidProps> = ({
           </div>
 
           <h1 className={styles["header__heading"]}>
-            <TextUnderlined colors={gradient.colors}>
-              {gradient.title}
+            <TextUnderlined colors={newGradient.colors}>
+              {newGradient.title}
             </TextUnderlined>
           </h1>
         </header>
 
         <div className={styles["gradient"]}>
-          <Gradient colors={gradient.colors} />
+          <Gradient colors={newGradient.colors} />
         </div>
 
         <div className={styles["buttons"]}>
@@ -192,11 +192,6 @@ const GradientPid: NextPage<GradientPidProps> = ({
                 <path d="M18 20l3 -3l-3 -3" />
                 <path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" />
                 <path d="M3 17h3a5 5 0 0 0 5 -5a5 5 0 0 1 5 -5h5" />
-                {/* <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                /> */}
               </IconSVG>
             </Button>
 
@@ -248,7 +243,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </div>
 
         <div className={styles["colors-list"]}>
-          {gradient.colors.map((color, idx, colors) => (
+          {newGradient.colors.map((color, idx, colors) => (
             <div className={styles["colors-list__item"]} key={idx}>
               <div
                 className={styles["colors-list__color"]}
@@ -293,7 +288,13 @@ const GradientPid: NextPage<GradientPidProps> = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
-    props: {},
+    props: {
+      statusCode: 200,
+      initialGradient: {
+        colors: ["#BFFF00", "#BFFF00", "#BFFF00"],
+        title: "Sample",
+      },
+    },
   };
 };
 
