@@ -138,18 +138,18 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const codeSnippets: any[] = [
-    // `${gradient.colors.map((color, idx) =>
-    //   idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-    // )}`,
-    // `background: linear-gradient(${gradient.colors.map((color, idx) =>
-    //   idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-    // )});`,
-    // `${gradient.colors.map((color, idx) =>
-    //   idx === 0 ? getRGB(color) : " " + getRGB(color)
-    // )}`,
-    // `background: linear-gradient(${gradient.colors.map((color, idx) =>
-    //   idx === 0 ? getRGB(color) : " " + getRGB(color)
-    // )});`,
+    `${newGradient.colors.map((color, idx) =>
+      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    )}`,
+    `background: linear-gradient(${newGradient.colors.map((color, idx) =>
+      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    )});`,
+    `${newGradient.colors.map((color, idx) =>
+      idx === 0 ? getRGB(color) : " " + getRGB(color)
+    )}`,
+    `background: linear-gradient(${newGradient.colors.map((color, idx) =>
+      idx === 0 ? getRGB(color) : " " + getRGB(color)
+    )});`,
   ];
 
   return (
