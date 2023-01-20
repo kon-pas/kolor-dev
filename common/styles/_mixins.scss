@@ -6,6 +6,14 @@
     md:px-6;
 }
 
+@mixin cleanup {
+  @apply appearance-none
+    p-0 m-0
+    outline-0
+    shadow-none
+    border-none;
+}
+
 @mixin heading-1 {
   @apply duration-200
     font-bold font-satoshi
