@@ -32,3 +32,8 @@ export interface NavItem {
 //   body: string | null;
 //   json: () => Promise<any>;
 // }
+
+export interface CustomGradientScheme {
+  colors: GradientHue;
+  title: string;
+}
