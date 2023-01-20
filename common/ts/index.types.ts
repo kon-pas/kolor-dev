@@ -4,8 +4,16 @@ export type GradientHue = string[];
 
 export type GradientId = string;
 
-export type FourDirections = "t" | "r" | "b" | "l";
+export type FourDirections = "to top" | "to right" | "to bottom" | "to left";
 
-export type EightDirections = "t" | "tr" | "r" | "br" | "b" | "bl" | "l" | "tl";
+export type EightDirections =
+  | "to top"
+  | "to top right"
+  | "to right"
+  | "to bottom right"
+  | "to bottom"
+  | "to bottom left"
+  | "to left"
+  | "to top left";
 
 export type { Gradient as GradientScheme } from "@prisma/client";
