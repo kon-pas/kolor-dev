@@ -16,7 +16,7 @@ import ErrorPage from "next/error";
 import { usePathName } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
-import GradientBackground from "@components/elements/GradientBackground";
+import BackgroundGradient from "@components/elements/BackgroundGradient";
 import BackgroundColor from "@components/elements/BackgroundColor";
 import IconSVG from "@components/elements/IconSVG";
 import Button from "@components/elements/Button";
@@ -124,10 +124,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
 }) => {
   const [directionIndex, setDirectionIndex] = useState<number>(0);
 
-  const [currentGradient, setCurrentGradient] =
-    useState<CustomGradientScheme>(initialGradient);
-
-  const [newGradient, setNewGradient] =
+  const [customGradient, setCustomGradient] =
     useState<CustomGradientScheme>(initialGradient);
 
   const { setPathName } = usePathName();
@@ -141,8 +138,8 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const handleRandomizeButtonOnClick = () => {
-    setNewGradient(prev => ({
-      ...newGradient,
+    setCustomGradient(prev => ({
+      ...customGradient,
       colors: prev.colors.map(() => getRandomHex()),
     }));
   };
@@ -168,14 +165,15 @@ const GradientPid: NextPage<GradientPidProps> = ({
     const [width, height] = [1920, 1080];
     const canvas = document.createElement("canvas") as HTMLCanvasElement;
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const angle: number = (45 / 360) * Math.PI;
     const linearGradient = ctx.createLinearGradient(
       0,
       height / 2,
-      width,
-      height / 2
+      Math.cos(angle) * width,
+      Math.sin(angle) * (height / 2)
     );
 
-    currentGradient.colors.forEach((color, idx, colors) => {
+    customGradient.colors.forEach((color, idx, colors) => {
       linearGradient.addColorStop(idx / (colors.length - 1), color);
     });
 
@@ -184,9 +182,14 @@ const GradientPid: NextPage<GradientPidProps> = ({
     ctx.fillStyle = linearGradient;
     ctx.fillRect(0, 0, width, height);
 
+    ctx.beginPath();
+    ctx.moveTo(0, height / 2);
+    ctx.lineTo(Math.cos(angle) * width, (Math.sin(angle) * height) / 2);
+    ctx.stroke();
+
     const image = canvas.toDataURL();
     const link = document.createElement("a");
-    const name = currentGradient.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
+    const name = customGradient.title.replace(/[^a-z0-9]/gi, "").toLowerCase();
 
     link.download = `${name}.png`;
     link.href = image;
@@ -205,22 +208,22 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const handleRemoveColorOnClick = (idx: number) => {
-    if (newGradient.colors.length > MIN_COLORS) {
-      const tempGradient: CustomGradientScheme = { ...newGradient };
+    if (customGradient.colors.length > MIN_COLORS) {
+      const tempGradient: CustomGradientScheme = { ...customGradient };
       tempGradient.colors.splice(idx, 1);
-      setNewGradient(tempGradient);
+      setCustomGradient(tempGradient);
     } else toast(`Must have ${MIN_COLORS} colors at least`, TOAST_OPTIONS);
   };
 
   const handleEditColorOnClick = (color: string, idx: number) => {
-    const tempGradient: CustomGradientScheme = { ...newGradient };
+    const tempGradient: CustomGradientScheme = { ...customGradient };
     tempGradient.colors[idx] = color;
-    setNewGradient(tempGradient);
+    setCustomGradient(tempGradient);
   };
 
   const handleAddColorOnClick = () => {
-    if (newGradient.colors.length < MAX_COLORS)
-      setNewGradient(prev => ({
+    if (customGradient.colors.length < MAX_COLORS)
+      setCustomGradient(prev => ({
         ...prev,
         colors: [...prev.colors, prev.colors[prev.colors.length - 1]],
       }));
@@ -239,16 +242,16 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const codeSnippets: string[] = [
-    `${newGradient.colors.map((color, idx) =>
+    `${customGradient.colors.map((color, idx) =>
       idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
     )}`,
-    `${newGradient.colors.map((color, idx) =>
+    `${customGradient.colors.map((color, idx) =>
       idx === 0 ? getRGB(color) : " " + getRGB(color)
     )}`,
-    `background: linear-gradient(${newGradient.colors.map((color, idx) =>
+    `background: linear-gradient(${customGradient.colors.map((color, idx) =>
       idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
     )});`,
-    `background: linear-gradient(${newGradient.colors.map((color, idx) =>
+    `background: linear-gradient(${customGradient.colors.map((color, idx) =>
       idx === 0 ? getRGB(color) : " " + getRGB(color)
     )});`,
   ];
@@ -275,15 +278,15 @@ const GradientPid: NextPage<GradientPidProps> = ({
           </div>
 
           <h1 className={styles["header__heading"]}>
-            <TextUnderlined colors={newGradient.colors}>
-              {newGradient.title}
+            <TextUnderlined colors={customGradient.colors}>
+              {customGradient.title}
             </TextUnderlined>
           </h1>
         </header>
 
         <div className={styles["gradient"]}>
-          <GradientBackground
-            colors={newGradient.colors}
+          <BackgroundGradient
+            colors={customGradient.colors}
             direction={DIRECTIONS[directionIndex].label}
           />
         </div>
@@ -341,7 +344,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </div>
 
         <div className={styles["colors-list"]}>
-          {newGradient.colors.map((color, idx, colors) => (
+          {customGradient.colors.map((color, idx, colors) => (
             <div className={styles["colors-list__item"]} key={idx}>
               <div className={styles["colors-list__color"]}>
                 <BackgroundColor hex={color}>
@@ -406,7 +409,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
             </div>
           ))}
 
-          {newGradient.colors.length < MAX_COLORS && (
+          {customGradient.colors.length < MAX_COLORS && (
             <div
               className={styles["colors-list__arrow"]}
               onClick={handleAddColorOnClick}
