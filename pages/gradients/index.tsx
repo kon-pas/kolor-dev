@@ -32,7 +32,7 @@ interface Filters {
   liked: boolean;
 }
 
-// @@@ NOTE: SWC does not support TypeScript 4.9 yet.
+// @@@ NOTE: SWC does not support TypeScript 4.9 as of now.
 const initialFilters: Filters = {
   name: "",
   misc: [],

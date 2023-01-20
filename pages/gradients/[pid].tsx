@@ -19,8 +19,8 @@ import { getGradient, getGradients } from "@api";
 import { usePathName } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
-import Gradient from "@components/elements/GradientBackground";
-import Color from "@components/elements/ColorBackground";
+import BackgroundGradient from "@components/elements/BackgroundGradient";
+import BackgroundColor from "@components/elements/BackgroundColor";
 import IconSVG from "@components/elements/IconSVG";
 import Button from "@components/elements/Button";
 import CodeSnippet from "@components/elements/CodeSnippet";
@@ -43,7 +43,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
   const { setPathName } = usePathName();
 
   useEffect(() => {
-    setPathName("Gradient");
+    setPathName("Gradients");
   }, [setPathName]);
 
   useEffect(() => {
@@ -145,7 +145,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
     });
   };
 
-  const codeSnippets = [
+  const codeSnippets: string[] = [
     `${gradient.colors.map((color, idx) =>
       idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
     )}`,
@@ -189,7 +189,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </header>
 
         <div className={styles["gradient"]}>
-          <Gradient colors={gradient.colors} />
+          <BackgroundGradient colors={gradient.colors} />
         </div>
 
         <div className={styles["buttons"]}>
@@ -251,11 +251,11 @@ const GradientPid: NextPage<GradientPidProps> = ({
                 className={styles["colors-list__color"]}
                 onClick={() => handleColorOnCLick(color.toUpperCase())}
               >
-                <Color hex={color}>
+                <BackgroundColor hex={color}>
                   <SpanMonochrome color={color}>
                     {color.toUpperCase()}
                   </SpanMonochrome>
-                </Color>
+                </BackgroundColor>
               </div>
 
               {idx + 1 !== colors.length && (
