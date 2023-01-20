@@ -3,7 +3,7 @@
 .gradient-pid {
   $self: &;
 
-  @apply pt-10 pb-32;
+  @apply pt-10 pb-24;
 
   @include content;
 
@@ -58,7 +58,6 @@
 
     &__item {
       @apply w-full
-        cursor-copy
         grid justify-items-center;
 
       #{ $self }__color {
@@ -69,6 +68,8 @@
         @apply w-full h-10
           border border-black/5
           shadow-inner
+          select-none
+          cursor-copy
           duration-200
           xs:h-14
           xs:w-[360px]
