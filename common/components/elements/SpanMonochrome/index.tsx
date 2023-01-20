@@ -8,7 +8,10 @@ interface SpanMonochromeProps {
   breakpoint?: number;
 }
 
-const SpanMonochrome: FC<SpanMonochromeProps> = (props) => {
+/**
+ * Returns text either white or black based on provided color's lightness.
+ */
+const SpanMonochrome: FC<SpanMonochromeProps> = props => {
   return getColorBrightness(props.color) > (props.breakpoint ?? 0.475) ? (
     <span>{props.children}</span>
   ) : (
