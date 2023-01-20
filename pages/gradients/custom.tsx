@@ -1,12 +1,9 @@
-// @@@ NOTE: This may be a bad design pattern. A lot of code is reduntant since
-// this page is a modified `/gradients/[pid]`. I wanted this to be SSR, but
-// `/gradients/[pid]` to stay SSG. I believe there is a better approach.
-
 import styles from "@styles/pages/gradients/custom.module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import type { NextPage, GetServerSideProps } from "next";
-import type { GradientHue } from "@types";
+import type { GradientHue, EightDirections } from "@types";
+import type { CustomGradientScheme } from "@interfaces";
 
 import { NextRouter, withRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -14,17 +11,105 @@ import Head from "next/head";
 import { toast } from "react-toastify";
 
 import { TOAST_OPTIONS } from "@constants";
-import { getRGB } from "@utils";
+import { getRGB, getRandomHex } from "@utils";
 import ErrorPage from "next/error";
 import { usePathName } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
-import Gradient from "@components/elements/GradientBackground";
+import GradientBackground from "@components/elements/GradientBackground";
 import BackgroundColor from "@components/elements/BackgroundColor";
 import IconSVG from "@components/elements/IconSVG";
 import Button from "@components/elements/Button";
 import CodeSnippet from "@components/elements/CodeSnippet";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
+
+const MIN_COLORS: number = 2;
+const MAX_COLORS: number = 4;
+const DIRECTIONS: {
+  label: EightDirections;
+  iconPath: JSX.Element;
+}[] = [
+  {
+    label: "to right",
+    iconPath: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+      />
+    ),
+  },
+  {
+    label: "to bottom right",
+    iconPath: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
+      />
+    ),
+  },
+  {
+    label: "to bottom",
+    iconPath: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+      />
+    ),
+  },
+  {
+    label: "to bottom left",
+    iconPath: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 4.5l-15 15m0 0h11.25m-11.25 0V8.25"
+      />
+    ),
+  },
+  {
+    label: "to left",
+    iconPath: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+      />
+    ),
+  },
+  {
+    label: "to top left",
+    iconPath: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 19.5l-15-15m0 0v11.25m0-11.25h11.25"
+      />
+    ),
+  },
+  {
+    label: "to top",
+    iconPath: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"
+      />
+    ),
+  },
+  {
+    label: "to top right",
+    iconPath: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+      />
+    ),
+  },
+];
 
 interface GradientPidProps {
   statusCode: 200 | 500;
@@ -32,20 +117,12 @@ interface GradientPidProps {
   initialGradient: CustomGradientScheme;
 }
 
-interface CustomGradientScheme {
-  colors: GradientHue;
-  title: string;
-}
-
-const MIN_COLORS: number = 2;
-const MAX_COLORS: number = 4;
-
 const GradientPid: NextPage<GradientPidProps> = ({
   statusCode,
   router,
   initialGradient,
 }) => {
-  const { setPathName } = usePathName();
+  const [directionIndex, setDirectionIndex] = useState<number>(0);
 
   const [currentGradient, setCurrentGradient] =
     useState<CustomGradientScheme>(initialGradient);
@@ -53,9 +130,9 @@ const GradientPid: NextPage<GradientPidProps> = ({
   const [newGradient, setNewGradient] =
     useState<CustomGradientScheme>(initialGradient);
 
-  useEffect(() => {
-    setPathName("Gradients");
-  }, [setPathName]);
+  const { setPathName } = usePathName();
+
+  useEffect(() => {}, [setPathName]);
 
   if (statusCode === 500) return <ErrorPage statusCode={statusCode} />;
 
@@ -63,9 +140,16 @@ const GradientPid: NextPage<GradientPidProps> = ({
     router.back();
   };
 
-  const handleRotateButtonOnClick = () => {};
+  const handleRandomizeButtonOnClick = () => {
+    setNewGradient(prev => ({
+      ...newGradient,
+      colors: prev.colors.map(() => getRandomHex()),
+    }));
+  };
 
-  const handleRandomizeButtonOnClick = () => {};
+  const handleRotateButtonOnClick = () => {
+    setDirectionIndex(prev => (prev + 1) % DIRECTIONS.length);
+  };
 
   const handleApplyChangesButtonOnClick = () => {};
 
@@ -154,16 +238,16 @@ const GradientPid: NextPage<GradientPidProps> = ({
     );
   };
 
-  const codeSnippets: any[] = [
+  const codeSnippets: string[] = [
     `${newGradient.colors.map((color, idx) =>
       idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    )}`,
+    `${newGradient.colors.map((color, idx) =>
+      idx === 0 ? getRGB(color) : " " + getRGB(color)
     )}`,
     `background: linear-gradient(${newGradient.colors.map((color, idx) =>
       idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
     )});`,
-    `${newGradient.colors.map((color, idx) =>
-      idx === 0 ? getRGB(color) : " " + getRGB(color)
-    )}`,
     `background: linear-gradient(${newGradient.colors.map((color, idx) =>
       idx === 0 ? getRGB(color) : " " + getRGB(color)
     )});`,
@@ -198,7 +282,10 @@ const GradientPid: NextPage<GradientPidProps> = ({
         </header>
 
         <div className={styles["gradient"]}>
-          <Gradient colors={newGradient.colors} />
+          <GradientBackground
+            colors={newGradient.colors}
+            direction={DIRECTIONS[directionIndex].label}
+          />
         </div>
 
         <div className={styles["buttons"]}>
@@ -213,13 +300,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
             </Button>
 
             <Button label="Rotate" onClick={handleRotateButtonOnClick}>
-              <IconSVG>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                />
-              </IconSVG>
+              <IconSVG>{DIRECTIONS[directionIndex].iconPath}</IconSVG>
             </Button>
           </div>
 
