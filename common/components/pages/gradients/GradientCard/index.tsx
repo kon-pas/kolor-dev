@@ -12,8 +12,8 @@ import { TOAST_OPTIONS } from "@constants";
 import { local } from "@services";
 
 import IconSVG from "@components/elements/IconSVG";
-import Gradient from "@components/elements/GradientBackground";
-import Color from "@components/elements/ColorBackground";
+import Gradient from "@components/elements/BackgroundGradient";
+import Color from "@components/elements/BackgroundColor";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 import Button from "@components/elements/Button";
 
