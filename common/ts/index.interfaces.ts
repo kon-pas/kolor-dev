@@ -37,3 +37,10 @@ export interface CustomGradientScheme {
   colors: GradientHue;
   title: string;
 }
+
+export interface GradientsFilters {
+  name: string;
+  misc: MiscTag[];
+  colors: MainColor[];
+  liked: boolean;
+}
