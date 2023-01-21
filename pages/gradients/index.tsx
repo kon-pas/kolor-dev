@@ -4,6 +4,7 @@ import type { NextPage, GetServerSideProps } from "next";
 import type { NextRouter } from "next/router";
 import type { GradientScheme } from "@types";
 import type { MainColor, MiscTag } from "@enums";
+import type { GradientsFilters } from "@interfaces";
 
 import { useEffect, useState, useCallback } from "react";
 import { withRouter } from "next/router";
@@ -13,38 +14,25 @@ import { clsx } from "clsx";
 import { getGradients } from "@api";
 import { usePathName } from "@hooks";
 import { getCleanString, isMiscTag, isMainColor } from "@utils";
-import { MISC_TAGS, MAIN_COLORS } from "@constants";
+import { MISC_TAGS, MAIN_COLORS, INITIAL_GRADIENTS_FITLERS } from "@constants";
 import { local } from "@services";
 
 import GradientCard from "@components/pages/gradients/GradientCard";
 import TextUnderlined from "@components/elements/TextUnderlined";
 import Tag from "@components/elements/Tag";
 
-interface GradientsProps {
+interface GradientsPageProps {
   gradients: GradientScheme[];
   router: NextRouter;
 }
 
-interface Filters {
-  name: string;
-  misc: MiscTag[];
-  colors: MainColor[];
-  liked: boolean;
-}
-
-// @@@ NOTE: SWC does not support TypeScript 4.9 as of now.
-const initialFilters: Filters = {
-  name: "",
-  misc: [],
-  colors: [],
-  liked: false,
-};
-
-const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
+const GradientsPage: NextPage<GradientsPageProps> = ({ gradients, router }) => {
   const [gradientsDisplayed, setGradientsDisplay] =
     useState<GradientScheme[]>(gradients);
 
-  const [filters, setFilters] = useState<Filters>({ ...initialFilters });
+  const [filters, setFilters] = useState<GradientsFilters>({
+    ...INITIAL_GRADIENTS_FITLERS,
+  });
 
   const { setPathName } = usePathName();
 
@@ -144,7 +132,7 @@ const Gradients: NextPage<GradientsProps> = ({ gradients, router }) => {
   }, [router, gradients]);
 
   const handleResetButton = useCallback(() => {
-    setFilters({ ...initialFilters });
+    setFilters({ ...INITIAL_GRADIENTS_FITLERS });
   }, []);
 
   return (
@@ -281,4 +269,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default withRouter(Gradients);
+export default withRouter(GradientsPage);
