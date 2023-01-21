@@ -6,20 +6,20 @@ import type { GradientHue, EightDirections } from "@types";
 interface TextGradientedProps {
   colors: GradientHue;
   children: string;
-  to?: EightDirections;
+  direction?: EightDirections;
 }
 
 const TextGradiented: FC<TextGradientedProps> = ({
   children: text,
   colors,
-  to: direction,
+  direction,
 }) => {
   return (
     <span
       className={styles["text-gradiented"]}
       style={{
-        backgroundImage: `linear-gradient(to ${
-          direction ?? "right"
+        backgroundImage: `linear-gradient(${
+          direction ?? " to right"
         }, ${colors.join(", ")})`,
       }}
     >
