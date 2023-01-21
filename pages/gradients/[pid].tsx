@@ -27,13 +27,13 @@ import CodeSnippet from "@components/elements/CodeSnippet";
 import Tag from "@components/elements/Tag";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 
-interface GradientPidProps {
+interface GradientPidPageProps {
   statusCode: 200 | 404;
   router: NextRouter;
   gradient?: GradientScheme;
 }
 
-const GradientPid: NextPage<GradientPidProps> = ({
+const GradientPidPage: NextPage<GradientPidPageProps> = ({
   statusCode,
   router,
   gradient,
@@ -356,4 +356,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default withRouter(GradientPid);
+export default withRouter(GradientPidPage);

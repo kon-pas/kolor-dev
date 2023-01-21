@@ -17,11 +17,11 @@ import IconSVG from "@components/elements/IconSVG";
 import CallToActionBanner from "@components/pages/home/CallToActionBanner";
 import AnimatedText from "@components/pages/home/AnimatedText";
 
-interface HomeProps {
+interface HomePageProps {
   numGradients: number | "Plenty of";
 }
 
-const Home: NextPage<HomeProps> = props => {
+const HomePage: NextPage<HomePageProps> = props => {
   const callToActionRef = useRef<HTMLInputElement>(null);
 
   const { navigateTo } = useNavigation();
@@ -53,7 +53,7 @@ const Home: NextPage<HomeProps> = props => {
                 <span className={styles["hero-section__dot"]}>
                   <TextGradiented
                     colors={[BRAND_COLORS.C, BRAND_COLORS.M, BRAND_COLORS.Y]}
-                    to="top left"
+                    direction="to top left"
                   >
                     .
                   </TextGradiented>
@@ -151,4 +151,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default Home;
+export default HomePage;
