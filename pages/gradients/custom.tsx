@@ -2,7 +2,6 @@ import styles from "@styles/pages/gradients/custom.module.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 import type { NextPage, GetServerSideProps } from "next";
-import type { GradientHue, EightDirections } from "@types";
 import type { CustomGradientScheme } from "@interfaces";
 
 import { NextRouter, withRouter } from "next/router";
@@ -10,7 +9,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { toast } from "react-toastify";
 
-import { TOAST_OPTIONS } from "@constants";
+import { TOAST_OPTIONS, EIGHT_DIRECTIONS, CONSTRAINTS } from "@constants";
 import { getRGB, getRandomHex } from "@utils";
 import ErrorPage from "next/error";
 import { usePathName } from "@hooks";
@@ -23,101 +22,13 @@ import Button from "@components/elements/Button";
 import CodeSnippet from "@components/elements/CodeSnippet";
 import SpanMonochrome from "@components/elements/SpanMonochrome";
 
-const MIN_COLORS: number = 2;
-const MAX_COLORS: number = 4;
-const DIRECTIONS: {
-  label: EightDirections;
-  iconPath: JSX.Element;
-}[] = [
-  {
-    label: "to right",
-    iconPath: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-      />
-    ),
-  },
-  {
-    label: "to bottom right",
-    iconPath: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4.5 4.5l15 15m0 0V8.25m0 11.25H8.25"
-      />
-    ),
-  },
-  {
-    label: "to bottom",
-    iconPath: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
-      />
-    ),
-  },
-  {
-    label: "to bottom left",
-    iconPath: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 4.5l-15 15m0 0h11.25m-11.25 0V8.25"
-      />
-    ),
-  },
-  {
-    label: "to left",
-    iconPath: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-      />
-    ),
-  },
-  {
-    label: "to top left",
-    iconPath: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 19.5l-15-15m0 0v11.25m0-11.25h11.25"
-      />
-    ),
-  },
-  {
-    label: "to top",
-    iconPath: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"
-      />
-    ),
-  },
-  {
-    label: "to top right",
-    iconPath: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-      />
-    ),
-  },
-];
-
-interface GradientPidProps {
+interface GradientCustomPageProps {
   statusCode: 200 | 500;
   router: NextRouter;
   initialGradient: CustomGradientScheme;
 }
 
-const GradientPid: NextPage<GradientPidProps> = ({
+const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
   statusCode,
   router,
   initialGradient,
@@ -145,7 +56,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const handleRotateButtonOnClick = () => {
-    setDirectionIndex(prev => (prev + 1) % DIRECTIONS.length);
+    setDirectionIndex(prev => (prev + 1) % EIGHT_DIRECTIONS.length);
   };
 
   const handleApplyChangesButtonOnClick = () => {};
@@ -208,11 +119,15 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const handleRemoveColorOnClick = (idx: number) => {
-    if (customGradient.colors.length > MIN_COLORS) {
+    if (customGradient.colors.length > CONSTRAINTS.MIN_GRADIENT_COLORS) {
       const tempGradient: CustomGradientScheme = { ...customGradient };
       tempGradient.colors.splice(idx, 1);
       setCustomGradient(tempGradient);
-    } else toast(`Must have ${MIN_COLORS} colors at least`, TOAST_OPTIONS);
+    } else
+      toast(
+        `Must have ${CONSTRAINTS.MIN_GRADIENT_COLORS} colors at least`,
+        TOAST_OPTIONS
+      );
   };
 
   const handleEditColorOnClick = (color: string, idx: number) => {
@@ -222,12 +137,16 @@ const GradientPid: NextPage<GradientPidProps> = ({
   };
 
   const handleAddColorOnClick = () => {
-    if (customGradient.colors.length < MAX_COLORS)
+    if (customGradient.colors.length < CONSTRAINTS.MAX_GRADIENT_COLORS)
       setCustomGradient(prev => ({
         ...prev,
         colors: [...prev.colors, prev.colors[prev.colors.length - 1]],
       }));
-    else toast(`Can have ${MAX_COLORS} colors at most`, TOAST_OPTIONS);
+    else
+      toast(
+        `Can have ${CONSTRAINTS.MAX_GRADIENT_COLORS} colors at most`,
+        TOAST_OPTIONS
+      );
   };
 
   const handleCodeSnippetOnClick = (expr: string) => {
@@ -287,7 +206,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
         <div className={styles["gradient"]}>
           <BackgroundGradient
             colors={customGradient.colors}
-            direction={DIRECTIONS[directionIndex].label}
+            direction={EIGHT_DIRECTIONS[directionIndex].label}
           />
         </div>
 
@@ -303,7 +222,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
             </Button>
 
             <Button label="Rotate" onClick={handleRotateButtonOnClick}>
-              <IconSVG>{DIRECTIONS[directionIndex].iconPath}</IconSVG>
+              <IconSVG>{EIGHT_DIRECTIONS[directionIndex].iconPath}</IconSVG>
             </Button>
           </div>
 
@@ -395,7 +314,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
                 </BackgroundColor>
               </div>
 
-              {idx + 1 < MAX_COLORS && (
+              {idx + 1 < CONSTRAINTS.MAX_GRADIENT_COLORS && (
                 <div className={styles["colors-list__arrow"]}>
                   <IconSVG>
                     <path
@@ -409,7 +328,7 @@ const GradientPid: NextPage<GradientPidProps> = ({
             </div>
           ))}
 
-          {customGradient.colors.length < MAX_COLORS && (
+          {customGradient.colors.length < CONSTRAINTS.MAX_GRADIENT_COLORS && (
             <div
               className={styles["colors-list__arrow"]}
               onClick={handleAddColorOnClick}
@@ -452,4 +371,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default withRouter(GradientPid);
+export default withRouter(GradientCustomPage);
