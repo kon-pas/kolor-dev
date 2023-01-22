@@ -68,10 +68,10 @@ const GradientPidPage: NextPage<GradientPidPageProps> = ({
   const handleShareButtonOnClick = () => {
     navigator.clipboard.writeText(window.location.href).then(
       () => {
-        toast("Link Copied to Clipboard", TOAST_OPTIONS);
+        toast("Link copied to clipboard", TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
       }
     );
   };
@@ -105,7 +105,7 @@ const GradientPidPage: NextPage<GradientPidPageProps> = ({
   };
 
   const handleEditButtonOnClick = () => {
-    toast("Not Yet Available", TOAST_OPTIONS);
+    toast("Not yet available", TOAST_OPTIONS);
   };
 
   const handleColorOnCLick = (color: string) => {
@@ -114,7 +114,7 @@ const GradientPidPage: NextPage<GradientPidPageProps> = ({
         toast(`Copied ${color}`, TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
       }
     );
   };
@@ -122,10 +122,10 @@ const GradientPidPage: NextPage<GradientPidPageProps> = ({
   const handleCodeSnippetOnClick = (expr: string) => {
     navigator.clipboard.writeText(expr).then(
       () => {
-        toast("Snippet Copied to Clipboard", TOAST_OPTIONS);
+        toast("Snippet copied to clipboard", TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
       }
     );
   };
