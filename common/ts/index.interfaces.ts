@@ -1,4 +1,9 @@
-import type { GradientHue, GradientId, GradientScheme } from "@types";
+import type {
+  GradientHue,
+  GradientId,
+  GradientScheme,
+  EightDirections,
+} from "@types";
 import type { MainColor, MiscTag } from "@enums";
 
 export interface Tags {
@@ -34,8 +39,9 @@ export interface NavItem {
 // }
 
 export interface CustomGradientScheme {
-  colors: GradientHue;
   title: string;
+  colors: GradientHue;
+  direction: EightDirections;
 }
 
 export interface GradientsFilters {
