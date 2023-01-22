@@ -123,10 +123,15 @@
       }
     }
 
-    #{ $self }__arrow {
+    #{ $self }__arrow,
+    #{ $self }__add-button {
       @apply w-6 h-8
         px-2
         box-content;
+    }
+
+    #{ $self }__add-button {
+      @apply h-6 cursor-pointer;
     }
   }
 
