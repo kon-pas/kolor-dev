@@ -9,10 +9,15 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { toast } from "react-toastify";
 
-import { TOAST_OPTIONS, EIGHT_DIRECTIONS, CONSTRAINTS } from "@constants";
-import { getRGB, getRandomHex } from "@utils";
+import { getRGB, getRandomHex, isHexColor } from "@utils";
 import ErrorPage from "next/error";
 import { usePathName } from "@hooks";
+import {
+  TOAST_OPTIONS,
+  EIGHT_DIRECTIONS,
+  CONSTRAINTS,
+  INITIAL_CUSTOM_GRADIENT,
+} from "@constants";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import BackgroundGradient from "@components/elements/BackgroundGradient";
@@ -28,21 +33,37 @@ interface GradientCustomPageProps {
   initialGradient: CustomGradientScheme;
 }
 
-const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
-  statusCode,
-  router,
-  initialGradient,
-}) => {
+const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
   const [directionIndex, setDirectionIndex] = useState<number>(0);
 
-  const [customGradient, setCustomGradient] =
-    useState<CustomGradientScheme>(initialGradient);
+  const [customGradient, setCustomGradient] = useState<CustomGradientScheme>({
+    ...INITIAL_CUSTOM_GRADIENT,
+  });
 
   const { setPathName } = usePathName();
 
-  useEffect(() => {}, [setPathName]);
+  useEffect(() => {
+    setPathName("Gradients");
+  }, [setPathName]);
 
-  if (statusCode === 500) return <ErrorPage statusCode={statusCode} />;
+  useEffect(() => {
+    const { colors, dir: direction } = router.query;
+
+    if (typeof colors === "string")
+      colors.split(",").forEach(color => {
+        if (isHexColor(color))
+          setCustomGradient(prev => ({
+            ...prev,
+            colors: [...prev.colors, color],
+          }));
+      });
+    else console.log(123, typeof colors);
+
+    // if (typeof direction === "string")
+    //   setCustomGradient(prev => ({ ...prev, direction }));
+  }, [router]);
+
+  // if (statusCode === 500) return <ErrorPage statusCode={statusCode} />;
 
   const handleReturnButtonOnClick = () => {
     router.back();
@@ -59,30 +80,65 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
     setDirectionIndex(prev => (prev + 1) % EIGHT_DIRECTIONS.length);
   };
 
-  const handleApplyChangesButtonOnClick = () => {};
-
   const handleShareButtonOnClick = () => {
-    navigator.clipboard.writeText(window.location.href).then(
-      () => {
-        toast("Link Copied to Clipboard", TOAST_OPTIONS);
-      },
-      () => {
-        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
-      }
-    );
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      // @@@
+      toast(`${customGradient.title} copied to clipboard`, TOAST_OPTIONS);
+    });
   };
 
   const handleImageButtonOnClick = () => {
     const [width, height] = [1920, 1080];
     const canvas = document.createElement("canvas") as HTMLCanvasElement;
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-    const angle: number = (45 / 360) * Math.PI;
-    const linearGradient = ctx.createLinearGradient(
-      0,
-      height / 2,
-      Math.cos(angle) * width,
-      Math.sin(angle) * (height / 2)
-    );
+
+    let linearGradient: CanvasGradient;
+    switch (EIGHT_DIRECTIONS[directionIndex].label) {
+      case "to bottom right":
+        linearGradient = ctx.createLinearGradient(0, 0, width, height);
+        break;
+      case "to bottom":
+        linearGradient = ctx.createLinearGradient(
+          width / 2,
+          0,
+          width / 2,
+          height
+        );
+        break;
+      case "to bottom left":
+        linearGradient = ctx.createLinearGradient(width, 0, 0, height);
+        break;
+      case "to left":
+        linearGradient = ctx.createLinearGradient(
+          width,
+          height / 2,
+          0,
+          height / 2
+        );
+        break;
+      case "to top left":
+        linearGradient = ctx.createLinearGradient(width, height, 0, 0);
+        break;
+      case "to top":
+        linearGradient = ctx.createLinearGradient(
+          width / 2,
+          height,
+          width / 2,
+          0
+        );
+        break;
+      case "to top right":
+        linearGradient = ctx.createLinearGradient(0, height, width, 0);
+        break;
+      case "to right":
+      default:
+        linearGradient = ctx.createLinearGradient(
+          0,
+          height / 2,
+          width,
+          height / 2
+        );
+    }
 
     customGradient.colors.forEach((color, idx, colors) => {
       linearGradient.addColorStop(idx / (colors.length - 1), color);
@@ -94,8 +150,6 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
     ctx.fillRect(0, 0, width, height);
 
     ctx.beginPath();
-    ctx.moveTo(0, height / 2);
-    ctx.lineTo(Math.cos(angle) * width, (Math.sin(angle) * height) / 2);
     ctx.stroke();
 
     const image = canvas.toDataURL();
@@ -227,7 +281,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
           </div>
 
           <div className={styles["buttons__right"]}>
-            <Button
+            {/* <Button
               label="Apply Changes"
               onClick={handleApplyChangesButtonOnClick}
             >
@@ -238,7 +292,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
                   d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12"
                 />
               </IconSVG>
-            </Button>
+            </Button> */}
 
             <Button label="Share" onClick={handleShareButtonOnClick}>
               <IconSVG>
@@ -263,7 +317,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
         </div>
 
         <div className={styles["colors-list"]}>
-          {customGradient.colors.map((color, idx, colors) => (
+          {customGradient.colors.map((color, idx) => (
             <div className={styles["colors-list__item"]} key={idx}>
               <div className={styles["colors-list__color"]}>
                 <BackgroundColor hex={color}>
@@ -330,7 +384,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
 
           {customGradient.colors.length < CONSTRAINTS.MAX_GRADIENT_COLORS && (
             <div
-              className={styles["colors-list__arrow"]}
+              className={styles["colors-list__add-button"]}
               onClick={handleAddColorOnClick}
             >
               <IconSVG>
@@ -361,13 +415,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
-    props: {
-      statusCode: 200,
-      initialGradient: {
-        colors: ["#BFFF00", "#BFFF00", "#BFFF00"],
-        title: "Sample",
-      },
-    },
+    props: {},
   };
 };
 
