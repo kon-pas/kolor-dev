@@ -25,3 +25,7 @@ export { default as isMiscTag } from "./is-misc-tag";
 export { default as isMainColor } from "./is-main-color";
 
 export { default as isHexColor } from "./is-hex-color";
+
+export { default as isFourDirections } from "./is-four-directions";
+
+export { default as isEightDirections } from "./is-eight-directions";
