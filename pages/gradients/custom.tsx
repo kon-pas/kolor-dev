@@ -9,9 +9,16 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { toast } from "react-toastify";
 
-import { getRGB, getRandomHex, isHexColor } from "@utils";
-import ErrorPage from "next/error";
 import { usePathName } from "@hooks";
+import {
+  getRGB,
+  getRandomHex,
+  isHexColor,
+  isShortEightDirection,
+  getLongDirection,
+  getShortDirection,
+  getCleanHex,
+} from "@utils";
 import {
   TOAST_OPTIONS,
   EIGHT_DIRECTIONS,
@@ -34,8 +41,6 @@ interface GradientCustomPageProps {
 }
 
 const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
-  const [directionIndex, setDirectionIndex] = useState<number>(0);
-
   const [customGradient, setCustomGradient] = useState<CustomGradientScheme>({
     ...INITIAL_CUSTOM_GRADIENT,
   });
@@ -49,21 +54,26 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
   useEffect(() => {
     const { colors, dir: direction } = router.query;
 
-    if (typeof colors === "string")
-      colors.split(",").forEach(color => {
-        if (isHexColor(color))
-          setCustomGradient(prev => ({
-            ...prev,
-            colors: [...prev.colors, color],
-          }));
-      });
-    else console.log(123, typeof colors);
+    if (typeof colors === "string") {
+      const colorsArr = colors.split(",");
 
-    // if (typeof direction === "string")
-    //   setCustomGradient(prev => ({ ...prev, direction }));
+      if (
+        CONSTRAINTS.MIN_GRADIENT_COLORS <= colorsArr.length &&
+        colorsArr.length <= CONSTRAINTS.MAX_GRADIENT_COLORS &&
+        colorsArr.every(color => isHexColor(`#${color}`))
+      )
+        setCustomGradient(prev => ({
+          ...prev,
+          colors: colorsArr.map(color => `#${color}`),
+        }));
+    }
+
+    if (typeof direction === "string" && isShortEightDirection(direction))
+      setCustomGradient(prev => ({
+        ...prev,
+        direction: getLongDirection(direction),
+      }));
   }, [router]);
-
-  // if (statusCode === 500) return <ErrorPage statusCode={statusCode} />;
 
   const handleReturnButtonOnClick = () => {
     router.back();
@@ -76,15 +86,31 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
     }));
   };
 
+  // @@@ NOTE: This is clearly not the best complexity-wise solution.
   const handleRotateButtonOnClick = () => {
-    setDirectionIndex(prev => (prev + 1) % EIGHT_DIRECTIONS.length);
+    setCustomGradient(prev => ({
+      ...prev,
+      direction:
+        EIGHT_DIRECTIONS[
+          (EIGHT_DIRECTIONS.findIndex(({ label }) => label === prev.direction) +
+            1) %
+            EIGHT_DIRECTIONS.length
+        ].label,
+    }));
   };
 
   const handleShareButtonOnClick = () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      // @@@
-      toast(`${customGradient.title} copied to clipboard`, TOAST_OPTIONS);
-    });
+    navigator.clipboard
+      .writeText(
+        `${window.location.origin}${router.pathname}?dir=${getShortDirection(
+          customGradient.direction
+        )}&colors=${customGradient.colors
+          .map(color => getCleanHex(color))
+          .join("%2C")}`
+      )
+      .then(() => {
+        toast(`${customGradient.title} copied to clipboard`, TOAST_OPTIONS);
+      });
   };
 
   const handleImageButtonOnClick = () => {
@@ -93,7 +119,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
     let linearGradient: CanvasGradient;
-    switch (EIGHT_DIRECTIONS[directionIndex].label) {
+    switch (customGradient.direction) {
       case "to bottom right":
         linearGradient = ctx.createLinearGradient(0, 0, width, height);
         break;
@@ -232,7 +258,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
   return (
     <>
       <Head>
-        <title>Kolor Dev | Create Gradient</title>
+        <title>Kolor Dev | Custom Gradient</title>
       </Head>
 
       <div className={styles["gradient-pid"]}>
@@ -260,7 +286,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
         <div className={styles["gradient"]}>
           <BackgroundGradient
             colors={customGradient.colors}
-            direction={EIGHT_DIRECTIONS[directionIndex].label}
+            direction={customGradient.direction}
           />
         </div>
 
@@ -276,7 +302,13 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
             </Button>
 
             <Button label="Rotate" onClick={handleRotateButtonOnClick}>
-              <IconSVG>{EIGHT_DIRECTIONS[directionIndex].iconPath}</IconSVG>
+              <IconSVG>
+                {
+                  EIGHT_DIRECTIONS.find(
+                    ({ label }) => label === customGradient.direction
+                  )!.iconPath
+                }
+              </IconSVG>
             </Button>
           </div>
 
