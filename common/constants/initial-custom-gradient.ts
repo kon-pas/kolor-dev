@@ -1,7 +1,7 @@
 import type { CustomGradientScheme } from "@interfaces";
 
 const INITIAL_CUSTOM_GRADIENT: CustomGradientScheme = {
-  title: "Custom",
+  title: "My Gradient",
   colors: ["#7F7F7F", "#7F7F7F", "#7F7F7F"],
   direction: "to right",
 };
