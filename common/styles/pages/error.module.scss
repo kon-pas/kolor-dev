@@ -1,0 +1,12 @@
+.error-page {
+  @apply relative w-full h-screen;
+  .info {
+    @apply absolute
+      top-1/2 left-1/2
+      -translate-x-1/2 -translate-y-1/2;
+
+    &__code {
+      @apply font-black;
+    }
+  }
+}
