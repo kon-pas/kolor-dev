@@ -33,3 +33,7 @@ export { default as isShortFourDirection } from "./is-short-four-direction";
 export { default as isLongEightDirection } from "./is-long-eight-direction";
 
 export { default as isShortEightDirection } from "./is-short-eight-direction";
+
+export { default as getLongDirection } from "./get-long-direction";
+
+export { default as getShortDirection } from "./get-short-direction";
