@@ -1,7 +1,7 @@
-import type { LongFourDirection } from "@types";
+import type { ShortFourDirection } from "@types";
 
 // @@@ TODO: Refactor to not repeat the code.
-const isLongFourDirection = (dir: string): dir is LongFourDirection =>
+const isShortFourDirection = (dir: string): dir is ShortFourDirection =>
   ["t", "r", "b", "l"].includes(dir);
 
-export default isLongFourDirection;
+export default isShortFourDirection;
