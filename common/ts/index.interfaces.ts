@@ -2,7 +2,7 @@ import type {
   GradientHue,
   GradientId,
   GradientScheme,
-  EightDirections,
+  LongEightDirection,
 } from "@types";
 import type { MainColor, MiscTag } from "@enums";
 
@@ -41,7 +41,7 @@ export interface NavItem {
 export interface CustomGradientScheme {
   title: string;
   colors: GradientHue;
-  direction: EightDirections;
+  direction: LongEightDirection;
 }
 
 export interface GradientsFilters {

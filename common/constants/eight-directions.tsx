@@ -1,9 +1,9 @@
 // @@@ NOTE: I am not sure if this is a good design pattern.
 
-import type { EightDirections } from "@types";
+import type { LongEightDirection } from "@types";
 
 const EIGHT_DIRECTIONS: {
-  label: EightDirections;
+  label: LongEightDirection;
   iconPath: JSX.Element;
 }[] = [
   {
