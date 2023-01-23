@@ -1,11 +1,11 @@
 import styles from "./BackgroundGradient.module.scss";
 
 import type { FC } from "react";
-import type { GradientHue, EightDirections } from "@types";
+import type { GradientHue, LongEightDirection } from "@types";
 
 interface BackgroundGradientProps {
   colors: GradientHue;
-  direction?: EightDirections;
+  direction?: LongEightDirection;
 }
 
 const BackgroundGradient: FC<BackgroundGradientProps> = props => {

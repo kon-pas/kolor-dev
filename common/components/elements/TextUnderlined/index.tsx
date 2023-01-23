@@ -3,7 +3,7 @@
 import styles from "./TextUnderline.module.scss";
 
 import type { FC } from "react";
-import type { GradientHue, EightDirections } from "@types";
+import type { GradientHue, LongEightDirection } from "@types";
 
 interface TextUnderlineProps {
   children?: string;
@@ -11,7 +11,7 @@ interface TextUnderlineProps {
   offset?: number;
   opacity?: number;
   colors?: GradientHue;
-  to?: EightDirections;
+  to?: LongEightDirection;
 }
 
 const TextUnderline: FC<TextUnderlineProps> = ({
