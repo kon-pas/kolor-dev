@@ -13,7 +13,7 @@ import Head from "next/head";
 import { toast } from "react-toastify";
 
 import { TOAST_OPTIONS } from "@constants";
-import { getRGB, isMiscTag, isMainColor } from "@utils";
+import { getRGB, isMiscTag, isMainColor, getCleanHex } from "@utils";
 import { local } from "@services";
 import { getGradient, getGradients } from "@api";
 import { usePathName } from "@hooks";
@@ -105,7 +105,13 @@ const GradientPidPage: NextPage<GradientPidPageProps> = ({
   };
 
   const handleEditButtonOnClick = () => {
-    toast("Not yet available", TOAST_OPTIONS);
+    router.push({
+      pathname: "/gradients/custom",
+      query: {
+        dir: "r",
+        colors: gradient?.colors.map(color => getCleanHex(color)).join(","),
+      },
+    });
   };
 
   const handleColorOnCLick = (color: string) => {
