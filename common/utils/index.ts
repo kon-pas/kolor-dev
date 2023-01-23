@@ -26,6 +26,10 @@ export { default as isMainColor } from "./is-main-color";
 
 export { default as isHexColor } from "./is-hex-color";
 
-export { default as isFourDirections } from "./is-four-directions";
+export { default as isLongFourDirection } from "./is-long-four-direction";
 
-export { default as isEightDirections } from "./is-eight-directions";
+export { default as isShortFourDirection } from "./is-short-four-direction";
+
+export { default as isLongEightDirection } from "./is-long-eight-direction";
+
+export { default as isShortEightDirection } from "./is-short-eight-direction";
