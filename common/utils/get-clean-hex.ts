@@ -1,4 +1,5 @@
-import { HexColor } from "@types";
+import type { HexColor } from "@types";
+
 import { isHexColor } from "@utils";
 
 const getCleanHex = (hex: HexColor | string): string =>

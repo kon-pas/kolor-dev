@@ -1,4 +1,5 @@
 import type { MainColor } from "@enums";
+
 import { MAIN_COLORS_VALUES } from "@constants";
 
 // @@@ NOTE: THis is an overkill.
