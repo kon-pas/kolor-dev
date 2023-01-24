@@ -2,6 +2,7 @@
   $self: &;
 
   @apply w-full h-[120px]
+    bg-black
     rounded-md
     cursor-pointer
     flex flex-col justify-center
@@ -53,8 +54,7 @@
 
     &--active {
       @apply duration-200 
-        bg-black
-        z-10;
+        z-30;
     }
 
     &--inactive {
