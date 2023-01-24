@@ -24,7 +24,10 @@
     &__heading {
       @include heading-3;
 
-      @apply relative w-fit mx-auto;
+      @apply relative
+        w-fit
+        mx-auto
+        select-none;
     }
   }
 
@@ -32,7 +35,8 @@
     @apply w-full aspect-square
       mt-4 mb-2
       border border-black/5 rounded-lg
-      xs:aspect-auto xs:h-[360px];
+      xs:aspect-auto
+      xs:h-[360px];
   }
 
   .buttons {
