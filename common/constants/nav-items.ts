@@ -1,4 +1,4 @@
-import { NavItem } from "@interfaces";
+import type { NavItem } from "@interfaces";
 
 const NAV_ITEMS: NavItem[] = [
   {
@@ -7,14 +7,14 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Gradient Generator",
+    path: "/gradients/custom?dir=r&colors=7F7F7F,7F7F7F,7F7F7F",
+  },
+  {
+    label: "Palletes",
     path: null,
   },
   {
-    label: "Color Palletes",
-    path: null,
-  },
-  {
-    label: "Color Generator",
+    label: "Pallete Generator",
     path: null,
   },
   {
