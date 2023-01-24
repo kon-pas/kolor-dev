@@ -1,1 +1,1 @@
-export { default as PathNameContextManager } from "./path";
+export { default as PathContextManager } from "./path";
