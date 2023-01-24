@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import { toast } from "react-toastify";
 
-import { usePathName } from "@hooks";
+import { usePath } from "@hooks";
 import {
   getRGB,
   getRandomHex,
@@ -45,11 +45,11 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
     ...INITIAL_CUSTOM_GRADIENT,
   });
 
-  const { setPathName } = usePathName();
+  const { setPath } = usePath();
 
   useEffect(() => {
-    setPathName("Gradients");
-  }, [setPathName]);
+    setPath({ name: "Gradients", url: "/gradients" });
+  }, [setPath]);
 
   useEffect(() => {
     const { colors, dir: direction } = router.query;
@@ -193,7 +193,7 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
         toast(`Copied ${color}`, TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
       }
     );
   };
@@ -232,10 +232,10 @@ const GradientCustomPage: NextPage<GradientCustomPageProps> = ({ router }) => {
   const handleCodeSnippetOnClick = (expr: string) => {
     navigator.clipboard.writeText(expr).then(
       () => {
-        toast("Snippet Copied to Clipboard", TOAST_OPTIONS);
+        toast("Snippet copied to clipboard", TOAST_OPTIONS);
       },
       () => {
-        toast("Copy to Clipboard Failed :/", TOAST_OPTIONS);
+        toast("Copy to clipboard failed :/", TOAST_OPTIONS);
       }
     );
   };

@@ -16,7 +16,7 @@ import { TOAST_OPTIONS } from "@constants";
 import { getRGB, isMiscTag, isMainColor, getCleanHex } from "@utils";
 import { local } from "@services";
 import { getGradient, getGradients } from "@api";
-import { usePathName } from "@hooks";
+import { usePath } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import BackgroundGradient from "@components/elements/BackgroundGradient";
@@ -40,11 +40,11 @@ const GradientPidPage: NextPage<GradientPidPageProps> = ({
 }) => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
 
-  const { setPathName } = usePathName();
+  const { setPath } = usePath();
 
   useEffect(() => {
-    setPathName("Gradients");
-  }, [setPathName]);
+    setPath({ name: "Gradients", url: "/gradients" });
+  }, [setPath]);
 
   useEffect(() => {
     setIsSaved(gradient ? local.gradients.includes(gradient.id) : false);

@@ -9,7 +9,7 @@ import clsx from "clsx";
 
 import { BRAND_COLORS } from "@constants";
 import { getGradients } from "@api";
-import { useNavigation, usePathName } from "@hooks";
+import { useNavigation, usePath } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import TextGradiented from "@components/elements/TextGradiented";
@@ -26,11 +26,11 @@ const HomePage: NextPage<HomePageProps> = props => {
 
   const { navigateTo } = useNavigation();
 
-  const { setPathName } = usePathName();
+  const { setPath } = usePath();
 
   useEffect(() => {
-    setPathName("");
-  }, [setPathName]);
+    setPath({ name: "", url: "/" });
+  }, [setPath]);
 
   return (
     <>
@@ -106,13 +106,22 @@ const HomePage: NextPage<HomePageProps> = props => {
               className={styles["banner-actions__card"]}
               onClick={() => navigateTo("/gradients")}
             >
-              <CallToActionBanner desc="Carefully selected for Artists, Designers & Developers">
+              <CallToActionBanner
+                desc="Carefully selected for Artists, Designers & Developers"
+                svgSrc="gradient_circle_0.svg"
+              >
                 {props.numGradients} Gradients
               </CallToActionBanner>
             </div>
 
-            <div className={clsx(styles["banner-actions__card"])}>
-              <CallToActionBanner desc="Work in Progress" wip>
+            <div
+              className={clsx(styles["banner-actions__card"])}
+              onClick={() => navigateTo("/gradients/custom")}
+            >
+              <CallToActionBanner
+                desc="In case the selected ones are not fulfilling"
+                svgSrc="gradient_polygon_0.svg"
+              >
                 Gradient Generator
               </CallToActionBanner>
             </div>
