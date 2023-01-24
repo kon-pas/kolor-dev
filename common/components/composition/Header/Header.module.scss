@@ -47,19 +47,31 @@
       md:h-14;
 
     #{ $self }__title {
-      @apply h-fit
+      @apply h-full
         flex
         items-center;
 
       #{ $self }__subtitle {
-        @apply font-inter
-          font-bold
-          text-base
-          ml-12
+        @apply h-full aspect-square
+          ml-14
+          px-1
+          pt-[2px]
+          leading-3
+          bg-black
+          flex items-start
+          rounded-bl-sm rounded-br-xl
+          font-inter
+          font-medium
+          tracking-widest
+          text-[0.7rem]
+          text-gray-draw-1
+          cursor-pointer
+          break-all
           duration-200
-          sm:text-base
-          md:ml-14
-          md:hidden;
+          md:ml-16
+          md:text-[0.8rem]
+          md:pt-1
+          md:leading-[0.85rem];
       }
     }
 
