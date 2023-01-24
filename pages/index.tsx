@@ -3,13 +3,14 @@ import styles from "@styles/pages/home.module.scss";
 import type { NextPage, GetServerSideProps } from "next";
 
 import { useRef, useEffect } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Head from "next/head";
 import clsx from "clsx";
 
 import { BRAND_COLORS } from "@constants";
 import { getGradients } from "@api";
-import { useNavigation, usePath } from "@hooks";
+import { usePath } from "@hooks";
 
 import TextUnderlined from "@components/elements/TextUnderlined";
 import TextGradiented from "@components/elements/TextGradiented";
@@ -24,7 +25,7 @@ interface HomePageProps {
 const HomePage: NextPage<HomePageProps> = props => {
   const callToActionRef = useRef<HTMLInputElement>(null);
 
-  const { navigateTo } = useNavigation();
+  const { push } = useRouter();
 
   const { setPath } = usePath();
 
@@ -104,7 +105,7 @@ const HomePage: NextPage<HomePageProps> = props => {
           <div className={styles["banner-actions"]}>
             <div
               className={styles["banner-actions__card"]}
-              onClick={() => navigateTo("/gradients")}
+              onClick={() => push("/gradients")}
             >
               <CallToActionBanner
                 desc="Carefully selected for Artists, Designers & Developers"
@@ -116,7 +117,7 @@ const HomePage: NextPage<HomePageProps> = props => {
 
             <div
               className={clsx(styles["banner-actions__card"])}
-              onClick={() => navigateTo("/gradients/custom")}
+              onClick={() => push("/gradients/custom")}
             >
               <CallToActionBanner
                 desc="In case the selected ones are not fulfilling"

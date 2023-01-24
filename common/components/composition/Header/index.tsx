@@ -4,8 +4,9 @@ import type { FC } from "react";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 
-import { usePath, useNavigation } from "@hooks";
+import { usePath } from "@hooks";
 import IconSVG from "@components/elements/IconSVG";
 import NAV_ITEMS from "common/constants/nav-items";
 
@@ -13,12 +14,12 @@ const Header: FC = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const { navigateTo } = useNavigation();
+  const { push } = useRouter();
   const { path } = usePath();
 
   const handleNavigation = (path: string): void => {
     setIsOpened(false);
-    navigateTo(path);
+    push(path);
   };
 
   useEffect(() => {
