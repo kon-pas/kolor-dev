@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 202 202" style="enable-background:new 0 0 202 202;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:url(#SVGID_1_);}
+	.st3{display:inline;filter:url(#Adobe_OpacityMaskFilter);}
+	.st4{filter:url(#Adobe_OpacityMaskFilter_1_);}
+	.st5{mask:url(#SVGID_2_);}
+	.st6{display:inline;filter:url(#Adobe_OpacityMaskFilter_2_);}
+	.st7{filter:url(#Adobe_OpacityMaskFilter_3_);}
+	.st8{mask:url(#SVGID_3_);}
+	.st9{fill:#FFFFFF;}
+	.st10{display:inline;fill:none;}
+	.st11{fill:#F9F9F9;}
+	.st12{font-family:'TwCenMT-Bold';}
+	.st13{font-size:120px;}
+	.st14{letter-spacing:4;}
+	.st15{display:inline;fill:url(#SVGID_4_);}
+	.st16{fill:url(#SVGID_5_);}
+</style>
+<g id="Layer_1" class="st0">
+</g>
+<g id="Layer_3" class="st0">
+	<g class="st1">
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-258" y1="-2.5" x2="243" y2="-2.5">
+			<stop  offset="0" style="stop-color:#F2C89A"/>
+			<stop  offset="0.5126" style="stop-color:#F47EBD"/>
+			<stop  offset="1" style="stop-color:#2386CD"/>
+		</linearGradient>
+		<rect x="-258" y="-253" class="st2" width="501" height="501"/>
+	</g>
+</g>
+<g id="Layer_2" class="st0">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-216" y="-213" width="420" height="420">
+			<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+			<feBlend  in="SourceGraphic" in2="back" mode="normal"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="-216" y="-213" width="420" height="420" id="SVGID_2_" class="st1">
+		<g style="filter:url(#Adobe_OpacityMaskFilter);">
+			<defs>
+				<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="99" y="102" width="106" height="106">
+					
+						<feColorMatrix  type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
+					<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+					<feBlend  in="source" in2="back" mode="normal"/>
+				</filter>
+			</defs>
+			<mask maskUnits="userSpaceOnUse" x="99" y="102" width="106" height="106" id="SVGID_2_">
+				<g class="st4">
+				</g>
+			</mask>
+			<g class="st5">
+				<rect x="99.5" y="102.5" width="105" height="105"/>
+				<path d="M204,103v104H100V103H204 M205,102H99v106h106V102L205,102z"/>
+			</g>
+		</g>
+	</mask>
+	<g>
+		<rect x="-215.5" y="-212.5" class="st1" width="419" height="419"/>
+		<path class="st1" d="M203-212v418h-418v-418H203 M204-213h-420v420h420V-213L204-213z"/>
+	</g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_2_" filterUnits="userSpaceOnUse" x="-216" y="-213" width="420" height="420">
+			<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+			<feBlend  in="SourceGraphic" in2="back" mode="normal"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="-216" y="-213" width="420" height="420" id="SVGID_3_" class="st1">
+		<g style="filter:url(#Adobe_OpacityMaskFilter_2_);">
+			<defs>
+				<filter id="Adobe_OpacityMaskFilter_3_" filterUnits="userSpaceOnUse" x="99" y="102" width="106" height="106">
+					
+						<feColorMatrix  type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
+					<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+					<feBlend  in="source" in2="back" mode="normal"/>
+				</filter>
+			</defs>
+			<mask maskUnits="userSpaceOnUse" x="99" y="102" width="106" height="106" id="SVGID_3_">
+				<g class="st7">
+				</g>
+			</mask>
+			<g class="st8">
+				<rect x="99.5" y="102.5" width="105" height="105"/>
+				<path d="M204,103v104H100V103H204 M205,102H99v106h106V102L205,102z"/>
+			</g>
+		</g>
+	</mask>
+	<g class="st1">
+		<rect x="-216" y="-213" width="420" height="420"/>
+	</g>
+</g>
+<g id="Layer_9" class="st0">
+	<path class="st1" d="M-216-201v396c0,6.6,5.4,12,12,12H94c3.2,0,6.2-1.3,8.5-3.5l98-98c2.3-2.3,3.5-5.3,3.5-8.5v-298
+		c0-6.6-5.4-12-12-12h-396C-210.6-213-216-207.6-216-201z"/>
+</g>
+<g id="Layer_8" class="st0">
+	<g class="st1">
+		<rect x="99" y="102" class="st9" width="106" height="106"/>
+	</g>
+</g>
+<g id="Layer_4" class="st0">
+	<rect x="-198.3" y="-189.3" class="st10" width="398.3" height="86.3"/>
+	<text transform="matrix(1 0 0 1 -198.3335 -111.0947)" class="st9 st12 st13 st14">KOLOR</text>
+	<g class="st1">
+		<path class="st9" d="M-190.6-173.7h16.6v32.5h0.2l25.5-32.5h20.4l-29.2,36.7l30.5,40.2h-19.9l-27.1-36h-0.2v36h-16.6V-173.7z"/>
+		<path class="st9" d="M-119.7-135.2c0-11.4,3.8-20.8,11.3-28.2c7.5-7.4,16.4-11.1,26.7-11.1c11.4,0,20.8,3.7,28.3,11.2
+			s11.2,16.8,11.2,28.2c0,11.3-3.7,20.7-11.1,28.1c-7.4,7.5-16.7,11.2-27.9,11.2s-20.4-3.7-27.7-11.1
+			C-116-114.4-119.7-123.8-119.7-135.2z M-80.9-159.1c-6.4-0.1-11.6,2.1-15.6,6.7s-5.9,10.5-5.9,17.7c0,6.8,2,12.5,6,17
+			c4,4.5,9.1,6.7,15.2,6.7c6.4,0,11.7-2.2,15.6-6.7c4-4.4,5.9-10.3,5.9-17.5c0-7.1-1.9-12.9-5.8-17.2S-74.4-159-80.9-159.1z"/>
+		<path class="st9" d="M-23.2-173.7h16.5v60.4H16v16.6h-39.1V-173.7z"/>
+		<path class="st9" d="M28.8-135.2c0-11.4,3.8-20.8,11.3-28.2c7.5-7.4,16.4-11.1,26.7-11.1c11.4,0,20.8,3.7,28.3,11.2
+			c7.5,7.4,11.2,16.8,11.2,28.2c0,11.3-3.7,20.7-11.1,28.1c-7.4,7.5-16.7,11.2-27.9,11.2c-11.2,0-20.4-3.7-27.7-11.1
+			C32.4-114.4,28.8-123.8,28.8-135.2z M67.6-159.1c-6.4-0.1-11.6,2.1-15.6,6.7c-3.9,4.6-5.9,10.5-5.9,17.7c0,6.8,2,12.5,6,17
+			c4,4.5,9.1,6.7,15.2,6.7c6.4,0,11.7-2.2,15.6-6.7c4-4.4,5.9-10.3,5.9-17.5c0-7.1-1.9-12.9-5.8-17.2C79.2-156.8,74-159,67.6-159.1z
+			"/>
+		<path class="st9" d="M124.8-173.7h25.3c7.7,0,13.8,2,18.3,6.1c4.5,4.1,6.7,9.5,6.7,16.5c0,3.9-1,8-3.1,12.3
+			c-2.1,4.3-5.8,7.6-11.4,10l21.5,32.1h-19.1l-19.9-29.8h-1.9v29.8h-16.6V-173.7z M141.5-160v20h3.6c8.7,0,13-3.5,13-10.6
+			c0-2.9-1.1-5.2-3.4-6.9s-5.4-2.5-9.4-2.5H141.5z"/>
+	</g>
+</g>
+<g id="Layer_5" class="st0">
+	<rect x="-198" y="-89" class="st10" width="223" height="85"/>
+	<text transform="matrix(1 0 0 1 -198 -10.7607)" class="st11 st12 st13 st14">DEV</text>
+	<g class="st1">
+		<path class="st9" d="M-190.6-70.3h26.3c11.2,0,20.2,3.5,27.1,10.6c6.8,7.1,10.3,16.4,10.3,27.9c0,11.6-3.5,20.9-10.6,27.9
+			c-7.1,7-16.4,10.5-28.2,10.5h-24.8V-70.3z M-173.9-55.8v47.5h6.6c6.8,0,12.4-1.9,16.8-5.6c4.4-3.7,6.6-9.9,6.6-18.6
+			c0-5-1.1-9.5-3.2-13.4c-2.1-3.9-5.2-6.5-9.2-7.9c-4-1.4-7.8-2.1-11.5-2.1H-173.9z"/>
+		<path class="st9" d="M-109.1-70.3h43.3v15.2h-26.7v15.5h26.7v15h-26.7v15.9h26.7V6.6h-43.3V-70.3z"/>
+		<path class="st9" d="M-53.3-70.3h16.8L-17-19.2L2.5-70.3h16.8L-9.9,6.6h-14.4L-53.3-70.3z"/>
+	</g>
+</g>
+<g id="Layer_7" class="st0">
+	<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="-6" y1="102" x2="204" y2="102">
+		<stop  offset="0" style="stop-color:#F2C89A"/>
+		<stop  offset="0.5126" style="stop-color:#F47EBD"/>
+		<stop  offset="1" style="stop-color:#2386CD"/>
+	</linearGradient>
+	<circle class="st15" cx="99" cy="102" r="105"/>
+</g>
+<g id="Layer_10">
+	<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="0.5572" y1="100.9625" x2="201.3905" y2="100.9625">
+		<stop  offset="0" style="stop-color:#F2C89A"/>
+		<stop  offset="0.5126" style="stop-color:#F47EBD"/>
+		<stop  offset="1" style="stop-color:#2386CD"/>
+	</linearGradient>
+	<polygon class="st16" points="174.4,174.5 74,201.3 0.6,127.8 27.5,27.4 128,0.6 201.4,74.2 	"/>
+</g>
+</svg>
