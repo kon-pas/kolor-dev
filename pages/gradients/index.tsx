@@ -12,7 +12,7 @@ import Head from "next/head";
 import { clsx } from "clsx";
 
 import { getGradients } from "@api";
-import { usePathName } from "@hooks";
+import { usePath } from "@hooks";
 import { getCleanString, isMiscTag, isMainColor } from "@utils";
 import { MISC_TAGS, MAIN_COLORS, INITIAL_GRADIENTS_FITLERS } from "@constants";
 import { local } from "@services";
@@ -34,11 +34,11 @@ const GradientsPage: NextPage<GradientsPageProps> = ({ gradients, router }) => {
     ...INITIAL_GRADIENTS_FITLERS,
   });
 
-  const { setPathName } = usePathName();
+  const { setPath } = usePath();
 
   useEffect(() => {
-    setPathName("Gradients");
-  }, [setPathName]);
+    setPath({ name: "Gradients", url: "/gradients" });
+  }, [setPath]);
 
   useEffect(() => {
     const { name, colors, misc } = router.query;
@@ -127,9 +127,13 @@ const GradientsPage: NextPage<GradientsPageProps> = ({ gradients, router }) => {
 
   const handleLuckyButton = useCallback(() => {
     router.push(
-      `/gradient/${gradients[Math.floor(Math.random() * gradients.length)].id}`
+      `/gradients/${
+        gradientsDisplayed[
+          Math.floor(Math.random() * gradientsDisplayed.length)
+        ].id
+      }`
     );
-  }, [router, gradients]);
+  }, [router, gradientsDisplayed]);
 
   const handleResetButton = useCallback(() => {
     setFilters({ ...INITIAL_GRADIENTS_FITLERS });
