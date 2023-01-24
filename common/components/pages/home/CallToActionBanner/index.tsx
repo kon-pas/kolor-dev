@@ -7,13 +7,14 @@ import clsx from "clsx";
 interface CallToActionBannerProps {
   children: ReactNode;
   desc: string;
-  // color: "yellow" | "magenta" | "cyan";
+  svgSrc?: `${string}.svg`;
   wip?: boolean;
 }
 
 const CallToActionBanner: FC<CallToActionBannerProps> = ({
   desc,
   children: title,
+  svgSrc,
   wip,
 }) => {
   return (
@@ -26,7 +27,7 @@ const CallToActionBanner: FC<CallToActionBannerProps> = ({
       {!wip ? (
         <div className={styles["call-to-action-banner__image"]}>
           <Image
-            src="/assets/svgs/gradient_shapes_0_1.svg"
+            src={`/assets/svgs/${svgSrc ?? "gradient_circle_0.svg"}`}
             alt="Gradient Wave"
             width="100%"
             height="10%"
