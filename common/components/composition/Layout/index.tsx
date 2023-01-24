@@ -17,7 +17,9 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <Loader />
 
       <Header />
+
       <main className={styles.main}>{children}</main>
+
       <Footer />
 
       <ToastContainer
