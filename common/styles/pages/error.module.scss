@@ -1,12 +1,42 @@
 .error-page {
-  @apply relative w-full h-screen;
+
+  @apply relative
+    w-full
+    h-[calc(100vh_-_3rem)]
+    md:h-[calc(100vh_-_3.5rem)];
+
   .info {
-    @apply absolute
-      top-1/2 left-1/2
-      -translate-x-1/2 -translate-y-1/2;
+    $self: ".info";
+
+    @apply absolute w-full
+      top-1/2
+      left-1/2
+      -translate-x-1/2
+      -translate-y-1/2
+      grid
+      justify-items-center;
 
     &__code {
-      @apply font-black;
+      @apply font-black
+        text-7xl
+        md:text-8xl
+        duration-200;
+    }
+
+    &__annotation,
+    &__button {
+      @apply text-gray-font
+        duration-200
+        text-sm
+        md:text-base;
+    }
+
+    &__button {
+      @apply mt-6 flex gap-1;
+
+      #{ $self }__button-icon {
+        @apply w-5 aspect-square;
+      }
     }
   }
 }
