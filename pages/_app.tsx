@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { PathNameContextManager } from "@contexts";
+import { PathContextManager } from "@contexts";
 import { local } from "@services";
 import Layout from "@components/composition/Layout";
 
@@ -19,18 +19,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       events.off("routeChangeStart", local.gradients.save);
     };
   });
-  
+
   return (
     <>
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <PathNameContextManager.PathNameContextProvider>
+      <PathContextManager.PathContextProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </PathNameContextManager.PathNameContextProvider>
+      </PathContextManager.PathContextProvider>
     </>
   );
 }
