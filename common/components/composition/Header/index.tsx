@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 
-import { usePathName, useNavigation } from "@hooks";
+import { usePath, useNavigation } from "@hooks";
 import IconSVG from "@components/elements/IconSVG";
 import NAV_ITEMS from "common/constants/nav-items";
 
@@ -14,7 +14,7 @@ const Header: FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const { navigateTo } = useNavigation();
-  const { pathName } = usePathName();
+  const { path } = usePath();
 
   const handleNavigation = (path: string): void => {
     setIsOpened(false);
@@ -63,7 +63,6 @@ const Header: FC = () => {
           onClick={() => handleNavigation("/")}
         >
           <Image
-            // src="/assets/svgs/kolor_logo_cube_2_1.svg"
             src="/assets/svgs/kolor_dev_logo_0.svg"
             alt="Kolor Dev Logo"
             layout="fill"
@@ -73,8 +72,11 @@ const Header: FC = () => {
 
       <div className={styles["header__top"]}>
         <div className={styles["header__title"]}>
-          <span className={styles["header__subtitle"]}>
-            &nbsp;{pathName !== "" ? ` / ${pathName}` : null}
+          <span
+            className={styles["header__subtitle"]}
+            onClick={() => handleNavigation(path.url)}
+          >
+            {path.name !== "" ? path.name.toUpperCase() : null}
           </span>
         </div>
 
@@ -108,7 +110,7 @@ const Header: FC = () => {
                   !path && styles["nav__item--inactive"]
                 )}
                 key={idx}
-                onClick={() => path && navigateTo(path)}
+                onClick={() => path && handleNavigation(path)}
               >
                 <span>{label}</span>
               </li>
@@ -132,7 +134,7 @@ const Header: FC = () => {
                   !path && styles["nav__item--inactive"]
                 )}
                 key={idx}
-                onClick={() => path && navigateTo(path)}
+                onClick={() => path && handleNavigation(path)}
               >
                 <span>{label}</span>
               </li>
