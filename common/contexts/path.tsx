@@ -13,18 +13,30 @@ interface PathContextProviderProps {
 const PathContextProvider: FC<PathContextProviderProps> = props => {
   const [pathName, setPathName] = useState<string>("");
   const [pathUrl, setPathUrl] = useState<string>("/");
-
-  const setPath = (path: {
+  const [path, setPath] = useState<{
     name: typeof pathName;
     url: typeof pathUrl;
-  }): void => {
+  }>({ name: pathName, url: pathUrl });
+
+  useEffect(() => {
+    setPath(prev => ({ ...prev, name: pathName }));
+  }, [pathName]);
+
+  useEffect(() => {
+    setPath(prev => ({ ...prev, url: pathUrl }));
+  }, [pathUrl]);
+
+  useEffect(() => {
     setPathName(path.name);
+  }, [path.name]);
+
+  useEffect(() => {
     setPathUrl(path.url);
-  };
+  }, [path.url]);
 
   return (
     <PathContext.Provider
-      value={{ pathName, setPathName, pathUrl, setPathUrl, setPath }}
+      value={{ pathName, setPathName, pathUrl, setPathUrl, path, setPath }}
     >
       {props.children}
     </PathContext.Provider>
