@@ -34,7 +34,7 @@
   .gradient {
     @apply w-full aspect-square
       mt-4 mb-2
-      border border-black/5 rounded-lg
+      border border-black/5 rounded-md
       xs:aspect-auto
       xs:h-[360px];
   }
@@ -71,8 +71,8 @@
 
       #{ $self }__color {
         // `border` => 1px
-        // `rounded-lg` => 0.5rem
-        clip-path: inset(1px round 0.5rem 0.5rem 0.5rem 0.5rem);
+        // `rounded-md` => 0.375rem
+        clip-path: inset(1px round 0.375rem 0.375rem 0.375rem 0.375rem);
 
         @apply w-full h-10 relative
           border border-black/5
