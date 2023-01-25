@@ -46,13 +46,13 @@
       h-12
       md:h-14;
 
-    #{ $self }__title {
-      @apply h-full
-        flex
-        items-center;
+    #{ $self }__category {
+      // @apply h-full
+      //   flex
+      //   items-center;
 
-      #{ $self }__subtitle {
-        @apply h-full aspect-square
+      // #{ $self }__subtitle {
+      @apply h-full aspect-square
           ml-14
           px-[2px]
           pt-[3px]
@@ -71,7 +71,7 @@
           md:ml-16
           md:text-[0.825rem]
           md:leading-[0.89rem];
-      }
+      // }
     }
 
     #{ $self }__burger {

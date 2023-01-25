@@ -72,16 +72,16 @@ const Header: FC = () => {
       </div>
 
       <div className={styles["header__top"]}>
-        <div className={styles["header__title"]}>
-          {path.name ? (
-            <span
-              className={styles["header__subtitle"]}
-              onClick={() => handleNavigation(path.url)}
-            >
-              {path.name.toUpperCase()}
-            </span>
-          ) : null}
-        </div>
+        {path.name ? (
+          <div
+            className={styles["header__category"]}
+            onClick={() => handleNavigation(path.url)}
+          >
+            {path.name.toUpperCase()}
+          </div>
+        ) : (
+          <div />
+        )}
 
         <button
           className={styles["header__burger"]}
