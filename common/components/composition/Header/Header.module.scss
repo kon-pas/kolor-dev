@@ -54,24 +54,23 @@
       #{ $self }__subtitle {
         @apply h-full aspect-square
           ml-14
-          px-1
-          pt-[2px]
-          leading-3
+          px-[2px]
+          pt-[3px]
+          leading-[0.765rem]
           bg-black
           flex items-start
           rounded-bl-sm rounded-br-xl
           font-inter
-          font-medium
+          font-semibold
           tracking-widest
-          text-[0.7rem]
+          text-[0.725rem]
           text-gray-draw-1
           cursor-pointer
           break-all
           duration-200
           md:ml-16
-          md:text-[0.8rem]
-          md:pt-1
-          md:leading-[0.85rem];
+          md:text-[0.825rem]
+          md:leading-[0.89rem];
       }
     }
 
