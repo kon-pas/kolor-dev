@@ -47,11 +47,6 @@
       md:h-14;
 
     #{ $self }__category {
-      // @apply h-full
-      //   flex
-      //   items-center;
-
-      // #{ $self }__subtitle {
       @apply h-full aspect-square
           ml-14
           px-[2px]
@@ -61,7 +56,7 @@
           flex items-start
           rounded-bl-sm rounded-br-xl
           font-inter
-          font-semibold
+          font-medium
           tracking-widest
           text-[0.725rem]
           text-gray-draw-1
