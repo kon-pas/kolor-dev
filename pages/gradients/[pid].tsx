@@ -155,12 +155,12 @@ const GradientPidPage: NextPage<GradientPidPageProps> = ({
     `${gradient.colors.map((color, idx) =>
       idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
     )}`,
-    `background: linear-gradient(${gradient.colors.map((color, idx) =>
-      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
-    )});`,
     `${gradient.colors.map((color, idx) =>
       idx === 0 ? getRGB(color) : " " + getRGB(color)
     )}`,
+    `background: linear-gradient(${gradient.colors.map((color, idx) =>
+      idx === 0 ? color.toUpperCase() : " " + color.toUpperCase()
+    )});`,
     `background: linear-gradient(${gradient.colors.map((color, idx) =>
       idx === 0 ? getRGB(color) : " " + getRGB(color)
     )});`,

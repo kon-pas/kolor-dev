@@ -29,10 +29,7 @@ const ErrorPage: NextPage<ErrorPageProps> = props => {
           Something went wrong!
         </span>
 
-        <button
-          className={styles["info__button"]}
-          onClick={() => push("/")}
-        >
+        <button className={styles["info__button"]} onClick={() => push("/")}>
           <div className={styles["info__button-icon"]}>
             <IconSVG>
               <path
