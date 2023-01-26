@@ -129,7 +129,7 @@ const HomePage: NextPage<HomePageProps> = props => {
 
             <div className={clsx(styles["banner-actions__card"])}>
               <CallToActionBanner desc="Work in Progress" wip>
-                Color Palettes
+                Palettes
               </CallToActionBanner>
             </div>
 
