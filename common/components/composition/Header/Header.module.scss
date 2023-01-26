@@ -110,10 +110,12 @@
 
     &--desktop {
       @apply hidden
+        
         md:mr-8 
         md:p-0 
         md:h-fit 
         md:justify-end 
+        md:items-center
         md:w-fit
         md:flex;
     }
@@ -122,7 +124,7 @@
     &__item {
       @apply h-[7vh]
         min-h-[55px]
-        grid items-center text-right
+        grid content-center text-right
         text-base
         font-bold
         cursor-pointer
@@ -130,11 +132,10 @@
         border-b border-gray-draw-5 last:border-none
         md:border-none
         md:inline-block 
-        md:m-0 
-        md:content-center
-        md:h-fit 
-        md:my-auto 
-        md:ml-12 
+        md:h-fit
+        md:min-h-0
+        md:m-0
+        md:ml-12
         md:first:ml-0;
 
       &--inactive {
