@@ -138,9 +138,10 @@
         md:first:ml-0;
 
       &--inactive {
-        @apply text-gray-font 
-          cursor-not-allowed
-          line-through;
+        @apply text-gray-font/60
+          line-through
+          decoration-gray-font/40
+          cursor-not-allowed;
       }
     }
   }
