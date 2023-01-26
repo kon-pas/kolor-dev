@@ -16,7 +16,12 @@ export const gradients: GradientsJSON = [
     colors: ["#84ffc9", "#aab2ff", "#eca0ff"],
     title: "Faerie's Dream",
     tags: {
-      colors: [MainColor.Green, MainColor.Blue, MainColor.Purple],
+      colors: [
+        MainColor.Green,
+        MainColor.Cyan,
+        MainColor.Blue,
+        MainColor.Purple,
+      ],
       misc: [MiscTag.Magic, MiscTag.Intense],
     },
   },
@@ -24,7 +29,7 @@ export const gradients: GradientsJSON = [
     colors: ["#60efff", "#00ff87"],
     title: "Morning Breeze",
     tags: {
-      colors: [MainColor.Blue, MainColor.Green],
+      colors: [MainColor.Blue, MainColor.Cyan, MainColor.Green],
       misc: [MiscTag.Intense],
     },
   },
@@ -152,7 +157,7 @@ export const gradients: GradientsJSON = [
     colors: ["#affcaf", "#12dff3"],
     title: "Hawaiian Shallows",
     tags: {
-      colors: [MainColor.Blue],
+      colors: [MainColor.Blue, MainColor.Cyan],
       misc: [MiscTag.Intense, MiscTag.Cold, MiscTag.Mono],
     },
   },
@@ -192,7 +197,7 @@ export const gradients: GradientsJSON = [
     colors: ["#e3e3e3", "#eb8a3d"],
     title: "Autumn's Peace",
     tags: {
-      colors: [MainColor.Gray, MainColor.Orange],
+      colors: [MainColor.Gray, MainColor.Orange, MainColor.Brown],
       misc: [MiscTag.Calm],
     },
   },
