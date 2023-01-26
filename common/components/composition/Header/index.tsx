@@ -23,11 +23,6 @@ const Header: FC = () => {
   };
 
   useEffect(() => {
-    if (isOpened) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
-  }, [isOpened]);
-
-  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1100) setIsOpened(false);
     };
@@ -43,6 +38,8 @@ const Header: FC = () => {
         setIsVisible(false);
       } else setIsVisible(true);
       setScrollPosition(window.scrollY);
+
+      setIsOpened(false);
     };
 
     window.addEventListener("scroll", handleScroll);

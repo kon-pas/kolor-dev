@@ -79,11 +79,16 @@
   &__bottom {
     @include content;
 
+    // @@@ TODO: This may be a bad design pattern. Dependency is too complex for
+    // such a simple task.
+    // max-h is `nav__item`'s h-[7vh] * 6 (5 items, 1 exceeding)
+    // min-h is `nav__item`'s min-h-[55px] * 5 + `header__bottom` pb-3
     @apply w-full
       pb-3
       absolute
       opacity-100
-      max-h-[calc(10vh_*_6)]
+      max-h-[calc(7vh_*_6)]
+      min-h-[calc(55px_*_5_+_12px)]
       bg-white/90
       backdrop-blur-md
       visible
@@ -115,7 +120,8 @@
 
     // @@@ TODO: Tailwind's `divide` for some reason does not work.
     &__item {
-      @apply h-[10vh]
+      @apply h-[7vh]
+        min-h-[55px]
         grid items-center text-right
         text-base
         font-bold
