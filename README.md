@@ -1,7 +1,6 @@
 <h1 align="center">
   <a href="https://kolor-dev.vercel.app/" target="_blank">
-    <!-- Kolor -->
-    <img alt="Kolor" title="Kolor" src="/showcase/assets/kolor_dev_logo_0.svg" width="256">
+    <img alt="Kolor" title="Kolor" src="/showcase/assets/kolor_dev_logo_0.svg" width="200">
   </a>
 </h1>
 
@@ -11,11 +10,11 @@
   </a>
 </p> -->
 
-<center>
+<p align="center">
   <b>Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers</b>
   <br />
   <span><sup>1</sup>As of now, not really a toolkit.</span>
-</center>
+</p>
 
 ## Table of Contents <!-- omit in toc -->
 
