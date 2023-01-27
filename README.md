@@ -10,11 +10,13 @@
   <br />
 
   <b align="center">
-    Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers
+    Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers.
   </b>
   <br />
   <span><sup>1</sup>As of now, not really a toolkit.</span>
 </p>
+
+------
 
 ## Table of Contents <!-- omit in toc -->
 
