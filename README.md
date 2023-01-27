@@ -1,7 +1,7 @@
 <h1 align="center">
   <a href="https://kolor-dev.vercel.app/" target="_blank">
     <!-- Kolor -->
-    <img alt="Kolor" title="Kolor" src="/showcase/assets/kolor_dev_logo.svg"width="256">
+    <img alt="Kolor" title="Kolor" src="/showcase/assets/kolor_dev_logo_0.svg" width="256">
   </a>
 </h1>
 
