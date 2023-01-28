@@ -58,6 +58,7 @@ As for now, there is no intent to provide further support.
   - React
   - Sass
   - TailwindCSS
+
 - Misc
   - clsx
   - colvertize
@@ -66,6 +67,7 @@ As for now, there is no intent to provide further support.
   - tailwindcss-debug-screens
   - ESLint - static code analysis
   - Prettier - formatting
+
 - Design
   - Adobe Photoshop
   - Adobe Illustrator
