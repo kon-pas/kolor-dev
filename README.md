@@ -47,30 +47,28 @@ As for now, there is no intent to provide further support.
 
 ## Tech Stack
 
-- Backend <!-- omit in toc -->
+- Backend
   - Next.js
   - Prisma
-- Database <!-- omit in toc -->
+  
+- Database
   - MongoDB
-- Frontend <!-- omit in toc -->
+
+- Frontend
   - React
   - Sass
   - TailwindCSS
-
-### Misc <!-- omit in toc -->
-
-- clsx
-- colvertize
-- nanoid
-- react-toastify
-- tailwindcss-debug-screens
-- ESLint - static code analysis
-- Prettier - formatting
-
-### Design <!-- omit in toc -->
-
-- Adobe Photoshop
-- Adobe Illustrator
+- Misc
+  - clsx
+  - colvertize
+  - nanoid
+  - react-toastify
+  - tailwindcss-debug-screens
+  - ESLint - static code analysis
+  - Prettier - formatting
+- Design
+  - Adobe Photoshop
+  - Adobe Illustrator
 
 ## Development
 
