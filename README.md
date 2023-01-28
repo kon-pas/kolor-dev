@@ -47,19 +47,23 @@ As for now, there is no intent to provide further support.
 
 ## Tech Stack
 
-- Backend
+- **Backend**
+
   - Next.js
   - Prisma
-  
-- Database
+
+- **Database**
+
   - MongoDB
 
-- Frontend
+- **Frontend**
+
   - React
   - Sass
   - TailwindCSS
 
-- Misc
+- **Misc**
+
   - clsx
   - colvertize
   - nanoid
@@ -68,7 +72,8 @@ As for now, there is no intent to provide further support.
   - ESLint - static code analysis
   - Prettier - formatting
 
-- Design
+- **Design**
+
   - Adobe Photoshop
   - Adobe Illustrator
 
