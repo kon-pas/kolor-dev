@@ -33,7 +33,7 @@
 
 - [Introduction](#introduction)
 - [Tech Stack](#tech-stack)
-- [Implementation](#implementation)
+- [Development](#development)
 - [Showcase](#showcase)
 - [Acknowledgments](#acknowledgments)
 
@@ -49,13 +49,13 @@ As for now, there is no intent to provide further support.
 
 wip
 
-## Implementation
+## Development
 
 lighthouse, bem
 
 ## Showcase
 
-For the prepared showcase head to [showcase.md](/showcase/showcase.md) or visit
+Head to [showcase.md](/showcase/showcase.md) for the prepared showcase or visit
 [Kolor-Dev](https://kolor-dev.vercel.app/) directly.
 
 ## Acknowledgments
