@@ -47,20 +47,15 @@ As for now, there is no intent to provide further support.
 
 ## Tech Stack
 
-### Backend <!-- omit in toc -->
-
-- Next.js
-- Prisma
-
-### Database <!-- omit in toc -->
-
-- MongoDB
-
-### Frontend <!-- omit in toc -->
-
-- React
-- Sass
-- TailwindCSS
+- Backend <!-- omit in toc -->
+  - Next.js
+  - Prisma
+- Database <!-- omit in toc -->
+  - MongoDB
+- Frontend <!-- omit in toc -->
+  - React
+  - Sass
+  - TailwindCSS
 
 ### Misc <!-- omit in toc -->
 
