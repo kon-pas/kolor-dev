@@ -3,16 +3,16 @@
     <picture>
       <source
         media="(prefers-color-scheme: light)"
-        srcset="/showcase/assets/kolor_dev_logo_0.svg"
+        srcset="/showcase/assets/kolor_dev_logo_0_light.svg"
       />
       <source
         media="(prefers-color-scheme: dark)"
-        srcset="/showcase/assets/kolor_dev_logo_0_dark.svg"
+        srcset="/showcase/assets/kolor_dev_logo_0.svg"
       />
       <img
         alt="Kolor-Dev"
         title="Kolor-Dev"
-        src="/showcase/assets/kolor_dev_logo_0_dark.svg"
+        src="/showcase/assets/kolor_dev_logo_0_light.svg"
         width="200"
         style="max-width: 100%;"
       />
