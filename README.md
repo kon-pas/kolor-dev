@@ -34,6 +34,7 @@
 - [Introduction](#introduction)
 - [Tech Stack](#tech-stack)
 - [Development](#development)
+- [Thoughts](#thoughts)
 - [Showcase](#showcase)
 - [Acknowledgments](#acknowledgments)
 
@@ -47,39 +48,62 @@ As for now, there is no intent to provide further support.
 
 ## Tech Stack
 
+- **Scripting**
+
+  - TypeScript - static typing with pleasure
+  - SassScript - CSS preprocessing
+
 - **Backend**
 
-  - Next.js
-  - Prisma
-
-- **Database**
-
-  - MongoDB
+  - Next.js -
+  - Prisma - data mapping, modeling & typing, database client
 
 - **Frontend**
 
-  - React
-  - Sass
-  - TailwindCSS
+  - React - on which Next.js is built
+  - TailwindCSS - utility CSS classes
+  - TailwindCSS Debug Screens - layout manual testing
 
-- **Misc**
+- **Deployment**
 
-  - clsx
-  - colvertize
-  - nanoid
-  - react-toastify
-  - tailwindcss-debug-screens
-  - ESLint - static code analysis
-  - Prettier - formatting
+  - MongoDB Atlas - database deployment
+  - Vercel - frontend & backend deployment
 
 - **Design**
 
-  - Adobe Photoshop
-  - Adobe Illustrator
+  - Adobe Illustrator - vector graphics
+  - Adobe Photoshop - sketches, raster illustrations
+
+- **Code Quality**
+
+  - ESLint - static code analysis
+  - Prettier - formatting
+  - BEM - CSS methodolody
+  - Lighthouse - performance, quality & correctness
+
+- **Utils**
+
+  - clsx - constructing class strings
+  - colvertize - converting colors
+  - nanoid - generating IDs
+  - react-toastify - toast notifications
 
 ## Development
 
 lighthouse, bem
+
+## Thoughts
+
+Next.js with TypeScript has the DX I admire.
+
+Using Prisma was convenient, but the project is way too small to fell profiting from using it instead of using other tools, like Mongoose for database client and data modeling. As I was not restricted to certain database, mapping was not crucial.
+
+TailwindCSS did not boost my productivity, as it takes time to get used to it,
+but I believe the reward compensates the efford.
+
+Coding styles in SCSS & BEM was fine, but nothing more. I still would go with CSS-in-JS if I were to choose.
+
+That being said, in general and personally, TailwindCSS with CSS-in-JS () is my favourite approach.
 
 ## Showcase
 
