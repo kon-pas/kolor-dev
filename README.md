@@ -12,7 +12,7 @@
       <img
         alt="Kolor-Dev"
         title="Kolor-Dev"
-        src="/showcase/assets/kolor_dev_logo_0_light.svg"
+        src="/showcase/assets/kolor_dev_logo_0.svg"
         width="200"
         style="max-width: 100%;"
       />
@@ -37,6 +37,7 @@
 - [Thoughts](#thoughts)
 - [Tech Stack](#tech-stack)
 - [Acknowledgments](#acknowledgments)
+- [License](#license)
 
 ## Introduction
 
@@ -72,13 +73,13 @@ That being said, in general and personally, TailwindCSS with CSS-in-JS () is my 
 
 - **Scripting**
 
-  - TypeScript - static typing with pleasure
-  - SassScript - CSS preprocessing
+  - TypeScript -- static typing with pleasure
+  - SassScript -- CSS preprocessing
 
 - **Backend**
 
   - Next.js -
-  - Prisma - data mapping, modeling & typing, database client
+  - Prisma -- data mapping, modeling & typing, database client
 
 - **Frontend**
 
@@ -112,4 +113,10 @@ That being said, in general and personally, TailwindCSS with CSS-in-JS () is my 
 
 ## Acknowledgments
 
-icons, phone graphic
+Inspired by [Color Hunt](https://colorhunt.co/) and [coolors](https://coolors.co/).
+SVG icons by [heroicons](https://heroicons.com/).
+Hero section SVG path of the landing page taken from [LWKS](https://lwks.com/lightworks-features/).
+
+## License
+
+asd
