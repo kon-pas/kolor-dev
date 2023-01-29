@@ -73,13 +73,13 @@ That being said, in general and personally, TailwindCSS with CSS-in-JS () is my 
 
 - **Scripting**
 
-  - TypeScript -- static typing with pleasure
-  - SassScript -- CSS preprocessing
+  - TypeScript &ndash; static typing with pleasure
+  - SassScript &ndash; CSS preprocessing
 
 - **Backend**
 
   - Next.js -
-  - Prisma -- data mapping, modeling & typing, database client
+  - Prisma &ndash; data mapping, modeling & typing, database client
 
 - **Frontend**
 
