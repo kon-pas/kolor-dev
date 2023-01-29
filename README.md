@@ -2,17 +2,17 @@
   <a href="https://kolor-dev.vercel.app/" target="_blank">
     <picture>
       <source
-        media="(prefers-color-scheme: dark)"
+        media="(prefers-color-scheme: light)"
         srcset="/showcase/assets/kolor_dev_logo_0.svg"
       />
       <source
-        media="(prefers-color-scheme: light)"
-        srcset="/showcase/assets/kolor_dev_logo_0_light.svg"
+        media="(prefers-color-scheme: dark)"
+        srcset="/showcase/assets/kolor_dev_logo_0_dark.svg"
       />
       <img
         alt="Kolor-Dev"
         title="Kolor-Dev"
-        src="/showcase/assets/kolor_dev_logo_0.svg"
+        src="/showcase/assets/kolor_dev_logo_0_dark.svg"
         width="200"
         style="max-width: 100%;"
       />
@@ -32,10 +32,10 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
-- [Tech Stack](#tech-stack)
+- [Showcase](#showcase)
 - [Development](#development)
 - [Thoughts](#thoughts)
-- [Showcase](#showcase)
+- [Tech Stack](#tech-stack)
 - [Acknowledgments](#acknowledgments)
 
 ## Introduction
@@ -45,6 +45,28 @@ Kolor-Dev is a color-related toolkit initially developed by
 development.
 
 As for now, there is no intent to provide further support.
+
+## Showcase
+
+Head to [showcase.md](/showcase/showcase.md) for the prepared showcase or visit
+[Kolor-Dev](https://kolor-dev.vercel.app/) directly.
+
+## Development
+
+lighthouse, bem
+
+## Thoughts
+
+Next.js with TypeScript has the DX I admire.
+
+Using Prisma was convenient, but the project is way too small to fell profiting from using it instead of using other tools, like Mongoose for database client and data modeling. As I was not restricted to certain database, mapping was not crucial.
+
+TailwindCSS did not boost my productivity, as it takes time to get used to it,
+but I believe the reward compensates the efford.
+
+Coding styles in SCSS & BEM was fine, but nothing more. I still would go with CSS-in-JS if I were to choose.
+
+That being said, in general and personally, TailwindCSS with CSS-in-JS () is my favourite approach.
 
 ## Tech Stack
 
@@ -87,28 +109,6 @@ As for now, there is no intent to provide further support.
   - colvertize - converting colors
   - nanoid - generating IDs
   - react-toastify - toast notifications
-
-## Development
-
-lighthouse, bem
-
-## Thoughts
-
-Next.js with TypeScript has the DX I admire.
-
-Using Prisma was convenient, but the project is way too small to fell profiting from using it instead of using other tools, like Mongoose for database client and data modeling. As I was not restricted to certain database, mapping was not crucial.
-
-TailwindCSS did not boost my productivity, as it takes time to get used to it,
-but I believe the reward compensates the efford.
-
-Coding styles in SCSS & BEM was fine, but nothing more. I still would go with CSS-in-JS if I were to choose.
-
-That being said, in general and personally, TailwindCSS with CSS-in-JS () is my favourite approach.
-
-## Showcase
-
-Head to [showcase.md](/showcase/showcase.md) for the prepared showcase or visit
-[Kolor-Dev](https://kolor-dev.vercel.app/) directly.
 
 ## Acknowledgments
 
