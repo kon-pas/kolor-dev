@@ -35,7 +35,7 @@
 - [Usage 🚀](#usage-)
 - [Tech Stack 💻](#tech-stack-)
 - [Thoughts 💭](#thoughts-)
-- [Acknowledgments](#acknowledgments)
+- [Acknowledgments 👥](#acknowledgments-)
 - [License 📝](#license-)
 
 ## Introduction 🔎
@@ -83,20 +83,20 @@ via `<TARGET_MACHINE_IP>:3000` on your local network.
 
 - **Deployment**
 
-  - MongoDB Atlas &ndash; database deployment
-  - Vercel &ndash; frontend & backend deployment
+  - `MongoDB Atlas` &ndash; database deployment
+  - `Vercel` &ndash; frontend & backend deployment
 
 - **Design**
 
-  - Adobe Illustrator &ndash; vector graphics
-  - Adobe Photoshop &ndash; sketches, raster illustrations
+  - `Adobe Illustrator` &ndash; vector graphics
+  - `Adobe Photoshop` &ndash; sketches, raster illustrations
 
 - **Code Quality**
 
   - `ESLint`@`8.22.0` &ndash; static code analysis
   - `Prettier`@`2.8.3` &ndash; formatting
-  - BEM &ndash; CSS methodolody
-  - Lighthouse &ndash; performance, quality & correctness
+  - `BEM` &ndash; CSS methodolody
+  - `Lighthouse` &ndash; performance, quality & correctness
 
 - **Utils**
 
@@ -123,7 +123,7 @@ with CSS-in-JS if I were to choose.
 That being said, in general and personally, _TailwindCSS_ with CSS-in-JS is my
 favourite approach.
 
-## Acknowledgments
+## Acknowledgments 👥
 
 Inspired by [Color Hunt](https://colorhunt.co/) and
 [coolors](https://coolors.co/). SVG icons by
