@@ -67,18 +67,19 @@ via `<TARGET_MACHINE_IP>:3000` on your local network.
 - **Scripting**
 
   - `TypeScript`@`4.8.0` &ndash; static typing with pleasure
-  - SassScript &ndash; CSS preprocessing
+  - `SassScript`@`1.54.5` &ndash; CSS preprocessing
 
 - **Backend**
 
-  - Next.js &ndash; data fetching, routing & plenty of features Next.js has to offer
-  - Prisma &ndash; data mapping, modeling & typing, database client
+  - `Next.js`@`12.2.5` &ndash; data fetching, routing & plenty of features
+    Next.js has to offer
+  - `Prisma`@`4.8.1` &ndash; data mapping, modeling & typing, database client
 
 - **Frontend**
 
-  - React &ndash; on which Next.js is built
-  - TailwindCSS &ndash; utility CSS classes
-  - TailwindCSS Debug Screens &ndash; manual layout testing
+  - `React`@`18.2.0` &ndash; on which Next.js is built
+  - `TailwindCSS`@`3.1.8` &ndash; utility CSS classes
+  - `TailwindCSS Debug Screens`@`2.2.1` &ndash; manual layout testing
 
 - **Deployment**
 
@@ -92,17 +93,17 @@ via `<TARGET_MACHINE_IP>:3000` on your local network.
 
 - **Code Quality**
 
-  - ESLint &ndash; static code analysis
-  - Prettier &ndash; formatting
+  - `ESLint`@`8.22.0` &ndash; static code analysis
+  - `Prettier`@`2.8.3` &ndash; formatting
   - BEM &ndash; CSS methodolody
   - Lighthouse &ndash; performance, quality & correctness
 
 - **Utils**
 
-  - clsx &ndash; constructing class strings
-  - colvertize &ndash; converting colors
-  - nanoid &ndash; generating IDs
-  - react-toastify &ndash; toast notifications
+  - `clsx`@`1.2.1` &ndash; constructing class strings
+  - `colvertize`@`0.1.0` &ndash; converting colors
+  - `nanoid`@`4.0.0` &ndash; generating IDs
+  - `react-toastify`@`9.1.1` &ndash; toast notifications
 
 ## Thoughts
 
