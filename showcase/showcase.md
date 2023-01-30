@@ -29,10 +29,6 @@
 
 ---
 
-<p align="center">
-<center>Visit website [here](https://kolor-dev.vercel.app/).</center>
-</p>
-
 <img
   alt="Screenshot 1"
   title="Screenshot 1"
@@ -68,3 +64,9 @@
   width="1920"
   style="max-width: 100%;"
 />
+
+---
+
+<p align="center">
+  Come over [here](https://kolor-dev.vercel.app/) to look it up.
+</p>
