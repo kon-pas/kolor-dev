@@ -29,9 +29,7 @@
 
 ---
 
-## Visit [Kolor-Dev](https://kolor-dev.vercel.app/).
-
----
+<center>Visit website [here](https://kolor-dev.vercel.app/)</center>
 
 <img
   alt="Screenshot 1"
