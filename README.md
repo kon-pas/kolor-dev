@@ -111,17 +111,17 @@ _Next.js_ with _TypeScript_ has the DX I admire.
 
 Using _Prisma_ was convenient, but the project is way too small to fell
 profiting from using it instead of using other tools, like _Mongoose_ for
-database client and data modeling. As I was not restricted to certain database,
-mapping was not crucial.
+database client and data modeling. As I was not restricted to a certain
+database, mapping was not crucial.
 
 _TailwindCSS_ did not boost my productivity, as it takes time to get used to it,
-but I believe the reward compensates the efford.
+but I believe the reward compensates the effort.
 
 Coding styles in _SCSS_ & _BEM_ was fine, but nothing more. I still would go
 with CSS-in-JS if I were to choose.
 
 That being said, in general and personally, _TailwindCSS_ with CSS-in-JS is my
-favourite approach.
+favorite approach.
 
 ## Acknowledgments 👥
 
