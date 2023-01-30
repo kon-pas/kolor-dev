@@ -33,9 +33,8 @@
 
 - [Introduction](#introduction)
 - [Usage](#usage)
-- [Development](#development)
-- [Thoughts](#thoughts)
 - [Tech Stack](#tech-stack)
+- [Thoughts](#thoughts)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
 
@@ -49,8 +48,9 @@ As for now, there is no intent to provide further support.
 
 ## Usage
 
-Head to [showcase.md](/showcase/showcase.md) for a prepared showcase.
-Alternatively visit [Kolor-Dev](https://kolor-dev.vercel.app/) directly or
+**Head to [showcase.md](/showcase/showcase.md) for the prepared showcase**.
+
+Alternatively, visit [Kolor-Dev](https://kolor-dev.vercel.app/) directly or
 clone the repository and run the following:
 
 ```bash
@@ -59,27 +59,8 @@ npm run build
 npm run start
 ```
 
-## Development
-
-lighthouse, bem
-
-## Thoughts
-
-Next.js with TypeScript has the DX I admire.
-
-Using Prisma was convenient, but the project is way too small to fell profiting
-from using it instead of using other tools, like Mongoose for database client
-and data modeling. As I was not restricted to certain database, mapping was not
-crucial.
-
-TailwindCSS did not boost my productivity, as it takes time to get used to it,
-but I believe the reward compensates the efford.
-
-Coding styles in SCSS & BEM was fine, but nothing more. I still would go with
-CSS-in-JS if I were to choose.
-
-That being said, in general and personally, TailwindCSS with CSS-in-JS () is my
-favourite approach.
+The website can now be accessed via `http://localhost:3000` on your machine or
+via `<TARGET_MACHINE_IP>:3000` on your local network.
 
 ## Tech Stack
 
@@ -90,14 +71,14 @@ favourite approach.
 
 - **Backend**
 
-  - Next.js &ndash;
+  - Next.js &ndash; data fetching, routing & plenty of features Next.js has to offer
   - Prisma &ndash; data mapping, modeling & typing, database client
 
 - **Frontend**
 
   - React &ndash; on which Next.js is built
   - TailwindCSS &ndash; utility CSS classes
-  - TailwindCSS Debug Screens &ndash; layout manual testing
+  - TailwindCSS Debug Screens &ndash; manual layout testing
 
 - **Deployment**
 
@@ -122,6 +103,24 @@ favourite approach.
   - colvertize &ndash; converting colors
   - nanoid &ndash; generating IDs
   - react-toastify &ndash; toast notifications
+
+## Thoughts
+
+Next.js with TypeScript has the DX I admire.
+
+Using Prisma was convenient, but the project is way too small to fell profiting
+from using it instead of using other tools, like Mongoose for database client
+and data modeling. As I was not restricted to certain database, mapping was not
+crucial.
+
+TailwindCSS did not boost my productivity, as it takes time to get used to it,
+but I believe the reward compensates the efford.
+
+Coding styles in SCSS & BEM was fine, but nothing more. I still would go with
+CSS-in-JS if I were to choose.
+
+That being said, in general and personally, TailwindCSS with CSS-in-JS is my
+favourite approach.
 
 ## Acknowledgments
 
