@@ -29,7 +29,9 @@
 
 ---
 
-<center>Visit website [here](https://kolor-dev.vercel.app/)</center>
+<p align="center">
+<center>Visit website [here](https://kolor-dev.vercel.app/).</center>
+</p>
 
 <img
   alt="Screenshot 1"
