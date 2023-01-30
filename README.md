@@ -40,9 +40,9 @@
 
 ## Introduction 🔎
 
-_Kolor-Dev_ is a color-related toolkit initially developed by
-[kon-pas](https://github.com/kon-pas) with the aim of self-learning web
-development.
+_Kolor-Dev_ is a color-related toolkit solely developed by
+[kon-pas](https://github.com/kon-pas) with the aim of **self-learning web
+development**.
 
 As for now, there is no intent to provide further support.
 
@@ -110,9 +110,9 @@ via `<TARGET_MACHINE_IP>:3000` on your local network.
 _Next.js_ with _TypeScript_ has the DX I admire.
 
 Using _Prisma_ was convenient, but the project is way too small to fell
-profiting from using it instead of using other tools, like _Mongoose_ for
-database client and data modeling. As I was not restricted to a certain
-database, mapping was not crucial.
+profiting from using it instead of other tools, like _Mongoose_ for database
+client and data modeling. As I was not restricted to a certain database, mapping
+was not crucial.
 
 _TailwindCSS_ did not boost my productivity, as it takes time to get used to it,
 but I believe the reward compensates the effort.
