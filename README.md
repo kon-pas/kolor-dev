@@ -40,7 +40,7 @@
 
 ## Introduction
 
-Kolor-Dev is a color-related toolkit initially developed by
+_Kolor-Dev_ is a color-related toolkit initially developed by
 [kon-pas](https://github.com/kon-pas) with the aim of self-learning web
 development.
 
@@ -107,20 +107,20 @@ via `<TARGET_MACHINE_IP>:3000` on your local network.
 
 ## Thoughts
 
-Next.js with TypeScript has the DX I admire.
+_Next.js_ with _TypeScript_ has the DX I admire.
 
-Using Prisma was convenient, but the project is way too small to fell profiting
-from using it instead of using other tools, like Mongoose for database client
-and data modeling. As I was not restricted to certain database, mapping was not
-crucial.
+Using _Prisma_ was convenient, but the project is way too small to fell
+profiting from using it instead of using other tools, like _Mongoose_ for
+database client and data modeling. As I was not restricted to certain database,
+mapping was not crucial.
 
-TailwindCSS did not boost my productivity, as it takes time to get used to it,
+_TailwindCSS_ did not boost my productivity, as it takes time to get used to it,
 but I believe the reward compensates the efford.
 
-Coding styles in SCSS & BEM was fine, but nothing more. I still would go with
-CSS-in-JS if I were to choose.
+Coding styles in _SCSS_ & _BEM_ was fine, but nothing more. I still would go
+with CSS-in-JS if I were to choose.
 
-That being said, in general and personally, TailwindCSS with CSS-in-JS is my
+That being said, in general and personally, _TailwindCSS_ with CSS-in-JS is my
 favourite approach.
 
 ## Acknowledgments
