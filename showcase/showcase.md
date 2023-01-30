@@ -27,6 +27,12 @@
   <span><sup>1</sup>As of now, not really a toolkit.</span>
 </p>
 
+---
+
+## Visit [Kolor-Dev](https://kolor-dev.vercel.app/).
+
+---
+
 <img
   alt="Screenshot 1"
   title="Screenshot 1"
@@ -35,9 +41,30 @@
   style="max-width: 100%;"
 />
 <img
-  alt="Screenshot 1"
-  title="Screenshot 1"
-  src="/showcase/assets/screen_1.png"
+  alt="Screenshot 2"
+  title="Screenshot 2"
+  src="/showcase/assets/screen_2.png"
+  width="1920"
+  style="max-width: 100%;"
+/>
+<img
+  alt="Screenshot 3"
+  title="Screenshot 3"
+  src="/showcase/assets/screen_3.png"
+  width="1920"
+  style="max-width: 100%;"
+/>
+<img
+  alt="Screenshot 4"
+  title="Screenshot 4"
+  src="/showcase/assets/screen_4.png"
+  width="1920"
+  style="max-width: 100%;"
+/>
+<img
+  alt="Screenshot 5"
+  title="Screenshot 5"
+  src="/showcase/assets/screen_5.png"
   width="1920"
   style="max-width: 100%;"
 />
