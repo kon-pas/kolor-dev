@@ -66,7 +66,7 @@ via `<TARGET_MACHINE_IP>:3000` on your local network.
 
 - **Scripting**
 
-  - TypeScript &ndash; static typing with pleasure
+  - `TypeScript`@`4.8.0` &ndash; static typing with pleasure
   - SassScript &ndash; CSS preprocessing
 
 - **Backend**
@@ -131,4 +131,4 @@ taken from [LWKS](https://lwks.com/lightworks-features/).
 
 ## License
 
-asd
+This project is [MIT](/LICENSE.md) licensed.
