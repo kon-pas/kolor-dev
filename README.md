@@ -32,7 +32,7 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
-- [Showcase](#showcase)
+- [Usage](#usage)
 - [Development](#development)
 - [Thoughts](#thoughts)
 - [Tech Stack](#tech-stack)
@@ -47,10 +47,17 @@ development.
 
 As for now, there is no intent to provide further support.
 
-## Showcase
+## Usage
 
-Head to [showcase.md](/showcase/showcase.md) for the prepared showcase or visit
-[Kolor-Dev](https://kolor-dev.vercel.app/) directly.
+Head to [showcase.md](/showcase/showcase.md) for a prepared showcase.
+Alternatively visit [Kolor-Dev](https://kolor-dev.vercel.app/) directly or
+clone the repository and run the following:
+
+```bash
+npm install
+npm run build
+npm run start
+```
 
 ## Development
 
@@ -60,14 +67,19 @@ lighthouse, bem
 
 Next.js with TypeScript has the DX I admire.
 
-Using Prisma was convenient, but the project is way too small to fell profiting from using it instead of using other tools, like Mongoose for database client and data modeling. As I was not restricted to certain database, mapping was not crucial.
+Using Prisma was convenient, but the project is way too small to fell profiting
+from using it instead of using other tools, like Mongoose for database client
+and data modeling. As I was not restricted to certain database, mapping was not
+crucial.
 
 TailwindCSS did not boost my productivity, as it takes time to get used to it,
 but I believe the reward compensates the efford.
 
-Coding styles in SCSS & BEM was fine, but nothing more. I still would go with CSS-in-JS if I were to choose.
+Coding styles in SCSS & BEM was fine, but nothing more. I still would go with
+CSS-in-JS if I were to choose.
 
-That being said, in general and personally, TailwindCSS with CSS-in-JS () is my favourite approach.
+That being said, in general and personally, TailwindCSS with CSS-in-JS () is my
+favourite approach.
 
 ## Tech Stack
 
@@ -78,44 +90,45 @@ That being said, in general and personally, TailwindCSS with CSS-in-JS () is my 
 
 - **Backend**
 
-  - Next.js -
+  - Next.js &ndash;
   - Prisma &ndash; data mapping, modeling & typing, database client
 
 - **Frontend**
 
-  - React - on which Next.js is built
-  - TailwindCSS - utility CSS classes
-  - TailwindCSS Debug Screens - layout manual testing
+  - React &ndash; on which Next.js is built
+  - TailwindCSS &ndash; utility CSS classes
+  - TailwindCSS Debug Screens &ndash; layout manual testing
 
 - **Deployment**
 
-  - MongoDB Atlas - database deployment
-  - Vercel - frontend & backend deployment
+  - MongoDB Atlas &ndash; database deployment
+  - Vercel &ndash; frontend & backend deployment
 
 - **Design**
 
-  - Adobe Illustrator - vector graphics
-  - Adobe Photoshop - sketches, raster illustrations
+  - Adobe Illustrator &ndash; vector graphics
+  - Adobe Photoshop &ndash; sketches, raster illustrations
 
 - **Code Quality**
 
-  - ESLint - static code analysis
-  - Prettier - formatting
-  - BEM - CSS methodolody
-  - Lighthouse - performance, quality & correctness
+  - ESLint &ndash; static code analysis
+  - Prettier &ndash; formatting
+  - BEM &ndash; CSS methodolody
+  - Lighthouse &ndash; performance, quality & correctness
 
 - **Utils**
 
-  - clsx - constructing class strings
-  - colvertize - converting colors
-  - nanoid - generating IDs
-  - react-toastify - toast notifications
+  - clsx &ndash; constructing class strings
+  - colvertize &ndash; converting colors
+  - nanoid &ndash; generating IDs
+  - react-toastify &ndash; toast notifications
 
 ## Acknowledgments
 
-Inspired by [Color Hunt](https://colorhunt.co/) and [coolors](https://coolors.co/).
-SVG icons by [heroicons](https://heroicons.com/).
-Hero section SVG path of the landing page taken from [LWKS](https://lwks.com/lightworks-features/).
+Inspired by [Color Hunt](https://colorhunt.co/) and
+[coolors](https://coolors.co/). SVG icons by
+[heroicons](https://heroicons.com/). Hero section SVG path of the landing page
+taken from [LWKS](https://lwks.com/lightworks-features/).
 
 ## License
 
