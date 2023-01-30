@@ -68,5 +68,5 @@
 ---
 
 <p align="center">
-  Come over <a href="https://kolor-dev.vercel.app/">here</a> to look it up. ✨
+  Come over <a href="https://kolor-dev.vercel.app/">here</a> to look it up! ✨
 </p>

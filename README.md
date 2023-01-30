@@ -29,16 +29,16 @@
 
 ---
 
-## Table of Contents <!-- omit in toc -->
+## Table of Contents 📖 <!-- omit in toc -->
 
-- [Introduction](#introduction)
-- [Usage](#usage)
-- [Tech Stack](#tech-stack)
-- [Thoughts](#thoughts)
+- [Introduction 🔎](#introduction-)
+- [Usage 🚀](#usage-)
+- [Tech Stack 💻](#tech-stack-)
+- [Thoughts 💭](#thoughts-)
 - [Acknowledgments](#acknowledgments)
-- [License](#license)
+- [License 📝](#license-)
 
-## Introduction
+## Introduction 🔎
 
 _Kolor-Dev_ is a color-related toolkit initially developed by
 [kon-pas](https://github.com/kon-pas) with the aim of self-learning web
@@ -46,9 +46,9 @@ development.
 
 As for now, there is no intent to provide further support.
 
-## Usage
+## Usage 🚀
 
-**Head to [showcase.md](/showcase/showcase.md) for the prepared showcase**.
+**Head to [showcase.md](/showcase/showcase.md) for a quick showcase**.
 
 Alternatively, visit [Kolor-Dev](https://kolor-dev.vercel.app/) directly or
 clone the repository and run the following:
@@ -62,7 +62,7 @@ npm run start
 The website can now be accessed via `http://localhost:3000` on your machine or
 via `<TARGET_MACHINE_IP>:3000` on your local network.
 
-## Tech Stack
+## Tech Stack 💻
 
 - **Scripting**
 
@@ -105,7 +105,7 @@ via `<TARGET_MACHINE_IP>:3000` on your local network.
   - `nanoid`@`4.0.0` &ndash; generating IDs
   - `react-toastify`@`9.1.1` &ndash; toast notifications
 
-## Thoughts
+## Thoughts 💭
 
 _Next.js_ with _TypeScript_ has the DX I admire.
 
@@ -130,6 +130,6 @@ Inspired by [Color Hunt](https://colorhunt.co/) and
 [heroicons](https://heroicons.com/). Hero section SVG path of the landing page
 taken from [LWKS](https://lwks.com/lightworks-features/).
 
-## License
+## License 📝
 
 This project is [MIT](/LICENSE.md) licensed.
