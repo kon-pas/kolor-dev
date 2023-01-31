@@ -18,8 +18,7 @@
       />
     </picture>
   </a>
-  <br />
-  <b>
+  <b align="center">
     Colors-related toolkit<sup>1</sup> for Artists, Designers & Developers.
   </b>
   <br />
