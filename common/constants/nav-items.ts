@@ -7,7 +7,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Gradient Generator",
-    path: "/gradients/custom?dir=r&colors=7F7F7F,7F7F7F,7F7F7F",
+    path: "/gradients/custom?dir=r&colors=BBBBBB,BBBBBB,BBBBBB",
   },
   {
     label: "Palletes",
