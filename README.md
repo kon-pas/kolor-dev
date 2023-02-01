@@ -40,7 +40,7 @@
 ## Introduction 🔎
 
 _Kolor-Dev_ is a color-related toolkit solely developed by
-[kon-pas](https://github.com/kon-pas) with the aim of **self-learning web
+[@kon-pas](https://github.com/kon-pas) with the aim of **self-learning web
 development**.
 
 As for now, there is no intent to provide further support.
