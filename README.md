@@ -93,7 +93,7 @@ via `<TARGET_MACHINE_IP>:3000` on your local network.
 - **Code Quality**
 
   - `ESLint`@`8.22.0` &ndash; static code analysis
-  - `Prettier`@`2.8.3` &ndash; formatting
+  - `Prettier`@`2.8.3` &ndash; code formatting
   - `BEM` &ndash; CSS methodolody
   - `Lighthouse` &ndash; performance, quality & correctness
 
@@ -117,9 +117,9 @@ _TailwindCSS_ did not boost my productivity, as it takes time to get used to it,
 but I believe the reward compensates the effort.
 
 Coding styles in _SCSS_ & _BEM_ was fine, but nothing more. I still would go
-with CSS-in-JS if I were to choose.
+with _CSS-in-JS_ if I were to choose.
 
-That being said, in general and personally, _TailwindCSS_ with CSS-in-JS is my
+That being said, in general and personally, _TailwindCSS_ with _CSS-in-JS_ is my
 favorite approach.
 
 ## Acknowledgments 👥
