@@ -217,7 +217,6 @@ const GradientsPage: NextPage<GradientsPageProps> = ({ gradients, router }) => {
             })}
           </div>
 
-          {/* @@@ TODO: event handlers */}
           <div
             className={clsx(styles["form__buttons"], styles["form__container"])}
           >
