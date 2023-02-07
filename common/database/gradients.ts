@@ -226,18 +226,13 @@ export const gradients: GradientsJSON = [
     },
   },
 ]
-  .map((gradient, idx) => {
-    // [`vENCrfkC${idx}`]: {
-    // const id = nanoid();
-    return {
-      [idx]: {
-        ...gradient,
-        // id: `vENCrfkC${idx}`,
-        id: nanoid(),
-        desc: null,
-      },
-    };
-  })
+  .map((gradient, idx) => ({
+    [idx]: {
+      ...gradient,
+      id: nanoid(),
+      desc: null,
+    },
+  }))
   .reduce((firstGradient, secondGradient) => ({
     ...firstGradient,
     ...secondGradient,
